@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "/Users/bengotts/Documents/University/Year-Two/COMP-208/GroupProject/GroupProject.csproj": {}
+    "/Users/bengotts/University/Year-Two/COMP-208/GroupProject/GroupProject.csproj": {}
   },
   "projects": {
-    "/Users/bengotts/Documents/University/Year-Two/COMP-208/GroupProject/GroupProject.csproj": {
+    "/Users/bengotts/University/Year-Two/COMP-208/GroupProject/GroupProject.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/bengotts/Documents/University/Year-Two/COMP-208/GroupProject/GroupProject.csproj",
+        "projectUniqueName": "/Users/bengotts/University/Year-Two/COMP-208/GroupProject/GroupProject.csproj",
         "projectName": "GroupProject",
-        "projectPath": "/Users/bengotts/Documents/University/Year-Two/COMP-208/GroupProject/GroupProject.csproj",
+        "projectPath": "/Users/bengotts/University/Year-Two/COMP-208/GroupProject/GroupProject.csproj",
         "packagesPath": "/Users/bengotts/.nuget/packages/",
-        "outputPath": "/Users/bengotts/Documents/University/Year-Two/COMP-208/GroupProject/obj/",
+        "outputPath": "/Users/bengotts/University/Year-Two/COMP-208/GroupProject/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "/Users/bengotts/.nuget/NuGet/NuGet.Config"
@@ -20,6 +20,7 @@
           "net8.0"
         ],
         "sources": {
+          "/usr/local/share/dotnet/library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -65,6 +66,14 @@
             "VectSharp.Canvas": {
               "target": "Package",
               "version": "[2.7.0, )"
+            },
+            "VectSharp.Raster.ImageSharp": {
+              "target": "Package",
+              "version": "[2.0.0, )"
+            },
+            "VectSharp.SVG": {
+              "target": "Package",
+              "version": "[1.9.0, )"
             }
           },
           "imports": [
@@ -83,7 +92,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/Users/bengotts/.vscode-dotnet-sdk/.dotnet/sdk/8.0.100/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/8.0.101/PortableRuntimeIdentifierGraph.json"
         }
       }
     }

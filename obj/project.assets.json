@@ -336,6 +336,15 @@
           }
         }
       },
+      "ExCSS/4.1.4": {
+        "type": "package",
+        "compile": {
+          "lib/net6.0/ExCSS.dll": {}
+        },
+        "runtime": {
+          "lib/net6.0/ExCSS.dll": {}
+        }
+      },
       "HarfBuzzSharp/7.3.0": {
         "type": "package",
         "dependencies": {
@@ -752,6 +761,52 @@
           "runtimes/win/lib/net6.0/Microsoft.Win32.SystemEvents.dll": {
             "assetType": "runtime",
             "rid": "win"
+          }
+        }
+      },
+      "SixLabors.Fonts/2.0.0": {
+        "type": "package",
+        "compile": {
+          "lib/net6.0/SixLabors.Fonts.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net6.0/SixLabors.Fonts.dll": {
+            "related": ".xml"
+          }
+        }
+      },
+      "SixLabors.ImageSharp/3.0.2": {
+        "type": "package",
+        "compile": {
+          "lib/net6.0/SixLabors.ImageSharp.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net6.0/SixLabors.ImageSharp.dll": {
+            "related": ".xml"
+          }
+        },
+        "build": {
+          "build/_._": {}
+        }
+      },
+      "SixLabors.ImageSharp.Drawing/2.0.1": {
+        "type": "package",
+        "dependencies": {
+          "SixLabors.Fonts": "2.0.0",
+          "SixLabors.ImageSharp": "3.0.2"
+        },
+        "compile": {
+          "lib/net6.0/SixLabors.ImageSharp.Drawing.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net6.0/SixLabors.ImageSharp.Drawing.dll": {
+            "related": ".xml"
           }
         }
       },
@@ -1400,6 +1455,41 @@
             "related": ".xml"
           }
         }
+      },
+      "VectSharp.Raster.ImageSharp/2.0.0": {
+        "type": "package",
+        "dependencies": {
+          "SixLabors.ImageSharp.Drawing": "2.0.1",
+          "System.Memory": "4.5.4",
+          "VectSharp": "2.5.0"
+        },
+        "compile": {
+          "lib/net6.0/VectSharp.Raster.ImageSharp.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net6.0/VectSharp.Raster.ImageSharp.dll": {
+            "related": ".xml"
+          }
+        }
+      },
+      "VectSharp.SVG/1.9.0": {
+        "type": "package",
+        "dependencies": {
+          "ExCSS": "4.1.4",
+          "VectSharp": "2.5.0"
+        },
+        "compile": {
+          "lib/netstandard2.0/VectSharp.SVG.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/netstandard2.0/VectSharp.SVG.dll": {
+            "related": ".xml"
+          }
+        }
       }
     }
   },
@@ -1837,6 +1927,22 @@
         "lib/net6.0/Avalonia.X11.xml",
         "lib/netstandard2.0/Avalonia.X11.dll",
         "lib/netstandard2.0/Avalonia.X11.xml"
+      ]
+    },
+    "ExCSS/4.1.4": {
+      "sha512": "6eMFdIazPCVfr9Gios0nCUYq3/02SewnDGvS+aCi/RWaAtoETz2fNT+H//+k0vjoDJBHXkWdVG8EkxUydxtyxA==",
+      "type": "package",
+      "path": "excss/4.1.4",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "excss.4.1.4.nupkg.sha512",
+        "excss.nuspec",
+        "lib/net452/ExCSS.dll",
+        "lib/net5.0/ExCSS.dll",
+        "lib/net6.0/ExCSS.dll",
+        "lib/netcoreapp3.1/ExCSS.dll",
+        "lib/netstandard2.0/ExCSS.dll"
       ]
     },
     "HarfBuzzSharp/7.3.0": {
@@ -2421,6 +2527,52 @@
         "runtimes/win/lib/netcoreapp3.1/Microsoft.Win32.SystemEvents.dll",
         "runtimes/win/lib/netcoreapp3.1/Microsoft.Win32.SystemEvents.xml",
         "useSharedDesignerContext.txt"
+      ]
+    },
+    "SixLabors.Fonts/2.0.0": {
+      "sha512": "7kQOwkob8OBTmUWXGUBZuLvRC436IChLzXX0oF3ak+YqXwQDAs9MpuKdvujygcVhs8RyykBSpBpReCi5cQG+iA==",
+      "type": "package",
+      "path": "sixlabors.fonts/2.0.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "LICENSE",
+        "lib/net6.0/SixLabors.Fonts.dll",
+        "lib/net6.0/SixLabors.Fonts.xml",
+        "sixlabors.fonts.128.png",
+        "sixlabors.fonts.2.0.0.nupkg.sha512",
+        "sixlabors.fonts.nuspec"
+      ]
+    },
+    "SixLabors.ImageSharp/3.0.2": {
+      "sha512": "PlwUHnLZ67G1i0xXDYQJYbFiJsvXiEFWtKdV0QvY9j+dFasYbl+vWXXY42/asTsNjchsH5BLuoRzlf8Fa8lzpg==",
+      "type": "package",
+      "path": "sixlabors.imagesharp/3.0.2",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "LICENSE",
+        "build/SixLabors.ImageSharp.props",
+        "lib/net6.0/SixLabors.ImageSharp.dll",
+        "lib/net6.0/SixLabors.ImageSharp.xml",
+        "sixlabors.imagesharp.128.png",
+        "sixlabors.imagesharp.3.0.2.nupkg.sha512",
+        "sixlabors.imagesharp.nuspec"
+      ]
+    },
+    "SixLabors.ImageSharp.Drawing/2.0.1": {
+      "sha512": "zTusvJi0hzu51EYVOa0IupIrem6HQOLXYAbTmmvfqfwU/MZD7ku9BG5SKghQjm8HKAyQxdgrt3udeuHAzPVypQ==",
+      "type": "package",
+      "path": "sixlabors.imagesharp.drawing/2.0.1",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "LICENSE",
+        "lib/net6.0/SixLabors.ImageSharp.Drawing.dll",
+        "lib/net6.0/SixLabors.ImageSharp.Drawing.xml",
+        "sixlabors.imagesharp.drawing.128.png",
+        "sixlabors.imagesharp.drawing.2.0.1.nupkg.sha512",
+        "sixlabors.imagesharp.drawing.nuspec"
       ]
     },
     "SkiaSharp/2.88.6": {
@@ -4538,6 +4690,34 @@
         "vectsharp.canvas.2.7.0.nupkg.sha512",
         "vectsharp.canvas.nuspec"
       ]
+    },
+    "VectSharp.Raster.ImageSharp/2.0.0": {
+      "sha512": "FGn8BtGO9L/g/BiZwE0KvW4SK0d/W9ENv348/d81u1CThzuISowUrZ7sIIIymZ3eP7CSsK8WVD1H2Zd4Dbz7Tw==",
+      "type": "package",
+      "path": "vectsharp.raster.imagesharp/2.0.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "icon.png",
+        "lib/net6.0/VectSharp.Raster.ImageSharp.dll",
+        "lib/net6.0/VectSharp.Raster.ImageSharp.xml",
+        "vectsharp.raster.imagesharp.2.0.0.nupkg.sha512",
+        "vectsharp.raster.imagesharp.nuspec"
+      ]
+    },
+    "VectSharp.SVG/1.9.0": {
+      "sha512": "PykNXM9w8EzVdow0lIh4HpMQRIncr55+SmVU67OzXsuNQN+HKN3PUAQuKgbRbc+pW7T8W4R3dV+bYhRoGEbVfQ==",
+      "type": "package",
+      "path": "vectsharp.svg/1.9.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "icon.png",
+        "lib/netstandard2.0/VectSharp.SVG.dll",
+        "lib/netstandard2.0/VectSharp.SVG.xml",
+        "vectsharp.svg.1.9.0.nupkg.sha512",
+        "vectsharp.svg.nuspec"
+      ]
     }
   },
   "projectFileDependencyGroups": {
@@ -4548,7 +4728,9 @@
       "Avalonia.Fonts.Inter >= 11.0.6",
       "Avalonia.Themes.Fluent >= 11.0.6",
       "VectSharp >= 2.5.0",
-      "VectSharp.Canvas >= 2.7.0"
+      "VectSharp.Canvas >= 2.7.0",
+      "VectSharp.Raster.ImageSharp >= 2.0.0",
+      "VectSharp.SVG >= 1.9.0"
     ]
   },
   "packageFolders": {
@@ -4557,11 +4739,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/bengotts/Documents/University/Year-Two/COMP-208/GroupProject/GroupProject.csproj",
+      "projectUniqueName": "/Users/bengotts/University/Year-Two/COMP-208/GroupProject/GroupProject.csproj",
       "projectName": "GroupProject",
-      "projectPath": "/Users/bengotts/Documents/University/Year-Two/COMP-208/GroupProject/GroupProject.csproj",
+      "projectPath": "/Users/bengotts/University/Year-Two/COMP-208/GroupProject/GroupProject.csproj",
       "packagesPath": "/Users/bengotts/.nuget/packages/",
-      "outputPath": "/Users/bengotts/Documents/University/Year-Two/COMP-208/GroupProject/obj/",
+      "outputPath": "/Users/bengotts/University/Year-Two/COMP-208/GroupProject/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "/Users/bengotts/.nuget/NuGet/NuGet.Config"
@@ -4570,6 +4752,7 @@
         "net8.0"
       ],
       "sources": {
+        "/usr/local/share/dotnet/library-packs": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
@@ -4615,6 +4798,14 @@
           "VectSharp.Canvas": {
             "target": "Package",
             "version": "[2.7.0, )"
+          },
+          "VectSharp.Raster.ImageSharp": {
+            "target": "Package",
+            "version": "[2.0.0, )"
+          },
+          "VectSharp.SVG": {
+            "target": "Package",
+            "version": "[1.9.0, )"
           }
         },
         "imports": [
@@ -4633,7 +4824,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "/Users/bengotts/.vscode-dotnet-sdk/.dotnet/sdk/8.0.100/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/8.0.101/PortableRuntimeIdentifierGraph.json"
       }
     }
   }
