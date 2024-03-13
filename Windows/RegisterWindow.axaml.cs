@@ -16,6 +16,11 @@ public partial class RegisterWindow : Window
     private void OnRegisterPressed(object? sender, RoutedEventArgs e)
     {
         Console.WriteLine("Register pressed");
+        
+        var homeWindow = new HomeWindow();
+        homeWindow.Show();
+        
+        this.Close();
     }
 
     private void OnLoginPressed(object? sender, RoutedEventArgs e)

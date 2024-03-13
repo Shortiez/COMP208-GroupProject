@@ -43,4 +43,8 @@
     <Style Selector="TextBox[IsFocused=true]">
         <Setter Property="Background" Value="#4e4e4e"/>
     </Style>
+    
+    <Style Selector="TextBlock">
+        <Setter Property="Foreground" Value="White"/>
+    </Style>
 </Styles>

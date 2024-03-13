@@ -1,0 +1,49 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+        x:Class="GroupProject.Windows.HomeWindow"
+        Title="HomeWindow">
+        
+        <Grid RowDefinitions="Auto,*" ColumnDefinitions="1*,2*">
+            <!-- Search Bar -->
+            <TextBox Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" Watermark="Search..."/>
+
+            <!-- Sidebar -->
+            <StackPanel Grid.Row="1" Grid.Column="0">
+                <!-- Image -->
+                <!-- <Image Source="path_to_your_image" Height="70%" Width="70%" /> -->
+                
+                <!-- Stats in Grids -->
+                <TextBlock Text="Total Topics Completed: 5" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                <TextBlock Text="Topics Mastered: 1" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                <TextBlock Text="Topics in Progress: 4" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                <TextBlock Text="Total Time Spent: 5 hours" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                <TextBlock Text="Streak: 5 days" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+            </StackPanel>
+                
+            <!-- Main Area -->
+            <StackPanel Grid.Row="1" Grid.Column="1">
+                <!-- Add your list of study topics here -->
+                <TreeView>
+                    <TreeViewItem Header="Databases" IsExpanded="True">
+                        <TreeViewItem Header="Conflict Serializable Schedules" KeyUp="OnTopicClicked"/>
+                        <TreeViewItem Header="Recoverable Schedules"/>
+                        <TreeViewItem Header="Locks"/>
+                    </TreeViewItem>
+                </TreeView>
+                <TreeView>
+                    <TreeViewItem Header="Software Engineering" IsExpanded="True">
+                        <TreeViewItem Header="Petri-Nets"/>
+                        <TreeViewItem Header="UML" IsExpanded="True">
+                            <TreeViewItem Header="Use Case Diagrams"/>
+                            <TreeViewItem Header="Class Diagrams"/>
+                            <TreeViewItem Header="Sequence Diagrams"/>
+                            <TreeViewItem Header="Activity Diagrams"/>
+                        </TreeViewItem>
+                    </TreeViewItem>
+                </TreeView>
+            </StackPanel>
+        </Grid>
+</Window>

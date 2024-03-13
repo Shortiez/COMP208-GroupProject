@@ -30,10 +30,6 @@
 
 
   <ItemGroup>
-    <Compile Update="Windows\MainWindow.axaml.cs">
-      <DependentUpon>MainWindow.axaml</DependentUpon>
-      <SubType>Code</SubType>
-    </Compile>
     <Compile Update="App.axaml.cs">
       <DependentUpon>App.axaml</DependentUpon>
       <SubType>Code</SubType>

@@ -22,10 +22,16 @@ public partial class LoginWindow : Window
     {
         Console.WriteLine("Login pressed");
 
-        if (UsernameTextBox.Text != null)
-            Username = UsernameTextBox.Text;
-        if (PasswordTextBox.Text != null) 
-            Password = PasswordTextBox.Text;
+        if(UsernameTextBox.Text == null || PasswordTextBox.Text == null)
+        {
+            Console.WriteLine("Username or password is null");
+            return;
+        }
+        
+        var homeWindow = new HomeWindow();
+        homeWindow.Show();
+        
+        this.Close();
     }
     
     private void OnRegisterPressed(object? sender, RoutedEventArgs e)
