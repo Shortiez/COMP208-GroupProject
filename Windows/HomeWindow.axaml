@@ -27,6 +27,13 @@
             <StackPanel Grid.Row="1" Grid.Column="1">
                 <!-- Add your list of study topics here -->
                 <TreeView>
+                    <TreeViewItem Header="Binary Operations" IsExpanded="True">
+                        <TreeViewItem Header="Two's Complement"/>
+                        <TreeViewItem Header="Binary Addition"/>
+                        <TreeViewItem Header="Binary Subtraction"/>
+                    </TreeViewItem>
+                </TreeView>
+                <TreeView>
                     <TreeViewItem Header="Databases" IsExpanded="True">
                         <TreeViewItem Header="Conflict Serializable Schedules" KeyUp="OnTopicClicked"/>
                         <TreeViewItem Header="Recoverable Schedules"/>
