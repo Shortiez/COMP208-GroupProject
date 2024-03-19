@@ -16,7 +16,7 @@
             <TextBlock Text="Welcome" Foreground="White"
                        FontSize="24" FontWeight="Bold" 
                        HorizontalAlignment="Center" Margin="0,0,0,20"/>
-            
+            <TextBox Name="MessageBox" Watermark="" Width="240" Margin="0,0,0,10"/>
             <TextBox Name="Email" Watermark="Email" Width="240" Margin="0,0,0,10"/>
             <TextBox Name="Username" Watermark="Username" Width="240" Margin="0,0,0,10"/>
             <TextBox Name="Password" Watermark="Password" Width="240" Margin="0,0,0,10"/>
