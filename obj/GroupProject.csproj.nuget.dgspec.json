@@ -59,6 +59,10 @@
               "target": "Package",
               "version": "[11.0.6, )"
             },
+            "MySql.Data": {
+              "target": "Package",
+              "version": "[8.3.0, )"
+            },
             "VectSharp": {
               "target": "Package",
               "version": "[2.5.0, )"
