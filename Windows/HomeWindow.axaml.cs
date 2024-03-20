@@ -23,6 +23,7 @@ public partial class HomeWindow : Window
         };
 
         window.Show();
+        window.InitWindow();
         
         e.Handled = true;
         

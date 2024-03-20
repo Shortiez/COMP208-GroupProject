@@ -17,7 +17,7 @@
                         <RowDefinition Height="Auto"/>
                 </Grid.RowDefinitions>
                 
-                <TextBlock Grid.Row="0" Name="TopicTitle" FontSize="32" Foreground="Aqua"> TOPIC TITLE </TextBlock>
+                <TextBlock Grid.Row="0" Classes="title" Name="TopicTitle" HorizontalAlignment="Center" VerticalAlignment="Center"/>
                 
                 <StackPanel Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
                         <Button Content="Get Questions" Click="GetQuestions_Click"/>

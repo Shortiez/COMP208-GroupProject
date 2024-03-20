@@ -16,7 +16,7 @@ public partial class TopicLearnSelectorWindow : Window
 {
     public string? TopicToDisplay { get; set; }
 
-    private TopicToWindow[] Topics = new TopicToWindow[3]
+    private static readonly TopicToWindow[] Topics = new TopicToWindow[4]
     {
         new TopicToWindow()
         {
@@ -32,6 +32,11 @@ public partial class TopicLearnSelectorWindow : Window
         {
             Topic = "Table Unions",
             Window = new TableUnionTopicWindow()
+        },
+        new TopicToWindow()
+        {
+            Topic = "Addition",
+            Window = new ExampleTopicPage()
         }
     };
     
@@ -40,9 +45,13 @@ public partial class TopicLearnSelectorWindow : Window
         InitializeComponent();
         
         DataContext = this;
+    }
+    
+    public void InitWindow()
+    {
         TopicTitle.Text = TopicToDisplay;
     }
-
+    
     private void GetQuestions_Click(object? sender, RoutedEventArgs e)
     {
         Topics.First(t => t.Topic == TopicToDisplay).Window.Show();

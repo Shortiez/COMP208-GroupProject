@@ -26,6 +26,9 @@ build_metadata.AdditionalFiles.SourceItemGroup = AvaloniaXaml
 [/Users/bengotts/University/Year-Two/COMP-208/GroupProject/Windows/BinaryAdditionTopicWindow.axaml]
 build_metadata.AdditionalFiles.SourceItemGroup = AvaloniaXaml
 
+[/Users/bengotts/University/Year-Two/COMP-208/GroupProject/Windows/ExampleTopicPage.axaml]
+build_metadata.AdditionalFiles.SourceItemGroup = AvaloniaXaml
+
 [/Users/bengotts/University/Year-Two/COMP-208/GroupProject/Windows/HomeWindow.axaml]
 build_metadata.AdditionalFiles.SourceItemGroup = AvaloniaXaml
 

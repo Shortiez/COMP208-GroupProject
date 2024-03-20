@@ -37,6 +37,11 @@
                         <TreeViewItem Header="Table Unions" KeyDown="OnTopicClicked"></TreeViewItem>
                     </TreeViewItem>
                 </TreeView>
+                <TreeView>
+                    <TreeViewItem Header="Test" IsExpanded="True">
+                        <TreeViewItem Header="Addition" KeyDown="OnTopicClicked"/>
+                    </TreeViewItem>
+                </TreeView>
             </StackPanel>
         </Grid>
 </Window>
