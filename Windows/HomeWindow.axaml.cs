@@ -17,7 +17,7 @@ public partial class HomeWindow : Window
         var item = (TreeViewItem)sender!;
         var topic = item?.Header?.ToString();
         
-        var window = new TopicWindow
+        var window = new TopicLearnSelectorWindow()
         {
             TopicToDisplay = topic
         };

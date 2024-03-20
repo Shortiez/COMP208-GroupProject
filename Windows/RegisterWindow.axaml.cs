@@ -13,7 +13,6 @@ namespace GroupProject.Windows;
 
 public partial class RegisterWindow : Window
 {
-
     dataBaseConnection connectionDB = new dataBaseConnection();
     MySqlCommand command;
     MySqlDataAdapter da;
@@ -35,6 +34,11 @@ private void OnRegisterPressed(object? sender, RoutedEventArgs e)
     string username = Username.Text;
     string password = Password.Text;
 
+    var homeWindow = new HomeWindow();
+    homeWindow.Show();
+
+    this.Close();
+    /*
     try
     {
         using (MySqlConnection conn = connectionDB.connection)
@@ -51,16 +55,14 @@ private void OnRegisterPressed(object? sender, RoutedEventArgs e)
             }
         }
 
-        var homeWindow = new HomeWindow();
-        homeWindow.Show();
-
-        this.Close();
     }
     catch (Exception ex)
     {
         // Handle exception
         Console.WriteLine(ex.Message);
     }
+*/
+ 
 }
 
     private void OnLoginPressed(object? sender, RoutedEventArgs e)

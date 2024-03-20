@@ -27,28 +27,14 @@
             <StackPanel Grid.Row="1" Grid.Column="1">
                 <!-- Add your list of study topics here -->
                 <TreeView>
-                    <TreeViewItem Header="Binary Operations" IsExpanded="True">
-                        <TreeViewItem Header="Two's Complement"/>
-                        <TreeViewItem Header="Binary Addition"/>
-                        <TreeViewItem Header="Binary Subtraction"/>
+                    <TreeViewItem Header="Binary Arithmetic" IsExpanded="True">
+                        <TreeViewItem Header="Binary Addition" KeyDown="OnTopicClicked"/>
                     </TreeViewItem>
                 </TreeView>
                 <TreeView>
                     <TreeViewItem Header="Databases" IsExpanded="True">
-                        <TreeViewItem Header="Conflict Serializable Schedules" KeyUp="OnTopicClicked"/>
-                        <TreeViewItem Header="Recoverable Schedules"/>
-                        <TreeViewItem Header="Locks"/>
-                    </TreeViewItem>
-                </TreeView>
-                <TreeView>
-                    <TreeViewItem Header="Software Engineering" IsExpanded="True">
-                        <TreeViewItem Header="Petri-Nets"/>
-                        <TreeViewItem Header="UML" IsExpanded="True">
-                            <TreeViewItem Header="Use Case Diagrams"/>
-                            <TreeViewItem Header="Class Diagrams"/>
-                            <TreeViewItem Header="Sequence Diagrams"/>
-                            <TreeViewItem Header="Activity Diagrams"/>
-                        </TreeViewItem>
+                        <TreeViewItem Header="Recognizing Conflicts" KeyDown="OnTopicClicked"/>
+                        <TreeViewItem Header="Table Unions" KeyDown="OnTopicClicked"></TreeViewItem>
                     </TreeViewItem>
                 </TreeView>
             </StackPanel>
