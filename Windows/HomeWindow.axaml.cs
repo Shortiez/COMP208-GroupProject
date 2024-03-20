@@ -3,30 +3,35 @@ using Avalonia.Controls;
 using Avalonia.Input;
 using Avalonia.Markup.Xaml;
 
-namespace GroupProject.Windows;
-
-public partial class HomeWindow : Window
+namespace GroupProject.Windows
 {
-    public HomeWindow()
+    public partial class HomeWindow : Window
     {
-        InitializeComponent();
-    }
+        public string Username { get; private set; }
 
-    private void OnTopicClicked(object? sender, KeyEventArgs e)
-    {
-        var item = (TreeViewItem)sender!;
-        var topic = item?.Header?.ToString();
-        
-        var window = new TopicLearnSelectorWindow()
+        // Constructor that takes Username as a parameter
+        public HomeWindow(string username)
         {
-            TopicToDisplay = topic
-        };
+            InitializeComponent();
+            Username = username;
+        }
 
-        window.Show();
-        window.InitWindow();
-        
-        e.Handled = true;
-        
-        this.Close();
+        private void OnTopicClicked(object? sender, KeyEventArgs e)
+        {
+            var item = (TreeViewItem)sender!;
+            var topic = item?.Header?.ToString();
+            
+            var window = new TopicLearnSelectorWindow()
+            {
+                TopicToDisplay = topic,
+            };
+
+            window.Show();
+            window.InitWindow();
+            
+            e.Handled = true;
+            
+            this.Close();
+        }
     }
 }

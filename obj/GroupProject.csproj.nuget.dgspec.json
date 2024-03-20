@@ -1,26 +1,27 @@
 {
   "format": 1,
   "restore": {
-    "/Users/bengotts/University/Year-Two/COMP-208/GroupProject/GroupProject.csproj": {}
+    "C:\\Users\\egeer\\Desktop\\COMP208-GroupProject\\GroupProject.csproj": {}
   },
   "projects": {
-    "/Users/bengotts/University/Year-Two/COMP-208/GroupProject/GroupProject.csproj": {
+    "C:\\Users\\egeer\\Desktop\\COMP208-GroupProject\\GroupProject.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/bengotts/University/Year-Two/COMP-208/GroupProject/GroupProject.csproj",
+        "projectUniqueName": "C:\\Users\\egeer\\Desktop\\COMP208-GroupProject\\GroupProject.csproj",
         "projectName": "GroupProject",
-        "projectPath": "/Users/bengotts/University/Year-Two/COMP-208/GroupProject/GroupProject.csproj",
-        "packagesPath": "/Users/bengotts/.nuget/packages/",
-        "outputPath": "/Users/bengotts/University/Year-Two/COMP-208/GroupProject/obj/",
+        "projectPath": "C:\\Users\\egeer\\Desktop\\COMP208-GroupProject\\GroupProject.csproj",
+        "packagesPath": "C:\\Users\\egeer\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\egeer\\Desktop\\COMP208-GroupProject\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "/Users/bengotts/.nuget/NuGet/NuGet.Config"
+          "C:\\Users\\egeer\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net8.0"
         ],
         "sources": {
-          "/usr/local/share/dotnet/library-packs": {},
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -96,7 +97,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/8.0.101/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.101/PortableRuntimeIdentifierGraph.json"
         }
       }
     }
