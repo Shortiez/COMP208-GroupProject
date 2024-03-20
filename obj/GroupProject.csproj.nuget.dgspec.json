@@ -1,27 +1,26 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\egeer\\Desktop\\COMP208-GroupProject\\GroupProject.csproj": {}
+    "/Users/bengotts/University/Year-Two/COMP-208/GroupProject/GroupProject.csproj": {}
   },
   "projects": {
-    "C:\\Users\\egeer\\Desktop\\COMP208-GroupProject\\GroupProject.csproj": {
+    "/Users/bengotts/University/Year-Two/COMP-208/GroupProject/GroupProject.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\egeer\\Desktop\\COMP208-GroupProject\\GroupProject.csproj",
+        "projectUniqueName": "/Users/bengotts/University/Year-Two/COMP-208/GroupProject/GroupProject.csproj",
         "projectName": "GroupProject",
-        "projectPath": "C:\\Users\\egeer\\Desktop\\COMP208-GroupProject\\GroupProject.csproj",
-        "packagesPath": "C:\\Users\\egeer\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\egeer\\Desktop\\COMP208-GroupProject\\obj\\",
+        "projectPath": "/Users/bengotts/University/Year-Two/COMP-208/GroupProject/GroupProject.csproj",
+        "packagesPath": "/Users/bengotts/.nuget/packages/",
+        "outputPath": "/Users/bengotts/University/Year-Two/COMP-208/GroupProject/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\egeer\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+          "/Users/bengotts/.nuget/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net8.0"
         ],
         "sources": {
-          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "/usr/local/share/dotnet/library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -97,7 +96,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.101/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/8.0.101/PortableRuntimeIdentifierGraph.json"
         }
       }
     }

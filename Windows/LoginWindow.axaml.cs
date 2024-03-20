@@ -13,7 +13,6 @@ namespace GroupProject.Windows;
 
 public partial class LoginWindow : Window
 {
-
     dataBaseConnection connectionDB = new dataBaseConnection();
     MySqlCommand command;
     MySqlDataAdapter da;
@@ -34,7 +33,7 @@ public partial class LoginWindow : Window
 
         string username = UsernameTextBox.Text;
         string password = PasswordTextBox.Text;
-
+        
         if (username != null && password != null){
             if (username.Length > 6 && password.Length > 6)
             {
@@ -57,7 +56,7 @@ public partial class LoginWindow : Window
                                     homeWindow.Show();
                                     this.Close();
                                 }
-                                 else
+                                else
                                 {
                                     // No rows returned by the query
                                     Console.WriteLine("No user found with the provided credentials.");
@@ -65,7 +64,6 @@ public partial class LoginWindow : Window
                             }
                         }
                     }
-
                 }
                 catch (Exception ex)
                 {
@@ -75,29 +73,18 @@ public partial class LoginWindow : Window
             }
             else
             {
-                if (username.Length <= 6)
-                    UsernameTextBox.BorderThickness = new Avalonia.Thickness(1);
-                else
-                    UsernameTextBox.BorderThickness = new Avalonia.Thickness(0); // Reset to default thickness
-
-                if (password.Length <= 6)
-                    PasswordTextBox.BorderThickness = new Avalonia.Thickness(1);
-                else
-                    PasswordTextBox.BorderThickness = new Avalonia.Thickness(0); // Reset to default thickness
-
+                UsernameTextBox.BorderThickness = username.Length <= 6 ? new Avalonia.Thickness(1) :
+                    new Avalonia.Thickness(0); // Reset to default thickness
+                PasswordTextBox.BorderThickness = password.Length <= 6 ? new Avalonia.Thickness(1) : 
+                    new Avalonia.Thickness(0); // Reset to default thickness
             }
-        } else 
+        } 
+        else
         {
-            if (username == null)
-                UsernameTextBox.BorderThickness = new Avalonia.Thickness(1);
-            else
-                UsernameTextBox.BorderThickness = new Avalonia.Thickness(0); // Reset to default thickness
-
-            if (password == null)
-                PasswordTextBox.BorderThickness = new Avalonia.Thickness(1);
-            else
-                PasswordTextBox.BorderThickness = new Avalonia.Thickness(0); // Reset to default thickness
-
+            UsernameTextBox.BorderThickness = username == null ? new Avalonia.Thickness(1) :
+                new Avalonia.Thickness(0); // Reset to default thickness
+            PasswordTextBox.BorderThickness = password == null ? new Avalonia.Thickness(1) :
+                new Avalonia.Thickness(0); // Reset to default thickness
         }
     }
     
