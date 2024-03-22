@@ -35,6 +35,7 @@ namespace GroupProject.Windows
             connectionDB.Connect();
             PopulateTreeView();
         }
+        
         private void PopulateTreeView()
         {
             try 

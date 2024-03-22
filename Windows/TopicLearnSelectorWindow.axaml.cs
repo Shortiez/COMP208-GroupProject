@@ -55,17 +55,17 @@ public partial class TopicLearnSelectorWindow : Window
         TopicTitle.Text = TopicToDisplay;
     }
     
-    private void GetQuestions_Click(object? sender, RoutedEventArgs e)
+    private void Button_OnClick_LoadQuestions(object? sender, RoutedEventArgs e)
     {
         Topics.First(t => t.Topic == TopicToDisplay).Window.Show();
     }
 
-    private void GetExamples_Click(object? sender, RoutedEventArgs e)
+    private void Button_OnClick_LoadExamples(object? sender, RoutedEventArgs e)
     {
-        TopicTitle.Text = TopicToDisplay;
+        
     }
 
-    private void OnClick_BackToHome(object? sender, RoutedEventArgs e)
+    private void Button_OnClick_BackToHome(object? sender, RoutedEventArgs e)
     {
         new HomeWindow(" ").Show();
         

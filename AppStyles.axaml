@@ -36,6 +36,9 @@
         <Setter Property="Background" Value="Transparent"></Setter>
         <Setter Property="BorderBrush" Value="Transparent"></Setter>
     </Style>
+    <Style Selector="Button.circle">
+        <Setter Property="CornerRadius" Value="50"/>
+    </Style>
     
     <Style Selector="TextBox">
         <Setter Property="Foreground" Value="White"/>
