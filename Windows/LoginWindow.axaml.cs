@@ -39,35 +39,37 @@ namespace GroupProject.Windows
             string username = UsernameTextBox.Text;
             string password = PasswordTextBox.Text;
 
+            ErrorMessage.Text = "";
+            ErrorMessage.FontSize = 12;
+
             if (IsValid(username) && IsValid(password))
             {
                 try
                 {
-                    using (MySqlConnection conn = connectionDB.connection)
+                    MySqlConnection conn = connectionDB.connection;
+                    conn.Open();
+                    using (MySqlCommand command = conn.CreateCommand())
                     {
-                        conn.Open();
-                        using (MySqlCommand command = conn.CreateCommand())
+                        // Using parameterized query to prevent SQL injection
+                        command.CommandText = "SELECT * FROM `user` WHERE `UserName` = @username AND `Password` = @password";
+                        command.Parameters.AddWithValue("@username", username);
+                        command.Parameters.AddWithValue("@password", password);
+                        using (MySqlDataReader reader = command.ExecuteReader())
                         {
-                            // Using parameterized query to prevent SQL injection
-                            command.CommandText = "SELECT * FROM `user` WHERE `UserName` = @username AND `Password` = @password";
-                            command.Parameters.AddWithValue("@username", username);
-                            command.Parameters.AddWithValue("@password", password);
-                            using (MySqlDataReader reader = command.ExecuteReader())
+                            if (reader.HasRows)
                             {
-                                if (reader.HasRows)
-                                {
-                                    var homeWindow = new HomeWindow(username);
-                                    homeWindow.Show();
-                                    this.Close();
-                                }
-                                else
-                                {
-                                    // No rows returned by the query
-                                    Console.WriteLine("No user found with the provided credentials.");
-                                }
+                                var homeWindow = new HomeWindow(username);
+                                homeWindow.Show();
+                                this.Close();
+                            }
+                            else
+                            {
+                                ErrorMessage.Text += ("Wrong username or Password");
+                                Console.WriteLine("No user found with the provided credentials.");
                             }
                         }
                     }
+                    conn.Close();
                 }
                 catch (Exception ex)
                 {
@@ -77,13 +79,21 @@ namespace GroupProject.Windows
             }
             else
             {
-                if (username == null)
+                if (!IsValid(username))
+                {
                     UsernameTextBox.BorderThickness = new Avalonia.Thickness(1);
+                    ErrorMessage.IsVisible = true;
+                    ErrorMessage.Text += "Username Must be at least 6 characters long\\n";
+                }
                 else
                     UsernameTextBox.BorderThickness = new Avalonia.Thickness(0); // Reset to default thickness
 
-                if (password == null)
+                if (!IsValid(password))
+                {
                     PasswordTextBox.BorderThickness = new Avalonia.Thickness(1);
+                    ErrorMessage.IsVisible = true;
+                    ErrorMessage.Text += "Password Must be at least 6 characters long\\n";
+                }
                 else
                     PasswordTextBox.BorderThickness = new Avalonia.Thickness(0); // Reset to default thickness
             }

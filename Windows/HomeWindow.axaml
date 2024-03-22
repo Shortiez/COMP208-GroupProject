@@ -34,15 +34,8 @@
         <SplitView.Content>
             <StackPanel Grid.Row="1" Grid.Column="1">
                 <!-- Add your list of study topics here -->
-                <TreeView>
-                    <TreeViewItem Header="Binary Arithmetic" IsExpanded="True">
-                        <TreeViewItem Header="Binary Addition" KeyDown="OnTopicClicked"/>
-                    </TreeViewItem>
-                    <TreeViewItem Header="Databases" IsExpanded="True">
-                        <TreeViewItem Header="Recognizing Conflicts" KeyDown="OnTopicClicked"/>
-                        <TreeViewItem Header="Table Unions" KeyDown="OnTopicClicked"></TreeViewItem>
-                    </TreeViewItem>
-                    <TreeViewItem Header="Addition" KeyDown="OnTopicClicked"/>
+                <TreeView Name="ModulesTopics">
+                    
                 </TreeView>
             </StackPanel>
         </SplitView.Content>

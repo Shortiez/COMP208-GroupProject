@@ -97,7 +97,8 @@ namespace GroupProject.Windows
             string email = Email.Text;
             string username = Username.Text;
             string password = Password.Text;
-
+            ErrorMessage.Text = "";
+            ErrorMessage.FontSize = 12;
             if (IsValid(username) && IsValid(password))
             {
                 if (IsValidEmail(email))
@@ -131,7 +132,9 @@ namespace GroupProject.Windows
                     } 
                     else 
                     {
-                         //Set TextBlock Text to Already existing user and isVisible = true
+                        ErrorMessage.Text = "";
+                        ErrorMessage.IsVisible = true;
+                        ErrorMessage.Text += "There already is a user with the \nsame credentials";
                     }
 
                 }  
@@ -142,18 +145,31 @@ namespace GroupProject.Windows
             }
             else
             {
+                
                 if (!IsValid(username))
+                {
                     Username.BorderThickness = new Avalonia.Thickness(1);
+                    ErrorMessage.IsVisible = true;
+                    ErrorMessage.Text += "Username Must be at least 6 characters long\n";
+                }
                 else
                     Username.BorderThickness = new Avalonia.Thickness(0);
 
                 if (!IsValid(password))
+                {
                     Password.BorderThickness = new Avalonia.Thickness(1);
+                    ErrorMessage.IsVisible = true;
+                    ErrorMessage.Text += "Password Must be at least 6 characters long\n";
+                }
                 else
                     Password.BorderThickness = new Avalonia.Thickness(0);
 
                 if (!IsValidEmail(email))
+                {
                     Email.BorderThickness = new Avalonia.Thickness(1);
+                    ErrorMessage.IsVisible = true;
+                    ErrorMessage.Text += "A valid email must be used\n";
+                }
                 else
                     Email.BorderThickness = new Avalonia.Thickness(0);
             }
