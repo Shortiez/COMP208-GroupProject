@@ -98,5 +98,11 @@ namespace GroupProject.Windows
 
             this.Close();
         }
+
+        private void OnLoginAsGuestPressed(object? sender, RoutedEventArgs e)
+        {
+            new HomeWindow("Guest").Show();
+            this.Close();
+        }
     }
 }

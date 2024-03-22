@@ -32,6 +32,10 @@
     <Style Selector="Button.round">
         <Setter Property="CornerRadius" Value="50"/>
     </Style>
+    <Style Selector="Button.lowkey">
+        <Setter Property="Background" Value="Transparent"></Setter>
+        <Setter Property="BorderBrush" Value="Transparent"></Setter>
+    </Style>
     
     <Style Selector="TextBox">
         <Setter Property="Foreground" Value="White"/>
@@ -57,5 +61,9 @@
     <!-- Make a textblock style for error messages -->
     <Style Selector="TextBlock.error">
         <Setter Property="Foreground" Value="Red"/>
+    </Style>
+    
+    <Style Selector="CheckBox">
+        <Setter Property="Foreground" Value="White"></Setter>
     </Style>
 </Styles>
