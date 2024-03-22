@@ -59,12 +59,12 @@ public partial class TopicLearnSelectorWindow : Window
 
     private void GetExamples_Click(object? sender, RoutedEventArgs e)
     {
-        
+        TopicTitle.Text = TopicToDisplay;
     }
 
     private void OnClick_BackToHome(object? sender, RoutedEventArgs e)
     {
-        new HomeWindow("").Show();
+        new HomeWindow(" ").Show();
         
         this.Close();
     }

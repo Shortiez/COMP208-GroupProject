@@ -1,0 +1,48 @@
+is_global = true
+build_property.AvaloniaNameGeneratorIsEnabled = true
+build_property.AvaloniaNameGeneratorBehavior = InitializeComponent
+build_property.AvaloniaNameGeneratorDefaultFieldModifier = internal
+build_property.AvaloniaNameGeneratorFilterByPath = *
+build_property.AvaloniaNameGeneratorFilterByNamespace = *
+build_property.TargetFramework = net8.0
+build_property.TargetPlatformMinVersion = 
+build_property.UsingMicrosoftNETSdkWeb = 
+build_property.ProjectTypeGuids = 
+build_property.InvariantGlobalization = 
+build_property.PlatformNeutralAssembly = 
+build_property.EnforceExtendedAnalyzerRules = 
+build_property._SupportedPlatformList = Linux,macOS,Windows
+build_property.RootNamespace = GroupProject
+build_property.ProjectDir = C:\Users\egeer\Desktop\COMP208-GroupProject\
+build_property.EnableComHosting = 
+build_property.EnableGeneratedComInterfaceComImportInterop = 
+
+[C:/Users/egeer/Desktop/COMP208-GroupProject/App.axaml]
+build_metadata.AdditionalFiles.SourceItemGroup = AvaloniaXaml
+
+[C:/Users/egeer/Desktop/COMP208-GroupProject/AppStyles.axaml]
+build_metadata.AdditionalFiles.SourceItemGroup = AvaloniaXaml
+
+[C:/Users/egeer/Desktop/COMP208-GroupProject/Windows/BinaryAdditionTopicWindow.axaml]
+build_metadata.AdditionalFiles.SourceItemGroup = AvaloniaXaml
+
+[C:/Users/egeer/Desktop/COMP208-GroupProject/Windows/ExampleTopicPage.axaml]
+build_metadata.AdditionalFiles.SourceItemGroup = AvaloniaXaml
+
+[C:/Users/egeer/Desktop/COMP208-GroupProject/Windows/HomeWindow.axaml]
+build_metadata.AdditionalFiles.SourceItemGroup = AvaloniaXaml
+
+[C:/Users/egeer/Desktop/COMP208-GroupProject/Windows/LoginWindow.axaml]
+build_metadata.AdditionalFiles.SourceItemGroup = AvaloniaXaml
+
+[C:/Users/egeer/Desktop/COMP208-GroupProject/Windows/RecognizingConflictsTopicWindow.axaml]
+build_metadata.AdditionalFiles.SourceItemGroup = AvaloniaXaml
+
+[C:/Users/egeer/Desktop/COMP208-GroupProject/Windows/RegisterWindow.axaml]
+build_metadata.AdditionalFiles.SourceItemGroup = AvaloniaXaml
+
+[C:/Users/egeer/Desktop/COMP208-GroupProject/Windows/TableUnionTopicWindow.axaml]
+build_metadata.AdditionalFiles.SourceItemGroup = AvaloniaXaml
+
+[C:/Users/egeer/Desktop/COMP208-GroupProject/Windows/TopicLearnSelectorWindow.axaml]
+build_metadata.AdditionalFiles.SourceItemGroup = AvaloniaXaml
