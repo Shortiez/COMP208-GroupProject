@@ -39,16 +39,13 @@ namespace GroupProject.Windows
         {
             try 
             {
-                Console.WriteLine($"connectionDB: {connectionDB}");  // Debug statement
                 MySqlConnection conn = connectionDB.connection;
-                Console.WriteLine($"conn: {conn}");  // Debug statement
                 conn.Open();
                 using (MySqlCommand command = conn.CreateCommand())
                 {
                     command.CommandText = "SELECT * FROM `topics` WHERE 1";
                     using (MySqlDataReader reader = command.ExecuteReader())
                     {
-                        Console.WriteLine($"reader: {reader}");  // Debug statement
                         Dictionary<string, TreeViewItem> modules = new Dictionary<string, TreeViewItem>();
                         while (reader.Read())
                         {
