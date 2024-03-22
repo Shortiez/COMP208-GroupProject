@@ -25,6 +25,7 @@
 
 
   <ItemGroup>
+    <Folder Include="Controls\" />
     <Folder Include="Scripts\AppLogic\" />
     <Folder Include="Scripts\Core\" />
   </ItemGroup>

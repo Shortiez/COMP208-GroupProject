@@ -53,4 +53,9 @@
         <Setter Property="FontWeight" Value="Bold"/>
         <Setter Property="Foreground" Value="White"/>
     </Style>
+    
+    <!-- Make a textblock style for error messages -->
+    <Style Selector="TextBlock.error">
+        <Setter Property="Foreground" Value="Red"/>
+    </Style>
 </Styles>

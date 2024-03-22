@@ -1,8 +1,11 @@
 using System.Linq;
-using Avalonia;
 using Avalonia.Controls;
 using Avalonia.Interactivity;
 using Avalonia.Markup.Xaml;
+using Avalonia.Media;
+using GroupProject.VectorGraphicsAndAnimation;
+using VectSharp;
+using Point = VectSharp.Point;
 
 namespace GroupProject.Windows;
 

@@ -5,43 +5,46 @@
         mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
         x:Class="GroupProject.Windows.HomeWindow"
         Title="HomeWindow">
-        
-        <Grid RowDefinitions="Auto,*" ColumnDefinitions="1*,2*">
-            <!-- Search Bar -->
-            <TextBox Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" Watermark="Search..."/>
-
-            <!-- Sidebar -->
-            <StackPanel Grid.Row="1" Grid.Column="0">
-                <!-- Image -->
-                <!-- <Image Source="path_to_your_image" Height="70%" Width="70%" /> -->
-                
-                <!-- Stats in Grids -->
-                <TextBlock Text="Total Topics Completed: 5" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                <TextBlock Text="Topics Mastered: 1" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                <TextBlock Text="Topics in Progress: 4" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                <TextBlock Text="Total Time Spent: 5 hours" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                <TextBlock Text="Streak: 5 days" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-            </StackPanel>
-                
-            <!-- Main Area -->
+    
+    <SplitView Name="Sidebar"
+               OpenPaneLength="300" 
+               CompactPaneLength="50"
+               DisplayMode="CompactInline">
+        <SplitView.Pane>
+            <StackPanel Spacing="5" Margin="5">
+                <Button Click="Button_OnClick_ToggleSidebar">
+                    =
+                </Button>
+                <ListBox>
+                    <ListBoxItem>
+                        Home
+                    </ListBoxItem>
+                    <ListBoxItem>
+                        Statistics
+                    </ListBoxItem>
+                    <ListBoxItem>
+                        Settings
+                    </ListBoxItem>
+                    <ListBoxItem VerticalAlignment="Bottom">
+                        Account
+                    </ListBoxItem>
+                </ListBox>
+           </StackPanel>
+        </SplitView.Pane>
+        <SplitView.Content>
             <StackPanel Grid.Row="1" Grid.Column="1">
                 <!-- Add your list of study topics here -->
                 <TreeView>
                     <TreeViewItem Header="Binary Arithmetic" IsExpanded="True">
                         <TreeViewItem Header="Binary Addition" KeyDown="OnTopicClicked"/>
                     </TreeViewItem>
-                </TreeView>
-                <TreeView>
                     <TreeViewItem Header="Databases" IsExpanded="True">
                         <TreeViewItem Header="Recognizing Conflicts" KeyDown="OnTopicClicked"/>
                         <TreeViewItem Header="Table Unions" KeyDown="OnTopicClicked"></TreeViewItem>
                     </TreeViewItem>
-                </TreeView>
-                <TreeView>
-                    <TreeViewItem Header="Test" IsExpanded="True">
-                        <TreeViewItem Header="Addition" KeyDown="OnTopicClicked"/>
-                    </TreeViewItem>
+                    <TreeViewItem Header="Addition" KeyDown="OnTopicClicked"/>
                 </TreeView>
             </StackPanel>
-        </Grid>
+        </SplitView.Content>
+    </SplitView>
 </Window>

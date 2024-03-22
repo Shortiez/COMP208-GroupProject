@@ -1,6 +1,7 @@
 using Avalonia;
 using Avalonia.Controls;
 using Avalonia.Input;
+using Avalonia.Interactivity;
 using Avalonia.Markup.Xaml;
 
 namespace GroupProject.Windows
@@ -8,7 +9,7 @@ namespace GroupProject.Windows
     public partial class HomeWindow : Window
     {
         public string Username { get; private set; }
-
+        
         // Constructor that takes Username as a parameter
         public HomeWindow(string username)
         {
@@ -32,6 +33,11 @@ namespace GroupProject.Windows
             e.Handled = true;
             
             this.Close();
+        }
+
+        private void Button_OnClick_ToggleSidebar(object? sender, RoutedEventArgs e)
+        {
+            Sidebar.IsPaneOpen = !Sidebar.IsPaneOpen;
         }
     }
 }
