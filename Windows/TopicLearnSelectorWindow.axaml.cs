@@ -64,7 +64,7 @@ public partial class TopicLearnSelectorWindow : Window
 
     private void OnClick_BackToHome(object? sender, RoutedEventArgs e)
     {
-        new HomeWindow().Show();
+        new HomeWindow(" ").Show();
         
         this.Close();
     }

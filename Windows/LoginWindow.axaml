@@ -21,6 +21,7 @@
                        HorizontalAlignment="Center" Margin="0,0,0,20"/>
             <TextBox Width="240" Name="UsernameTextBox" Watermark="Username" Margin="0,0,0,15" BorderBrush="Red" BorderThickness="0"/>
             <TextBox Width="240" Name="PasswordTextBox" Watermark="Password" Margin="0,0,0,30" BorderBrush="Red" BorderThickness="0"/>
+            <TextBlock Name="Test" IsVisible="False" Text="SEX"/>
 
             <Button Classes="round primary" Name="LoginButton" Content="Login" Width="240" HorizontalAlignment="Center" Margin="0,0,0,20" Click="OnLoginPressed"/>
 

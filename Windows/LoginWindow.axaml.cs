@@ -9,34 +9,37 @@ using Avalonia.Media;
 using MySql.Data.MySqlClient;
 using GroupProject.Scripts;
 
-namespace GroupProject.Windows;
-
-public partial class LoginWindow : Window
+namespace GroupProject.Windows
 {
-
-    dataBaseConnection connectionDB = new dataBaseConnection();
-    MySqlCommand command;
-    MySqlDataAdapter da;
-    DataTable dt;
-
-    protected string Username { get; private set; }
-    protected string Password { get; private set; }
-
-    public LoginWindow()
+    public partial class LoginWindow : Window
     {
-        InitializeComponent();
-        connectionDB.Connect();
-    }
+        dataBaseConnection connectionDB = new dataBaseConnection();
+        MySqlCommand command;
+        MySqlDataAdapter da;
+        DataTable dt;
 
-    private void OnLoginPressed(object? sender, RoutedEventArgs e)
-    {
-        Console.WriteLine("Login pressed");
+        protected string Username { get; private set; }
+        protected string Password { get; private set; }
 
-        string username = UsernameTextBox.Text;
-        string password = PasswordTextBox.Text;
+        public LoginWindow()
+        {
+            InitializeComponent();
+            connectionDB.Connect();
+        }
 
-        if (username != null && password != null){
-            if (username.Length > 6 && password.Length > 6)
+        private bool IsValid(string str)
+        {
+            return str != null && str.Length > 6;
+        }
+
+        private void OnLoginPressed(object? sender, RoutedEventArgs e)
+        {
+            Console.WriteLine("Login pressed");
+
+            string username = UsernameTextBox.Text;
+            string password = PasswordTextBox.Text;
+
+            if (IsValid(username) && IsValid(password))
             {
                 try
                 {
@@ -57,7 +60,7 @@ public partial class LoginWindow : Window
                                     homeWindow.Show();
                                     this.Close();
                                 }
-                                 else
+                                else
                                 {
                                     // No rows returned by the query
                                     Console.WriteLine("No user found with the provided credentials.");
@@ -65,7 +68,6 @@ public partial class LoginWindow : Window
                             }
                         }
                     }
-
                 }
                 catch (Exception ex)
                 {
@@ -75,39 +77,26 @@ public partial class LoginWindow : Window
             }
             else
             {
-                if (username.Length <= 6)
+                if (username == null)
                     UsernameTextBox.BorderThickness = new Avalonia.Thickness(1);
                 else
                     UsernameTextBox.BorderThickness = new Avalonia.Thickness(0); // Reset to default thickness
 
-                if (password.Length <= 6)
+                if (password == null)
                     PasswordTextBox.BorderThickness = new Avalonia.Thickness(1);
                 else
                     PasswordTextBox.BorderThickness = new Avalonia.Thickness(0); // Reset to default thickness
-
             }
-        } else 
-        {
-            if (username == null)
-                UsernameTextBox.BorderThickness = new Avalonia.Thickness(1);
-            else
-                UsernameTextBox.BorderThickness = new Avalonia.Thickness(0); // Reset to default thickness
-
-            if (password == null)
-                PasswordTextBox.BorderThickness = new Avalonia.Thickness(1);
-            else
-                PasswordTextBox.BorderThickness = new Avalonia.Thickness(0); // Reset to default thickness
-
         }
-    }
-    
-    private void OnRegisterPressed(object? sender, RoutedEventArgs e)
-    {
-        Console.WriteLine("Register pressed");
-        
-        var registerWindow = new RegisterWindow();
-        registerWindow.Show();
-        
-        this.Close();
+
+        private void OnRegisterPressed(object? sender, RoutedEventArgs e)
+        {
+            Console.WriteLine("Register pressed");
+
+            var registerWindow = new RegisterWindow();
+            registerWindow.Show();
+
+            this.Close();
+        }
     }
 }
