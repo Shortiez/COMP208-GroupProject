@@ -60,6 +60,12 @@
         <Setter Property="FontWeight" Value="Bold"/>
         <Setter Property="Foreground" Value="White"/>
     </Style>
+    <!-- subtitle -->
+    <Style Selector="TextBlock.subtitle">
+        <Setter Property="FontSize" Value="24"/>
+        <Setter Property="FontWeight" Value="Bold"/>
+        <Setter Property="Foreground" Value="White"/>
+    </Style>
     
     <!-- Make a textblock style for error messages -->
     <Style Selector="TextBlock.error">

@@ -13,31 +13,32 @@
         <SplitView.Pane>
             <StackPanel Spacing="5" Margin="5">
                 <Button Click="Button_OnClick_ToggleSidebar">
-                    =
+                    <PathIcon Data="{StaticResource line_horizontal_3_regular}"></PathIcon>
                 </Button>
+                <TextBlock>Hi, User</TextBlock>
+                
                 <ListBox>
-                    <ListBoxItem>
-                        Home
-                    </ListBoxItem>
-                    <ListBoxItem>
-                        Statistics
-                    </ListBoxItem>
-                    <ListBoxItem>
-                        Settings
-                    </ListBoxItem>
-                    <ListBoxItem VerticalAlignment="Bottom">
-                        Account
-                    </ListBoxItem>
+                    <ListBox.ItemTemplate>
+                        <DataTemplate>
+                            
+                        </DataTemplate>
+                    </ListBox.ItemTemplate>
+                    <ListBoxItem>Home</ListBoxItem>
+                    <ListBoxItem>Statistics</ListBoxItem>
+                    <ListBoxItem VerticalAlignment="Bottom">Settings</ListBoxItem>
                 </ListBox>
+                
            </StackPanel>
         </SplitView.Pane>
         <SplitView.Content>
-            <StackPanel Grid.Row="1" Grid.Column="1">
-                <!-- Add your list of study topics here -->
-                <TreeView Name="ModulesTopics">
-                    
-                </TreeView>
-            </StackPanel>
+            <Border CornerRadius="12,0,0,0">
+                <StackPanel Grid.Row="1" Grid.Column="1">
+                    <!-- Add your list of study topics here -->
+                    <TreeView Name="ModulesTopics">
+                        <TreeViewItem Header="Addition"  PointerPressed="OnTopicClicked"/>
+                    </TreeView>
+                </StackPanel>
+            </Border>
         </SplitView.Content>
     </SplitView>
 </Window>

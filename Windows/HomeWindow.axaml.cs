@@ -58,11 +58,10 @@ namespace GroupProject.Windows
                                 var moduleItem = new TreeViewItem { Header = moduleName, IsExpanded = true };
                                 modules[moduleName] = moduleItem;
                                 ModulesTopics.Items.Add(moduleItem);
-                                
                             }
 
                             var topicItem = new TreeViewItem { Header = topicName };
-                            topicItem.KeyDown += OnTopicClicked;
+                            topicItem.PointerPressed += OnTopicClicked;
                             modules[moduleName].Items.Add(topicItem);
                         }
                     }
@@ -76,7 +75,7 @@ namespace GroupProject.Windows
             
         }
 
-        private void OnTopicClicked(object? sender, KeyEventArgs e)
+        private void OnTopicClicked(object? sender, PointerPressedEventArgs pointerPressedEventArgs)
         {
             var item = (TreeViewItem)sender!;
             var topic = item?.Header?.ToString();
@@ -88,9 +87,7 @@ namespace GroupProject.Windows
 
             window.Show();
             window.InitWindow();
-
-            e.Handled = true;
-
+            
             this.Close();
         }
 

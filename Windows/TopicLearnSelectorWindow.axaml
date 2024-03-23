@@ -6,28 +6,38 @@
         x:Class="GroupProject.Windows.TopicLearnSelectorWindow"
         Title="TopicWindow">
         
-      <DockPanel>
+      <Grid>
+          <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/> 
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+          </Grid.RowDefinitions>
+          
           <!-- The top bar -->
-          <StackPanel DockPanel.Dock="Top" Orientation="Horizontal" HorizontalAlignment="Center">
+          <StackPanel Grid.Row="0" Orientation="Horizontal" HorizontalAlignment="Center">
               <TextBlock Name="TopicTitle" Classes="title" Text="Topic To Learn"/>
           </StackPanel>
           
           <!-- Two large circular buttons for the two choices-->
-          <StackPanel Orientation="Horizontal"
+          <StackPanel Grid.Row="1" Orientation="Horizontal"
                       HorizontalAlignment="Center"
-                      VerticalAlignment="Center">
-              <Button Classes="circle secondary" Width="100" Height="100" Click="Button_OnClick_LoadQuestions">
+                      VerticalAlignment="Center"
+                      >
+              <Button Classes="circle secondary" Width="100" Height="100" Margin="0, 0, 50, 0"
+                      Click="Button_OnClick_LoadQuestions">
                   <TextBlock Text="Questions" VerticalAlignment="Center"/>  
               </Button>
-              <Button Classes="circle secondary" Width="100" Height="100" Click="Button_OnClick_LoadExamples">
+              <TextBlock Classes="subtitle" VerticalAlignment="Center"> OR </TextBlock>
+              <Button Classes="circle secondary" Width="100" Height="100" Margin="50, 0, 0, 0"
+                      Click="Button_OnClick_LoadExamples">
                   <TextBlock Text="Examples" VerticalAlignment="Center"/>
               </Button>
           </StackPanel>
           
           <!-- The bottom bar -->
-          <StackPanel DockPanel.Dock="Bottom" Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Bottom">
-              <Button Name="BackButton" Classes="secondary round" Content="Back to Home"
+          <StackPanel Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Bottom">
+              <Button Name="BackButton" Classes="primary round" Content="Back to Home"
                       Width="130" Height="30" Click="Button_OnClick_BackToHome"/>
           </StackPanel>
-      </DockPanel>
+      </Grid>
 </Window>
