@@ -19,7 +19,7 @@ public partial class TopicLearnSelectorWindow : Window
 {
     public string? TopicToDisplay { get; set; }
 
-    private static readonly TopicToWindow[] Topics = new TopicToWindow[4]
+    private static readonly TopicToWindow[] Topics = new TopicToWindow[5]
     {
         new TopicToWindow()
         {
@@ -39,6 +39,11 @@ public partial class TopicLearnSelectorWindow : Window
         new TopicToWindow()
         {
             Topic = "Addition",
+           Window = new ExampleTopicPage()
+        },
+        new TopicToWindow()
+        {
+            Topic = "Logic Gates",
             Window = new ExampleTopicPage()
         }
     };
