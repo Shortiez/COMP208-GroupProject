@@ -8,16 +8,42 @@
         
         <Grid>
                 <Grid.RowDefinitions>
-                        100,
-                        Auto
+                        <RowDefinition Height="100"/>
+                        <RowDefinition Height="Auto"/>
                 </Grid.RowDefinitions>
                 
                 <!-- Title -->
-                <TextBlock Background="Blue"></TextBlock>
+                <TextBlock Grid.Row="0" Background="Blue" TextAlignment="Center" FontFamily="">
+                        Binary addition
+                </TextBlock>
                 
                 <!-- Content -->
                 <StackPanel Grid.Row="1">
+                        <Grid>
+                                <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width = "*"/>
+                                        <ColumnDefinition Width = "*"/>
+                                </Grid.ColumnDefinitions>
                         
+
+                                <StackPanel Grid.Row = "1" Grid.Column="0"> 
+                                        <TextBlock TextAlignment="Center"> Question, enter, generate new q, submit </TextBlock>
+                                </StackPanel>
+
+                                <!--  Key Table -->
+                                <StackPanel Grid.Row = "1" Grid.Column="1"> 
+                                        <Border BorderBrush="Blue" BorderThickness="2" CornerRadius = "10" Padding = "20">
+                                                <TreeView VerticalAlignment = "Center">
+                                                        <TreeViewItem Width="150" Header="Key Table" IsExpanded="False">
+                                                                <TextBlock> 0 + 0 = 0 </TextBlock>
+                                                                <TextBlock> 0 + 1 = 1 </TextBlock>
+                                                                <TextBlock> 1 + 1 = 10 </TextBlock>
+                                                                <TextBlock> 1 + 1 + 1 = 11 </TextBlock>
+                                                        </TreeViewItem>
+                                                </TreeView>
+                                        </Border>
+                                </StackPanel>
+                        </Grid>
                 </StackPanel>
         </Grid>
 </Window>
