@@ -19,7 +19,7 @@ public partial class RecognizingConflictsTopicWindow : Window
     //TODO - algorithm for generating schedules that already have conflicts and ones that don't
 
 
-    Transaction exampleSchedule[] = {
+   /* Transaction exampleSchedule[] = {
 
         [0].transactionNumber = 1,  [0].variable = 'x',  [0].operation = 'R',
         [0].transactionNumber = 1,  [0].variable = 'x',  [0].operation = 'W',
@@ -27,7 +27,7 @@ public partial class RecognizingConflictsTopicWindow : Window
         [0].transactionNumber = 2,  [0].variable = 'x',  [0].operation = 'W',
         [0].transactionNumber = 1,  [0].variable = 'z',  [0].operation = 'R',
 
-    }
+  } */
 
 
 
