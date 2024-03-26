@@ -97,6 +97,7 @@ namespace GroupProject.Windows
             string email = Email.Text;
             string username = Username.Text;
             string password = Password.Text;
+            password = Hashes.Sha256(password);
             ErrorMessage.Text = "";
             ErrorMessage.FontSize = 12;
             if (IsValid(username) && IsValid(password))
