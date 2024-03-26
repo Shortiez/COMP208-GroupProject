@@ -16,7 +16,7 @@ namespace GroupProject.Windows
 {
     public partial class RegisterWindow : Window
     {
-        dataBaseConnection connectionDB = new dataBaseConnection();
+        DatabaseConnection connectionDB = new DatabaseConnection();
 
         public RegisterWindow()
         {
@@ -43,7 +43,7 @@ namespace GroupProject.Windows
 
         private bool checkExistingUser(string signInUsername, string signInEmail)
         {
-            dataBaseConnection connectionDB = new dataBaseConnection();
+            DatabaseConnection connectionDB = new DatabaseConnection();
             connectionDB.Connect();
 
             if (signInUsername != null && signInEmail != null){
@@ -97,6 +97,7 @@ namespace GroupProject.Windows
             string email = Email.Text;
             string username = Username.Text;
             string password = Password.Text;
+            password = Hashes.Sha256(password);
             ErrorMessage.Text = "";
             ErrorMessage.FontSize = 12;
             if (IsValid(username) && IsValid(password))

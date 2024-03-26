@@ -8,12 +8,15 @@ using Avalonia.Markup.Xaml;
 using Avalonia.Media;
 using MySql.Data.MySqlClient;
 using GroupProject.Scripts;
+using System.Runtime.Intrinsics.Arm;
+using System.Text;
+using System.Security.Cryptography;
 
 namespace GroupProject.Windows
 {
     public partial class LoginWindow : Window
     {
-        dataBaseConnection connectionDB = new dataBaseConnection();
+        DatabaseConnection connectionDB = new DatabaseConnection();
         MySqlCommand command;
         MySqlDataAdapter da;
         DataTable dt;
@@ -38,6 +41,8 @@ namespace GroupProject.Windows
 
             string username = UsernameTextBox.Text;
             string password = PasswordTextBox.Text;
+            password = Hashes.Sha256(password);
+
 
             ErrorMessage.Text = "";
             ErrorMessage.FontSize = 12;
@@ -58,7 +63,7 @@ namespace GroupProject.Windows
                         {
                             if (reader.HasRows)
                             {
-                                var homeWindow = new HomeWindow(username);
+                                var homeWindow = new MainContentWindow(username);
                                 homeWindow.Show();
                                 this.Close();
                             }
@@ -111,7 +116,7 @@ namespace GroupProject.Windows
 
         private void OnLoginAsGuestPressed(object? sender, RoutedEventArgs e)
         {
-            new HomeWindow("Guest").Show();
+            new MainContentWindow("Guest").Show();
             this.Close();
         }
     }

@@ -28,26 +28,41 @@ build_metadata.AdditionalFiles.SourceItemGroup = AvaloniaXaml
 [/Users/bengotts/University/Year-Two/COMP-208/GroupProject/AppStyles.axaml]
 build_metadata.AdditionalFiles.SourceItemGroup = AvaloniaXaml
 
-[/Users/bengotts/University/Year-Two/COMP-208/GroupProject/Windows/BinaryAdditionTopicWindow.axaml]
+[/Users/bengotts/University/Year-Two/COMP-208/GroupProject/Views/AccountWindow.axaml]
 build_metadata.AdditionalFiles.SourceItemGroup = AvaloniaXaml
 
-[/Users/bengotts/University/Year-Two/COMP-208/GroupProject/Windows/ExampleTopicPage.axaml]
+[/Users/bengotts/University/Year-Two/COMP-208/GroupProject/Views/BinaryAdditionTopicWindow.axaml]
 build_metadata.AdditionalFiles.SourceItemGroup = AvaloniaXaml
 
-[/Users/bengotts/University/Year-Two/COMP-208/GroupProject/Windows/HomeWindow.axaml]
+[/Users/bengotts/University/Year-Two/COMP-208/GroupProject/Views/ExampleTopicPage.axaml]
 build_metadata.AdditionalFiles.SourceItemGroup = AvaloniaXaml
 
-[/Users/bengotts/University/Year-Two/COMP-208/GroupProject/Windows/LoginWindow.axaml]
+[/Users/bengotts/University/Year-Two/COMP-208/GroupProject/Views/HomeWindow.axaml]
 build_metadata.AdditionalFiles.SourceItemGroup = AvaloniaXaml
 
-[/Users/bengotts/University/Year-Two/COMP-208/GroupProject/Windows/RecognizingConflictsTopicWindow.axaml]
+[/Users/bengotts/University/Year-Two/COMP-208/GroupProject/Views/LogicGatesTopicWindow.axaml]
 build_metadata.AdditionalFiles.SourceItemGroup = AvaloniaXaml
 
-[/Users/bengotts/University/Year-Two/COMP-208/GroupProject/Windows/RegisterWindow.axaml]
+[/Users/bengotts/University/Year-Two/COMP-208/GroupProject/Views/LoginWindow.axaml]
 build_metadata.AdditionalFiles.SourceItemGroup = AvaloniaXaml
 
-[/Users/bengotts/University/Year-Two/COMP-208/GroupProject/Windows/TableUnionTopicWindow.axaml]
+[/Users/bengotts/University/Year-Two/COMP-208/GroupProject/Views/MainContentWindow.axaml]
 build_metadata.AdditionalFiles.SourceItemGroup = AvaloniaXaml
 
-[/Users/bengotts/University/Year-Two/COMP-208/GroupProject/Windows/TopicLearnSelectorWindow.axaml]
+[/Users/bengotts/University/Year-Two/COMP-208/GroupProject/Views/PickATopicWindow.axaml]
+build_metadata.AdditionalFiles.SourceItemGroup = AvaloniaXaml
+
+[/Users/bengotts/University/Year-Two/COMP-208/GroupProject/Views/RecognizingConflictsTopicWindow.axaml]
+build_metadata.AdditionalFiles.SourceItemGroup = AvaloniaXaml
+
+[/Users/bengotts/University/Year-Two/COMP-208/GroupProject/Views/RegisterWindow.axaml]
+build_metadata.AdditionalFiles.SourceItemGroup = AvaloniaXaml
+
+[/Users/bengotts/University/Year-Two/COMP-208/GroupProject/Views/SettingsWindow.axaml]
+build_metadata.AdditionalFiles.SourceItemGroup = AvaloniaXaml
+
+[/Users/bengotts/University/Year-Two/COMP-208/GroupProject/Views/TableUnionTopicWindow.axaml]
+build_metadata.AdditionalFiles.SourceItemGroup = AvaloniaXaml
+
+[/Users/bengotts/University/Year-Two/COMP-208/GroupProject/Views/TopicLearnSelectorWindow.axaml]
 build_metadata.AdditionalFiles.SourceItemGroup = AvaloniaXaml

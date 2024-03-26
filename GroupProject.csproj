@@ -12,11 +12,8 @@
   <ItemGroup>
     <PackageReference Include="Avalonia" Version="11.1.0-beta1" />
     <PackageReference Include="Avalonia.Desktop" Version="11.0.6" />
-    <PackageReference Include="Avalonia.ReactiveUI" Version="11.1.0-beta1" />
     <PackageReference Include="Avalonia.Themes.Fluent" Version="11.0.6" />
     <PackageReference Include="Avalonia.Fonts.Inter" Version="11.0.6" />
-    <PackageReference Include="Avalonia.Skia" Version="11.1.0-beta1" />
-    <PackageReference Include="Avalonia.Native" Version="11.1.0-beta1" />
     <!--Condition below is needed to remove Avalonia.Diagnostics package from build output in Release configuration.-->
     <PackageReference Condition="'$(Configuration)' == 'Debug'" Include="Avalonia.Diagnostics" Version="11.0.6" />
     <PackageReference Include="MySql.Data" Version="8.3.0" />
@@ -30,6 +27,7 @@
   <ItemGroup>
     <Folder Include="Controls\" />
     <Folder Include="let_me_show_you\" />
+    <Folder Include="Models\" />
     <Folder Include="Scripts\AppLogic\" />
     <Folder Include="Scripts\Core\" />
   </ItemGroup>
@@ -38,6 +36,58 @@
   <ItemGroup>
     <Compile Update="App.axaml.cs">
       <DependentUpon>App.axaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\AccountWindow.axaml.cs">
+      <DependentUpon>AccountWindow.axaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\BinaryAdditionTopicWindow.axaml.cs">
+      <DependentUpon>BinaryAdditionTopicWindow.axaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\ExampleTopicPage.axaml.cs">
+      <DependentUpon>ExampleTopicPage.axaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\HomeWindow.axaml.cs">
+      <DependentUpon>HomeWindow.axaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\LogicGatesTopicWindow.axaml.cs">
+      <DependentUpon>LogicGatesTopicWindow.axaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\LoginWindow.axaml.cs">
+      <DependentUpon>LoginWindow.axaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\MainContentWindow.axaml.cs">
+      <DependentUpon>MainContentWindow.axaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\PickATopicWindow.axaml.cs">
+      <DependentUpon>PickATopicWindow.axaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\RecognizingConflictsTopicWindow.axaml.cs">
+      <DependentUpon>RecognizingConflictsTopicWindow.axaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\RegisterWindow.axaml.cs">
+      <DependentUpon>RegisterWindow.axaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\SettingsWindow.axaml.cs">
+      <DependentUpon>SettingsWindow.axaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\TableUnionTopicWindow.axaml.cs">
+      <DependentUpon>TableUnionTopicWindow.axaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\TopicLearnSelectorWindow.axaml.cs">
+      <DependentUpon>TopicLearnSelectorWindow.axaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
   </ItemGroup>

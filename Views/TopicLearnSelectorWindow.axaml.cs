@@ -39,7 +39,7 @@ public partial class TopicLearnSelectorWindow : Window
         new TopicToWindow()
         {
             Topic = "Addition",
-           Window = new ExampleTopicPage()
+            Window = new ExampleTopicPage()
         },
         new TopicToWindow()
         {
@@ -72,7 +72,7 @@ public partial class TopicLearnSelectorWindow : Window
 
     private void Button_OnClick_BackToHome(object? sender, RoutedEventArgs e)
     {
-        new HomeWindow(" ").Show();
+        new MainContentWindow(" ").Show();
         
         this.Close();
     }
