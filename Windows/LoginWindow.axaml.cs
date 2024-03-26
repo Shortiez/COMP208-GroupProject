@@ -8,6 +8,9 @@ using Avalonia.Markup.Xaml;
 using Avalonia.Media;
 using MySql.Data.MySqlClient;
 using GroupProject.Scripts;
+using System.Runtime.Intrinsics.Arm;
+using System.Text;
+using System.Security.Cryptography;
 
 namespace GroupProject.Windows
 {
@@ -38,6 +41,8 @@ namespace GroupProject.Windows
 
             string username = UsernameTextBox.Text;
             string password = PasswordTextBox.Text;
+            password = Hashes.Sha256(password);
+
 
             ErrorMessage.Text = "";
             ErrorMessage.FontSize = 12;

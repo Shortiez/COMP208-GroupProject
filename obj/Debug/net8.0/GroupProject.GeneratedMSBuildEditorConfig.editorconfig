@@ -15,39 +15,42 @@ build_property.PlatformNeutralAssembly =
 build_property.EnforceExtendedAnalyzerRules = 
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = GroupProject
-build_property.ProjectDir = /Users/bengotts/University/Year-Two/COMP-208/GroupProject/
+build_property.ProjectDir = C:\Users\egeer\Desktop\COMP208-GroupProject\
 build_property.EnableComHosting = 
 build_property.EnableGeneratedComInterfaceComImportInterop = 
 
-[/Users/bengotts/University/Year-Two/COMP-208/GroupProject/App.axaml]
+[C:/Users/egeer/Desktop/COMP208-GroupProject/App.axaml]
 build_metadata.AdditionalFiles.SourceItemGroup = AvaloniaXaml
 
-[/Users/bengotts/University/Year-Two/COMP-208/GroupProject/AppIcons.axaml]
+[C:/Users/egeer/Desktop/COMP208-GroupProject/AppIcons.axaml]
 build_metadata.AdditionalFiles.SourceItemGroup = AvaloniaXaml
 
-[/Users/bengotts/University/Year-Two/COMP-208/GroupProject/AppStyles.axaml]
+[C:/Users/egeer/Desktop/COMP208-GroupProject/AppStyles.axaml]
 build_metadata.AdditionalFiles.SourceItemGroup = AvaloniaXaml
 
-[/Users/bengotts/University/Year-Two/COMP-208/GroupProject/Windows/BinaryAdditionTopicWindow.axaml]
+[C:/Users/egeer/Desktop/COMP208-GroupProject/Windows/BinaryAdditionTopicWindow.axaml]
 build_metadata.AdditionalFiles.SourceItemGroup = AvaloniaXaml
 
-[/Users/bengotts/University/Year-Two/COMP-208/GroupProject/Windows/ExampleTopicPage.axaml]
+[C:/Users/egeer/Desktop/COMP208-GroupProject/Windows/ExampleTopicPage.axaml]
 build_metadata.AdditionalFiles.SourceItemGroup = AvaloniaXaml
 
-[/Users/bengotts/University/Year-Two/COMP-208/GroupProject/Windows/HomeWindow.axaml]
+[C:/Users/egeer/Desktop/COMP208-GroupProject/Windows/HomeWindow.axaml]
 build_metadata.AdditionalFiles.SourceItemGroup = AvaloniaXaml
 
-[/Users/bengotts/University/Year-Two/COMP-208/GroupProject/Windows/LoginWindow.axaml]
+[C:/Users/egeer/Desktop/COMP208-GroupProject/Windows/LogicGatesTopicWindow.axaml]
 build_metadata.AdditionalFiles.SourceItemGroup = AvaloniaXaml
 
-[/Users/bengotts/University/Year-Two/COMP-208/GroupProject/Windows/RecognizingConflictsTopicWindow.axaml]
+[C:/Users/egeer/Desktop/COMP208-GroupProject/Windows/LoginWindow.axaml]
 build_metadata.AdditionalFiles.SourceItemGroup = AvaloniaXaml
 
-[/Users/bengotts/University/Year-Two/COMP-208/GroupProject/Windows/RegisterWindow.axaml]
+[C:/Users/egeer/Desktop/COMP208-GroupProject/Windows/RecognizingConflictsTopicWindow.axaml]
 build_metadata.AdditionalFiles.SourceItemGroup = AvaloniaXaml
 
-[/Users/bengotts/University/Year-Two/COMP-208/GroupProject/Windows/TableUnionTopicWindow.axaml]
+[C:/Users/egeer/Desktop/COMP208-GroupProject/Windows/RegisterWindow.axaml]
 build_metadata.AdditionalFiles.SourceItemGroup = AvaloniaXaml
 
-[/Users/bengotts/University/Year-Two/COMP-208/GroupProject/Windows/TopicLearnSelectorWindow.axaml]
+[C:/Users/egeer/Desktop/COMP208-GroupProject/Windows/TableUnionTopicWindow.axaml]
+build_metadata.AdditionalFiles.SourceItemGroup = AvaloniaXaml
+
+[C:/Users/egeer/Desktop/COMP208-GroupProject/Windows/TopicLearnSelectorWindow.axaml]
 build_metadata.AdditionalFiles.SourceItemGroup = AvaloniaXaml
