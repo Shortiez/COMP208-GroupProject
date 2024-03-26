@@ -13,7 +13,7 @@ namespace GroupProject.Windows
 {
     public partial class LoginWindow : Window
     {
-        dataBaseConnection connectionDB = new dataBaseConnection();
+        DatabaseConnection connectionDB = new DatabaseConnection();
         MySqlCommand command;
         MySqlDataAdapter da;
         DataTable dt;
@@ -58,7 +58,7 @@ namespace GroupProject.Windows
                         {
                             if (reader.HasRows)
                             {
-                                var homeWindow = new HomeWindow(username);
+                                var homeWindow = new MainContentWindow(username);
                                 homeWindow.Show();
                                 this.Close();
                             }
@@ -111,7 +111,7 @@ namespace GroupProject.Windows
 
         private void OnLoginAsGuestPressed(object? sender, RoutedEventArgs e)
         {
-            new HomeWindow("Guest").Show();
+            new MainContentWindow("Guest").Show();
             this.Close();
         }
     }

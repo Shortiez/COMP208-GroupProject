@@ -2,9 +2,14 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:viewModels="clr-namespace:GroupProject.ViewModels"
         mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
-        x:Class="GroupProject.Windows.HomeWindow"
+        x:Class="GroupProject.Windows.MainContentWindow"
         Title="HomeWindow">
+    
+    <Design.DataContext>
+        <viewModels:MainContentWindowViewModel/>
+    </Design.DataContext>
     
     <SplitView Name="Sidebar"
                OpenPaneLength="300" 
@@ -17,28 +22,30 @@
                 </Button>
                 <TextBlock>Hi, User</TextBlock>
                 
-                <ListBox>
+                <ListBox Name="SidebarItems">
                     <ListBox.ItemTemplate>
-                        <DataTemplate>
-                            
+                        <DataTemplate DataType="x:Type">
+                            <StackPanel Spacing="15" Orientation="Horizontal">
+                                <TextBlock Name="SidebarListingLabel"/>
+                            </StackPanel>
                         </DataTemplate>
                     </ListBox.ItemTemplate>
-                    <ListBoxItem>Home</ListBoxItem>
-                    <ListBoxItem>Statistics</ListBoxItem>
-                    <ListBoxItem VerticalAlignment="Bottom">Settings</ListBoxItem>
                 </ListBox>
-                
+                <!--<ListBox Name="SidebarItems">
+                    <ListBoxItem Tapped="ListBoxItem_OnTapped_DisplayContentPage">Home</ListBoxItem>
+                    <ListBoxItem Tapped="ListBoxItem_OnTapped_DisplayContentPage">Study</ListBoxItem>
+                    <ListBoxItem Tapped="ListBoxItem_OnTapped_DisplayContentPage">Account</ListBoxItem>
+                    <ListBoxItem Tapped="ListBoxItem_OnTapped_DisplayContentPage">Settings</ListBoxItem>
+                </ListBox>
+                -->
            </StackPanel>
         </SplitView.Pane>
+        
         <SplitView.Content>
             <Border CornerRadius="12,0,0,0">
-                <StackPanel Grid.Row="1" Grid.Column="1">
-                    <!-- Add your list of study topics here -->
-                    <TreeView Name="ModulesTopics">
-                        <TreeViewItem Header="Addition"  PointerPressed="OnTopicClicked"/>
-                    </TreeView>
-                </StackPanel>
+                <TransitioningContentControl Name="CurrentContentControl"/>
             </Border>
         </SplitView.Content>
+        
     </SplitView>
 </Window>
