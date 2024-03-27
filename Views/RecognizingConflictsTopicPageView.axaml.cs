@@ -2,11 +2,14 @@ using Avalonia;
 using Avalonia.Controls;
 using Avalonia.Markup.Xaml;
 using System;
+using System.Collections.Generic;
 
 namespace GroupProject.Views;
 
 public partial class RecognizingConflictsTopicPageView : Window
 {
+
+
     //to-do - eventually I'd like to add a reason why 2 things don't clash so I can prompt the user
     //in the text. Maybe I add an array to each to say why it doesn't clash with each other, which leads to a
     //premade strings ie "It doesn't clash by X and Y are different variables"
@@ -57,6 +60,17 @@ public partial class RecognizingConflictsTopicPageView : Window
         }
         return schedule;
     }
+
+    //errors to relate to user - is there a better way than using string for the key?
+    Dictionary<string, string> userErrors = new Dictionary<string, string>
+    {
+
+        {"Transaction", "These transaction numbers are the same! Remember, they must be different for a conflict!" },
+        {"Variable", "These variables are different! Remember, it's only a conflict if the variable is the same." },
+        {"Operation", "These are both 'Reads'! Remember, at least one of them must be a 'Write', or 'W'" },
+
+    };
+
     public RecognizingConflictsTopicPageView()
     {
         InitializeComponent();
