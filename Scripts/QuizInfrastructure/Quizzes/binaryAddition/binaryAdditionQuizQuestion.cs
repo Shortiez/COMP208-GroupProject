@@ -1,18 +1,18 @@
-namespace GroupProject.Scripts.Questions.Quizzes.binaryAddition;
+namespace GroupProject.Scripts.Questions.Quizzes.BinaryAddition;
 
 /**
- * A quiz question that asks the user to add two binary numbers together.
+ * A quiz question that asks the user to add two Binary numbers together.
  */
-public class binaryAdditionQuizQuestion : QuizQuestion<int>
+public class BinaryAdditionQuizQuestion : QuizQuestion<int>
 {
     public override string QuestionTitle { get; protected set; } = "What is {a} + {b}?";
 
-    public binaryAdditionQuizQuestion()
+    public BinaryAdditionQuizQuestion()
     {
         
     }
     
-    public binaryAdditionQuizQuestion(string question, int answer, int[] options) : base(question, answer, options)
+    public BinaryAdditionQuizQuestion(string question, int answer, int[] options) : base(question, answer, options)
     {
         
     }
