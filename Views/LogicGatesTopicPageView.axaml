@@ -1,0 +1,44 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+        x:Class="GroupProject.Windows.LogicGatesTopicPageView"
+        Title="LogicGatesTopicWindow">
+  
+  <Grid>
+    <Grid.RowDefinitions>
+      100,
+      Auto
+    </Grid.RowDefinitions>
+
+    <!-- Title -->
+    <TextBlock Background="Blue"></TextBlock>
+
+    <!-- Content -->
+    <Grid Grid.Row="1">
+      <Grid.ColumnDefinitions>
+        300,
+        Auto
+      </Grid.ColumnDefinitions>
+      <StackPanel Grid.Column="0">
+
+        <!-- Question -->
+        <TextBlock Name="QuestionTitleTextBlock" Text="Question: What is 1 + 1?" />
+
+        <StackPanel Name="OptionsPanel">
+
+        </StackPanel>
+
+        <!-- Submit Button -->
+        <Button Content="Submit" Click="Button_OnClick_Submit"/>
+        <Button Content="Generate New Question" Click="Button_OnClick_GenerateNewQuestion"/>
+      </StackPanel>
+
+      <!-- Display if the answer is correct or not -->
+      <StackPanel Grid.Column="1">
+        <TextBlock Name="AnswerTextBlock" Text="Answer: " />
+      </StackPanel>
+    </Grid>
+  </Grid>
+</Window>
