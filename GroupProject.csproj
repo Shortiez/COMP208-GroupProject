@@ -7,6 +7,14 @@
     <ApplicationManifest>app.manifest</ApplicationManifest>
     <AvaloniaUseCompiledBindingsByDefault>true</AvaloniaUseCompiledBindingsByDefault>
   </PropertyGroup>
+  <ItemGroup>
+    <None Remove="Assets\LMSY-Logo.png" />
+    <None Remove="Assets\Red-Square.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Assets\LMSY-Logo.png" />
+    <EmbeddedResource Include="Assets\Red-Square.png" />
+  </ItemGroup>
 
 
   <ItemGroup>

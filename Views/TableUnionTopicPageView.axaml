@@ -8,36 +8,91 @@
   
         <Grid>
                 <Grid.RowDefinitions>
-                        100,
+                        70,
                         Auto
                 </Grid.RowDefinitions>
                 
                 <!-- Title -->
-                <TextBlock Background="Blue"></TextBlock>
+                <TextBlock Background="Blue" TextAlignment="Center" FontSize="40">TABLE UNION Questions</TextBlock>
                 
                 <!-- Content -->
           <DockPanel Grid.Row="1">
             <DockPanel DockPanel.Dock="Top">
               <TextBlock DockPanel.Dock="Left" Margin="120,20,0,20" Text="SELECT Shape &#x0a;FROM table2 &#x0a;WHERE Shape=Red" Foreground="Red" FontSize="20" />
-              <TextBlock DockPanel.Dock="Right" Margin="40,20,50,20" FontSize="20" HorizontalAlignment="Right" Text="Please drag items from original tables" />
+              <TextBlock DockPanel.Dock="Right" Margin="40,20,50,20" FontSize="20" HorizontalAlignment="Right" Text="Please drag items from original tables &#x0a;to results table" />
             </DockPanel>
-            <DockPanel DockPanel.Dock="Bottom" Margin="20,20,0,0" LastChildFill="True" Background="White">
-              <Border DockPanel.Dock="Left" Height="190" Width="160" Background="Green" Margin="20">
-                <StackPanel>
-                  <TextBlock Text="table1" FontSize="20" HorizontalAlignment="Center" />
-                  <TextBlock Text="Shape" FontSize="20" HorizontalAlignment="Center" />
-                  <TextBlock Text="Red" FontSize="20" HorizontalAlignment="Center" />
-                </StackPanel>
+            <StackPanel DockPanel.Dock="Bottom" Margin="20,0" Orientation="Horizontal" Background="White">
+              <Border Padding="0" Height="260" Width="160" Background="Green" Margin="0,0">
+                <Grid>
+                  <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width = "*"/>
+                    <ColumnDefinition Width = "*"/>
+                  </Grid.ColumnDefinitions>
+                  <Grid.RowDefinitions>
+                    <RowDefinition Height = "30"/>
+                    <RowDefinition Height = "40"/>
+                    <RowDefinition Height = "40"/>
+                    <RowDefinition Height = "40"/>
+                    <RowDefinition Height = "40"/>
+                  </Grid.RowDefinitions>
+                  <TextBlock Grid.Row="0" Grid.Column="0" Text="head1" FontSize="20" HorizontalAlignment="Center" />
+                  <TextBlock Grid.Row="0" Grid.Column="1" Text="head2" FontSize="20" HorizontalAlignment="Center" />
+                  <Image Grid.Row="1" Grid.Column="0" Source="resm:GroupProject.Assets.Red-Square.png?assembly=GroupProject" />
+                  
+                  <TextBlock Grid.Row="1" Grid.Column="1" Text="item2" FontSize="20" HorizontalAlignment="Center" />
+                  <TextBlock Grid.Row="2" Grid.Column="0" Text="item3" FontSize="20" HorizontalAlignment="Center" />
+                  <TextBlock Grid.Row="2" Grid.Column="1" Text="item4" FontSize="20" HorizontalAlignment="Center" />
+                  <TextBlock Grid.Row="3" Grid.Column="0" Text="item5" FontSize="20" HorizontalAlignment="Center" />
+                  <TextBlock Grid.Row="3" Grid.Column="1" Text="item6" FontSize="20" HorizontalAlignment="Center" />
+                  <TextBlock Grid.Row="4" Grid.Column="0" Text="item7" FontSize="20" HorizontalAlignment="Center" />
+                  <TextBlock Grid.Row="4" Grid.Column="1" Text="item8" FontSize="20" HorizontalAlignment="Center" />
+                </Grid>
               </Border>
-              <Border DockPanel.Dock="Left" Height="190" Width="160" Background="Red" Margin="20">
-                <StackPanel>
-                  <TextBlock Text="table1" FontSize="20" HorizontalAlignment="Center" />
-                  <TextBlock Text="Shape" FontSize="20" HorizontalAlignment="Center" />
-                  <TextBlock Text="Red" FontSize="20" HorizontalAlignment="Center" />
-                </StackPanel>
+              <Border Padding="0" Height="260" Width="160" Background="Red" Margin="20,0">
+                <Grid>
+                  <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width = "*"/>
+                    <ColumnDefinition Width = "*"/>
+                  </Grid.ColumnDefinitions>
+                  <Grid.RowDefinitions>
+                    <RowDefinition Height = "30"/>
+                    <RowDefinition Height = "40"/>
+                    <RowDefinition Height = "40"/>
+                    <RowDefinition Height = "40"/>
+                    <RowDefinition Height = "40"/>
+                  </Grid.RowDefinitions>
+                  <TextBlock Grid.Row="0" Grid.Column="0" Text="head1" FontSize="20" HorizontalAlignment="Center" />
+                  <TextBlock Grid.Row="0" Grid.Column="1" Text="head2" FontSize="20" HorizontalAlignment="Center" />
+                  <TextBlock Grid.Row="1" Grid.Column="0" Text="item1" FontSize="20" HorizontalAlignment="Center" />
+                  <TextBlock Grid.Row="1" Grid.Column="1" Text="item2" FontSize="20" HorizontalAlignment="Center" />
+                  <TextBlock Grid.Row="2" Grid.Column="0" Text="item3" FontSize="20" HorizontalAlignment="Center" />
+                  <TextBlock Grid.Row="2" Grid.Column="1" Text="item4" FontSize="20" HorizontalAlignment="Center" />
+                  <TextBlock Grid.Row="3" Grid.Column="0" Text="item5" FontSize="20" HorizontalAlignment="Center" />
+                  <TextBlock Grid.Row="3" Grid.Column="1" Text="item6" FontSize="20" HorizontalAlignment="Center" />
+                  <TextBlock Grid.Row="4" Grid.Column="0" Text="item7" FontSize="20" HorizontalAlignment="Center" />
+                  <TextBlock Grid.Row="4" Grid.Column="1" Text="item8" FontSize="20" HorizontalAlignment="Center" />
+                </Grid>
               </Border>
-              <Rectangle DockPanel.Dock="Left" Fill="Purple" Margin="20" />
-            </DockPanel>
+              <Border Padding="0" Height="260" Width="359" Background="Purple" Margin="40,0">
+                <Grid>
+                  <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width = "*"/>
+                    <ColumnDefinition Width = "*"/>
+                  </Grid.ColumnDefinitions>
+                  <Grid.RowDefinitions>
+                    <RowDefinition Height = "30"/>
+                    <RowDefinition Height = "40"/>
+                    <RowDefinition Height = "40"/>
+                    <RowDefinition Height = "40"/>
+                    <RowDefinition Height = "40"/>
+                  </Grid.RowDefinitions>
+                  <TextBlock Grid.Row="0" Grid.Column="0" Text="head1" FontSize="20" HorizontalAlignment="Center" />
+                  <TextBlock Grid.Row="0" Grid.Column="1" Text="head2" FontSize="20" HorizontalAlignment="Center" />
+                  <TextBlock Grid.Row="1" Grid.Column="0" Text="item1" FontSize="20" HorizontalAlignment="Center" />
+                  <TextBlock Grid.Row="1" Grid.Column="1" Text="item2" FontSize="20" HorizontalAlignment="Center" />
+                </Grid>
+              </Border>
+            </StackPanel>
           </DockPanel>
         </Grid>
 </Window>
