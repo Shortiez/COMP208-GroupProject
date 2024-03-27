@@ -2,7 +2,7 @@ using Avalonia;
 using Avalonia.Controls;
 using Avalonia.Markup.Xaml;
 
-namespace GroupProject.Windows;
+namespace GroupProject.Views;
 
 public partial class RecognizingConflictsTopicPageView : Window
 {

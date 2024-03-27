@@ -1,27 +1,38 @@
 using System;
 using Avalonia.Controls;
 using Avalonia.Controls.Templates;
+using GroupProject.ViewModels;
 
 namespace GroupProject;
 
 public class ViewLocator : IDataTemplate
 {
-    public Control? Build(object data)
+    public Control? Build(object? data)
     {
-        var viewName = data.GetType().FullName.Replace("ViewModel", "View");
-        var viewType = Type.GetType(viewName);
+        if (data is null)
+            return null;
 
-        if (viewType != null)
+        var name = data.GetType().FullName!.Replace("ViewModel", "View", StringComparison.Ordinal);
+        var type = Type.GetType(name);
+
+        if (type != null)
         {
-            return (Control)Activator.CreateInstance(viewType);
+            var control = (Control)Activator.CreateInstance(type)!;
+            control.DataContext = data;
             
+            // Debug
+            Console.WriteLine($"ViewLocator: {name}");
+            Console.WriteLine($"ViewLocator Created Control: {control}");
+            Console.WriteLine($"ViewLocator Created Control DataContext: {control.DataContext}");
+            
+            return control;
         }
 
-        return new TextBlock { Text = "Not Found: " + viewName };
+        return new TextBlock { Text = "Not Found: " + name };
     }
 
     public bool Match(object? data)
     {
-        throw new System.NotImplementedException();
+        return data is ViewModelBase;
     }
 }

@@ -12,7 +12,7 @@ using Mysqlx;
 using Org.BouncyCastle.Asn1.Cmp;
 using Tmds.DBus.Protocol;
 using System.Text.RegularExpressions;
-namespace GroupProject.Windows
+namespace GroupProject.Views
 {
     public partial class RegisterPageView : Window
     {

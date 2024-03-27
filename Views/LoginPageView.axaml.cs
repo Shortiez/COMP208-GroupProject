@@ -12,7 +12,7 @@ using System.Runtime.Intrinsics.Arm;
 using System.Text;
 using System.Security.Cryptography;
 
-namespace GroupProject.Windows
+namespace GroupProject.Views
 {
     public partial class LoginPageView : Window
     {

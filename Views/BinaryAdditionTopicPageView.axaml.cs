@@ -6,7 +6,7 @@ using Avalonia.Markup.Xaml;
 using GroupProject.Scripts.Questions;
 using GroupProject.Scripts.Questions.Quizzes.binaryAddition;
 
-namespace GroupProject.Windows;
+namespace GroupProject.Views;
 
 public partial class BinaryAdditionTopicPageView : Window
 {

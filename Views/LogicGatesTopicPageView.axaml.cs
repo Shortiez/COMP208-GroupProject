@@ -1,7 +1,7 @@
 using Avalonia.Controls;
 using Avalonia.Interactivity;
 
-namespace GroupProject.Windows
+namespace GroupProject.Views
 {
     public partial class LogicGatesTopicPageView : Window
     {

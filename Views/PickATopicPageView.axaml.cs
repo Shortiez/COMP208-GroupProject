@@ -8,7 +8,7 @@ using Avalonia.Markup.Xaml;
 using GroupProject.Scripts;
 using MySql.Data.MySqlClient;
 
-namespace GroupProject.Windows;
+namespace GroupProject.Views;
 
 public partial class PickATopicPageView : Window
 {

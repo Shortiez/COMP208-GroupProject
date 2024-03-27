@@ -1,21 +1,10 @@
 using System;
-using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.ComponentModel;
-using System.Runtime.CompilerServices;
-using Avalonia.Controls;
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
-using GroupProject.Scripts;
-using GroupProject.Windows;
+using GroupProject.Views;
 
 namespace GroupProject.ViewModels;
-
-struct ContentPage
-{
-    public string Title { get; set; }
-    public Window Window { get; set; }
-}
 
 public partial class MainContentWindowViewModel : ViewModelBase
 {
@@ -25,46 +14,35 @@ public partial class MainContentWindowViewModel : ViewModelBase
     [ObservableProperty]
     private ViewModelBase _currentPage = new HomePageViewModel();
     
-    private readonly ContentPage[] _contentPageMapping = new ContentPage[]
-    {
-        new ContentPage
-        {
-            Title = "Home", Window = new PickATopicPageView()
-        },
-        new ContentPage
-        {
-            Title = "Study", Window = new PickATopicPageView()
-        },
-        new ContentPage
-        {
-            Title = "Settings", Window = new SettingsPageView()
-        },
-        new ContentPage
-        {
-            Title = "Account", Window = new AccountPageView()
-        }
-    };
-
-    public ObservableCollection<SidebarListItem> SidebarListItems { get; } = new()
-    { 
-        new SidebarListItem(typeof(HomePageView))
-    };
+    [ObservableProperty]
+    private SidebarListItemTemplate _selectedListItem;
+    
+    public ObservableCollection<SidebarListItemTemplate> SidebarListItems { get; } =
+    [
+        new SidebarListItemTemplate(typeof(HomePageViewModel), "HomeRegular"),
+        new SidebarListItemTemplate(typeof(PickATopicPageView), "Study"),
+        new SidebarListItemTemplate(typeof(SettingsPageViewModel), "SettingsRegular"),
+        new SidebarListItemTemplate(typeof(AccountPageViewModel), "Account")
+    ];
     
     [RelayCommand]
     private void TriggerSidebar()
     {
         IsSidebarOpen = !IsSidebarOpen;
     }
-}
-
-public class SidebarListItemTemplate
-{
-    public string Label { get; }
-    public Type ModelType { get; }
     
-    public SidebarListItemTemplate(Type modelType)
+    partial void OnSelectedListItemChanged(SidebarListItemTemplate? value)
     {
-        ModelType = modelType;
-        Label = modelType.Name.Replace("PageViewModel", "");
+        if (value is null) return;
+
+        var instance = Activator.CreateInstance(value.ModelType);
+        // Debug
+        Console.WriteLine($"Selected: {value.ModelType.Name}");
+        
+        if(instance is null) return;
+
+        CurrentPage = (ViewModelBase)instance;
+        //Debug
+        Console.WriteLine($"Current Page: {CurrentPage.GetType().Name}");
     }
 }

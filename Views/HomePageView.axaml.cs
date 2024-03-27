@@ -2,9 +2,9 @@ using Avalonia;
 using Avalonia.Controls;
 using Avalonia.Markup.Xaml;
 
-namespace GroupProject.Windows;
+namespace GroupProject.Views;
 
-public partial class HomePageView : Window
+public partial class HomePageView : UserControl
 {
     public HomePageView()
     {

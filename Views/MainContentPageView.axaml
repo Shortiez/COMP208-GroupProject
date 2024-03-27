@@ -2,11 +2,15 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:viewModels="clr-namespace:GroupProject.ViewModels"
+        xmlns:viewModels="using:GroupProject.ViewModels"
         mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
-        x:Class="GroupProject.Windows.MainContentPageView"
+        
+        x:Class="GroupProject.Views.MainContentPageView"
         x:DataType="viewModels:MainContentWindowViewModel"
-        Title="HomeWindow">
+        
+        Title="Let Me Show You"
+        Width="800"
+        Height="450">
     
     <Design.DataContext>
         <viewModels:MainContentWindowViewModel/>
@@ -19,12 +23,18 @@
         <SplitView.Pane>
             <StackPanel Spacing="5"
                         Margin="5">
-                <Button Command="{Binding TriggerSidebarCommand}">-</Button>
-                <ListBox ItemsSource="{Binding SidebarListItems}">
+                <Button Command="{Binding TriggerSidebarCommand}">
+                    <PathIcon Height="12" Data="{StaticResource HamburgerRegular}"/>
+                </Button>
+                
+                <ListBox Margin="2 0 -100 0" Padding="0"
+                    ItemsSource="{Binding SidebarListItems}"
+                         SelectedItem="{Binding SelectedListItem}">
                     <ListBox.ItemTemplate>
                         <DataTemplate DataType="{x:Type viewModels:SidebarListItemTemplate}">
                             <StackPanel Spacing="15" Orientation="Horizontal">
-                                <TextBlock Text="{Binding Label}"></TextBlock>
+                                <PathIcon Data="{Binding Icon}" Width="15"/>
+                                <TextBlock Text="{Binding Label}"/>
                             </StackPanel>
                         </DataTemplate>
                     </ListBox.ItemTemplate>

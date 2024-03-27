@@ -2,7 +2,7 @@ using System.Linq;
 using Avalonia.Controls;
 using Avalonia.Interactivity;
 
-namespace GroupProject.Windows;
+namespace GroupProject.Views;
 
 struct TopicToWindow
 {
