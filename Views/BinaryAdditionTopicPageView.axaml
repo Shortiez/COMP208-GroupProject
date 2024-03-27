@@ -24,7 +24,6 @@
                             <ColumnDefinition Width = "*"/>
                             <ColumnDefinition Width = "*"/>
                         </Grid.ColumnDefinitions>
-
                         <StackPanel Grid.Column = "0">
                             <TextBlock Name="QuestionTitleTextBlock" Text="Question: What is 1010 + 0111?" />
 

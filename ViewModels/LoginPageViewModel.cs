@@ -7,7 +7,6 @@ using Avalonia.Controls;
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using GroupProject.Scripts;
-using GroupProject.Windows;
 
 namespace GroupProject.ViewModels;
 

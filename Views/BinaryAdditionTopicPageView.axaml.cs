@@ -1,3 +1,4 @@
+using System;
 using System.Linq;
 using Avalonia;
 using Avalonia.Controls;
@@ -57,7 +58,7 @@ public partial class BinaryAdditionTopicPageView : Window
         {
             // Incorrect
             AnswerTextBlock.Text = "Incorrect!" + "\n"
-                                                + "The correct answer was " + _currentQuestion.Answer;
+                                                + "The correct answer was " + Convert.ToString((_currentQuestion.Answer), 2);
         }
     }
 

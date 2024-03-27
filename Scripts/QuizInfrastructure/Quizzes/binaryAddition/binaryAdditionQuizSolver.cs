@@ -13,7 +13,7 @@ public class binaryAdditionQuizSolver : QuizSolver<int>
         int[] inputParameters = question.QuestionInput.ToArray();
         
         // The actual answer to the question is the sum of the two input parameters
-        var actualAnswer = Convert.ToByte(inputParameters[0].ToString(), 2) + Convert.ToByte(inputParameters[1].ToString(), 2);
+        var actualAnswer = inputParameters[0] + inputParameters[1];
         
         // Return the actual answer
         return actualAnswer;
