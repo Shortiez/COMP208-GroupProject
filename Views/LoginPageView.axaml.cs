@@ -41,7 +41,7 @@ namespace GroupProject.Windows
 
             string username = UsernameTextBox.Text;
             string password = PasswordTextBox.Text;
-            password = Hashes.Sha256(password);
+            
 
 
             ErrorMessage.Text = "";
@@ -49,6 +49,7 @@ namespace GroupProject.Windows
 
             if (IsValid(username) && IsValid(password))
             {
+                password = Hashes.Sha256(password);
                 try
                 {
                     MySqlConnection conn = connectionDB.connection;
