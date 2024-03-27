@@ -3,11 +3,10 @@ using Avalonia.Interactivity;
 
 namespace GroupProject.Views
 {
-<<<<<<<< Updated upstream:Views/LogicGatesTopicPageView.axaml.cs
-    public partial class LogicGatesTopicPageView : Window
+    public partial class CombinatoricsTopicWindow : Window
     {
-        public LogicGatesTopicPageView()
-========
+        public CombinatoricsTopicWindow();
+    }
     /*
     Note:
     I have changed from logic gates as for the majority of logic questions there are only 2 answers
@@ -19,7 +18,6 @@ namespace GroupProject.Views
     public partial class CombinatoricsTopicWindow : Window
     {
         public CombinatoricsTopicWindow()
->>>>>>>> Stashed changes:Views/CombinatoricsTopicWindow.axaml.cs
         {
             InitializeComponent();
         }

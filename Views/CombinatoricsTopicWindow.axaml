@@ -3,14 +3,8 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
-<<<<<<<< Updated upstream:Views/LogicGatesTopicPageView.axaml
-        x:Class="GroupProject.Views.LogicGatesTopicPageView"
-        Title="LogicGatesTopicWindow">
-  
-========
-        x:Class="GroupProject.Windows.LogicGatesTopicWindow"
-        Title="COmbinatoricsTopicWindow">
->>>>>>>> Stashed changes:Views/CombinatoricsTopicWindow.axaml
+        x:Class="GroupProject.Views.CombinatoricsTopicWindow"
+        Title="CombinatoricsTopicWindow">
   <Grid>
     <Grid.RowDefinitions>
       100,
