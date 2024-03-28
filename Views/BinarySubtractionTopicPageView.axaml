@@ -1,0 +1,59 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+        x:Class="GroupProject.Views.BinarySubtractionTopicPageView"
+        Title="BinarySubtractionTopicWindow">
+        
+        <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="100"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+                
+                <!-- Title -->
+                <TextBlock Grid.Row="0" Background="Blue" TextAlignment="Center" FontFamily="">
+                   Binary subtraction
+                </TextBlock>
+                        
+                <!-- Content -->
+                <StackPanel Grid.Row="1">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width = "*"/>
+                            <ColumnDefinition Width = "*"/>
+                        </Grid.ColumnDefinitions>
+                        <StackPanel Grid.Column = "0">
+                            <TextBlock Name="QuestionTitleTextBlock" Text="Question: What is 1010 - 0111?" />
+
+                            <StackPanel Name="OptionsPanel">   
+                            </StackPanel>
+
+                            <Button Content="Submit" Click="Button_OnClick_Submit"/>
+                            <Button Content="Generate New Question" Click="Button_OnClick_GenerateNewQuestion"/>
+                        
+                            <TextBlock Name="AnswerTextBlock" Text="Answer: " />
+                        
+                        </StackPanel>  
+
+                        <!--  Key Table -->
+                        <StackPanel Grid.Column="1"> 
+                            <Border BorderBrush="Blue" BorderThickness="2" CornerRadius = "10" Padding = "20">
+                                <TreeView VerticalAlignment = "Center">
+                                    <TreeViewItem Width="150" Header="Key Table" IsExpanded="False">
+                                        <TextBlock> 0 - 0 = 0 </TextBlock>
+                                        <TextBlock> 1 - 1 = 0 </TextBlock>
+                                        <TextBlock> 1 - 0 = 1 </TextBlock>
+                                        <TextBlock> 10 - 1 = 1 </TextBlock>
+                                        <TextBlock> 0 - 1 = 1 (borrow 1) </TextBlock>
+                                    </TreeViewItem>
+                                </TreeView>
+                            </Border>
+
+                    <!-- button to ask for help-->
+                        </StackPanel>
+                    </Grid>
+                </StackPanel>
+        </Grid>
+</Window>

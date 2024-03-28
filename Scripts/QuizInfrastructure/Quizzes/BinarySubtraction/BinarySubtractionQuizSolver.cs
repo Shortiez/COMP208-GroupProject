@@ -1,11 +1,11 @@
-namespace GroupProject.Scripts.Questions.Quizzes.BinaryAddition;
+namespace GroupProject.Scripts.Questions.Quizzes.BinarySubtraction;
 using System;
 using Org.BouncyCastle.Utilities;
 
 /**
- * A quiz solver for the Binaryaddition quiz.
+ * A quiz solver for the BinarySubtraction quiz.
  */
-public class BinaryAdditionQuizSolver : QuizSolver<int>
+public class BinarySubtractionQuizSolver : QuizSolver<int>
 {
     public override int Solve(QuizQuestion<int> question)
     {
@@ -13,7 +13,7 @@ public class BinaryAdditionQuizSolver : QuizSolver<int>
         int[] inputParameters = question.QuestionInput.ToArray();
         
         // The actual answer to the question is the sum of the two input parameters
-        var actualAnswer = inputParameters[0] + inputParameters[1];
+        var actualAnswer = inputParameters[0] - inputParameters[1];
         
         // Return the actual answer
         return actualAnswer;

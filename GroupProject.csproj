@@ -6,7 +6,19 @@
     <BuiltInComInteropSupport>true</BuiltInComInteropSupport>
     <ApplicationManifest>app.manifest</ApplicationManifest>
     <AvaloniaUseCompiledBindingsByDefault>true</AvaloniaUseCompiledBindingsByDefault>
+    <ApplicationIcon>Icon-mankey.ico</ApplicationIcon>
   </PropertyGroup>
+  <ItemGroup>
+    <None Remove="Assets\LMSY-Logo.png" />
+    <None Remove="Assets\Red-Square.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Icon-mankey.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Assets\LMSY-Logo.png" />
+    <EmbeddedResource Include="Assets\Red-Square.png" />
+  </ItemGroup>
 
 
   <ItemGroup>
