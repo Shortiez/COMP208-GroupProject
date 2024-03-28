@@ -41,24 +41,27 @@
     </Style>
     
     <Style Selector="TextBox">
-        <Setter Property="Foreground" Value="#13407a"/>
+        <!--<Setter Property="Foreground" Value="#13407a"/>-->
+        <Setter Property="Foreground" Value="White"/>
         <Setter Property="BorderBrush" Value="Transparent"/>
         <Setter Property="Background" Value="#3e3e3e"/>
         <Setter Property="Padding" Value="10"/>
         <Setter Property="Margin" Value="0,0,0,20"/>
     </Style>
     <Style Selector="TextBox[IsFocused=true]">
-        <Setter Property="Background" Value="#13407a"/>
+        <!--<Setter Property="Background" Value="#13407a"/>-->
     </Style>
     
     <Style Selector="TextBlock">
-        <Setter Property="Foreground" Value="#13407a"/>
+        <!--<Setter Property="Foreground" Value="#13407a"/>-->
+        <Setter Property="Foreground" Value="White"/>
     </Style>
     
     <Style Selector="TextBlock.title">
         <Setter Property="FontSize" Value="36"/>
         <Setter Property="FontWeight" Value="Bold"/>
-        <Setter Property="Foreground" Value="#13407a"/>
+        <!--<Setter Property="Foreground" Value="#13407a"/>-->
+        <Setter Property="Foreground" Value="White"/>
     </Style>
     <!-- subtitle -->
     <Style Selector="TextBlock.subtitle">
