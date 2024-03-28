@@ -13,4 +13,9 @@
         <StyleInclude Source="AppStyles.axaml"/>
         <StyleInclude Source="AppIcons.axaml"/>
     </Application.Styles>
+    <!--
+    <Application.Resources>
+        <FontFamily x:Key="Neuton" Source:"/Assets/Fonts/Neuton-Regular.ttf"></FontFamily>
+    </Application.Resources>
+    -->
 </Application>
