@@ -1,4 +1,6 @@
-﻿namespace GroupProject.Scripts.Questions.Quizzes.Combinatorics;
+﻿using System;
+
+namespace GroupProject.Scripts.Questions.Quizzes.Combinatorics;
 
 public class CombQuizSolver : QuizSolver<int>
 {
@@ -12,9 +14,12 @@ public class CombQuizSolver : QuizSolver<int>
 
         var actualAnswer = 1;
 
-        for (int i = inputParameters[1]; i >= inputParameters[0]; i = i - 1)
+        var param1 = inputParameters[1];
+
+        for (int i = 1; i <= inputParameters[0]; i++)
         {
-            actualAnswer = actualAnswer * i;
+            actualAnswer = actualAnswer * param1;
+            param1 = param1 - 1;
         }
 
         // Return the actual answer

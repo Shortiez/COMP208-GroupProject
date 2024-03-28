@@ -11,8 +11,8 @@ public class CombQuizGenerator : QuizGenerator<int>
 
         //b needs > than a
 
-        int a = Random.Next(1, 10);
-        int b = Random.Next(a + 1, 30);
+        int a = Random.Next(1, 4);
+        int b = Random.Next(a + 1, 8);
         newQuestion.QuestionInput.Add(a);
         newQuestion.QuestionInput.Add(b);
 
