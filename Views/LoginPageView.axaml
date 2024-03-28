@@ -2,8 +2,10 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:viewModels="clr-namespace:GroupProject.ViewModels"
         mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
-        x:Class="GroupProject.Views.LoginPageView">
+        x:Class="GroupProject.Views.LoginPageView"
+        x:DataType="viewModels:LoginPageViewModel">
     
     <Grid Background="#2c2b2b">
         <Grid.ColumnDefinitions>
@@ -23,9 +25,9 @@
             <TextBox Width="240" Name="PasswordTextBox" Watermark="Password" Margin="0,0,0,30" BorderBrush="Red" BorderThickness="0"/>
             
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
-                <TextBlock Name="ForgotPassword" Text="Forgot Password?"
+                <TextBlock Text="Forgot Password?"
                            HorizontalAlignment="Center" Margin="0,0,0,20"/>
-                <CheckBox Name="RememberMeCheckBox" Content="Remember Me"
+                <CheckBox Content="Remember Me"
                           HorizontalAlignment="Center" Margin="0,0,0,20"
                           Foreground="White"/>
             </StackPanel>
@@ -33,9 +35,15 @@
             <TextBlock Classes="error" Name="ErrorMessage" Width="240" HorizontalAlignment="Center" Margin="0,0,0,10" IsVisible="False">
                 Error Message Here!
             </TextBlock>
-            <Button Classes="round primary" Name="LoginButton" Content="Login" Width="240" HorizontalAlignment="Center" Margin="0,0,0,20" Click="OnLoginPressed"/>
-            <Button Classes="lowkey" Name="LoginAsGuestButton" Content="Login As Guest" Width="240" 
-                    HorizontalAlignment="Center" Margin="0,0,0,20" Click="OnLoginAsGuestPressed"/>
+            <Button Command="{Binding LoginClickedCommand }"
+                    Classes="round primary" 
+                    Content="Login" 
+                    Width="240" HorizontalAlignment="Center" Margin="0,0,0,20"/>
+            <Button Command="{Binding LoginAsGuestClickedCommand}"
+                    Classes="lowkey" 
+                    Content="Login As Guest"
+                    Width="240" 
+                    HorizontalAlignment="Center" Margin="0,0,0,20"/>
             
             <Grid Width="240" HorizontalAlignment="Center" Margin="0,0,0,20">
                 <Grid.ColumnDefinitions>
@@ -49,8 +57,10 @@
                 <Separator Grid.Column="2" Background="White"/>
             </Grid>
 
-            <Button Content="Register" Width="240" HorizontalAlignment="Center" Click="OnRegisterPressed"
-                    Classes="hollow"/>
+            <Button Command="{Binding RegisterClickedCommand}"
+                    Classes="hollow"
+                    Content="Register"
+                    Width="240" HorizontalAlignment="Center"/>
         </StackPanel>
     </Grid>
 </UserControl>

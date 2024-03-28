@@ -2,8 +2,10 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:viewModels="clr-namespace:GroupProject.ViewModels"
         mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
-        x:Class="GroupProject.Views.RegisterPageView">
+        x:Class="GroupProject.Views.RegisterPageView"
+        x:DataType="viewModels:RegisterPageViewModel">
     <Grid Background="#2c2b2b">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*"/>
@@ -16,14 +18,28 @@
             <TextBlock Text="Welcome" Foreground="White"
                        FontSize="24" FontWeight="Bold" 
                        HorizontalAlignment="Center" Margin="0,0,0,20"/>
-            <TextBox Name="Email" Watermark="Email" Width="240" Margin="0,0,0,10" BorderBrush="Red" BorderThickness="0"/>
-            <TextBox Name="Username" Watermark="Username At Least 6 Characters" Width="240" Margin="0,0,0,10" BorderBrush="Red" BorderThickness="0"/>
-            <TextBox Name="Password" Watermark="Password At Least 6 Characters" Width="240" Margin="0,0,0,10" BorderBrush="Red" BorderThickness="0"/>
             
-            <TextBlock Classes="error" Name="ErrorMessage" Width="240" HorizontalAlignment="Center" Margin="0,0,0,10" IsVisible="False">
-                Error Message Here!
-            </TextBlock>
-            <Button Classes="round primary" Name="RegisterButton" Content="Register" Width="240" HorizontalAlignment="Center" Margin="0,0,0,10" Click="OnRegisterPressed"/>
+            <TextBox Text="{Binding Email}" 
+                     Watermark="Enter your email..." 
+                     Width="240" Margin="0,0,0,10" 
+                     BorderBrush="Red" BorderThickness="{Binding EmailBorderThickness}"/>
+            <TextBox Text="{Binding Username}" 
+                     Watermark="Username At Least 6 Characters" 
+                     Width="240" Margin="0,0,0,10"
+                     BorderBrush="Red" BorderThickness="{Binding UsernameBorderThickness}"/>
+            <TextBox Text="{Binding Password}" 
+                     Watermark="Password At Least 6 Characters" 
+                     Width="240" Margin="0,0,0,10"
+                     BorderBrush="Red" BorderThickness="{Binding PasswordBorderThickness}"/>
+            <TextBlock Text="{Binding ErrorMessage}"
+                       Classes="error" FontSize="12"
+                       Width="240" HorizontalAlignment="Center" Margin="0,0,0,10"
+                       IsVisible="{Binding ErrorMessageIsVisible}"/>
+            
+            <Button Classes="round primary" 
+                    Content="Register"
+                    Width="240" HorizontalAlignment="Center" Margin="0,0,0,10" 
+                    Command="{Binding RegisterClickedCommand}"/>
             
             <Grid Width="240" HorizontalAlignment="Center" Margin="0,0,0,20">
                 <Grid.ColumnDefinitions>
@@ -37,7 +53,9 @@
                 <Separator Grid.Column="2" Background="White"/>
             </Grid>
 
-            <Button Classes="round" Content="Login" Width="240" HorizontalAlignment="Center" Click="OnLoginPressed"/>
+            <Button Command="{Binding SwitchToLoginClickedCommand}"
+                    Classes="round" Content="Login" 
+                    Width="240" HorizontalAlignment="Center"/>
         </StackPanel>
     </Grid>
 </UserControl>

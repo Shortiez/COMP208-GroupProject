@@ -33,7 +33,7 @@ public partial class PickATopicPageViewModel : ViewModelBase
 
     protected ObservableCollection<TopicsListItemTemplate> TopicsListItems { get; } = new()
     {
-        new TopicsListItemTemplate("Addition")   
+        new TopicsListItemTemplate("Recognizing Conflicts"),   
     };
         
     private void LoadTopics()

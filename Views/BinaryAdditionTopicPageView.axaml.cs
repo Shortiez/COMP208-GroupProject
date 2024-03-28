@@ -15,7 +15,6 @@ public partial class BinaryAdditionTopicPageView : UserControl
     private RadioButton _selectedOption => OptionsPanel.Children.OfType<RadioButton>().FirstOrDefault(r => r.IsChecked == true);
     private QuizQuestion<int> _currentQuestion;
 
-
     public BinaryAdditionTopicPageView()
     {
         InitializeComponent();
