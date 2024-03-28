@@ -9,6 +9,8 @@
     <ApplicationIcon>Icon-mankey.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
+    <None Remove="Assets\homepage-background.png" />
+    <None Remove="Assets\homepage-logo.png" />
     <None Remove="Assets\LMSY-Logo.png" />
     <None Remove="Assets\Red-Square.png" />
   </ItemGroup>
@@ -16,6 +18,8 @@
     <Content Include="Icon-mankey.ico" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Assets\homepage-background.png" />
+    <EmbeddedResource Include="Assets\homepage-logo.png" />
     <EmbeddedResource Include="Assets\LMSY-Logo.png" />
     <EmbeddedResource Include="Assets\Red-Square.png" />
   </ItemGroup>
