@@ -8,7 +8,7 @@ using GroupProject.Scripts.Questions.Quizzes.Example;
 
 namespace GroupProject.Views;
 
-public partial class ExampleTopicPageView : Window
+public partial class ExampleTopicPageView : UserControl
 {
     private AdditionQuizGenerator _quizGenerator = new AdditionQuizGenerator();
     private RadioButton _selectedOption => OptionsPanel.Children.OfType<RadioButton>().FirstOrDefault(r => r.IsChecked == true);

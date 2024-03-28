@@ -1,12 +1,17 @@
-<Window xmlns="https://github.com/avaloniaui"
+<UserControl xmlns="https://github.com/avaloniaui"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:viewModels="clr-namespace:GroupProject.ViewModels"
+        x:DataType="viewModels:TopicLearnSelectorPageViewModel"
         mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
-        x:Class="GroupProject.Views.TopicLearnSelectorPageView"
-        Title="TopicWindow">
-        
-      <Grid>
+        x:Class="GroupProject.Views.TopicLearnSelectorPageView">
+    
+    <Design.DataContext>
+        <viewModels:TopicLearnSelectorPageViewModel/>
+    </Design.DataContext>
+    
+    <Grid>
           <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/> 
             <RowDefinition Height="*"/>
@@ -15,7 +20,7 @@
           
           <!-- The top bar -->
           <StackPanel Grid.Row="0" Orientation="Horizontal" HorizontalAlignment="Center">
-              <TextBlock Name="TopicTitle" Classes="title" Text="Topic To Learn"/>
+              <TextBlock Classes="title" Text="{Binding CurrentTopic}"/>
           </StackPanel>
           
           <!-- Two large circular buttons for the two choices-->
@@ -24,12 +29,12 @@
                       VerticalAlignment="Center"
                       >
               <Button Classes="circle secondary" Width="100" Height="100" Margin="0, 0, 50, 0"
-                      Click="Button_OnClick_LoadQuestions">
+                      Command="{Binding ClickLoadQuestionsCommand}">
                   <TextBlock Text="Questions" VerticalAlignment="Center"/>  
               </Button>
               <TextBlock Classes="subtitle" VerticalAlignment="Center"> OR </TextBlock>
               <Button Classes="circle secondary" Width="100" Height="100" Margin="50, 0, 0, 0"
-                      Click="Button_OnClick_LoadExamples">
+                      Command="{Binding ClickLoadExamplesCommand}">
                   <TextBlock Text="Examples" VerticalAlignment="Center"/>
               </Button>
           </StackPanel>
@@ -37,7 +42,7 @@
           <!-- The bottom bar -->
           <StackPanel Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Bottom">
               <Button Name="BackButton" Classes="primary round" Content="Back to Home"
-                      Width="130" Height="30" Click="Button_OnClick_BackToHome"/>
+                      Width="130" Height="30" Command="{Binding ClickBackToHomeCommand}"/>
           </StackPanel>
       </Grid>
-</Window>
+</UserControl>

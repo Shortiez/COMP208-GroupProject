@@ -2,9 +2,9 @@ using Avalonia.Controls;
 
 namespace GroupProject.Views;
 
-public partial class TopicLearnSelectorPageView : UserControl
+public partial class MainWindow : Window
 {
-    public TopicLearnSelectorPageView()
+    public MainWindow()
     {
         InitializeComponent();
     }

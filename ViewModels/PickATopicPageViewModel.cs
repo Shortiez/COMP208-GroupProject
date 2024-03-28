@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Data;
+using Avalonia;
 using Avalonia.Controls;
 using Avalonia.Input;
 using CommunityToolkit.Mvvm.ComponentModel;
@@ -66,22 +67,27 @@ public partial class PickATopicPageViewModel : ViewModelBase
             Console.WriteLine(ex.Message);
         }
     }
-    
-    private void TriggerTopicClicked(string? topicName)
-    {
-        var window = new TopicLearnSelectorPageView()
-        {
-            TopicToDisplay = topicName,
-        };
 
-        window.Show();
-        window.InitWindow();
+    private void TriggerTopicClicked()
+    {
+        var topicName = SelectedItem.Content?.ToString();
+        Console.WriteLine($"Selected Topic: {topicName}");
+        
+        var topic = new TopicLearnSelectorPageViewModel()
+        {
+            CurrentTopic = topicName
+        };
+        
+        Console.WriteLine($"Topic: {topic.CurrentTopic}");
+
+        var mainWindow = Application.Current.DataContext as MainWindowViewModel;
+        Console.WriteLine($"Main Window: {mainWindow}");
+        mainWindow.CurrentContent = topic;
     }
 
     partial void OnSelectedItemChanged(ListBoxItem value)
     {
+        TriggerTopicClicked();
         Console.WriteLine($"Selected Topic: {value.Content}");
-
-        TriggerTopicClicked(value.Content?.ToString());
     }
 }

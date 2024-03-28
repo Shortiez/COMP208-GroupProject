@@ -1,20 +1,16 @@
 using System;
-using System.Data;
-using System.Data.Common;
-using Avalonia;
 using Avalonia.Controls;
 using Avalonia.Interactivity;
-using Avalonia.Markup.Xaml;
-using ExCSS;
 using GroupProject.Scripts;
 using MySql.Data.MySqlClient;
-using Mysqlx;
-using Org.BouncyCastle.Asn1.Cmp;
-using Tmds.DBus.Protocol;
+ 
 using System.Text.RegularExpressions;
+using Avalonia;
+using GroupProject.ViewModels;
+
 namespace GroupProject.Views
 {
-    public partial class RegisterPageView : Window
+    public partial class RegisterPageView : UserControl
     {
         DatabaseConnection connectionDB = new DatabaseConnection();
 
@@ -120,10 +116,8 @@ namespace GroupProject.Views
                                     command.ExecuteNonQuery();
                                 }
                                 conn.Close();
-                                var loginWindow = new LoginPageView();
-                                loginWindow.Show();
-
-                                this.Close();
+                                
+                                OnRegister();
                             }
                         }
                         catch (Exception ex)
@@ -176,14 +170,23 @@ namespace GroupProject.Views
             }
         }
 
+        private void OnRegister()
+        {
+            var mainWindowViewModel = (MainWindowViewModel)Application.Current?.DataContext!;
+            mainWindowViewModel.CurrentContent = new MainContentPageViewModel();
+        }
+
         private void OnLoginPressed(object? sender, RoutedEventArgs e)
         {
             Console.WriteLine("Login pressed");
 
-            LoginPageView loginWindow = new LoginPageView();
-            loginWindow.Show();
+            ShowLoginPage();
+        }
 
-            this.Close();
+        private void ShowLoginPage()
+        {
+            var mainWindowViewModel = (MainWindowViewModel)Application.Current?.DataContext!;
+            mainWindowViewModel.CurrentContent = new LoginPageViewModel();
         }
     }
 }

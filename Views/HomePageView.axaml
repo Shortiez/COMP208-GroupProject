@@ -10,10 +10,8 @@
         >
         
         <Grid>
-			<Image x:Name="BackgroundImage" Margin="200" Height="4000" Width="3000"
-               Source="C:\Users\user\Documents\GitHub\COMP208-GroupProject\Assets\homepage-background.png"/>
-			<Image x:Name="LogoImage" Margin="200" Height="400" Width="300"
-				   Source="C:\Users\user\Documents\GitHub\COMP208-GroupProject\Assets\homepage-logo.png"/>
+			<Image x:Name="BackgroundImage" Margin="200" Height="4000" Width="3000"/>
+			<Image x:Name="LogoImage" Margin="200" Height="400" Width="300"/>
         
         </Grid>
 </UserControl>

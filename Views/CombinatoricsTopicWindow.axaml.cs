@@ -15,7 +15,7 @@ using GroupProject.Scripts.Questions.Quizzes.Combinatorics;
 
 namespace GroupProject.Views;
 
-public partial class CombinatoricsTopicWindow : Window
+public partial class CombinatoricsTopicWindow : UserControl
 {
     private CombQuizGenerator _quizGenerator = new CombQuizGenerator();
     private RadioButton _selectedOption => OptionsPanel.Children.OfType<RadioButton>().FirstOrDefault(r => r.IsChecked == true);

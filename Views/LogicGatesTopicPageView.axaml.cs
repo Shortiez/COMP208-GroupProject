@@ -3,7 +3,7 @@ using Avalonia.Interactivity;
 
 namespace GroupProject.Views
 {
-    public partial class LogicGatesTopicPageView : Window
+    public partial class LogicGatesTopicPageView : UserControl
     {
         public LogicGatesTopicPageView()
         {

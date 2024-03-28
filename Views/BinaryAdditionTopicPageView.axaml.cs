@@ -9,7 +9,7 @@ using GroupProject.Scripts.Questions.Quizzes.BinaryAddition;
 
 namespace GroupProject.Views;
 
-public partial class BinaryAdditionTopicPageView : Window
+public partial class BinaryAdditionTopicPageView : UserControl
 {
     private BinaryAdditionQuizGenerator _quizGenerator = new BinaryAdditionQuizGenerator();
     private RadioButton _selectedOption => OptionsPanel.Children.OfType<RadioButton>().FirstOrDefault(r => r.IsChecked == true);

@@ -9,7 +9,7 @@ using GroupProject.Scripts.Questions.Quizzes.BinarySubtraction;
 
 namespace GroupProject.Views;
 
-public partial class BinarySubtractionTopicPageView : Window
+public partial class BinarySubtractionTopicPageView : UserControl
 {
     private BinarySubtractionQuizGenerator _quizGenerator = new BinarySubtractionQuizGenerator();
     private RadioButton _selectedOption => OptionsPanel.Children.OfType<RadioButton>().FirstOrDefault(r => r.IsChecked == true);

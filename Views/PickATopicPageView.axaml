@@ -25,11 +25,12 @@
                 
                 <ListBox Grid.Row="1"
                          ItemsSource="{Binding TopicsListItems}"
-                         SelectedItem="{Binding SelectedItem}">
+                         SelectedItem="{Binding SelectedItem}"
+                         Background="Black">
                         <ListBox.ItemTemplate>
                                 <DataTemplate DataType="{x:Type models:TopicsListItemTemplate}">
                                         <StackPanel>
-                                                <TextBlock Text="{Binding TopicName}"/>
+                                                <TextBlock Classes="subtitle" Text="{Binding TopicName}"/>
                                         </StackPanel>
                                 </DataTemplate>
                         </ListBox.ItemTemplate>

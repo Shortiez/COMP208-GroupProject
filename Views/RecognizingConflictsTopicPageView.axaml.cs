@@ -6,7 +6,7 @@ using System.Collections.Generic;
 
 namespace GroupProject.Views;
 
-public partial class RecognizingConflictsTopicPageView : Window
+public partial class RecognizingConflictsTopicPageView : UserControl
 {
 
 

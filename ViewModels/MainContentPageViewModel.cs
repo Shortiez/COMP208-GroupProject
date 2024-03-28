@@ -7,9 +7,9 @@ using GroupProject.Views;
 
 namespace GroupProject.ViewModels;
 
-public partial class MainContentWindowViewModel : ViewModelBase
+public partial class MainContentPageViewModel : ViewModelBase
 {
-    [ObservableProperty] 
+    [ObservableProperty]
     private bool _isSidebarOpen = true;
 
     [ObservableProperty]

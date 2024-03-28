@@ -11,10 +11,11 @@ using GroupProject.Scripts;
 using System.Runtime.Intrinsics.Arm;
 using System.Text;
 using System.Security.Cryptography;
+using GroupProject.ViewModels;
 
 namespace GroupProject.Views
 {
-    public partial class LoginPageView : Window
+    public partial class LoginPageView : UserControl
     {
         DatabaseConnection connectionDB = new DatabaseConnection();
         MySqlCommand command;
@@ -41,8 +42,6 @@ namespace GroupProject.Views
 
             string username = UsernameTextBox.Text;
             string password = PasswordTextBox.Text;
-            
-
 
             ErrorMessage.Text = "";
             ErrorMessage.FontSize = 12;
@@ -64,9 +63,7 @@ namespace GroupProject.Views
                         {
                             if (reader.HasRows)
                             {
-                                var homeWindow = new MainContentPageView(username);
-                                homeWindow.Show();
-                                this.Close();
+                                Login();
                             }
                             else
                             {
@@ -109,16 +106,19 @@ namespace GroupProject.Views
         {
             Console.WriteLine("Register pressed");
 
-            var registerWindow = new RegisterPageView();
-            registerWindow.Show();
-
-            this.Close();
+            var mainWindowViewModel = (MainWindowViewModel)Application.Current?.DataContext!;
+            mainWindowViewModel.CurrentContent = new RegisterPageViewModel();
         }
 
         private void OnLoginAsGuestPressed(object? sender, RoutedEventArgs e)
         {
-            new MainContentPageView("Guest").Show();
-            this.Close();
+            Login();
+        }
+
+        private void Login()
+        {
+            var mainWindowViewModel = (MainWindowViewModel)Application.Current?.DataContext!;
+            mainWindowViewModel.CurrentContent = new MainContentPageViewModel();
         }
     }
 }
