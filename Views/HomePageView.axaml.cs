@@ -22,7 +22,7 @@ namespace GroupProject.Views
         }
 
         private async void AnimatedMonke()
-        {
+        {   //add random
             //values for animation times
             var timeOnBlink = TimeSpan.FromSeconds(0.35);
             var timeOnKeyframe = TimeSpan.FromSeconds(3.5); 

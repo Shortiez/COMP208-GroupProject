@@ -31,7 +31,7 @@
                         <DataTemplate DataType="{x:Type models:SidebarListItemTemplate}">
                             <StackPanel Spacing="15" Orientation="Horizontal">
                                 <PathIcon Data="{Binding Icon}" Width="15"/>
-                                <TextBlock Text="{Binding Label}"/>
+                                <TextBlock Classes ="" Text="{Binding Label}"/>
                             </StackPanel>
                         </DataTemplate>
                     </ListBox.ItemTemplate>
