@@ -2,10 +2,39 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:viewModels="clr-namespace:GroupProject.ViewModels"
+        xmlns:models="clr-namespace:GroupProject.Models"
         mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
-        x:Class="GroupProject.Views.PickATopicPageView">
+        x:Class="GroupProject.Views.PickATopicPageView"
+        x:DataType="viewModels:PickATopicPageViewModel">
         
-        <TreeView Name="ModuleTopics">
-                <TreeViewItem></TreeViewItem>
-        </TreeView>
+        <Design.DataContext>
+                <viewModels:PickATopicPageViewModel/>
+        </Design.DataContext>
+        
+        <Grid>
+                <Grid.RowDefinitions>
+                        10*
+                        90*
+                </Grid.RowDefinitions>
+                
+                <StackPanel Grid.Row="0"
+                            Orientation="Vertical">
+                        <TextBox Watermark="Search For Topics..."></TextBox>
+                </StackPanel>
+                
+                <ListBox Grid.Row="1"
+                         ItemsSource="{Binding TopicsListItems}"
+                         SelectedItem="{Binding SelectedItem}">
+                        <ListBox.ItemTemplate>
+                                <DataTemplate DataType="{x:Type models:TopicsListItemTemplate}">
+                                        <StackPanel>
+                                                <TextBlock Text="{Binding TopicName}"/>
+                                        </StackPanel>
+                                </DataTemplate>
+                        </ListBox.ItemTemplate>
+                        
+                        <ListBoxItem Content="Binary Addition"></ListBoxItem>
+                </ListBox>
+        </Grid>
 </UserControl>

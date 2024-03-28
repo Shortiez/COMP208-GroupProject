@@ -20,11 +20,6 @@ public class ViewLocator : IDataTemplate
             var control = (Control)Activator.CreateInstance(type)!;
             control.DataContext = data;
             
-            // Debug
-            Console.WriteLine($"ViewLocator: {name}");
-            Console.WriteLine($"ViewLocator Created Control: {control}");
-            Console.WriteLine($"ViewLocator Created Control DataContext: {control.DataContext}");
-            
             return control;
         }
 

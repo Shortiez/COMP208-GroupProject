@@ -3,7 +3,7 @@ using Avalonia;
 using Avalonia.Controls;
 using Avalonia.Media;
 
-namespace GroupProject.ViewModels;
+namespace GroupProject.Models;
 
 public class SidebarListItemTemplate
 {
