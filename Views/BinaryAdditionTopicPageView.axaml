@@ -13,10 +13,11 @@
                 </Grid.RowDefinitions>
                 
                 <!-- Title -->
-                <TextBlock Grid.Row="0" Background="Blue" TextAlignment="Center" FontFamily="">
-                   Binary addition
-                </TextBlock>
-                        
+                <StackPanel Grid.Row="0" Background="#00417e">
+                    <TextBlock FontSize="30" TextAlignment="Center"   VerticalAlignment="Center" FontFamily="Georgia">Binary Addition</TextBlock>
+                </StackPanel>
+                    
+                    
                 <!-- Content -->
                 <StackPanel Grid.Row="1">
                     <Grid>
@@ -24,22 +25,25 @@
                             <ColumnDefinition Width = "*"/>
                             <ColumnDefinition Width = "*"/>
                         </Grid.ColumnDefinitions>
-                        <StackPanel Grid.Column = "0">
-                            <TextBlock Name="QuestionTitleTextBlock" Text="Question: What is 1010 + 0111?" />
-
-                            <StackPanel Name="OptionsPanel">   
-                            </StackPanel>
-
-                            <Button Content="Submit" Click="Button_OnClick_Submit"/>
-                            <Button Content="Generate New Question" Click="Button_OnClick_GenerateNewQuestion"/>
                         
-                            <TextBlock Name="AnswerTextBlock" Text="Answer: " />
-                        
-                        </StackPanel>  
+                        <Border BorderBrush="#00417e" BorderThickness="2" CornerRadius = "10" Padding = "20">
+                            <StackPanel Grid.Column = "0">
+                                <TextBlock Name="QuestionTitleTextBlock" Text="Question: What is 1010 + 0111?" />
+
+                                <StackPanel Name="OptionsPanel">   
+                                </StackPanel>
+
+                                <Button Content="Submit" Click="Button_OnClick_Submit"/>
+                                <Button Content="Generate New Question" Click="Button_OnClick_GenerateNewQuestion"/>
+                            
+                                <TextBlock Name="AnswerTextBlock" Text="Answer: " />
+                            
+                            </StackPanel>  
+                        </Border>
 
                         <!--  Key Table -->
                         <StackPanel Grid.Column="1"> 
-                            <Border BorderBrush="Blue" BorderThickness="2" CornerRadius = "10" Padding = "20">
+                            <Border BorderBrush="#00417e" BorderThickness="2" CornerRadius = "10" Padding = "20">
                                 <TreeView VerticalAlignment = "Center">
                                     <TreeViewItem Width="150" Header="Key Table" IsExpanded="False">
                                         <TextBlock> 0 + 0 = 0 </TextBlock>
