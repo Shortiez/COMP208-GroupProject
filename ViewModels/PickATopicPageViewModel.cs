@@ -71,23 +71,17 @@ public partial class PickATopicPageViewModel : ViewModelBase
     private void TriggerTopicClicked()
     {
         var topicName = SelectedItem.Content?.ToString();
-        Console.WriteLine($"Selected Topic: {topicName}");
         
         var topic = new TopicLearnSelectorPageViewModel()
         {
             CurrentTopic = topicName
         };
         
-        Console.WriteLine($"Topic: {topic.CurrentTopic}");
-
-        var mainWindow = Application.Current.DataContext as MainWindowViewModel;
-        Console.WriteLine($"Main Window: {mainWindow}");
-        mainWindow.CurrentContent = topic;
+        App.MainWindow.CurrentContent = topic;
     }
 
     partial void OnSelectedItemChanged(ListBoxItem value)
     {
         TriggerTopicClicked();
-        Console.WriteLine($"Selected Topic: {value.Content}");
     }
 }
