@@ -35,7 +35,7 @@
                                 </DataTemplate>
                         </ListBox.ItemTemplate>
                         
-                        <ListBoxItem Content="Binary Addition"></ListBoxItem>
+        
                 </ListBox>
         </Grid>
 </UserControl>

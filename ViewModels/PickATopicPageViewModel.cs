@@ -31,7 +31,7 @@ public partial class PickATopicPageViewModel : ViewModelBase
         Console.WriteLine($"Topics: {TopicsListItems.Count}");
     }
 
-    protected ObservableCollection<TopicsListItemTemplate> TopicsListItems { get; } = new()
+    public ObservableCollection<TopicsListItemTemplate> TopicsListItems { get; } = new()
     {
         new TopicsListItemTemplate("Recognizing Conflicts"),   
     };
@@ -52,10 +52,11 @@ public partial class PickATopicPageViewModel : ViewModelBase
                 {
                     while (reader.Read())
                     {
-                        string? moduleName = reader["ModuleName"].ToString();
                         string? topicName = reader["TopicName"].ToString();
                             
-                        TopicsListItems.Add(new TopicsListItemTemplate(topicName));
+                        TopicsListItemTemplate item = new TopicsListItemTemplate(topicName);
+
+                        TopicsListItems.Add(item);
                     }
                 }
             }
@@ -68,20 +69,27 @@ public partial class PickATopicPageViewModel : ViewModelBase
         }
     }
 
+
     private void TriggerTopicClicked()
     {
         var topicName = SelectedItem.Content?.ToString();
+        Console.WriteLine($"Selected Topic: {topicName}");
         
         var topic = new TopicLearnSelectorPageViewModel()
         {
             CurrentTopic = topicName
         };
         
-        App.MainWindow.CurrentContent = topic;
+        Console.WriteLine($"Topic: {topic.CurrentTopic}");
+
+        var mainWindow = Application.Current.DataContext as MainWindowViewModel;
+        Console.WriteLine($"Main Window: {mainWindow}");
+        mainWindow.CurrentContent = topic;
     }
 
     partial void OnSelectedItemChanged(ListBoxItem value)
     {
         TriggerTopicClicked();
+        Console.WriteLine($"Selected Topic: {value.Content}");
     }
 }
