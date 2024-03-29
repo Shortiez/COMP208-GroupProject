@@ -3,7 +3,6 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:viewModels="clr-namespace:GroupProject.ViewModels"
-        xmlns:models="clr-namespace:GroupProject.Models"
         mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
         x:Class="GroupProject.Views.PickATopicPageView"
         x:DataType="viewModels:PickATopicPageViewModel">
@@ -23,19 +22,8 @@
                         <TextBox Watermark="Search For Topics..."></TextBox>
                 </StackPanel>
                 
-                <ListBox Grid.Row="1"
-                         ItemsSource="{Binding TopicsListItems}"
-                         SelectedItem="{Binding SelectedItem}"
-                         Background="Black">
-                        <ListBox.ItemTemplate>
-                                <DataTemplate DataType="{x:Type models:TopicsListItemTemplate}">
-                                        <StackPanel>
-                                                <TextBlock Classes="subtitle" Text="{Binding TopicName}"/>
-                                        </StackPanel>
-                                </DataTemplate>
-                        </ListBox.ItemTemplate>
-                        
-        
-                </ListBox>
+                <TreeView Grid.Row="1"
+                        ItemsSource="{Binding ModuleListItems}">
+                </TreeView>
         </Grid>
 </UserControl>

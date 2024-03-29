@@ -31,8 +31,6 @@ public partial class App : Application
             
             MainWindow = desktop.MainWindow.DataContext as MainWindowViewModel;
             MainWindow.CurrentContent = new RegisterPageViewModel();
-            Console.WriteLine($"App Set MainWindow: {MainWindow}");
-            Console.WriteLine("App MainWindow DataContext: " + desktop.MainWindow.DataContext);
         }
         
         base.OnFrameworkInitializationCompleted();

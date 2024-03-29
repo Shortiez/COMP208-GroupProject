@@ -21,22 +21,24 @@ public partial class PickATopicPageViewModel : ViewModelBase
     private MySqlDataAdapter _dataAdapter;
     private DataTable _dataTable;
 
-    [ObservableProperty] 
-    private ListBoxItem _selectedItem;
-
-    public PickATopicPageViewModel()
+    [ObservableProperty]
+    private List<TreeViewItem> _moduleListItems = new List<TreeViewItem>();
+    [ObservableProperty]
+    private List<TreeViewItem> _topicListItems = new List<TreeViewItem>();
+    
+    public sealed override void Initialize()
     {
-        LoadTopics();
+        base.Initialize();
         
-        Console.WriteLine($"Topics: {TopicsListItems.Count}");
+        LoadModules();
+
+        for (int i = 0; i < ModuleListItems.Count; i++)
+        {
+            LoadTopics(ModuleListItems[i]);
+        }
     }
-
-    public ObservableCollection<TopicsListItemTemplate> TopicsListItems { get; } = new()
-    {
-        new TopicsListItemTemplate("Recognizing Conflicts"),   
-    };
         
-    private void LoadTopics()
+    private void LoadModules()
     {
         _connectionDb.Connect();
         
@@ -47,16 +49,57 @@ public partial class PickATopicPageViewModel : ViewModelBase
             
             using (MySqlCommand command = conn.CreateCommand())
             {
-                command.CommandText = "SELECT * FROM `topics` WHERE 1";
+                command.CommandText = "SELECT * FROM `modules` WHERE 1";
+                using (MySqlDataReader reader = command.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        string? moduleName = reader["ModuleName"].ToString();
+                        ModuleListItems.Add(new TreeViewItem()
+                        {
+                            Header = moduleName
+                        });
+                    }
+                }
+            }
+
+            conn.Close();
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine(ex.Message);
+        }
+    }
+    
+    private void LoadTopics(TreeViewItem module)
+    {
+        _connectionDb.Connect();
+        
+        try
+        {
+            MySqlConnection conn = _connectionDb.connection;
+            conn.Open();
+            
+            using (MySqlCommand command = conn.CreateCommand())
+            {
+                string moduleName = module.Header.ToString();
+                
+                command.CommandText = "SELECT * FROM `topics` WHERE ModuleName = @ModuleName";
+                command.Parameters.AddWithValue("@ModuleName", moduleName);
+                
                 using (MySqlDataReader reader = command.ExecuteReader())
                 {
                     while (reader.Read())
                     {
                         string? topicName = reader["TopicName"].ToString();
-                            
-                        TopicsListItemTemplate item = new TopicsListItemTemplate(topicName);
-
-                        TopicsListItems.Add(item);
+                        var item = new TreeViewItem
+                        {
+                            Header = topicName
+                        };
+                        item.DoubleTapped += TriggerTopicClicked;
+                        
+                        TopicListItems.Add(item);
+                        module.Items.Add(item);
                     }
                 }
             }
@@ -69,27 +112,18 @@ public partial class PickATopicPageViewModel : ViewModelBase
         }
     }
 
-
-    private void TriggerTopicClicked()
+    private void TriggerTopicClicked(object? sender = null, TappedEventArgs? e = null)
     {
-        var topicName = SelectedItem.Content?.ToString();
-        Console.WriteLine($"Selected Topic: {topicName}");
+        if (sender is not TreeViewItem treeViewItem) return;
+        
+        var topicName = treeViewItem.Header?.ToString();
+        Console.WriteLine(topicName);
         
         var topic = new TopicLearnSelectorPageViewModel()
         {
             CurrentTopic = topicName
         };
         
-        Console.WriteLine($"Topic: {topic.CurrentTopic}");
-
-        var mainWindow = Application.Current.DataContext as MainWindowViewModel;
-        Console.WriteLine($"Main Window: {mainWindow}");
-        mainWindow.CurrentContent = topic;
-    }
-
-    partial void OnSelectedItemChanged(ListBoxItem value)
-    {
-        TriggerTopicClicked();
-        Console.WriteLine($"Selected Topic: {value.Content}");
+        App.MainWindow.CurrentContent = topic;
     }
 }

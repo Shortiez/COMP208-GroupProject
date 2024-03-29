@@ -4,4 +4,7 @@ namespace GroupProject.ViewModels;
 
 public partial class ViewModelBase : ObservableObject
 {
+    public virtual void Initialize()
+    {
+    }
 }

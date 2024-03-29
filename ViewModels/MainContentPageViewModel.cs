@@ -41,5 +41,6 @@ public partial class MainContentPageViewModel : ViewModelBase
         if(instance is null) return;
 
         CurrentPage = (ViewModelBase)instance;
+        CurrentPage.Initialize();
     }
 }

@@ -1,5 +1,4 @@
 using System.Linq;
-using Avalonia;
 using CommunityToolkit.Mvvm.Input;
 using GroupProject.Models;
 
