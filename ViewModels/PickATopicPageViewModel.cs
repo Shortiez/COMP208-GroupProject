@@ -26,27 +26,44 @@ public partial class PickATopicPageViewModel : ViewModelBase
     private List<TreeViewItem> _moduleListItems = new List<TreeViewItem>();
     [ObservableProperty]
     private List<TreeViewItem> _topicListItems = new List<TreeViewItem>();
-    
+
     public sealed override void Initialize()
     {
         base.Initialize();
-        
+
         LoadModules();
 
         for (int i = 0; i < ModuleListItems.Count; i++)
         {
             LoadTopics(ModuleListItems[i]);
         }
-        
+
         // Hardcoded Topics
         ModuleListItems.Add(new TreeViewItem()
         {
             Header = "No Database"
         });
-        
-        LoadAllTopics(ModuleListItems.First(x => x.Header.ToString() == "No Database"));
+
+        TopicListItems.Add(new TreeViewItem()
+        {
+            Header = "Binary Addition"
+        });
+        TopicListItems.Add(new TreeViewItem()
+        {
+            Header = "Binary Subtraction"
+        });
+        TopicListItems.Add(new TreeViewItem()
+        {
+            Header = "Recognizing Conflicts"
+        });
+        foreach (var item in TopicListItems)
+        {
+            item.DoubleTapped += TriggerTopicClicked;
+
+            ModuleListItems.FirstOrDefault(x => x.Header.ToString() == "No Database")?.Items.Add(item);
+        }
     }
-        
+
     private void LoadModules()
     {
         _connectionDb.Connect();
@@ -112,41 +129,6 @@ public partial class PickATopicPageViewModel : ViewModelBase
                 }
             }
 
-            conn.Close();
-        }
-        catch (Exception ex)
-        {
-            Console.WriteLine(ex.Message);
-        }
-    }
-    private void LoadAllTopics(TreeViewItem module)
-    {
-        _connectionDb.Connect();
-        
-        try
-        {
-            MySqlConnection conn = _connectionDb.connection;
-            conn.Open();
-
-            using (MySqlCommand command = conn.CreateCommand())
-            {
-                command.CommandText = "SELECT * FROM `topics` WHERE 1";
-                using (MySqlDataReader reader = command.ExecuteReader())
-                {
-                    while (reader.Read())
-                    {
-                        string? topicName = reader["TopicName"].ToString();
-                        var item = new TreeViewItem
-                        {
-                            Header = topicName
-                        };
-                        item.DoubleTapped += TriggerTopicClicked;
-
-                        TopicListItems.Add(item);
-                        module.Items.Add(item);
-                    }
-                }
-            }
             conn.Close();
         }
         catch (Exception ex)
