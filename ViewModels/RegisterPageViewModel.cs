@@ -1,17 +1,48 @@
 using System;
 using System.Text.RegularExpressions;
+using System.Threading.Tasks;
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using GroupProject.Scripts;
 using MySql.Data.MySqlClient;
 using Avalonia;
+using Avalonia.Media.Imaging;
 using GroupProject.Services;
 using GroupProject.Views;
 
 namespace GroupProject.ViewModels
 {
+    [Flags]
+    enum ErrorType
+    {
+        InvalidUsername,
+        InvalidPassword,
+        InvalidEmail,
+        ExistingUser
+    }
+
     public partial class RegisterPageViewModel : ViewModelBase
     {
+        public Task<Bitmap>? LogoEyesOpenSource
+        {
+            get
+            {
+                var val = ImageHelper.LoadFromWeb(
+                    "https://github.com/Shortiez/COMP208-GroupProject/blob/db03252af009a6d8369ae6b6239a1625c764e7d6/Assets/homepage-logo.png");
+                
+                Console.WriteLine("LogoEyesOpenSource: " + val.Status);
+                
+                return val;
+            }
+        }
+        public Bitmap LogoEyesOpen
+        {
+            get
+            {
+                return ImageHelper.LoadFromResource("/Users/bengotts/University/Year-Two/COMP-208/GroupProject/Assets/homepage-logo.png");
+            }
+        }
+
         private readonly IUserService _userService;
         private readonly IValidationService _validationService;
 
@@ -23,7 +54,7 @@ namespace GroupProject.ViewModels
         private string _password = "";
         
         [ObservableProperty]
-        private string _errorMessage = "";
+        private string _errorMessage = "Invalid Username or Password\n";
         [ObservableProperty]
         private bool _errorMessageIsVisible = false;
 
@@ -33,7 +64,7 @@ namespace GroupProject.ViewModels
         private Thickness _usernameBorderThickness = new Thickness(0);
         [ObservableProperty]
         private Thickness _passwordBorderThickness = new Thickness(0);
-
+        
         public RegisterPageViewModel()
         {
             _userService = new UserService();
@@ -73,40 +104,54 @@ namespace GroupProject.ViewModels
                     {
                         _userService.RegisterUser(Username, Email, Password);
                         
-                        App.MainWindow.CurrentContent = new MainContentPageViewModel();
+                        App.MainWindowViewModel.CurrentContent = new MainContentPageViewModel();
                     }
                     else
                     {
-                        SetError("There already is a user with the same credentials");
+                        SetError("There already is a user with that username or email", ErrorType.ExistingUser);
                     }
                 }
                 else
                 {
-                    SetError("A valid email must be used");
+                    SetError("Invalid Email Address", ErrorType.InvalidEmail);
                 }
             }
             else
             {
-                if (!IsValid(Username))
+                if (!IsValid(Username) || !IsValid(Password))
                 {
-                    SetError("Username Must be at least 6 characters long");
-                }
-
-                if (!IsValid(Password))
-                {
-                    SetError("Password Must be at least 6 characters long");
+                    SetError("Invalid Username or Password", ErrorType.InvalidUsername | ErrorType.InvalidPassword);
                 }
 
                 if (!IsValidEmail(Email))
                 {
-                    SetError("A valid email must be used");
+                    SetError("Invalid Email Address", ErrorType.InvalidEmail);
                 }
             }
         }
 
-        private void SetError(string message)
+        private void SetError(string message, ErrorType errorType)
         {
-            ErrorMessage += message + "\n";
+            ClearError();
+            
+            switch (errorType)
+            {
+                case ErrorType.InvalidUsername:
+                    UsernameBorderThickness = new Thickness(1);
+                    break;
+                case ErrorType.InvalidPassword:
+                    PasswordBorderThickness = new Thickness(1);
+                    break;
+                case ErrorType.InvalidEmail:
+                    EmailBorderThickness = new Thickness(1);
+                    break;
+                case ErrorType.ExistingUser:
+                    break;
+                default:
+                    throw new ArgumentOutOfRangeException(nameof(errorType), errorType, null);
+            }
+
+            ErrorMessage = message;
             ErrorMessageIsVisible = true;
         }
         
@@ -119,7 +164,7 @@ namespace GroupProject.ViewModels
         [RelayCommand]
         private void OnSwitchToLoginClicked()
         {
-            App.MainWindow.CurrentContent = new LoginPageViewModel();
+            App.MainWindowViewModel.CurrentContent = new LoginPageViewModel();
         }
     }
 }

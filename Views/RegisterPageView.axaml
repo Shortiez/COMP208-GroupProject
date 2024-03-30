@@ -6,56 +6,77 @@
         mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
         x:Class="GroupProject.Views.RegisterPageView"
         x:DataType="viewModels:RegisterPageViewModel">
-    <Grid Background="#2c2b2b">
+    <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*"/>
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
 
-        <!-- <Image Grid.Column="1" Source="/LMSY-Logo.png" Stretch="UniformToFill"/> -->
-
-        <StackPanel Grid.Column="0" Margin="20, 120, 20, 20">
-            <TextBlock Text="Welcome" Foreground="White"
-                       FontSize="24" FontWeight="Bold" 
-                       HorizontalAlignment="Center" Margin="0,0,0,20"/>
-            
-            <TextBox Text="{Binding Email}" 
-                     Watermark="Enter your email..." 
-                     Width="240" Margin="0,0,0,10" 
-                     BorderBrush="Red" BorderThickness="{Binding EmailBorderThickness}"/>
-            <TextBox Text="{Binding Username}" 
-                     Watermark="Username At Least 6 Characters" 
-                     Width="240" Margin="0,0,0,10"
-                     BorderBrush="Red" BorderThickness="{Binding UsernameBorderThickness}"/>
-            <TextBox Text="{Binding Password}" 
-                     Watermark="Password At Least 6 Characters" 
-                     Width="240" Margin="0,0,0,10"
-                     BorderBrush="Red" BorderThickness="{Binding PasswordBorderThickness}"/>
-            <TextBlock Text="{Binding ErrorMessage}"
-                       Classes="error" FontSize="12"
-                       Width="240" HorizontalAlignment="Center" Margin="0,0,0,10"
-                       IsVisible="{Binding ErrorMessageIsVisible}"/>
-            
-            <Button Classes="round primary" 
-                    Content="Register"
-                    Width="240" HorizontalAlignment="Center" Margin="0,0,0,10" 
-                    Command="{Binding RegisterClickedCommand}"/>
-            
-            <Grid Width="240" HorizontalAlignment="Center" Margin="0,0,0,20">
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="*"/>
-                    <ColumnDefinition Width="Auto"/>
-                    <ColumnDefinition Width="*"/>
-                </Grid.ColumnDefinitions>
-
-                <Separator Grid.Column="0" Background="White"/>
-                <TextBlock Grid.Column="1" Foreground="White" Text="OR" HorizontalAlignment="Center" Margin="10,0"/>
-                <Separator Grid.Column="2" Background="White"/>
-            </Grid>
-
-            <Button Command="{Binding SwitchToLoginClickedCommand}"
-                    Classes="round" Content="Login" 
-                    Width="240" HorizontalAlignment="Center"/>
+        <StackPanel Grid.Column="1" Orientation="Horizontal">
+            <TextBlock VerticalAlignment="Center">IMAGE HERE</TextBlock>
+            <Image VerticalAlignment="Center"
+                   Width="100" Height="100" Margin="10,0,0,0"
+                   Source="{Binding LogoEyesOpen}"/>
         </StackPanel>
+            
+        <Border Grid.Column="0"
+                Background="{DynamicResource LMSYNeutralLight}"
+                CornerRadius="12"
+                Margin="40, 60, 40, 60"
+                BoxShadow="0 0 20 #565656">
+            <DockPanel Margin="20, 40, 20, 20">
+                <TextBlock DockPanel.Dock="Top" Text="Sign Up" Foreground="White"
+                       Classes="title"
+                       HorizontalAlignment="Center" VerticalAlignment="Top"
+                       Margin="0,0,0,0"/>
+
+                <StackPanel DockPanel.Dock="Top" Margin="20, 90, 20, 20"
+                            VerticalAlignment="Center">
+                    
+                    <Border Classes="error-border"
+                            MaxWidth="260" MaxHeight="60"
+                            Margin="0, 0, 0, 20"
+                            HorizontalAlignment="Center"
+                            VerticalAlignment="Center"
+                            IsVisible="{Binding ErrorMessageIsVisible}">
+                        <TextBlock Classes="info"
+                                   Padding="10, 5"
+                                   VerticalAlignment="Center"
+                                   Text="{Binding ErrorMessage}"/>
+                    </Border>
+
+                    <TextBox Text="{Binding Email}"
+                             Watermark="Enter your email..."
+                             Width="240" Margin="0,0,0,15"
+                             BorderBrush="Red" BorderThickness="{Binding EmailBorderThickness}"/>
+                    <TextBox Text="{Binding Username}"
+                             Watermark="Username At Least 6 Characters"
+                             Width="240" Margin="0,0,0,15"
+                             BorderBrush="Red" BorderThickness="{Binding UsernameBorderThickness}"/>
+                    <TextBox Text="{Binding Password}"
+                             Watermark="Password At Least 6 Characters"
+                             Width="240" Margin="0,0,0,15"
+                             BorderBrush="Red" BorderThickness="{Binding PasswordBorderThickness}"/>
+
+                    <Button Classes="primary"
+                            Content="Register"
+                            Width="240" Height="40"
+                            HorizontalAlignment="Center"
+                            VerticalContentAlignment="Center"
+                            Margin="0,0,0,10"
+                            Command="{Binding RegisterClickedCommand}"/>
+                </StackPanel>
+
+                <StackPanel DockPanel.Dock="Bottom" Orientation="Horizontal" HorizontalAlignment="Center">
+                    <TextBlock Width="240" 
+                               VerticalAlignment="Center"
+                               Text="Already have an Account? "/>
+                    <Button Command="{Binding SwitchToLoginClickedCommand}"
+                            Content="SIGN IN"
+                            Foreground="{DynamicResource LMSYSecondary}" FontWeight="Heavy"
+                            Background="Transparent" BorderBrush="Transparent"/>
+                </StackPanel>
+            </DockPanel>
+        </Border>
     </Grid>
 </UserControl>

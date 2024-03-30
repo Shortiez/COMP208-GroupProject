@@ -2,9 +2,35 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:viewModels="clr-namespace:GroupProject.ViewModels"
         mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
-        x:Class="GroupProject.Views.AccountPageView">
-
-        Hello User, This is the Account Page!
+        x:Class="GroupProject.Views.AccountPageView"
+        x:DataType="viewModels:AccountPageViewModel">
         
+        <ScrollViewer>
+                <StackPanel>
+                        <StackPanel Margin="30,10,30,10">
+                                <TextBlock Classes="title"
+                                           Text="Account Settings"
+                                           HorizontalAlignment="Center"/>
+                                <Border CornerRadius="12" Background="{DynamicResource LMSYBorderColor}">
+                                        <!-- Add your content for Account Settings here -->
+                                        <StackPanel HorizontalAlignment="Center">
+                                                <Button>Change Username</Button>
+                                                <Button>Change Password</Button> 
+                                                <Button>Change Email</Button>
+                                        </StackPanel>                                        
+                                </Border>
+                        </StackPanel>
+
+                        <StackPanel Margin="30,10,30,10">
+                                <TextBlock Classes="title"
+                                           Text="Statistics"
+                                           HorizontalAlignment="Center"/>
+                                <Border CornerRadius="12" Background="Beige">
+                                        <!-- Add your content for Statistics here -->
+                                </Border>
+                        </StackPanel>
+                </StackPanel>
+        </ScrollViewer>
 </UserControl>

@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Data;
+using System.Linq;
 using Avalonia;
 using Avalonia.Controls;
 using Avalonia.Input;
@@ -36,6 +37,14 @@ public partial class PickATopicPageViewModel : ViewModelBase
         {
             LoadTopics(ModuleListItems[i]);
         }
+        
+        // Hardcoded Topics
+        ModuleListItems.Add(new TreeViewItem()
+        {
+            Header = "No Database"
+        });
+        
+        LoadAllTopics(ModuleListItems.First(x => x.Header.ToString() == "No Database"));
     }
         
     private void LoadModules()
@@ -70,7 +79,6 @@ public partial class PickATopicPageViewModel : ViewModelBase
             Console.WriteLine(ex.Message);
         }
     }
-    
     private void LoadTopics(TreeViewItem module)
     {
         _connectionDb.Connect();
@@ -111,6 +119,41 @@ public partial class PickATopicPageViewModel : ViewModelBase
             Console.WriteLine(ex.Message);
         }
     }
+    private void LoadAllTopics(TreeViewItem module)
+    {
+        _connectionDb.Connect();
+        
+        try
+        {
+            MySqlConnection conn = _connectionDb.connection;
+            conn.Open();
+
+            using (MySqlCommand command = conn.CreateCommand())
+            {
+                command.CommandText = "SELECT * FROM `topics` WHERE 1";
+                using (MySqlDataReader reader = command.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        string? topicName = reader["TopicName"].ToString();
+                        var item = new TreeViewItem
+                        {
+                            Header = topicName
+                        };
+                        item.DoubleTapped += TriggerTopicClicked;
+
+                        TopicListItems.Add(item);
+                        module.Items.Add(item);
+                    }
+                }
+            }
+            conn.Close();
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine(ex.Message);
+        }
+    }
 
     private void TriggerTopicClicked(object? sender = null, TappedEventArgs? e = null)
     {
@@ -124,6 +167,6 @@ public partial class PickATopicPageViewModel : ViewModelBase
             CurrentTopic = topicName
         };
         
-        App.MainWindow.CurrentContent = topic;
+        App.MainWindowViewModel.CurrentContent = topic;
     }
 }

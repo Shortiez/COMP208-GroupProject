@@ -15,5 +15,20 @@
     </Application.Styles>
     
     <Application.Resources>
+        <ResourceDictionary>
+            <!-- Main Colors -->
+            <Color x:Key="LMSYPrimary">#13407A</Color>
+            <Color x:Key="LMSYSecondary">#e46b5e</Color>
+            
+            <!-- Neutral Colors -->
+            <Color x:Key="LMSYNeutral">#1e1e1e</Color>
+            <Color x:Key="LMSYNeutralLight">#2e2e2e</Color>
+            
+            <!-- Semantic Colors -->
+            <Color x:Key="LMSYSuccess">#64df07</Color>
+            <Color x:Key="LMSYWarning">#fcaa13</Color>
+            <Color x:Key="LMSYError">#fe2c2a</Color>
+            <Color x:Key="LMSYInfo">#4f8dd6</Color>
+        </ResourceDictionary>
     </Application.Resources>
 </Application>

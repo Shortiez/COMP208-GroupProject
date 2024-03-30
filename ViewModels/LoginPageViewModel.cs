@@ -59,8 +59,8 @@ public partial class LoginPageViewModel : ViewModelBase
         {
             if (IsExistingUser(SignInUsername))
             {
-                if(!App.MainWindow.User.IsCreated())
-                    App.MainWindow.CreateUser(_signInUsername, "", _signInPassword);
+                if(!App.MainWindowViewModel.User.IsCreated())
+                    App.MainWindowViewModel.CreateUser(_signInUsername, "", _signInPassword);
             }
             else
             {
@@ -72,7 +72,7 @@ public partial class LoginPageViewModel : ViewModelBase
     [RelayCommand]
     private void OnLoginAsGuestClicked()
     {
-        var mainWindowViewModel = App.MainWindow;
+        var mainWindowViewModel = App.MainWindowViewModel;
         mainWindowViewModel.CreateUser("Guest", "", "");
         mainWindowViewModel.CurrentContent = new MainContentPageViewModel();
     }
@@ -80,6 +80,6 @@ public partial class LoginPageViewModel : ViewModelBase
     [RelayCommand]
     private void OnRegisterClicked()
     {
-        App.MainWindow.CurrentContent = new RegisterPageViewModel();
+        App.MainWindowViewModel.CurrentContent = new RegisterPageViewModel();
     }
 }

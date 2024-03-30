@@ -10,8 +10,7 @@
         >
         
         <Grid>
-			<Image x:Name="BackgroundImage" Margin="200" Height="4000" Width="3000"/>
-			<Image x:Name="LogoImage" Margin="200" Height="400" Width="300"/>
-        
+	        <Image x:Name="BackgroundImage" Margin="200" Height="4000" Width="3000"/>
+            <Image x:Name="LogoImage" Margin="200" Height="400" Width="300"/>
         </Grid>
 </UserControl>

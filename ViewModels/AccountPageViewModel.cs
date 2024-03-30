@@ -1,6 +1,7 @@
+using CommunityToolkit.Mvvm.ComponentModel;
+
 namespace GroupProject.ViewModels;
 
-public class AccountPageViewModel : ViewModelBase
+public partial class AccountPageViewModel : ViewModelBase
 {
-    
 }

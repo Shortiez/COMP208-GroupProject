@@ -24,25 +24,32 @@
           </StackPanel>
           
           <!-- Two large circular buttons for the two choices-->
-          <StackPanel Grid.Row="1" Orientation="Horizontal"
-                      HorizontalAlignment="Center"
-                      VerticalAlignment="Center"
-                      >
-              <Button Classes="circle secondary" Width="100" Height="100" Margin="0, 0, 50, 0"
-                      Command="{Binding ClickLoadQuestionsCommand}">
-                  <TextBlock Text="Questions" VerticalAlignment="Center"/>  
-              </Button>
-              <TextBlock Classes="subtitle" VerticalAlignment="Center"> OR </TextBlock>
-              <Button Classes="circle secondary" Width="100" Height="100" Margin="50, 0, 0, 0"
-                      Command="{Binding ClickLoadExamplesCommand}">
-                  <TextBlock Text="Examples" VerticalAlignment="Center"/>
-              </Button>
-          </StackPanel>
-          
+
           <!-- The bottom bar -->
           <StackPanel Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Bottom">
               <Button Name="BackButton" Classes="primary round" Content="Back to Home"
                       Width="130" Height="30" Command="{Binding ClickBackToHomeCommand}"/>
           </StackPanel>
-      </Grid>
+          <StackPanel Grid.Row="1" Orientation="Vertical"
+                      HorizontalAlignment="Center"
+                      VerticalAlignment="Center">
+              
+              <Button Classes="circle secondary" 
+                      Content="Questions"
+                      VerticalContentAlignment="Center"
+                      Width="100" Height="100"
+                      Margin="0,0,200,20"
+                      Command="{Binding ClickLoadQuestionsCommand}">
+              </Button>
+              
+              <Button Classes="circle secondary" 
+                      Content="Examples"
+                      VerticalContentAlignment="Center"
+                      Width="100" Height="100"
+                      Margin="0,0,200,20"
+                      Command="{Binding ClickLoadExamplesCommand}">
+              </Button>
+              
+          </StackPanel>
+    </Grid>
 </UserControl>

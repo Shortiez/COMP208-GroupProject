@@ -47,14 +47,14 @@ public partial class TopicLearnSelectorPageViewModel : ViewModelBase
     private void LoadTopicQuestionsPage()
     {
         var content = Topics.First(t => t.Topic == CurrentTopic).Content;
-        App.MainWindow.CurrentContent = content;
+        App.MainWindowViewModel.CurrentContent = content;
     }
     
     private void LoadTopicExamplesPage()
     {
         var content = Topics.First(t => t.Topic == CurrentTopic).Content;
         
-        App.MainWindow.CurrentContent = content;
+        App.MainWindowViewModel.CurrentContent = content;
     }
     
     [RelayCommand]
@@ -72,6 +72,6 @@ public partial class TopicLearnSelectorPageViewModel : ViewModelBase
     [RelayCommand]
     private void OnClickBackToHome()
     {
-        App.MainWindow.CurrentContent = new MainContentPageViewModel();
+        App.MainWindowViewModel.CurrentContent = new MainContentPageViewModel();
     }
 }

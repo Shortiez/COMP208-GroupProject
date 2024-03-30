@@ -12,8 +12,8 @@ namespace GroupProject;
 
 public partial class App : Application
 {
-    public static MainWindowViewModel? MainWindow { get; set; }
-    
+    public static MainWindowViewModel? MainWindowViewModel { get; set; }
+    public static Window? MainWindow { get; set; }
     
     public override void Initialize()
     {
@@ -29,8 +29,10 @@ public partial class App : Application
                 DataContext = new MainWindowViewModel()
             };
             
-            MainWindow = desktop.MainWindow.DataContext as MainWindowViewModel;
-            MainWindow.CurrentContent = new RegisterPageViewModel();
+            MainWindow = desktop.MainWindow;
+            
+            MainWindowViewModel = desktop.MainWindow.DataContext as MainWindowViewModel;
+            MainWindowViewModel.CurrentContent = new RegisterPageViewModel();
         }
         
         base.OnFrameworkInitializationCompleted();

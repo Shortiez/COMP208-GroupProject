@@ -8,19 +8,20 @@
     </Design.PreviewWith>
 
     <!-- Add Styles Here -->
+    
     <Style Selector="Window">
-        <Setter Property="Background" Value="#2e2e2e"/>
+        <Setter Property="Background" Value="{DynamicResource LMSYNeutral}"/>
     </Style>
     
     <Style Selector="Button">
-        <Setter Property="Foreground" Value="White"/>
+        <Setter Property="Foreground" Value="WhiteSmoke"/>
         <Setter Property="HorizontalContentAlignment" Value="Center"/>
     </Style>
     <Style Selector="Button.primary">
-        <Setter Property="Background" Value="#8c45bf"/>
+        <Setter Property="Background" Value="{DynamicResource LMSYPrimary}"/>
     </Style>
     <Style Selector="Button.secondary">
-        <Setter Property="Background" Value="#4e4e4e"/>
+        <Setter Property="Background" Value="{DynamicResource LMSYSecondary}"/>
     </Style>
     
     <Style Selector="Button.hollow">
@@ -41,7 +42,6 @@
     </Style>
     
     <Style Selector="TextBox">
-        <!--<Setter Property="Foreground" Value="#13407a"/>-->
         <Setter Property="Foreground" Value="White"/>
         <Setter Property="BorderBrush" Value="Transparent"/>
         <Setter Property="Background" Value="#3e3e3e"/>
@@ -49,32 +49,72 @@
         <Setter Property="Margin" Value="0,0,0,20"/>
     </Style>
     <Style Selector="TextBox[IsFocused=true]">
-        <!--<Setter Property="Background" Value="#13407a"/>-->
+        <Setter Property="BorderBrush" Value="{DynamicResource LMSYPrimary}"/>
     </Style>
     
     <Style Selector="TextBlock">
-        <!--<Setter Property="Foreground" Value="#13407a"/>-->
         <Setter Property="Foreground" Value="White"/>
     </Style>
     
     <Style Selector="TextBlock.title">
-        <Setter Property="FontSize" Value="36"/>
+        <Setter Property="FontSize" Value="28"/>
         <Setter Property="FontWeight" Value="Bold"/>
-        <!--<Setter Property="Foreground" Value="#13407a"/>-->
-        <Setter Property="Foreground" Value="White"/>
     </Style>
-    <!-- subtitle -->
     <Style Selector="TextBlock.subtitle">
         <Setter Property="FontSize" Value="24"/>
         <Setter Property="FontWeight" Value="Bold"/>
-        <Setter Property="Foreground" Value="White"/>
+    </Style>
+    <Style Selector="TextBlock.body">
+        <Setter Property="FontSize" Value="18"/>
+    </Style>
+    <Style Selector="TextBlock.info">
+        <Setter Property="FontWeight" Value="Bold"/>
+    </Style>
+    <Style Selector="TextBlock.secondary">
+        <Setter Property="Foreground" Value="{DynamicResource LMSYSecondary}"/>
     </Style>
     
-    <!-- Make a textblock style for error messages -->
-    <Style Selector="TextBlock.error">
-        <Setter Property="Foreground" Value="Red"/>
+    <!-- Info Boxes -->
+    <Style Selector="Border">
+        <Setter Property="CornerRadius" Value="12"/>
     </Style>
-    
+    <Style Selector="Border.info">
+        <Setter Property="Background" Value="{DynamicResource LMSYInfo}"/>
+        <Setter Property="BorderBrush" Value="Transparent"/>
+    </Style>
+    <Style Selector="Border.success">
+        <Setter Property="Background" Value="{DynamicResource LMSYSuccess}"/>
+        <Setter Property="BorderBrush" Value="Transparent"/>
+    </Style>
+    <Style Selector="Border.warning">
+        <Setter Property="Background" Value="{DynamicResource LMSYWarning}"/>
+        <Setter Property="BorderBrush" Value="Transparent"/>
+    </Style>
+    <Style Selector="Border.error">
+        <Setter Property="Background" Value="{DynamicResource LMSYError}"/>
+        <Setter Property="BorderBrush" Value="Transparent"/>
+    </Style>
+    <Style Selector="Border.info-border">
+        <Setter Property="Background" Value="Transparent"/>
+        <Setter Property="BorderBrush" Value="{DynamicResource LMSYInfo}"/>
+        <Setter Property="BorderThickness" Value="2"/>
+    </Style>
+    <Style Selector="Border.success-border">
+        <Setter Property="Background" Value="Transparent"/>
+        <Setter Property="BorderBrush" Value="{DynamicResource LMSYSuccess}"/>
+        <Setter Property="BorderThickness" Value="2"/>
+    </Style>
+    <Style Selector="Border.warning-border">
+        <Setter Property="Background" Value="Transparent"/>
+        <Setter Property="BorderBrush" Value="{DynamicResource LMSYWarning}"/>
+        <Setter Property="BorderThickness" Value="2"/>
+    </Style>
+    <Style Selector="Border.error-border">
+        <Setter Property="Background" Value="{DynamicResource LMSYNeutralLight}"/>
+        <Setter Property="BorderBrush" Value="{DynamicResource LMSYError}"/>
+        <Setter Property="BorderThickness" Value="2"/>
+    </Style>
+        
     <Style Selector="CheckBox">
         <Setter Property="Foreground" Value="White"></Setter>
     </Style>
