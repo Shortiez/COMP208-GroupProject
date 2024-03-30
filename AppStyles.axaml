@@ -61,11 +61,12 @@
         <Setter Property="FontWeight" Value="Bold"/>
     </Style>
     <Style Selector="TextBlock.subtitle">
-        <Setter Property="FontSize" Value="24"/>
+        <Setter Property="FontSize" Value="18"/>
         <Setter Property="FontWeight" Value="Bold"/>
     </Style>
     <Style Selector="TextBlock.body">
-        <Setter Property="FontSize" Value="18"/>
+        <Setter Property="FontSize" Value="12"/>
+        <Setter Property="FontWeight" Value="Bold"/>
     </Style>
     <Style Selector="TextBlock.info">
         <Setter Property="FontWeight" Value="Bold"/>
@@ -117,5 +118,16 @@
         
     <Style Selector="CheckBox">
         <Setter Property="Foreground" Value="White"></Setter>
+    </Style>
+    
+    <Style Selector="PathIcon">
+        <Setter Property="Foreground" Value="White" />
+    </Style>
+    <Style Selector="PathIcon.edit">
+        <Setter Property="Data" Value="{DynamicResource EditRegular}" />
+        <Setter Property="Width" Value="20" />
+        <Setter Property="Height" Value="20" />
+        <Setter Property="HorizontalAlignment" Value="Right" />
+        <Setter Property="Margin" Value="0, 0, 20, 17.5" />
     </Style>
 </Styles>

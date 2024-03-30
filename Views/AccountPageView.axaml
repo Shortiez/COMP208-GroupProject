@@ -6,31 +6,84 @@
         mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
         x:Class="GroupProject.Views.AccountPageView"
         x:DataType="viewModels:AccountPageViewModel">
-        
-        <ScrollViewer>
-                <StackPanel>
-                        <StackPanel Margin="30,10,30,10">
-                                <TextBlock Classes="title"
-                                           Text="Account Settings"
-                                           HorizontalAlignment="Center"/>
-                                <Border CornerRadius="12" Background="{DynamicResource LMSYBorderColor}">
-                                        <!-- Add your content for Account Settings here -->
-                                        <StackPanel HorizontalAlignment="Center">
-                                                <Button>Change Username</Button>
-                                                <Button>Change Password</Button> 
-                                                <Button>Change Email</Button>
-                                        </StackPanel>                                        
-                                </Border>
+    
+    <Grid>
+                <Grid.ColumnDefinitions>
+                        *
+                        Auto
+                        *
+                </Grid.ColumnDefinitions>
+                
+                <StackPanel Grid.Column="0">
+                        <TextBlock Classes="title"
+                                   Text="Account Details"
+                                   HorizontalAlignment="Left"
+                                   Margin="50, 70, 0, 0"/>
+                        <TextBlock Classes="subtitle"
+                                   Text="PROFILE DETAILS"
+                                   HorizontalAlignment="Left"
+                                   Margin="50, 30, 0, 0"/>
+                        
+                        <StackPanel HorizontalAlignment="Left"
+                                    Margin="50, 30, 0, 0">
+                                <TextBlock Classes="subtitle" 
+                                           Text="Username" 
+                                           FontSize="16"
+                                           Margin="0, 0, 0, 10"/>
+                                <Grid Width="250">
+                                    <TextBox Width="240" 
+                                             Text="{Binding Username, Mode=TwoWay}" 
+                                             HorizontalAlignment="Left"/>
+                                    <PathIcon Classes="edit"/>
+                                </Grid>
                         </StackPanel>
-
-                        <StackPanel Margin="30,10,30,10">
-                                <TextBlock Classes="title"
-                                           Text="Statistics"
-                                           HorizontalAlignment="Center"/>
-                                <Border CornerRadius="12" Background="Beige">
-                                        <!-- Add your content for Statistics here -->
-                                </Border>
+                        
+                        <StackPanel HorizontalAlignment="Left"
+                                    Margin="50, 10, 0, 0">
+                                <TextBlock Classes="subtitle"
+                                           Text="Email" 
+                                           FontSize="16"
+                                           Margin="0, 0, 0, 10"/>
+                                <Grid Width="250">
+                                    <TextBox Width="240" 
+                                             Text="{Binding Email, Mode=TwoWay}" 
+                                             HorizontalAlignment="Left"/>
+                                    <PathIcon Classes="edit"/>
+                                </Grid>
                         </StackPanel>
+                        
+                        <StackPanel HorizontalAlignment="Left"
+                                    Margin="50, 10, 0, 0">
+                                <TextBlock Classes="subtitle" 
+                                           Text="Password" 
+                                           FontSize="16"
+                                           Margin="0, 0, 0, 10"/>
+                                <Grid Width="250">
+                                    <TextBox Width="240" 
+                                             Text="{Binding Password, Mode=TwoWay}" 
+                                             HorizontalAlignment="Left"
+                                             PasswordChar="*"/>
+                                    <PathIcon Classes="edit"/>
+                                </Grid>
+                        </StackPanel>
+                        
+                        <Button Classes="secondary"
+                                Content="Save"
+                                HorizontalAlignment="Left"
+                                Margin="50, 10, 0, 0"/>
                 </StackPanel>
-        </ScrollViewer>
+            
+                <Separator Grid.Column="1"
+                           Width="1"
+                           VerticalAlignment="Stretch"
+                           Margin="0, 130, 0, 0"
+                           Background="{DynamicResource LMSYNeutral}"/>
+            
+                <StackPanel Grid.Column="2">
+                    <TextBlock Classes="title"
+                               Text="Statistics"
+                               HorizontalAlignment="Left"
+                               Margin="50, 70, 0, 0"/>
+                </StackPanel>
+        </Grid>
 </UserControl>
