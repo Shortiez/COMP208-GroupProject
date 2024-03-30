@@ -23,26 +23,6 @@ namespace GroupProject.ViewModels
 
     public partial class RegisterPageViewModel : ViewModelBase
     {
-        public Task<Bitmap>? LogoEyesOpenSource
-        {
-            get
-            {
-                var val = ImageHelper.LoadFromWeb(
-                    "https://github.com/Shortiez/COMP208-GroupProject/blob/db03252af009a6d8369ae6b6239a1625c764e7d6/Assets/homepage-logo.png");
-                
-                Console.WriteLine("LogoEyesOpenSource: " + val.Status);
-                
-                return val;
-            }
-        }
-        public Bitmap LogoEyesOpen
-        {
-            get
-            {
-                return ImageHelper.LoadFromResource("/Users/bengotts/University/Year-Two/COMP-208/GroupProject/Assets/homepage-logo.png");
-            }
-        }
-
         private readonly IUserService _userService;
         private readonly IValidationService _validationService;
 

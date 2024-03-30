@@ -14,9 +14,7 @@
 
         <StackPanel Grid.Column="1" Orientation="Horizontal">
             <TextBlock VerticalAlignment="Center">IMAGE HERE</TextBlock>
-            <Image VerticalAlignment="Center"
-                   Width="100" Height="100" Margin="10,0,0,0"
-                   Source="{Binding LogoEyesOpen}"/>
+            
         </StackPanel>
             
         <Border Grid.Column="0"
