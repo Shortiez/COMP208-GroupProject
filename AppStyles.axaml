@@ -10,7 +10,7 @@
     <!-- Add Styles Here -->
     
     <Style Selector="Window">
-        <Setter Property="Background" Value="{DynamicResource LMSYNeutral}"/>
+        <Setter Property="Background" Value="{DynamicResource LMSYNeutralLight}"/>
     </Style>
     
     <Style Selector="Button">

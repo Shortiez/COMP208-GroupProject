@@ -16,7 +16,8 @@
     <SplitView IsPaneOpen="{Binding IsSidebarOpen}"
                OpenPaneLength="300"
                CompactPaneLength="50"
-               DisplayMode="CompactInline">
+               DisplayMode="CompactInline"
+               PaneBackground="{DynamicResource LMSYNeutral}">
         <SplitView.Pane>
             <StackPanel Spacing="5"
                         Margin="5">

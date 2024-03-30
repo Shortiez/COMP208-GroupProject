@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
+using Avalonia;
 using Avalonia.Controls;
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
@@ -18,7 +19,15 @@ public partial class LoginPageViewModel : ViewModelBase
     private string _signInUsername = "";
     [ObservableProperty]
     private string _signInPassword = "";
-        
+    [ObservableProperty]
+    private string _errorMessage = "";
+    [ObservableProperty]
+    private bool _errorMessageIsVisible = false;
+    [ObservableProperty] 
+    private Thickness _usernameBorderThickness;
+    [ObservableProperty] 
+    private Thickness _passwordBorderThickness;
+    
     private IUserService _userService;
     private IValidationService _validationService;
     

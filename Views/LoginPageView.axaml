@@ -13,54 +13,81 @@
                 <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
         
-        <Image Source="" 
-               Width="200" Height="200" 
-               HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0, 20, 0, 0"/>
-        
-        <StackPanel Grid.Column="1" Margin="20, 50, 20, 0">
-            <TextBlock Foreground="White" Text="Welcome Back..." 
-                       FontSize="20" FontWeight="Bold" 
-                       HorizontalAlignment="Center" Margin="0,0,0,20"/>
-            <TextBox Width="240" Name="UsernameTextBox" Watermark="Username" Margin="0,0,0,15" BorderBrush="Red" BorderThickness="0"/>
-            <TextBox Width="240" Name="PasswordTextBox" Watermark="Password" Margin="0,0,0,30" BorderBrush="Red" BorderThickness="0"/>
+        <StackPanel Grid.Column="0" Orientation="Horizontal" HorizontalAlignment="Center">
+            <TextBlock VerticalAlignment="Center">IMAGE HERE</TextBlock>
             
-            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
-                <TextBlock Text="Forgot Password?"
-                           HorizontalAlignment="Center" Margin="0,0,0,20"/>
-                <CheckBox Content="Remember Me"
-                          HorizontalAlignment="Center" Margin="0,0,0,20"
-                          Foreground="White"/>
-            </StackPanel>
-            
-            <TextBlock Classes="error" Name="ErrorMessage" Width="240" HorizontalAlignment="Center" Margin="0,0,0,10" IsVisible="False">
-                Error Message Here!
-            </TextBlock>
-            <Button Command="{Binding LoginClickedCommand }"
-                    Classes="round primary" 
-                    Content="Login" 
-                    Width="240" HorizontalAlignment="Center" Margin="0,0,0,20"/>
-            <Button Command="{Binding LoginAsGuestClickedCommand}"
-                    Classes="lowkey" 
-                    Content="Login As Guest"
-                    Width="240" 
-                    HorizontalAlignment="Center" Margin="0,0,0,20"/>
-            
-            <Grid Width="240" HorizontalAlignment="Center" Margin="0,0,0,20">
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="*"/>
-                    <ColumnDefinition Width="Auto"/>
-                    <ColumnDefinition Width="*"/>
-                </Grid.ColumnDefinitions>
-
-                <Separator Grid.Column="0" Background="White"/>
-                <TextBlock Grid.Column="1" Foreground="White" Text="OR" HorizontalAlignment="Center" Margin="10,0"/>
-                <Separator Grid.Column="2" Background="White"/>
-            </Grid>
-
-            <Button Command="{Binding RegisterClickedCommand}"
-                    Classes="hollow"
-                    Content="Register"
-                    Width="240" HorizontalAlignment="Center"/>
         </StackPanel>
+        <Border Grid.Column="1"
+                Background="{DynamicResource LMSYNeutral}"
+                CornerRadius="12"
+                Margin="40, 60, 40, 60"
+                BoxShadow="0 0 30 #1e1e1e">
+            <DockPanel Margin="20, 40, 20, 20">
+                <TextBlock DockPanel.Dock="Top" Text="Sign In" Foreground="White"
+                       Classes="title"
+                       HorizontalAlignment="Center" VerticalAlignment="Top"
+                       Margin="0,0,0,0"/>
+
+                <StackPanel DockPanel.Dock="Top" Margin="20, 80, 20, 0"
+                            VerticalAlignment="Center">
+                    
+                    <Border Classes="error-border"
+                            MaxWidth="260" MaxHeight="60"
+                            Margin="0, 0, 0, 20"
+                            HorizontalAlignment="Center"
+                            VerticalAlignment="Center"
+                            IsVisible="{Binding ErrorMessageIsVisible}">
+                        <TextBlock Classes="info"
+                                   Padding="10, 5"
+                                   VerticalAlignment="Center"
+                                   Text="{Binding ErrorMessage}"/>
+                    </Border>
+
+                    <TextBox Text="{Binding SignInUsername}"
+                             Watermark="Username At Least 6 Characters"
+                             Width="240" Margin="0,0,0,15"
+                             BorderBrush="Red" BorderThickness="{Binding UsernameBorderThickness}"/>
+                    <TextBox Text="{Binding SignInPassword}"
+                             Watermark="Password At Least 6 Characters"
+                             Width="240" Margin="0,0,0,15"
+                             BorderBrush="Red" BorderThickness="{Binding PasswordBorderThickness}"/>
+
+                    <Button Classes="primary"
+                            Content="Login"
+                            Width="240" Height="40"
+                            HorizontalAlignment="Center"
+                            VerticalContentAlignment="Center"
+                            Margin="0,0,0,10"
+                            Command="{Binding RegisterClickedCommand}"/>
+                </StackPanel>
+
+                <StackPanel>
+                    
+                </StackPanel>
+                <StackPanel DockPanel.Dock="Bottom" 
+                            Orientation="Horizontal" HorizontalAlignment="Center"
+                            Margin="0, 0, 0, 10" Spacing="-85">
+                        <TextBlock Width="240"
+                                   VerticalAlignment="Center"
+                                   Text="Dont have an Account? "/>
+                        <Button Command="{Binding RegisterClickedCommand}"
+                                Content="SIGN UP"
+                                VerticalAlignment="Center"
+                                Foreground="{DynamicResource LMSYSecondary}" FontWeight="Heavy"
+                                Background="Transparent" BorderBrush="Transparent"/>
+                </StackPanel>
+                <StackPanel DockPanel.Dock="Bottom" 
+                            Orientation="Horizontal" HorizontalAlignment="Center"
+                            Margin="0, 50, 0, -10" Spacing="-100">
+                    <TextBlock Width="240"
+                               VerticalAlignment="Center"
+                               Text="Dont want to sign in? "/>
+                    <Button Command="{Binding LoginAsGuestClickedCommand}"
+                            Content="Continue as Guest"
+                            Foreground="{DynamicResource LMSYSecondary}" FontWeight="Heavy"
+                            Background="Transparent" BorderBrush="Transparent"/>
+                </StackPanel>
+            </DockPanel>
+        </Border>
     </Grid>
 </UserControl>

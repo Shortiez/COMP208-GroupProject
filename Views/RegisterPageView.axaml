@@ -12,16 +12,16 @@
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
 
-        <StackPanel Grid.Column="1" Orientation="Horizontal">
+        <StackPanel Grid.Column="1" Orientation="Horizontal" HorizontalAlignment="Center">
             <TextBlock VerticalAlignment="Center">IMAGE HERE</TextBlock>
             
         </StackPanel>
             
         <Border Grid.Column="0"
-                Background="{DynamicResource LMSYNeutralLight}"
+                Background="{DynamicResource LMSYNeutral}"
                 CornerRadius="12"
                 Margin="40, 60, 40, 60"
-                BoxShadow="0 0 20 #565656">
+                BoxShadow="0 0 30 #1e1e1e">
             <DockPanel Margin="20, 40, 20, 20">
                 <TextBlock DockPanel.Dock="Top" Text="Sign Up" Foreground="White"
                        Classes="title"
@@ -65,7 +65,9 @@
                             Command="{Binding RegisterClickedCommand}"/>
                 </StackPanel>
 
-                <StackPanel DockPanel.Dock="Bottom" Orientation="Horizontal" HorizontalAlignment="Center">
+                <StackPanel DockPanel.Dock="Bottom" 
+                            Orientation="Horizontal" HorizontalAlignment="Center"
+                            Margin="0,0,0,0" Spacing="-70">
                     <TextBlock Width="240" 
                                VerticalAlignment="Center"
                                Text="Already have an Account? "/>
