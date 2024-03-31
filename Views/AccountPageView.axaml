@@ -33,7 +33,9 @@
                                 <Grid Width="250">
                                     <TextBox Width="240" 
                                              Text="{Binding Username, Mode=TwoWay}" 
-                                             HorizontalAlignment="Left"/>
+                                             HorizontalAlignment="Left"
+                                             BorderBrush="Red" 
+                                             BorderThickness="{Binding EmailBorderThickness}"/>
                                     <PathIcon Classes="edit"/>
                                 </Grid>
                         </StackPanel>
@@ -47,7 +49,9 @@
                                 <Grid Width="250">
                                     <TextBox Width="240" 
                                              Text="{Binding Email, Mode=TwoWay}" 
-                                             HorizontalAlignment="Left"/>
+                                             HorizontalAlignment="Left"
+                                             BorderBrush="Red" 
+                                             BorderThickness="{Binding EmailBorderThickness}"/>
                                     <PathIcon Classes="edit"/>
                                 </Grid>
                         </StackPanel>
@@ -62,7 +66,9 @@
                                     <TextBox Width="240" 
                                              Text="{Binding Password, Mode=TwoWay}" 
                                              HorizontalAlignment="Left"
-                                             PasswordChar="*"/>
+                                             PasswordChar="*"
+                                             BorderBrush="Red" 
+                                             BorderThickness="{Binding EmailBorderThickness}"/>
                                     <PathIcon Classes="edit"/>
                                 </Grid>
                         </StackPanel>
@@ -70,7 +76,8 @@
                         <Button Classes="secondary"
                                 Content="Save"
                                 HorizontalAlignment="Left"
-                                Margin="50, 10, 0, 0"/>
+                                Margin="50, 10, 0, 0"
+                                Command="{Binding SaveClickedCommand}"/>
                 </StackPanel>
             
                 <Separator Grid.Column="1"

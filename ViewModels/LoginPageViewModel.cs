@@ -15,6 +15,14 @@ namespace GroupProject.ViewModels;
 
 public partial class LoginPageViewModel : ViewModelBase
 {
+    [Flags]
+    enum ErrorType
+    {
+        InvalidUsername,
+        InvalidPassword,
+        NoUser,
+    }
+    
     [ObservableProperty]
     private string _signInUsername = "";
     [ObservableProperty]
@@ -47,36 +55,63 @@ public partial class LoginPageViewModel : ViewModelBase
         return _validationService.IsValid(str);
     }
     
-    private bool IsValidEmail(string email)
+    private bool LogInUser(string signInUsername, string signInPassword)
     {
-        return _validationService.IsValidEmail(email);
-    }
-    
-    private bool IsExistingUser(string signInUsername)
-    {
-        return _userService.IsExistingUser(signInUsername);
-    }
-    private bool IsExistingUser(string signInUsername, string signInEmail)
-    {
-        return _userService.IsExistingUser(signInUsername, signInEmail);
+        return _userService.LogInUser(signInUsername, signInPassword);
     }
     
     [RelayCommand]
     private void OnLoginClicked()
     {
-        if (IsValid(SignInUsername) && IsValidEmail(SignInPassword))
+        var mainWindowViewModel = App.MainWindowViewModel;
+        if (IsValid(SignInUsername) && IsValid(SignInPassword))
         {
-            if (IsExistingUser(SignInUsername))
+            String signInPasswordHash = Hashes.Sha256(SignInPassword);
+            if (LogInUser(SignInUsername, signInPasswordHash))
             {
                 if(!App.MainWindowViewModel.User.IsCreated())
-                    App.MainWindowViewModel.CreateUser(_signInUsername, "", _signInPassword);
+                    App.MainWindowViewModel.CreateUser(_signInUsername, "", signInPasswordHash);
+                    mainWindowViewModel.CurrentContent = new MainContentPageViewModel();
             }
             else
             {
-                
+                SetError("No User Found", ErrorType.NoUser);
             }
+        } 
+        else
+        {
+            SetError("Username or Password Invalid", ErrorType.InvalidUsername | ErrorType.InvalidPassword);
         }
     }
+
+    private void SetError(string message, ErrorType errorType)
+        {
+            ClearError();
+            
+            switch (errorType)
+            {
+                case ErrorType.InvalidUsername:
+                    UsernameBorderThickness = new Thickness(1);
+                    break;
+                case ErrorType.InvalidPassword:
+                    PasswordBorderThickness = new Thickness(1);
+                    break;
+                case ErrorType.NoUser:
+                    
+                    break;
+                default:
+                    throw new ArgumentOutOfRangeException(nameof(errorType), errorType, null);
+            }
+
+            ErrorMessage = message;
+            ErrorMessageIsVisible = true;
+        }
+        
+        private void ClearError()
+        {
+            ErrorMessage = "";
+            ErrorMessageIsVisible = false;
+        }
     
     [RelayCommand]
     private void OnLoginAsGuestClicked()

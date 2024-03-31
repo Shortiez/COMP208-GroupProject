@@ -74,7 +74,7 @@ namespace GroupProject.ViewModels
         [RelayCommand]
         private void OnRegisterClicked()
         {
-            Password = Hashes.Sha256(Password);
+            String PasswordHash = Hashes.Sha256(Password);
 
             if (IsValid(Username) && IsValid(Password))
             {
@@ -82,9 +82,9 @@ namespace GroupProject.ViewModels
                 {
                     if (!IsExistingUser(Username, Email))
                     {
-                        _userService.RegisterUser(Username, Email, Password);
+                        _userService.RegisterUser(Username, Email, PasswordHash);
                         
-                        App.MainWindowViewModel.CurrentContent = new MainContentPageViewModel();
+                        App.MainWindowViewModel.CurrentContent = new LoginPageViewModel();
                     }
                     else
                     {
