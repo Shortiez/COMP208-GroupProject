@@ -32,6 +32,15 @@ public partial class MainContentPageViewModel : ViewModelBase
         IsSidebarOpen = !IsSidebarOpen;
     }
     
+    [RelayCommand]
+    private void TriggerTheme()
+    {
+        var mainWindow = App.MainWindowViewModel;
+        var theme = mainWindow.CurrentTheme == "Dark" ? "Light" : "Dark";   
+        
+        mainWindow.CurrentTheme = theme;
+    }
+    
     partial void OnSelectedListItemChanged(SidebarListItemTemplate? value)
     {
         if (value is null) return;
