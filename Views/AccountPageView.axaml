@@ -77,7 +77,7 @@
                            Width="1"
                            VerticalAlignment="Stretch"
                            Margin="0, 130, 0, 0"
-                           Background="{DynamicResource LMSYNeutral}"/>
+                           Background="{DynamicResource LMSYNeutralSecondary}"/>
             
                 <StackPanel Grid.Column="2">
                     <TextBlock Classes="title"

@@ -10,6 +10,9 @@ public partial class MainWindowViewModel : ViewModelBase
     [ObservableProperty]
     private ViewModelBase _currentContent = new MainContentPageViewModel();
     [ObservableProperty]
+    private string _currentTheme = "Dark";
+    
+    [ObservableProperty]
     private UserDataModel _user = new UserDataModel();
     
     public MainWindowViewModel()

@@ -7,5 +7,6 @@
         MinWidth="1200" MinHeight="600"
         MaxWidth="1200" MaxHeight="600" 
         Title="LMSY"
-        Content="{Binding CurrentContent}">
+        Content="{Binding CurrentContent}"
+        RequestedThemeVariant="{Binding CurrentTheme}">
 </Window>

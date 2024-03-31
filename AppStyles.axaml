@@ -10,11 +10,11 @@
     <!-- Add Styles Here -->
     
     <Style Selector="Window">
-        <Setter Property="Background" Value="{DynamicResource LMSYNeutralLight}"/>
+        <Setter Property="Background" Value="{DynamicResource LMSYNeutralPrimary}"/>
     </Style>
     
     <Style Selector="Button">
-        <Setter Property="Foreground" Value="WhiteSmoke"/>
+        <Setter Property="Foreground" Value="{DynamicResource LMSYForeground}"/>
         <Setter Property="HorizontalContentAlignment" Value="Center"/>
     </Style>
     <Style Selector="Button.primary">
@@ -42,9 +42,9 @@
     </Style>
     
     <Style Selector="TextBox">
-        <Setter Property="Foreground" Value="White"/>
+        <Setter Property="Foreground" Value="{DynamicResource LMSYForeground}"/>
         <Setter Property="BorderBrush" Value="Transparent"/>
-        <Setter Property="Background" Value="#3e3e3e"/>
+        <Setter Property="Background" Value="{DynamicResource LMSYNeutralTertiary}"/>
         <Setter Property="Padding" Value="10"/>
         <Setter Property="Margin" Value="0,0,0,20"/>
     </Style>
@@ -53,7 +53,7 @@
     </Style>
     
     <Style Selector="TextBlock">
-        <Setter Property="Foreground" Value="White"/>
+        <Setter Property="Foreground" Value="{DynamicResource LMSYForeground}"/>
     </Style>
     
     <Style Selector="TextBlock.title">
@@ -111,17 +111,17 @@
         <Setter Property="BorderThickness" Value="2"/>
     </Style>
     <Style Selector="Border.error-border">
-        <Setter Property="Background" Value="{DynamicResource LMSYNeutralLight}"/>
+        <Setter Property="Background" Value="{DynamicResource LMSYNeutralPrimary}"/>
         <Setter Property="BorderBrush" Value="{DynamicResource LMSYError}"/>
         <Setter Property="BorderThickness" Value="2"/>
     </Style>
         
     <Style Selector="CheckBox">
-        <Setter Property="Foreground" Value="White"></Setter>
+        <Setter Property="Foreground" Value="{DynamicResource LMSYForeground}"/>
     </Style>
     
     <Style Selector="PathIcon">
-        <Setter Property="Foreground" Value="White" />
+        <Setter Property="Foreground" Value="{DynamicResource LMSYForeground}" />
     </Style>
     <Style Selector="PathIcon.edit">
         <Setter Property="Data" Value="{DynamicResource EditRegular}" />
@@ -129,5 +129,8 @@
         <Setter Property="Height" Value="20" />
         <Setter Property="HorizontalAlignment" Value="Right" />
         <Setter Property="Margin" Value="0, 0, 20, 17.5" />
+    </Style>
+    
+    <Style Selector="ToggleSwitch.theme">
     </Style>
 </Styles>
