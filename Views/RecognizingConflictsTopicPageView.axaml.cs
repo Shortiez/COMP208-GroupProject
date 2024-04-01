@@ -232,7 +232,7 @@ public partial class RecognizingConflictsTopicPageView : UserControl
             else if (buttonName == "TransactionButton3")
             {
                 TransactionButton3.Foreground = Brushes.LightGreen;
-                CornerChimp.Source = new Bitmap("COMP208-GroupProject\\Assets\\Chimpa-success.png");
+                CornerChimp.Source = new Bitmap("C:\\Users\\user\\Documents\\GitHub\\COMP208-GroupProject\\Assets\\Chimpa-success.png");
                 TextPrompt.Text = teachingMaterial["End00"];
                 TextFade();
                 interactiveMode = false;
