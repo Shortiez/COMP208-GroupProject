@@ -1,21 +1,72 @@
 <UserControl xmlns="https://github.com/avaloniaui"
-        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
-        x:Class="GroupProject.Views.RecognizingConflictsTopicPageView">
-        <Grid>
-                <Grid.RowDefinitions>
-                        100,
-                        Auto
-                </Grid.RowDefinitions>
-                
-                <!-- Title -->
-                <TextBlock Background="Blue"></TextBlock>
-                
-                <!-- Content -->
-                <StackPanel Grid.Row="1">
-                        
-                </StackPanel>
-        </Grid>
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+             x:Class="GroupProject.Views.RecognizingConflictsTopicPageView">
+	
+		
+
+	<Grid RowDefinitions="Auto, Auto, *, Auto, Auto">
+
+		<Grid Grid.Row="0" Background="#283A7B" Height="70">
+			<Label FontWeight="550" FontSize="32" FontFamily="PlayfairDisplay" Foreground ="White" VerticalAlignment="Center" HorizontalAlignment="Center">RECOGNIZING CONFLICTS</Label>
+		</Grid>
+
+		<Grid Grid.Row="1" Background="White" Height="70">
+
+			<Image Source="C:\Users\user\Documents\GitHub\COMP208-GroupProject\Assets\button-return.png" Stretch="Uniform" VerticalAlignment="" HorizontalAlignment="Left"/>
+		</Grid>
+
+		<Grid Grid.Row="2" Background="White">
+
+			<Rectangle Fill="Black" Width="500" Height="100" HorizontalAlignment="Center" VerticalAlignment="Center"></Rectangle>
+			<Grid ColumnDefinitions="Auto, Auto, Auto, Auto, Auto" VerticalAlignment="Center" HorizontalAlignment="Center">
+				<Grid Grid.Column="0">
+
+					<Button Name="TransactionButton0" BorderThickness="6" Foreground="White" Content="Hello" Click="Button_OnClick_Submit"  Height="40" HorizontalAlignment="Center" >
+					</Button>
+				</Grid>
+				<Grid Grid.Column="1">
+					<Button Name="TransactionButton1" BorderThickness="6" Foreground="White" Content="Hello" Click="Button_OnClick_Submit" Height="40" HorizontalAlignment="Center" >
+					</Button>
+				</Grid>
+				<Grid Grid.Column="2">
+					<Button Name="TransactionButton2" BorderThickness="6" Foreground="White" Content="Hello" Click="Button_OnClick_Submit" Height="40" HorizontalAlignment="Center" >
+					</Button>
+				</Grid>
+				<Grid Grid.Column="3">
+					<Button Name="TransactionButton3" BorderThickness="6" Foreground="White" Content="Hello" Click="Button_OnClick_Submit"  Height="40" HorizontalAlignment="Center" >
+					</Button>
+				</Grid>
+				<Grid Grid.Column="4">
+					<Button Name="TransactionButton4" BorderThickness="6" Foreground="White" Content="Hello" Click="Button_OnClick_Submit" Height="40" HorizontalAlignment="Center" >
+					</Button>
+				
+				</Grid>
+
+			</Grid>
+
+
+		</Grid>
+
+		<Grid Grid.Row="3" Background="White">
+			<TextBlock FontSize="20" FontWeight="600" Opacity="0.1" Name="TextPrompt" Foreground="#283A7B" VerticalAlignment="2" HorizontalAlignment="Center" Background="White">
+				Hello, this is the Mr Chimpa.
+				<TextBlock.Transitions>
+					<Transitions>
+						<DoubleTransition Property="Opacity" Duration="0:0:0.4"/>
+					</Transitions>
+				</TextBlock.Transitions>
+			</TextBlock>
+		</Grid>
+
+		<Grid Grid.Row="4" Background = "White" Height="150">
+			<Image Name="CornerChimp" Source="C:\Users\user\Documents\GitHub\COMP208-GroupProject\Assets\chimpa-corner.png" Stretch="Uniform" VerticalAlignment="" HorizontalAlignment="Right"/>
+			<Button Name="NextButton"  Click="Button_OnClick_Submit" Background="White" Height="70" HorizontalAlignment="Center" >
+				<Image Source="C:\Users\user\Documents\GitHub\COMP208-GroupProject\Assets\button-next.png" Stretch="Uniform"/>
+			</Button>
+		</Grid>
+
+	</Grid>
 </UserControl>
