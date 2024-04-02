@@ -11,12 +11,23 @@ public class CombQuizGenerator : QuizGenerator<int>
 
         //b needs > than a
 
-        int a = Random.Next(1, 4);
-        int b = Random.Next(a + 1, 8);
+        int a = Random.Next(2, 5);
+        int b = Random.Next(a + 2, 9);
         newQuestion.QuestionInput.Add(a);
         newQuestion.QuestionInput.Add(b);
 
-        string question = $"How many ways are there to select {a} students for a prospectus photograph(order matters) from a group of {b}?";
+        string[] questions = new string[5];
+        questions[0] = "students for a prospectus photograph";
+        questions[1] = "dishes for a dinner party";
+        questions[2] = "toppings for a pizza";
+        questions[3] = "songs for a playlist";
+        questions[4] = "outfits for a trip";
+
+        Random r = new Random();
+        int num = r.Next(0,5);
+
+        string question = $"How many ways are there to select {a} " + questions[num] + $" (order matters) from a group of {b}";
+
         newQuestion.SetTitle(question);
 
         int answer = new CombQuizSolver().Solve(newQuestion);
@@ -40,6 +51,6 @@ public class CombQuizGenerator : QuizGenerator<int>
 
     protected override int GenerateOption(int answer)
     {
-        return Random.Next(answer - 25, answer + 40);
+        return Random.Next(1, answer + 20);
     }
 }
