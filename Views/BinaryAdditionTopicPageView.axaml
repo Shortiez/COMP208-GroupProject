@@ -2,8 +2,12 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:viewModels="using:GroupProject.ViewModels"
+        xmlns:models="clr-namespace:GroupProject.Models"
         mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
-        x:Class="GroupProject.Views.BinaryAdditionTopicPageView">
+        
+        x:Class="GroupProject.Views.BinaryAdditionTopicPageView"
+        x:DataType="viewModels:BinaryAdditionTopicPageViewModel">
         
         <Grid>
                 <Grid.RowDefinitions>
@@ -27,15 +31,20 @@
                         
                         <Border BorderBrush="#00417e" BorderThickness="2" CornerRadius = "10" Padding = "20">
                             <StackPanel Grid.Column = "0">
-                                <TextBlock Name="QuestionTitleTextBlock" Text="Question: What is 1010 + 0111?" />
+                                <TextBlock Text="{Binding QuestionTitleBlock}" />
 
-                                <StackPanel Name="OptionsPanel">   
-                                </StackPanel>
+                                <ItemsControl ItemsSource="{Binding QuestionOptions}">
+                                    <ItemsControl.ItemTemplate>
+                                        <DataTemplate>
+                                            <RadioButton Content="{Binding}" />
+                                        </DataTemplate>
+                                    </ItemsControl.ItemTemplate>
+                                </ItemsControl>
 
-                                <Button Content="Submit" Click="Button_OnClick_Submit"/>
-                                <Button Content="Generate New Question" Click="Button_OnClick_GenerateNewQuestion"/>
+                                <Button Content="Submit" Command="{Binding SubmitAnswerCommand}"/>
+                                <Button Content="Generate New Question" Command="{Binding GenerateNewQuestionCommand}"/>
                             
-                                <TextBlock Name="AnswerTextBlock" Text="Answer: " />
+                                <TextBlock Text="{Binding AnswerBlock}" />
                             
                             </StackPanel>  
                         </Border>
