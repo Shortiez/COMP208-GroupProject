@@ -49,8 +49,20 @@
 
           </StackPanel>
         </Border>
+        </Grid>
 
-      </Grid>
+        <!--  Key Table -->
+        <StackPanel Grid.Row="0">
+          <Border BorderBrush="#00417e" BorderThickness="2" CornerRadius = "10" Padding = "20">
+            <TreeView VerticalAlignment = "">
+              <TreeViewItem Width="150" Header="Formula Hint" IsExpanded="True">
+                <Image Grid.Row="1" Grid.Column="0" Source="resm:GroupProject.Assets.CombHintImage.png?assembly=GroupProject" />
+              </TreeViewItem>
+            </TreeView>
+          </Border>
+         </StackPanel>
+
+      <!--</Grid>-->
     </StackPanel>
   </Grid>
 </UserControl>
