@@ -5,54 +5,54 @@
            
         xmlns:viewModels="using:GroupProject.ViewModels"
         xmlns:models="clr-namespace:GroupProject.Models"
-        mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+        mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450" Background="White"
         
         x:Class="GroupProject.Views.CombinatoricsTopicPageView"
         x:DataType="viewModels:CombinatoricsTopicPageViewModel">
 
-
-<Grid RowDefinitions="Auto, Auto, *, Auto, Auto">
+<Grid RowDefinitions="Auto, Auto, Auto, Auto"> 
 
   <Grid Grid.Row="0" Background="#283A7B" Height="70">
-    <Label FontWeight="550" FontSize="32" FontFamily="PlayfairDisplay" Foreground ="White" VerticalAlignment="Center" HorizontalAlignment="Center">RECOGNIZING CONFLICTS</Label>
+    <Label FontWeight="550" FontSize="32" FontFamily="PlayfairDisplay" Foreground ="White" VerticalAlignment="Center" HorizontalAlignment="Center">RECOGNISING CONFLICTS</Label>
   </Grid>
 
   <Grid Grid.Row="1" Background="White" Height="70">
-
     <Image Source="resm:GroupProject.Assets.button-return.png?assembly=GroupProject" Stretch="Uniform" VerticalAlignment="" HorizontalAlignment="Left"/>
+  </Grid>
 
-    </Grid>
+  <Grid Grid.Row="2" Background="White" Height="200">
+    <Grid.ColumnDefinitions>
+          <ColumnDefinition Width = "*"/>
+          <ColumnDefinition Width = "*"/>
+    </Grid.ColumnDefinitions> 
+    <StackPanel Grid.Column = "0">
+            <TextBlock Text="{Binding QuestionTitleBlock}" HorizontalAlignment="Left"/>
 
-  <Grid Grid.Row="2" Background="White" Height="240">
+            <ItemsControl ItemsSource="{Binding QuestionOptions}">
+              <ItemsControl.ItemTemplate>
+                <DataTemplate>
+                  <RadioButton Content="{Binding}" />
+                </DataTemplate>
+              </ItemsControl.ItemTemplate>
+            </ItemsControl>
 
-      <StackPanel>
-        <TextBlock HorizontalAlignment="Center" Foreground="Black" FontFamily="PlayfairDisplay" Text="{Binding QuestionTitleBlock}" />
-      </StackPanel>
-    <StackPanel>
-    <ItemsControl ItemsSource="{Binding QuestionOptions}">
-      <ItemsControl.ItemTemplate>
+            <Button Content="Submit" Command="{Binding SubmitAnswerCommand}"/>
+            <Button Content="Generate New Question" Command="{Binding GenerateNewQuestionCommand}"/>
 
-        <DataTemplate>
-          <RadioButton Content="{Binding}" />
-        </DataTemplate>
-      </ItemsControl.ItemTemplate>
-    </ItemsControl>
-      </StackPanel>
-    
-    <Button Content="Submit" Command="{Binding SubmitAnswerCommand}"/>
-    <Button Content="Generate New Question" Command="{Binding GenerateNewQuestionCommand}"/>
+            <TextBlock Text="{Binding AnswerBlock}" />
 
-    <TextBlock Text="{Binding AnswerBlock}" />
-    
-    </Grid>
+     </StackPanel>
+        
 
-  <Grid Grid.Row="3" Background="White" Height="70">
+   </Grid>
+
+  <Grid Grid.Row="3" Background="White" Height="70" HorizontalAlignment="Center" VerticalAlignment="Center">
     <!--  Key Table -->
     <StackPanel Grid.Row="0">
-      <Border BorderBrush="#00417e" BorderThickness="2" CornerRadius = "10" Padding = "20">
+      <Border BorderBrush="#00417e" BorderThickness="2" CornerRadius = "10" Padding = "20" Width="200">
         <TreeView VerticalAlignment = "">
-          <TreeViewItem Width="150" Header="Formula Hint" IsExpanded="True">
-            <Image Grid.Row="1" Grid.Column="0" Source="resm:GroupProject.Assets.Red-Square.png?assembly=GroupProject" />
+          <TreeViewItem Width="150" Header="Formula Hint" IsExpanded="False">
+            <Image Grid.Row="1" Grid.Column="0" Source="resm:GroupProject.Assets.CombHintImage.png?assembly=GroupProject" />
           </TreeViewItem>
         </TreeView>
       </Border>
@@ -79,6 +79,5 @@
   </Grid>
   
  -->
-
 </Grid>
 </UserControl>
