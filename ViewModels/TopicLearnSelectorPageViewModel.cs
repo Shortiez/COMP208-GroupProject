@@ -31,8 +31,8 @@ public partial class TopicLearnSelectorPageViewModel : ViewModelBase
         },
         new TopicContentModel()
         {
-            Topic = "Logic Gates",
-            Content = new ExampleTopicPageViewModel()
+            Topic = "Combinatorics",
+            Content = new CombinatoricsTopicPageViewModel()
         }
     };
 

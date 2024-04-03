@@ -9,6 +9,9 @@
     <ApplicationIcon>Icon-mankey.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
+    <None Remove="Assets\button-next.png" />
+    <None Remove="Assets\button-return.png" />
+    <None Remove="Assets\Chimpa-corner.png" />
     <None Remove="Assets\homepage-background.png" />
     <None Remove="Assets\homepage-logo.png" />
     <None Remove="Assets\LMSY-Logo.png" />
@@ -18,6 +21,9 @@
     <Content Include="Icon-mankey.ico" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Assets\button-next.png" />
+    <EmbeddedResource Include="Assets\button-return.png" />
+    <EmbeddedResource Include="Assets\Chimpa-corner.png" />
     <EmbeddedResource Include="Assets\homepage-background.png" />
     <EmbeddedResource Include="Assets\homepage-logo.png" />
     <EmbeddedResource Include="Assets\LMSY-Logo.png" />
