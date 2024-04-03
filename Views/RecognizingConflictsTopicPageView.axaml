@@ -15,8 +15,7 @@
 
 		<Grid Grid.Row="1" Background="White" Height="70">
 
-      <Image Source="resm:GroupProject.Assets.Red-Square.png?assembly=GroupProject" Stretch="Uniform" VerticalAlignment="" HorizontalAlignment="Left"/>
-     <!--button return-->
+      <Image Source="resm:GroupProject.Assets.button-return.png?assembly=GroupProject" Stretch="Uniform" VerticalAlignment="" HorizontalAlignment="Left"/>
 
     </Grid>
 

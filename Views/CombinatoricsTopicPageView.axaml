@@ -10,16 +10,23 @@
         x:Class="GroupProject.Views.CombinatoricsTopicPageView"
         x:DataType="viewModels:CombinatoricsTopicPageViewModel">
 
-  <Grid>
+  <Grid RowDefinitions="Auto, Auto, *, Auto, Auto">
+
+    <Grid Grid.Row="0" Background="#283A7B" Height="70">
+      <Label FontWeight="550" FontSize="32" FontFamily="PlayfairDisplay" Foreground ="White" VerticalAlignment="Center" HorizontalAlignment="Center">COMBINATORICS</Label>
+    </Grid>
+    
+    <Grid Grid.Row="1" Background="White" Height="70">
+
+      <Image Source="resm:GroupProject.Assets.button-return.png?assembly=GroupProject" Stretch="Uniform" VerticalAlignment="" HorizontalAlignment="Left"/>
+
+    </Grid>
+      
     <Grid.RowDefinitions>
       <RowDefinition Height="100"/>
       <RowDefinition Height="Auto"/>
     </Grid.RowDefinitions>
 
-    <!-- Title -->
-    <StackPanel Grid.Row="0" Background="#00417e">
-      <TextBlock FontSize="30" TextAlignment="Center"   VerticalAlignment="Center" FontFamily="Georgia">Combinatorics</TextBlock>
-    </StackPanel>
 
     <!-- Content -->
     <StackPanel Grid.Row="3">
@@ -56,13 +63,11 @@
           <Border BorderBrush="#00417e" BorderThickness="2" CornerRadius = "10" Padding = "20">
             <TreeView VerticalAlignment = "">
               <TreeViewItem Width="150" Header="Formula Hint" IsExpanded="True">
-                <Image Grid.Row="1" Grid.Column="0" Source="resm:GroupProject.Assets.CombHintImage.png?assembly=GroupProject" />
+                <Image Grid.Row="1" Grid.Column="0" Source="resm:GroupProject.Assets.Red-Square.png?assembly=GroupProject" />
               </TreeViewItem>
             </TreeView>
           </Border>
          </StackPanel>
-
-      <!--</Grid>-->
     </StackPanel>
   </Grid>
 </UserControl>
