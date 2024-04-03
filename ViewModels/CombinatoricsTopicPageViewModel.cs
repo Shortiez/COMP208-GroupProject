@@ -17,9 +17,12 @@ public partial class CombinatoricsTopicPageViewModel : ViewModelBase
     private RadioButton _selectedOption; // => OptionsPanel.Children.OfType<RadioButton>().FirstOrDefault(r => r.IsChecked == true);
     private QuizQuestion<int> _currentQuestion;
 
-    public string QuestionTitleBlock { get; private set; } = "How many ways are there to select 3 students for a prospectus photograph (order matters) from a group of 5?";
-    public ObservableCollection<int> QuestionOptions { get; private set; }
-    public string AnswerBlock { get; private set; }
+    [ObservableProperty]
+    private string _questionTitleBlock = "How many ways are there to select 3 students for a prospectus photograph (order matters) from a group of 5?";
+    [ObservableProperty]
+    private ObservableCollection<int> _questionOptions = new ObservableCollection<int>();
+    [ObservableProperty]
+    public string _answerBlock = "";
 
     
 

@@ -9,7 +9,7 @@ public class CombQuizSolver : QuizSolver<int>
         // The input parameters are stored in the QuestionInput property of the question
         int[] inputParameters = question.QuestionInput.ToArray();
 
-        var actualAnswer = Factorial(inputParameters[1]) / Factorial(inputParameters[0] - inputParameters[1]);
+        var actualAnswer = Factorial(inputParameters[1]) / Factorial(inputParameters[1] - inputParameters[0]);
 
         // Return the actual answer
         return actualAnswer;
@@ -21,7 +21,7 @@ public class CombQuizSolver : QuizSolver<int>
 
         for (int i = num; i > 0; i = i - 1)
         {
-            fact = fact * 1;
+            fact = fact * i;
         }
 
         return fact;

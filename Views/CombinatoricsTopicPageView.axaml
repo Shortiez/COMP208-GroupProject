@@ -32,18 +32,20 @@
         <Border BorderBrush="#00417e" BorderThickness="2" CornerRadius = "10" Padding = "20">
           <StackPanel Grid.Column = "0">
             <TextBlock Text="{Binding QuestionTitleBlock}" />
+            
+             <ItemsControl ItemsSource="{Binding QuestionOptions}">
+               <ItemsControl.ItemTemplate>
 
-            <ItemsControl ItemsSource="{Binding QuestionOptions}">
-              <ItemsControl.ItemTemplate>
-                <DataTemplate>
-                  <RadioButton Content="{Binding}" />
-                </DataTemplate>
-              </ItemsControl.ItemTemplate>
+                 <DataTemplate>
+                   <RadioButton Content="{Binding}" />
+                 </DataTemplate>
+               </ItemsControl.ItemTemplate>
             </ItemsControl>
             <Button Content="Submit" Command="{Binding SubmitAnswerCommand}"/>
             <Button Content="Generate New Question" Command="{Binding GenerateNewQuestionCommand}"/>
 
             <TextBlock Text="{Binding AnswerBlock}" />
+            
 
           </StackPanel>
         </Border>
