@@ -7,7 +7,7 @@
         x:Class="GroupProject.Views.LoginPageView"
         x:DataType="viewModels:LoginPageViewModel">
     
-    <Grid Background="#2c2b2b">
+    <Grid Background="{DynamicResource LMSYNeutralPrimary}">
         <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="*"/>
@@ -23,7 +23,7 @@
                 Margin="40, 60, 40, 60"
                 BoxShadow="0 0 30 #1e1e1e">
             <DockPanel Margin="20, 40, 20, 20">
-                <TextBlock DockPanel.Dock="Top" Text="Sign In" Foreground="White"
+                <TextBlock DockPanel.Dock="Top" Text="Sign In" Foreground="{DynamicResource LMSYForeground}"
                        Classes="title"
                        HorizontalAlignment="Center" VerticalAlignment="Top"
                        Margin="0,0,0,0"/>
@@ -46,11 +46,11 @@
                     <TextBox Text="{Binding SignInUsername}"
                              Watermark="Username At Least 6 Characters"
                              Width="240" Margin="0,0,0,15"
-                             BorderBrush="Red" BorderThickness="{Binding UsernameBorderThickness}"/>
+                             BorderBrush="{DynamicResource LMSYError}" BorderThickness="{Binding UsernameBorderThickness}"/>
                     <TextBox Text="{Binding SignInPassword}"
                              Watermark="Password At Least 6 Characters"
                              Width="240" Margin="0,0,0,15"
-                             BorderBrush="Red" BorderThickness="{Binding PasswordBorderThickness}"/>
+                             BorderBrush="{DynamicResource LMSYError}" BorderThickness="{Binding PasswordBorderThickness}"/>
 
                     <Button Classes="primary"
                             Content="Login"

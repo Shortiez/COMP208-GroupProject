@@ -33,9 +33,9 @@ public partial class PickATopicPageViewModel : ViewModelBase
 
         LoadModules();
 
-        for (int i = 0; i < ModuleListItems.Count; i++)
+        foreach (var moduleTreeViewItem in ModuleListItems)
         {
-            LoadTopics(ModuleListItems[i]);
+            LoadTopics(moduleTreeViewItem);
         }
 
         // Hardcoded Topics

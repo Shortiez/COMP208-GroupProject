@@ -2,6 +2,7 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:models="clr-namespace:GroupProject.Models"
         xmlns:viewModels="clr-namespace:GroupProject.ViewModels"
         mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
         x:Class="GroupProject.Views.AccountPageView"
@@ -91,6 +92,29 @@
                                Text="Statistics"
                                HorizontalAlignment="Left"
                                Margin="50, 70, 0, 0"/>
+                    
+                    <ScrollViewer>
+                        <TreeView ItemsSource="{Binding ModuleTopicStats}">
+                            <TreeView.ItemTemplate>
+                                <DataTemplate DataType="{x:Type models:ModuleTopicStatsModel}">
+                                    <StackPanel>
+                                        <TextBlock Text="{Binding ModuleName}" />
+                                        <ItemsControl ItemsSource="{Binding Topics}">
+                                            <ItemsControl.ItemTemplate>
+                                                <DataTemplate DataType="{x:Type models:TopicStatsModel}">
+                                                    <StackPanel>
+                                                        <TextBlock Text="{Binding TopicName}" />
+                                                        <TextBlock Text="{Binding NoCorrect}" />
+                                                        <TextBlock Text="{Binding NoWrong}" />
+                                                    </StackPanel>
+                                                </DataTemplate>
+                                            </ItemsControl.ItemTemplate>
+                                        </ItemsControl>
+                                    </StackPanel>
+                                </DataTemplate>
+                            </TreeView.ItemTemplate>
+                        </TreeView>
+                    </ScrollViewer>
                 </StackPanel>
         </Grid>
 </UserControl>

@@ -11,7 +11,6 @@ namespace GroupProject.Views
 {
     public partial class HomePageView : UserControl
     {
-
         bool defaultKeyframe = true;//start on "default monkey"
       
         public HomePageView()
@@ -38,7 +37,7 @@ namespace GroupProject.Views
                     //This line below was slightly different, and I accepted a change from Visual Studio - it included the underscore "discard" - need to look into it incase it causes future issues
                     _ = Dispatcher.UIThread.InvokeAsync(async () =>
                     {
-                        LogoImage.Source = new Bitmap("C:\\Users\\user\\Documents\\GitHub\\COMP208-GroupProject\\Assets\\homepage-logo-02.png");
+                        LogoImage.Source = new Bitmap("/Assets/homepage-logo-02.png");
                         defaultKeyframe = false;
                         periodicTimer = new PeriodicTimer(timeOnKeyframe); 
                     });
@@ -49,7 +48,7 @@ namespace GroupProject.Views
                 {
                     _ = Dispatcher.UIThread.InvokeAsync(async () =>
                     {
-                        LogoImage.Source = new Bitmap("C:\\Users\\user\\Documents\\GitHub\\COMP208-GroupProject\\Assets\\homepage-logo.png");
+                        LogoImage.Source = new Bitmap("/Assets/homepage-logo.png");
                         defaultKeyframe = true;
                         periodicTimer = new PeriodicTimer(timeOnBlink); 
                     });

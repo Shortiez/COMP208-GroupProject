@@ -1,26 +1,12 @@
 using System;
-using System.Text.RegularExpressions;
-using System.Threading.Tasks;
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
-using GroupProject.Scripts;
-using MySql.Data.MySqlClient;
 using Avalonia;
-using Avalonia.Media.Imaging;
+using GroupProject.Models;
 using GroupProject.Services;
-using GroupProject.Views;
 
 namespace GroupProject.ViewModels
 {
-    [Flags]
-    enum ErrorType
-    {
-        InvalidUsername,
-        InvalidPassword,
-        InvalidEmail,
-        ExistingUser
-    }
-
     public partial class RegisterPageViewModel : ViewModelBase
     {
         private readonly IUserService _userService;

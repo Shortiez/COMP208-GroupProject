@@ -76,7 +76,6 @@ namespace GroupProject.Models
             }
         }
 
-
         public bool CheckExistingRecord(string username, string modulename, string topicname)
         {
             try

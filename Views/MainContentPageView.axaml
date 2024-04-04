@@ -29,8 +29,9 @@
                         <PathIcon Height="12" Data="{StaticResource HamburgerRegular}"/>
                     </Button>
                     
-                    <ToggleSwitch Classes="theme" 
+                    <ToggleSwitch Classes="theme"
                                   Command="{Binding TriggerThemeCommand}"
+                                    IsChecked="{Binding ThemeSwitchToggled}"
                                   OffContent=""
                                   OnContent=""/>
                 </StackPanel>

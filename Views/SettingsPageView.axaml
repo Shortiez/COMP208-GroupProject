@@ -2,9 +2,73 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:viewModels="clr-namespace:GroupProject.ViewModels"
         mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+        x:DataType="viewModels:SettingsPageViewModel"
         x:Class="GroupProject.Views.SettingsPageView">
-        
-        Settings
-        
+
+        <DockPanel>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    Auto
+                    *
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    Auto
+                    *
+                </Grid.RowDefinitions>
+
+                <StackPanel Grid.Column="0" Margin="20">
+                    <TextBlock Classes="title" Text="Display" Margin="0,0,0,10"/>
+
+                    <TextBlock Text="Theme"/>
+                    <ToggleSwitch Content="Dark Mode"
+                                  HorizontalAlignment="Left"
+                                  Command="{Binding TriggerThemeCommand}"
+                                  IsChecked="{Binding ThemeSwitchToggled}"
+                                  OnContent=""
+                                  OffContent=""/>
+                </StackPanel>
+                
+                <StackPanel Grid.Row="0" Grid.Column="1" Margin="20">
+                    <TextBlock Classes="title" Text="Audio" Margin="0,0,0,10"/>
+
+                    <TextBlock Text="Main Volume"/>
+                    <Slider Minimum="{Binding MinVolume}"
+                            Maximum="{Binding MaxVolume}"
+                            Value="{Binding  UserSettings.MainVolume}"
+                            HorizontalAlignment="Stretch"/>
+
+                    <TextBlock Text="Music Volume"/>
+                    <Slider Minimum="0" Maximum="100"
+                            Value="{Binding UserSettings.MusicVolume}"
+                            HorizontalAlignment="Stretch"/>
+
+                    <TextBlock Text="Effects Volume"/>
+                    <Slider Minimum="0" Maximum="100"
+                            Value="{Binding UserSettings.SFXVolume}"
+                            HorizontalAlignment="Stretch"/>
+
+                    <TextBlock Text="Mute Audio"/>
+                    <CheckBox IsChecked="{Binding UserSettings.IsAudioMuted}"
+                              HorizontalAlignment="Left"
+                              Command="{Binding TriggerAudioMuteCommand}"/>
+                </StackPanel>
+                
+                <StackPanel Grid.Row="1" Grid.Column="0"
+                            Orientation="Horizontal" 
+                            HorizontalAlignment="Right" 
+                            VerticalAlignment="Bottom"
+                            Margin="10, 0, 0, 10">
+                    <Button Classes="secondary"
+                            Content="Save"
+                            Command="{Binding SaveSettingsCommand}"
+                            Margin="0,0,10,0"/>
+
+                    <Button Classes="primary"
+                            Content="Reset Settings To Default"
+                            Command="{Binding TriggerResetSettingsToDefaultCommand}"/>
+                </StackPanel>
+            </Grid>
+        </DockPanel>
 </UserControl>

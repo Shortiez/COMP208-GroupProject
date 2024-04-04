@@ -70,7 +70,7 @@ public partial class LoginPageViewModel : ViewModelBase
             if (LogInUser(SignInUsername, signInPasswordHash))
             {
                 if(!App.MainWindowViewModel.User.IsCreated())
-                    App.MainWindowViewModel.CreateUser(_signInUsername, "", signInPasswordHash);
+                    App.MainWindowViewModel.LoadUserData(_signInUsername, "", signInPasswordHash);
                     mainWindowViewModel.CurrentContent = new MainContentPageViewModel();
             }
             else
@@ -117,8 +117,9 @@ public partial class LoginPageViewModel : ViewModelBase
     private void OnLoginAsGuestClicked()
     {
         var mainWindowViewModel = App.MainWindowViewModel;
-        mainWindowViewModel.CreateUser("Guest", "", "");
-        mainWindowViewModel.CurrentContent = new MainContentPageViewModel();
+        mainWindowViewModel?.LoadUserData("Guest", "", "");
+        
+        if (mainWindowViewModel != null) mainWindowViewModel.CurrentContent = new MainContentPageViewModel();
     }
     
     [RelayCommand]

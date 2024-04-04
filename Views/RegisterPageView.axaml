@@ -23,7 +23,7 @@
                 Margin="40, 60, 40, 60"
                 BoxShadow="0 0 30 #1e1e1e">
             <DockPanel Margin="20, 40, 20, 20">
-                <TextBlock DockPanel.Dock="Top" Text="Sign Up" Foreground="White"
+                <TextBlock DockPanel.Dock="Top" Text="Sign Up" Foreground="{DynamicResource LMSYForeground}"
                        Classes="title"
                        HorizontalAlignment="Center" VerticalAlignment="Top"
                        Margin="0,0,0,0"/>
@@ -46,15 +46,15 @@
                     <TextBox Text="{Binding Email}"
                              Watermark="Enter your email..."
                              Width="240" Margin="0,0,0,15"
-                             BorderBrush="Red" BorderThickness="{Binding EmailBorderThickness}"/>
+                             BorderBrush="{DynamicResource LMSYError}" BorderThickness="{Binding EmailBorderThickness}"/>
                     <TextBox Text="{Binding Username}"
                              Watermark="Username At Least 6 Characters"
                              Width="240" Margin="0,0,0,15"
-                             BorderBrush="Red" BorderThickness="{Binding UsernameBorderThickness}"/>
+                             BorderBrush="{DynamicResource LMSYError}" BorderThickness="{Binding UsernameBorderThickness}"/>
                     <TextBox Text="{Binding Password}"
                              Watermark="Password At Least 6 Characters"
                              Width="240" Margin="0,0,0,15"
-                             BorderBrush="Red" BorderThickness="{Binding PasswordBorderThickness}"/>
+                             BorderBrush="{DynamicResource LMSYError}" BorderThickness="{Binding PasswordBorderThickness}"/>
 
                     <Button Classes="primary"
                             Content="Register"

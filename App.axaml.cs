@@ -33,6 +33,8 @@ public partial class App : Application
             
             MainWindowViewModel = desktop.MainWindow.DataContext as MainWindowViewModel;
             MainWindowViewModel.CurrentContent = new RegisterPageViewModel();
+
+            MainWindowViewModel.CreateUserData();
         }
         
         base.OnFrameworkInitializationCompleted();

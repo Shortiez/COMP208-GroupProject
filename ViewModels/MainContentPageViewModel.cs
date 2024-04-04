@@ -3,6 +3,7 @@ using System.Collections.ObjectModel;
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using GroupProject.Models;
+using GroupProject.Services;
 using GroupProject.Views;
 
 namespace GroupProject.ViewModels;
@@ -11,12 +12,15 @@ public partial class MainContentPageViewModel : ViewModelBase
 {
     [ObservableProperty]
     private bool _isSidebarOpen = true;
-
+    
     [ObservableProperty]
     private ViewModelBase _currentPage = new HomePageViewModel();
     
     [ObservableProperty]
     private SidebarListItemTemplate _selectedListItem;
+
+    [ObservableProperty]
+    private bool _themeSwitchToggled;
     
     public ObservableCollection<SidebarListItemTemplate> SidebarListItems { get; } =
     [
@@ -25,7 +29,7 @@ public partial class MainContentPageViewModel : ViewModelBase
         new SidebarListItemTemplate(typeof(SettingsPageViewModel), "SettingsRegular"),
         new SidebarListItemTemplate(typeof(AccountPageViewModel), "Account")
     ];
-    
+
     [RelayCommand]
     private void TriggerSidebar()
     {
@@ -36,9 +40,9 @@ public partial class MainContentPageViewModel : ViewModelBase
     private void TriggerTheme()
     {
         var mainWindow = App.MainWindowViewModel;
-        var theme = mainWindow.CurrentTheme == "Dark" ? "Light" : "Dark";   
+        var theme = mainWindow.ThemeService.CurrentTheme == "Dark" ? "Light" : "Dark";   
         
-        mainWindow.CurrentTheme = theme;
+        mainWindow.ThemeService.CurrentTheme = theme;
     }
     
     partial void OnSelectedListItemChanged(SidebarListItemTemplate? value)
