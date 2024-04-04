@@ -3,6 +3,7 @@ using GroupProject.Scripts;
 using MySql.Data.MySqlClient;
 using System.Collections.Generic;
 using System.Data;
+using Avalonia.Controls;
 
 namespace GroupProject.Models
 {
@@ -33,7 +34,7 @@ namespace GroupProject.Models
         {
             return Username != null && ModuleName != null && TopicName != null;
         }
-
+        // This is the function to be called
         public void UpdateExistingRecord(string username, string modulename, string topicname, int nocorrect, int nowrong)
         {
             try
@@ -205,6 +206,45 @@ namespace GroupProject.Models
             catch (Exception ex)
             {
                 throw new Exception("Error retrieving NoWrong: " + ex.ToString());
+            }
+        }
+
+        private void LoadTopics(TreeViewItem results, string username, string modulename, string topicname)
+        {
+            _connectionDB.Connect();
+            
+            try
+            {
+                MySqlConnection conn = _connectionDB.connection;
+                conn.Open();
+                
+                using (MySqlCommand command = conn.CreateCommand())
+                {
+                    string moduleName = results.Header.ToString();
+                    
+                    command.CommandText = "SELECT * FROM `results` WHERE `UserName` = @username AND `ModuleName` = @modulename AND `TopicName` = @topicname";
+                    command.Parameters.AddWithValue("@username", username);
+                    command.Parameters.AddWithValue("@modulename", modulename);
+                    command.Parameters.AddWithValue("@topicname", topicname);
+                    
+                    using (MySqlDataReader reader = command.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            string? topicName = reader["TopicName"].ToString();
+                            var item = new TreeViewItem
+                            {
+                                Header = topicName
+                            };
+                        }
+                    }
+                }
+
+                conn.Close();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
             }
         }
     }
