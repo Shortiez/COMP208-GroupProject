@@ -15,8 +15,9 @@
 
 		<Grid Grid.Row="1" Background="White" Height="70">
 
-			<Image Source="C:\Users\user\Documents\GitHub\COMP208-GroupProject\Assets\button-return.png" Stretch="Uniform" VerticalAlignment="" HorizontalAlignment="Left"/>
-		</Grid>
+      <Image Source="resm:GroupProject.Assets.button-return.png?assembly=GroupProject" Stretch="Uniform" VerticalAlignment="" HorizontalAlignment="Left"/>
+
+    </Grid>
 
 		<Grid Grid.Row="2" Background="White">
 
@@ -62,9 +63,9 @@
 		</Grid>
 
 		<Grid Grid.Row="4" Background = "White" Height="150">
-			<Image Name="CornerChimp" Source="C:\Users\user\Documents\GitHub\COMP208-GroupProject\Assets\chimpa-corner.png" Stretch="Uniform" VerticalAlignment="" HorizontalAlignment="Right"/>
+			<Image Name="CornerChimp" Source="resm:GroupProject.Assets.Chimpa-corner.png?assembly=GroupProject" Stretch="Uniform" VerticalAlignment="" HorizontalAlignment="Right"/>
 			<Button Name="NextButton"  Click="Button_OnClick_Submit" Background="White" Height="70" HorizontalAlignment="Center" >
-				<Image Source="C:\Users\user\Documents\GitHub\COMP208-GroupProject\Assets\button-next.png" Stretch="Uniform"/>
+				<Image Source="resm:GroupProject.Assets.button-next.png?assembly=GroupProject" Stretch="Uniform"/>
 			</Button>
 		</Grid>
 

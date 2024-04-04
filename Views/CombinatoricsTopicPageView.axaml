@@ -1,0 +1,83 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+           
+        xmlns:viewModels="using:GroupProject.ViewModels"
+        xmlns:models="clr-namespace:GroupProject.Models"
+        mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450" Background="White"
+        
+        x:Class="GroupProject.Views.CombinatoricsTopicPageView"
+        x:DataType="viewModels:CombinatoricsTopicPageViewModel">
+
+<Grid RowDefinitions="Auto, Auto, Auto, Auto"> 
+
+  <Grid Grid.Row="0" Background="#283A7B" Height="70">
+    <Label FontWeight="550" FontSize="32" FontFamily="PlayfairDisplay" Foreground ="White" VerticalAlignment="Center" HorizontalAlignment="Center">RECOGNISING CONFLICTS</Label>
+  </Grid>
+
+  <Grid Grid.Row="1" Background="White" Height="70">
+    <Image Source="resm:GroupProject.Assets.button-return.png?assembly=GroupProject" Stretch="Uniform" VerticalAlignment="" HorizontalAlignment="Left"/>
+  </Grid>
+
+  <Grid Grid.Row="2" Background="White" Height="200">
+    <Grid.ColumnDefinitions>
+          <ColumnDefinition Width = "*"/>
+          <ColumnDefinition Width = "*"/>
+    </Grid.ColumnDefinitions> 
+    <StackPanel Grid.Column = "0">
+            <TextBlock Text="{Binding QuestionTitleBlock}" HorizontalAlignment="Left"/>
+
+            <ItemsControl ItemsSource="{Binding QuestionOptions}">
+              <ItemsControl.ItemTemplate>
+                <DataTemplate>
+                  <RadioButton Content="{Binding}" />
+                </DataTemplate>
+              </ItemsControl.ItemTemplate>
+            </ItemsControl>
+
+            <Button Content="Submit" Command="{Binding SubmitAnswerCommand}"/>
+            <Button Content="Generate New Question" Command="{Binding GenerateNewQuestionCommand}"/>
+
+            <TextBlock Text="{Binding AnswerBlock}" />
+
+     </StackPanel>
+        
+
+   </Grid>
+
+  <Grid Grid.Row="3" Background="White" Height="70" HorizontalAlignment="Center" VerticalAlignment="Center">
+    <!--  Key Table -->
+    <StackPanel Grid.Row="0">
+      <Border BorderBrush="#00417e" BorderThickness="2" CornerRadius = "10" Padding = "20" Width="200">
+        <TreeView VerticalAlignment = "">
+          <TreeViewItem Width="150" Header="Formula Hint" IsExpanded="False">
+            <Image Grid.Row="1" Grid.Column="0" Source="resm:GroupProject.Assets.CombHintImage.png?assembly=GroupProject" />
+          </TreeViewItem>
+        </TreeView>
+      </Border>
+    </StackPanel>
+    
+    </Grid>
+  <!--
+  <Grid Grid.Row="3" Background="White">
+    <TextBlock FontSize="20" FontWeight="600" Opacity="0.1" Name="TextPrompt" Foreground="#283A7B" VerticalAlignment="2" HorizontalAlignment="Center" Background="White">
+      Hello, this is the Mr Chimpa.
+      <TextBlock.Transitions>
+        <Transitions>
+          <DoubleTransition Property="Opacity" Duration="0:0:0.4"/>
+        </Transitions>
+      </TextBlock.Transitions>
+    </TextBlock>
+  </Grid>
+
+  <Grid Grid.Row="4" Background = "White" Height="150">
+    <Image Name="CornerChimp" Source="resm:GroupProject.Assets.Chimpa-corner.png?assembly=GroupProject" Stretch="Uniform" VerticalAlignment="" HorizontalAlignment="Right"/>
+    <Button Name="NextButton"  Click="Button_OnClick_Submit" Background="White" Height="70" HorizontalAlignment="Center" >
+      <Image Source="resm:GroupProject.Assets.button-next.png?assembly=GroupProject" Stretch="Uniform"/>
+    </Button>
+  </Grid>
+  
+ -->
+</Grid>
+</UserControl>

@@ -51,6 +51,6 @@ public class CombQuizGenerator : QuizGenerator<int>
 
     protected override int GenerateOption(int answer)
     {
-        return Random.Next(1, answer + 20);
+        return Random.Next(3, answer + 20);
     }
 }

@@ -56,6 +56,10 @@ public partial class PickATopicPageViewModel : ViewModelBase
         {
             Header = "Recognizing Conflicts"
         });
+        TopicListItems.Add(new TreeViewItem()
+        {
+            Header = "Combinatorics"
+        });
         foreach (var item in TopicListItems)
         {
             item.DoubleTapped += TriggerTopicClicked;
