@@ -17,7 +17,10 @@ namespace GroupProject.Models
 
         private DatabaseConnection _connectionDB = new DatabaseConnection();
         private MySqlConnection _connection;
-        
+        /* 
+        Create an instance as follows, make sure to replace the "" with respective module and topic names. If you come across any issues resolve them with quick fix.
+        private UserStatisticData _userStatistics = new UserStatisticData(App.MainWindowViewModel.User.Username, "", "");
+        */
         public UserStatisticData(string username, string modulename, string topicname)
         {
             Username = username;
@@ -32,7 +35,9 @@ namespace GroupProject.Models
         {
             return Username != null && ModuleName != null && TopicName != null;
         }
-        // This is the function to be called
+        /* 
+        Only call this where you determine the result and do not call any other functions within this file
+        */
         public void UpdateExistingRecord(int nocorrect, int nowrong)
         {
             try
