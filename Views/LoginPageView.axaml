@@ -33,7 +33,7 @@
                     
                     <Border Classes="error-border"
                             MaxWidth="260" MaxHeight="60"
-                            Margin="0, 0, 0, 20"
+                            Margin="0, -50, 0, 20"
                             HorizontalAlignment="Center"
                             VerticalAlignment="Center"
                             IsVisible="{Binding ErrorMessageIsVisible}">
@@ -45,7 +45,7 @@
 
                     <TextBox Text="{Binding SignInUsername}"
                              Watermark="Username At Least 6 Characters"
-                             Width="240" Margin="0,0,0,15"
+                             Width="240" Margin="0,30,0,15"
                              BorderBrush="{DynamicResource LMSYError}" BorderThickness="{Binding UsernameBorderThickness}"/>
                     <TextBox Text="{Binding SignInPassword}"
                              Watermark="Password At Least 6 Characters"
