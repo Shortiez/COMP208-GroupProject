@@ -23,11 +23,7 @@ namespace GroupProject.Views;
 public partial class RecognizingConflictsTopicPageView : UserControl
 {
     bool interactiveMode = false;
-    // private RadioButton _selectedOption => OptionsPanel.Children.OfType<RadioButton>().FirstOrDefault(r => r.IsChecked == true);
-
-    //to-do - eventually I'd like to add a reason why 2 things don't clash so I can prompt the user
-    //in the text. Maybe I add an array to each to say why it doesn't clash with each other, which leads to a
-    //premade strings ie "It doesn't clash by X and Y are different variables"
+    //
     public struct Transaction
     {
 
@@ -113,6 +109,11 @@ public partial class RecognizingConflictsTopicPageView : UserControl
 
 
 
+    //TODO - MIGRATE TO MVVM.
+
+    //TextPrompt.Text references the AXAML, line 53, in Grid Grid.Row = 3
+    //CornerChimp.Source references the AXAML, line 64, in Grid Grind.Row = 4
+
 
     public void NarrativePointer()
     {
@@ -174,7 +175,7 @@ public partial class RecognizingConflictsTopicPageView : UserControl
         {
             TextPrompt.Text = teachingMaterial["End01"];
             TextFade();
-            //At this point, 
+           
 
 
         }
@@ -191,7 +192,8 @@ public partial class RecognizingConflictsTopicPageView : UserControl
         TextPrompt.Text = teachingMaterial["Intro00"];
         TextPrompt.Opacity = 1.0;
 
-       //TO-DO make a for loop/function
+        //TODO - @Ben do these need to be migrated? These are references to the buttons in GRID Grid.Row = 2. 
+      
         TransactionButton0.Content = TransactionFormatter(exampleScheduler[0]);
         TransactionButton1.Content = TransactionFormatter(exampleScheduler[1]);
         TransactionButton2.Content = TransactionFormatter(exampleScheduler[2]);
