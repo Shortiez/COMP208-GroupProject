@@ -12,6 +12,8 @@ public partial class BinaryAdditionTopicPageViewModel : ViewModelBase
 {
     [ObservableProperty]
     private TopicContentModel topicContentModel;
+    
+    private UserStatisticData _userStatistics = new UserStatisticData(App.MainWindowViewModel.User.Username, "Binary Arithmetic", "Binary Addition");
 
     private BinaryAdditionQuizGenerator _quizGenerator = new BinaryAdditionQuizGenerator();
     private RadioButton _selectedOption; // => OptionsPanel.Children.OfType<RadioButton>().FirstOrDefault(r => r.IsChecked == true);
@@ -44,12 +46,14 @@ public partial class BinaryAdditionTopicPageViewModel : ViewModelBase
         {
             // Correct
             AnswerBlock = "Correct!";
+            _userStatistics.UpdateExistingRecord(1,0);
         }
         else
         {
             // Incorrect
             AnswerBlock = "Incorrect!" + "\n"
                         + "The correct answer was " + _currentQuestion.Answer;
+            _userStatistics.UpdateExistingRecord(0,1);
         }
     }
 }

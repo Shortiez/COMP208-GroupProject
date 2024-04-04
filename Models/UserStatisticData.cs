@@ -18,13 +18,11 @@ namespace GroupProject.Models
         private DatabaseConnection _connectionDB = new DatabaseConnection();
         private MySqlConnection _connection;
         
-        public UserStatisticData(string username, string modulename, string topicname, int nocorrect, int nowrong)
+        public UserStatisticData(string username, string modulename, string topicname)
         {
             Username = username;
             ModuleName = modulename;
             TopicName = topicname;
-            NoCorrect = nocorrect;
-            NoWrong = nowrong;
 
             _connectionDB = new DatabaseConnection();
             _connectionDB.Connect();
@@ -35,7 +33,7 @@ namespace GroupProject.Models
             return Username != null && ModuleName != null && TopicName != null;
         }
         // This is the function to be called
-        public void UpdateExistingRecord(string username, string modulename, string topicname, int nocorrect, int nowrong)
+        public void UpdateExistingRecord(int nocorrect, int nowrong)
         {
             try
             {
@@ -46,19 +44,19 @@ namespace GroupProject.Models
                     _connectionDB.connection.Open();
                 }
                 
-                if (CheckExistingRecord(username, modulename, topicname))
+                if (CheckExistingRecord(Username, ModuleName, TopicName))
                 {
                     using (MySqlCommand command = _connectionDB.connection.CreateCommand())
                     {
 
-                        nocorrect += RetrieveNoCorrect(username, modulename, topicname);
-                        nowrong += RetrieveNoWrong(username, modulename, topicname);
+                        nocorrect += RetrieveNoCorrect(Username, ModuleName, TopicName);
+                        nowrong += RetrieveNoWrong(Username, ModuleName, TopicName);
 
                         command.CommandText = "UPDATE `results` SET `noCorrect` = @noCorrect, `noWrong` = @noWrong WHERE `UserName` = @username AND `ModuleName` = @modulename AND `TopicName` = @topicname";
 
-                        command.Parameters.AddWithValue("@username", username);
-                        command.Parameters.AddWithValue("@modulename", modulename);
-                        command.Parameters.AddWithValue("@topicname", topicname);
+                        command.Parameters.AddWithValue("@username", Username);
+                        command.Parameters.AddWithValue("@modulename", ModuleName);
+                        command.Parameters.AddWithValue("@topicname", TopicName);
                         command.Parameters.AddWithValue("@noCorrect", nocorrect);
                         command.Parameters.AddWithValue("@noWrong", nowrong);
 
@@ -67,7 +65,7 @@ namespace GroupProject.Models
                 } 
                 else 
                 {
-                    CreateRecord(username, modulename, topicname, nocorrect, nowrong);
+                    CreateRecord(Username, ModuleName, TopicName, nocorrect, nowrong);
                 }
             }
             catch (Exception ex)
@@ -77,7 +75,7 @@ namespace GroupProject.Models
         }
 
 
-        public bool CheckExistingRecord(string username, string modulename, string topicname)
+        private bool CheckExistingRecord(string username, string modulename, string topicname)
         {
             try
             {
@@ -108,7 +106,7 @@ namespace GroupProject.Models
             }
         }
 
-        public void CreateRecord(string username, string modulename, string topicname, int nocorrect, int nowrong)
+        private void CreateRecord(string username, string modulename, string topicname, int nocorrect, int nowrong)
         {
             try
             {
@@ -209,43 +207,5 @@ namespace GroupProject.Models
             }
         }
 
-        private void LoadTopics(TreeViewItem results, string username, string modulename, string topicname)
-        {
-            _connectionDB.Connect();
-            
-            try
-            {
-                MySqlConnection conn = _connectionDB.connection;
-                conn.Open();
-                
-                using (MySqlCommand command = conn.CreateCommand())
-                {
-                    string moduleName = results.Header.ToString();
-                    
-                    command.CommandText = "SELECT * FROM `results` WHERE `UserName` = @username AND `ModuleName` = @modulename AND `TopicName` = @topicname";
-                    command.Parameters.AddWithValue("@username", username);
-                    command.Parameters.AddWithValue("@modulename", modulename);
-                    command.Parameters.AddWithValue("@topicname", topicname);
-                    
-                    using (MySqlDataReader reader = command.ExecuteReader())
-                    {
-                        while (reader.Read())
-                        {
-                            string? topicName = reader["TopicName"].ToString();
-                            var item = new TreeViewItem
-                            {
-                                Header = topicName
-                            };
-                        }
-                    }
-                }
-
-                conn.Close();
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine(ex.Message);
-            }
-        }
     }
 }

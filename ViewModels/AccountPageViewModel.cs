@@ -29,6 +29,8 @@ public partial class AccountPageViewModel : ViewModelBase
     private readonly IUserService _userService;
     private readonly IValidationService _validationService;
 
+    private UserStatisticData _userStatistics = new UserStatisticData();
+
     [ObservableProperty]
     private UserDataModel _userData = App.MainWindowViewModel.User;
     [ObservableProperty]
