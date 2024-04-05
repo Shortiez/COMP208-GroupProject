@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Avalonia.Media;
 using Avalonia.Media.Imaging;
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
@@ -12,17 +13,11 @@ namespace GroupProject.ViewModels;
 
 public partial class RecognizingConflictsTopicPageViewModel : ViewModelBase
 {
-    public static readonly Bitmap ChimpCornerImage =
-        new Bitmap("C:\\Users\\user\\Documents\\GitHub\\COMP208-GroupProject\\Assets\\Chimpa-corner.png");
-    public static readonly Bitmap ChimpCornerIdeaImage =
-        new Bitmap("C:\\Users\\user\\Documents\\GitHub\\COMP208-GroupProject\\Assets\\Chimpa-corner-idea.png");
-    public static readonly Bitmap ChimpFailImage =
-        new Bitmap("C:\\Users\\user\\Documents\\GitHub\\COMP208-GroupProject\\Assets\\Chimpa-fail.png");
-    public static readonly Bitmap ChimpSuccessImage =
-        new Bitmap("C:\\Users\\user\\Documents\\GitHub\\COMP208-GroupProject\\Assets\\Chimpa-success.png");
-    public static readonly Bitmap BackButtonImage =
-        new Bitmap("C:\\Users\\user\\Documents\\GitHub\\COMP208-GroupProject\\Assets\\back-button.png");
-    
+    public static readonly Bitmap ChimpCornerImage;
+    public static readonly Bitmap ChimpCornerIdeaImage;
+    public static readonly Bitmap ChimpFailImage;
+    public static readonly Bitmap ChimpSuccessImage;
+    public static readonly Bitmap BackButtonImage;
     enum InteractionMode
     {
         Interactive,
@@ -129,6 +124,8 @@ public partial class RecognizingConflictsTopicPageViewModel : ViewModelBase
 
     [ObservableProperty]
     private TransactionResponse? _currentOutput;
+    [ObservableProperty]
+    private float _textOutputOpacity = 1.0f;
     [ObservableProperty] 
     private Bitmap _currentChimpImage;
     
@@ -143,6 +140,12 @@ public partial class RecognizingConflictsTopicPageViewModel : ViewModelBase
     [ObservableProperty]
     private string _transactionButtonFourContent;
     
+    [ObservableProperty]
+    private IBrush _transactionButtonTwoForeground;
+    [ObservableProperty]
+    private IBrush _transactionButtonThreeForeground;
+    [ObservableProperty]
+    private IBrush _transactionButtonFourForeground;
 
     public RecognizingConflictsTopicPageViewModel()
     {
@@ -154,6 +157,10 @@ public partial class RecognizingConflictsTopicPageViewModel : ViewModelBase
         TransactionButtonTwoContent = _exampleScheduler[2].ToString();
         TransactionButtonThreeContent = _exampleScheduler[3].ToString();
         TransactionButtonFourContent = _exampleScheduler[4].ToString();
+        
+        TransactionButtonTwoForeground = Brushes.White;
+        TransactionButtonThreeForeground = Brushes.White;
+        TransactionButtonFourForeground = Brushes.White;
     }
 
     //right now, this will loop through and index any conflicts. 
@@ -198,6 +205,7 @@ public partial class RecognizingConflictsTopicPageViewModel : ViewModelBase
             _narrativeMap.TryGetValue(CurrentOutput.Title, out (string, Bitmap) value))
         {
             var (nextTitle, nextImage) = value;
+            Console.WriteLine($"NarrativePointer Next: {nextTitle}");
             
             CurrentOutput = _transactionTeachingMaterials.
                 FirstOrDefault(x => x.Title == nextTitle);
@@ -214,24 +222,28 @@ public partial class RecognizingConflictsTopicPageViewModel : ViewModelBase
             CurrentChimpImage = ChimpFailImage;
             _interactionMode = InteractionMode.Interactive;
         }
+        
+        FadeText();
     }
     
     [RelayCommand]
     private void OnClickNext()
     {
-        if (_interactionMode != InteractionMode.Interactive) return;
-        
-        NarrativePointer();
+        if (_interactionMode == InteractionMode.NonInteractive){
+            NarrativePointer();
+        }
     }
     
     [RelayCommand]
     private void OnClickTransactionTwo()
     { 
-        //TransactionButton2.Foreground = Brushes.Red;
+        TransactionButtonTwoForeground = Brushes.Red;
         
         CurrentOutput = _transactionUserErrors.FirstOrDefault
             (x => x.Title == "Variable");
         CurrentChimpImage = ChimpFailImage;
+        
+        FadeText();
         
         _interactionMode = InteractionMode.NonInteractive;
     }
@@ -239,11 +251,13 @@ public partial class RecognizingConflictsTopicPageViewModel : ViewModelBase
     [RelayCommand]
     private void OnClickTransactionThree()
     {
-        //TransactionButton3.Foreground = Brushes.LightGreen;
+        TransactionButtonThreeForeground = Brushes.LightGreen;
         
         CurrentOutput = _transactionTeachingMaterials.FirstOrDefault
             (x => x.Title == "End00");
         CurrentChimpImage = ChimpSuccessImage;
+        
+        FadeText();
         
         _interactionMode = InteractionMode.NonInteractive;
     }
@@ -251,11 +265,19 @@ public partial class RecognizingConflictsTopicPageViewModel : ViewModelBase
     [RelayCommand]
     private void OnClickTransactionFour()
     {
-        //TransactionButton4.Foreground = Brushes.Red;
+        TransactionButtonFourForeground = Brushes.Red;
         CurrentOutput = _transactionUserErrors.FirstOrDefault
             (x => x.Title == "Operation");
         CurrentChimpImage = ChimpFailImage;
         
+        FadeText();
+        
         _interactionMode = InteractionMode.NonInteractive;
+    }
+
+    private void FadeText()
+    {
+        TextOutputOpacity = 0.2f;
+        TextOutputOpacity = 1.0f;
     }
 }

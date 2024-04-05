@@ -9,6 +9,6 @@ public class TransactionModel
 
     public override string ToString()
     {
-        return Operation + TransactionNumber + "(" + Variable + ")";
+        return $"{Operation}{TransactionNumber}({Variable})";
     }
 }

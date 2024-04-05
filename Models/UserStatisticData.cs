@@ -9,9 +9,9 @@ namespace GroupProject.Models
 {
     public class UserStatisticData
     {
-        private String Username;
-        private String ModuleName;
-        private String TopicName;
+        private string Username;
+        private string ModuleName;
+        private string TopicName;
         private int NoCorrect;
         private int NoWrong;
 
@@ -71,6 +71,48 @@ namespace GroupProject.Models
                 else 
                 {
                     CreateRecord(Username, ModuleName, TopicName, nocorrect, nowrong);
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Error updating records: " + ex.ToString());
+            }
+        }
+
+        public void UpdateExistingRecord(int nocorrect, int nowrong, string moduleName, string topicName)
+        {
+            try
+            {
+                _connectionDB.Connect();
+
+                if (_connectionDB.connection.State != ConnectionState.Open)
+                {
+                    _connectionDB.connection.Open();
+                }
+
+                if (CheckExistingRecord(Username, moduleName, topicName))
+                {
+                    using (MySqlCommand command = _connectionDB.connection.CreateCommand())
+                    {
+
+                        nocorrect += RetrieveNoCorrect(Username, moduleName, topicName);
+                        nowrong += RetrieveNoWrong(Username, moduleName, topicName);
+
+                        command.CommandText =
+                            "UPDATE `results` SET `noCorrect` = @noCorrect, `noWrong` = @noWrong WHERE `UserName` = @username AND `ModuleName` = @modulename AND `TopicName` = @topicname";
+
+                        command.Parameters.AddWithValue("@username", Username);
+                        command.Parameters.AddWithValue("@modulename", moduleName);
+                        command.Parameters.AddWithValue("@topicname", topicName);
+                        command.Parameters.AddWithValue("@noCorrect", nocorrect);
+                        command.Parameters.AddWithValue("@noWrong", nowrong);
+
+                        command.ExecuteNonQuery();
+                    }
+                }
+                else
+                {
+                    CreateRecord(Username, moduleName, topicName, nocorrect, nowrong);
                 }
             }
             catch (Exception ex)

@@ -22,39 +22,59 @@
 			       VerticalAlignment="Center" HorizontalAlignment="Left"/>
 		</Grid>
 
-		<Grid Grid.Row="2" Background="{DynamicResource LMSYNeutralSecondary}" ColumnDefinitions="Auto, Auto, Auto, Auto, Auto"
-		      VerticalAlignment="Center" HorizontalAlignment="Center">
-			<Button Grid.Column="0" BorderThickness="6"
-			        Foreground="{DynamicResource LMSYForeground}"
-			        Content="{Binding TransactionButtonZeroContent}"
-			        Height="40"
-			        HorizontalAlignment="Center"/>
-			<Button Grid.Column="1" BorderThickness="6"
-			        Foreground="{DynamicResource LMSYForeground}"
-			        Content="{Binding TransactionButtonOneContent}"
-			        Height="40"
-			        HorizontalAlignment="Center"/>
-			<Button Grid.Column="2" Command="{Binding ClickTransactionTwoCommand}"
-			        BorderThickness="6"
-			        Foreground="White"
-			        Content="{Binding TransactionButtonTwoContent}"
-			        Height="40"
-			        HorizontalAlignment="Center"/>
-			<Button Grid.Column="3" Command="{Binding ClickTransactionThreeCommand}"
-			        BorderThickness="6"
-			        Foreground="White"
-			        Content="{Binding TransactionButtonThreeContent}"
-			        Height="40"
-			        HorizontalAlignment="Center"/>
-			<Button Grid.Column="4" Command="{Binding ClickTransactionFourCommand}"
-			        BorderThickness="6"
-			        Foreground="White"
-			        Content="{Binding TransactionButtonFourContent}"
-			        Height="40"
-			        HorizontalAlignment="Center"/>
+		<Grid Grid.Row="2" Background="{DynamicResource LMSYNeutralSecondary}">
+			<Rectangle Fill="Black"
+			           Width="500" Height="100" 
+			           HorizontalAlignment="Center" VerticalAlignment="Center"/>
+			
+			<Grid ColumnDefinitions="Auto, Auto, Auto, Auto, Auto" 
+			      VerticalAlignment="Center" HorizontalAlignment="Center">
+				<Grid Grid.Column="0">
+					<Button BorderThickness="6" 
+					        Foreground="{DynamicResource LMSYForeground}" 
+					        Content="{Binding TransactionButtonZeroContent}"
+					        Height="40"
+					        HorizontalAlignment="Center"/>
+				</Grid>
+				<Grid Grid.Column="1">
+					<Button Content="{Binding TransactionButtonOneContent}"
+					        Foreground="White" 
+					        BorderThickness="6"
+					        Height="40"
+					        HorizontalAlignment="Center"/>
+				</Grid>
+				<Grid Grid.Column="2">
+					<Button Command="{Binding ClickTransactionTwoCommand}"
+					        Content="{Binding TransactionButtonTwoContent}" 
+					        Foreground="{Binding TransactionButtonTwoForeground}" 
+					        BorderThickness="6"
+					        Height="40"
+					        HorizontalAlignment="Center"/>
+				</Grid>
+				<Grid Grid.Column="3">
+					<Button Command="{Binding ClickTransactionThreeCommand}"
+					        Content="{Binding TransactionButtonThreeContent}" 
+					        Foreground="{Binding TransactionButtonThreeForeground}" 
+					        BorderThickness="6"
+					        Height="40"
+					        HorizontalAlignment="Center"/>
+				</Grid>
+				<Grid Grid.Column="4">
+					<Button Command="{Binding ClickTransactionFourCommand}"
+					        Content="{Binding TransactionButtonFourContent}" 
+					        Foreground="{Binding TransactionButtonFourForeground}" 
+					        BorderThickness="6"
+					        Height="40"
+					        HorizontalAlignment="Center"/>
+				</Grid>
+			</Grid>
 		</Grid>
 		<Grid Grid.Row="3" Background="White">
-			<TextBlock FontSize="20" FontWeight="600" Opacity="0.1" Name="TextPrompt" Foreground="#283A7B" VerticalAlignment="2" HorizontalAlignment="Center" Background="White">
+			<TextBlock FontSize="20" FontWeight="600" 
+			           Opacity="{Binding TextOutputOpacity}"
+			           Foreground="{DynamicResource LMSYForeground}" 
+			           VerticalAlignment="2" HorizontalAlignment="Center" 
+			           Text="{Binding CurrentOutput.ResponseMessage}">
 				Hello, this is the Mr Chimpa.
 				<TextBlock.Transitions>
 					<Transitions>
@@ -68,8 +88,13 @@
 			       Stretch="Uniform" 
 			       VerticalAlignment="Center" HorizontalAlignment="Right"/>
 			<Button Command="{Binding ClickNextCommand}" 
-			        Background="White" 
-			        Height="70" HorizontalAlignment="Center" >
+			        Background="Orange" 
+			        Height="70" Width="300" 
+			        Classes="round"
+			        HorizontalAlignment="Center"
+			        VerticalContentAlignment="Center"
+			        Content="Next"
+			        FontSize="30">
 				<!--<Image Source="" Stretch="Uniform"/>-->
 			</Button>
 		</Grid>

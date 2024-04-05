@@ -52,6 +52,8 @@ public partial class AccountPageViewModel : ViewModelBase
         Email = UserData.Email;
         Password = UserData.Password;
         
+        _userStatisticData.UpdateExistingRecord(15, 73, "Binary Arithmetic", "Binary Addition");
+        
         LoadUserStatistics();
     }
 

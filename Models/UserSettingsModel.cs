@@ -78,16 +78,16 @@ public struct UserSettingsModel
     private bool TryCreateInitialSettingsFile()
     {
         // Check for settings file
-        if(!File.Exists("settings.json"))
+        if (!File.Exists("settings.json"))
         {
-            // Create settings file
             File.Create("settings.json");
-            
+
             Console.WriteLine("Successfully created settings file");
 
             return true;
         }
-        
+
+        // Create settings file
         Console.WriteLine("Settings file already exists");
 
         return false;
