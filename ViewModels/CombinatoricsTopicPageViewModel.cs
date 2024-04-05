@@ -5,57 +5,62 @@ using Avalonia.Controls;
 using GroupProject.Scripts.Questions;
 using GroupProject.Scripts.Questions.Quizzes.Combinatorics;
 using GroupProject.Models;
+using System;
 
 namespace GroupProject.ViewModels;
 
 public partial class CombinatoricsTopicPageViewModel : ViewModelBase
 {
-    [ObservableProperty]
-    private TopicContentModel topicContentModel;
+    //[ObservableProperty]
+    //private TopicContentModel topicContentModel;
 
-    private CombQuizGenerator _quizGenerator = new CombQuizGenerator();
-    private RadioButton _selectedOption; // => OptionsPanel.Children.OfType<RadioButton>().FirstOrDefault(r => r.IsChecked == true);
-    private QuizQuestion<int> _currentQuestion;
+    private CombQuizGenerator quizGenerator = new CombQuizGenerator();
+    //private RadioButton selectedOption = ; // => OptionsPanel.Children.OfType<RadioButton>().FirstOrDefault(r => r.IsChecked == true);
+    private QuizQuestion<int> currentQuestion;
 
     [ObservableProperty]
     private string _questionTitleBlock = "How many ways are there to select 3 students for a prospectus photograph (order matters) from a group of 5?";
     [ObservableProperty]
     private ObservableCollection<int> _questionOptions = new ObservableCollection<int>();
     [ObservableProperty]
-    public string _answerBlock = "";
-
-    
+    private string _answerBlock = "Hello!";
+    [ObservableProperty]
+    private ComboBox _selectedOp = new ComboBox();
 
     [RelayCommand]
     private void GenerateNewQuestion()
     {
-        _currentQuestion = _quizGenerator.NewQuestion();
+        currentQuestion = quizGenerator.NewQuestion();
 
-        QuestionTitleBlock = _currentQuestion.QuestionTitle;
-        QuestionOptions = new ObservableCollection<int>(_currentQuestion.Options);
+        QuestionTitleBlock = currentQuestion.QuestionTitle;
+        QuestionOptions = new ObservableCollection<int>(currentQuestion.Options);
     }
 
     [RelayCommand]
     private void SubmitAnswer()
     {
-        if (_selectedOption == null)
+        /*
+        if (selectedOption == null)
         {
             return;
         }
 
-        var selectedOption = _selectedOption.Content.ToString();
-        var selectedOptionInt = int.Parse(selectedOption);
+        var selectedOpt = selectedOption.Content.ToString();
+        var selectedOptionInt = int.Parse(selectedOpt);
 
-        if (selectedOptionInt == _currentQuestion.Answer)
+        if (selectedOptionInt == currentQuestion.Answer)
         {
             // Correct
-            AnswerBlock = "Correct!";
+           // AnswerBlock = "Correct!";
         }
         else
         {
             // Incorrect
-            AnswerBlock = "Incorrect!" + "\n"
-                        + "The correct answer was " + _currentQuestion.Answer;
+            //AnswerBlock = "Incorrect!" + "\n" + "The correct answer was " + currentQuestion.Answer;
         }
+        
+        */
+        //AnswerBlock = "!!";
+        
     }
 }

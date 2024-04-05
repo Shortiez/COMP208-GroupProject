@@ -26,7 +26,7 @@ public class CombQuizGenerator : QuizGenerator<int>
         Random r = new Random();
         int num = r.Next(0,5);
 
-        string question = $"How many ways are there to select {a} " + questions[num] + $" (order matters) from a group of {b}";
+        string question = $"How many ways are there to select {a} " + questions[num] + $" (order matters) from a group of {b}?";
 
         newQuestion.SetTitle(question);
 
