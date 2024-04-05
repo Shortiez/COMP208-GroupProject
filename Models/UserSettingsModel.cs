@@ -57,15 +57,22 @@ public struct UserSettingsModel
         
         var json = File.ReadAllText(_settingsFileName);
         Console.WriteLine(json);
-        
-        var settings = JsonSerializer.Deserialize<UserSettingsModel>(json);
-        Console.WriteLine(settings);
-        
-        MainVolume = settings.MainVolume;
-        MusicVolume = settings.MusicVolume;
-        SFXVolume = settings.SFXVolume;
-        IsAudioMuted = settings.IsAudioMuted;
-        Theme = settings.Theme;
+
+        try
+        {
+            var settings = JsonSerializer.Deserialize<UserSettingsModel>(json);
+            Console.WriteLine(settings);
+
+            MainVolume = settings.MainVolume;
+            MusicVolume = settings.MusicVolume;
+            SFXVolume = settings.SFXVolume;
+            IsAudioMuted = settings.IsAudioMuted;
+            Theme = settings.Theme;
+        }
+        catch(JsonException e)
+        {
+            Console.WriteLine("Error deserializing settings: " + e.Message);
+        }
     }
     
     private bool TryCreateInitialSettingsFile()
