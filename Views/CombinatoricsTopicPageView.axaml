@@ -28,29 +28,16 @@
     
     <StackPanel Grid.Column = "0">
       <TextBlock Text="{Binding QuestionTitleBlock}" HorizontalAlignment="Left" Width="1500" FontSize="20" FontWeight="600" Foreground="#283A7B" VerticalAlignment="0"/>
-      <ItemsControl ItemsSource="{Binding QuestionOptions}">
-        <ItemsControl.ItemsPanel>
-          <ItemsPanelTemplate>
-            <StackPanel/>
-          </ItemsPanelTemplate>
-        </ItemsControl.ItemsPanel>
-        <ItemsControl.ItemTemplate>
-          <DataTemplate>
-            <RadioButton Content="{Binding}" Foreground="Black" GroupName="QuestionOptionsGroup" Background="Beige" CornerRadius="20" Padding="5"/>
-          </DataTemplate>
-        </ItemsControl.ItemTemplate>
-      </ItemsControl>
-
-
       <!--
-        <ItemsControl ItemsSource="{Binding QuestionOptions}" Background="#283A7B" CornerRadius="20" Padding="10">
+      <ItemsControl ItemsSource="{Binding QuestionOptions}" Background="#283A7B" CornerRadius="20" Padding="10" >
         <ItemsControl.ItemTemplate>
           <DataTemplate> 
-            <RadioButton Content="{Binding}" Foreground="White"/>
+            <RadioButton Content="{Binding}" Foreground="White" Checked="ClickedCommand"/>
           </DataTemplate> 
         </ItemsControl.ItemTemplate>
+        <ComboBox Content ="{Binding}" Foreground="White"/>
       </ItemsControl>
- -->
+    -->
             
       
       <Button Content="Submit" Command="{Binding SubmitAnswerCommand}" Background="#283A7B" Foreground="White"/>
