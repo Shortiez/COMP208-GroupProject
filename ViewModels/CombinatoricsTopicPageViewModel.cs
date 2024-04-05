@@ -28,12 +28,6 @@ public partial class CombinatoricsTopicPageViewModel : ViewModelBase
     private ComboBox _selectedOp = new ComboBox();
 
     [RelayCommand]
-    private void Clicked()
-    {
-        AnswerBlock = "1234";
-    }
-
-    [RelayCommand]
     private void GenerateNewQuestion()
     {
         currentQuestion = quizGenerator.NewQuestion();
