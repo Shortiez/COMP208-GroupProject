@@ -15,7 +15,7 @@ public class UserDataModel
         Email = email;
         Password = password;
         
-        UserStats = new UserStatisticData("", "", "");
+        UserStats = new UserStatisticData(Username, "", "");
         UserSettings = new UserSettingsModel();
     }
 

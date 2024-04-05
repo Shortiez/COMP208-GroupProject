@@ -9,46 +9,50 @@
 	<Grid RowDefinitions="Auto, Auto, *, Auto, Auto">
 
 		<Grid Grid.Row="0" Background="{DynamicResource LMSYPrimary}" Height="70">
-			<Label Classes="title" FontFamily="PlayfairDisplay" VerticalAlignment="Center" HorizontalAlignment="Center">RECOGNIZING CONFLICTS</Label>
+			<Label Classes="title" 
+			       FontFamily="PlayfairDisplay"
+			       VerticalAlignment="Center" HorizontalAlignment="Center">
+				RECOGNIZING CONFLICTS
+			</Label>
 		</Grid>
 
 		<Grid Grid.Row="1" Background="{DynamicResource LMSYNeutralSecondary}" Height="70">
-
-			<Image Source="{Binding BackButtonRef}" Stretch="Uniform" VerticalAlignment="" HorizontalAlignment="Left"/>
+			<Image Source="{Binding}" 
+			       Stretch="Uniform"
+			       VerticalAlignment="Center" HorizontalAlignment="Left"/>
 		</Grid>
 
-		<Grid Grid.Row="2" Background="{DynamicResource LMSYNeutralSecondary}">
-
-			<Rectangle Fill="Black" Width="500" Height="100" HorizontalAlignment="Center" VerticalAlignment="Center"></Rectangle>
-			<Grid ColumnDefinitions="Auto, Auto, Auto, Auto, Auto" VerticalAlignment="Center" HorizontalAlignment="Center">
-				<Grid Grid.Column="0">
-
-					<Button Name="TransactionButton0" BorderThickness="6" Foreground="{DynamicResource LMSYForeground}" Content="Hello" Click="Button_OnClick_Submit"  Height="40" HorizontalAlignment="Center" >
-					</Button>
-				</Grid>
-				<Grid Grid.Column="1">
-					<Button Name="TransactionButton1" BorderThickness="6" Foreground="White" Content="Hello" Click="Button_OnClick_Submit" Height="40" HorizontalAlignment="Center" >
-					</Button>
-				</Grid>
-				<Grid Grid.Column="2">
-					<Button Name="TransactionButton2" BorderThickness="6" Foreground="White" Content="Hello" Click="Button_OnClick_Submit" Height="40" HorizontalAlignment="Center" >
-					</Button>
-				</Grid>
-				<Grid Grid.Column="3">
-					<Button Name="TransactionButton3" BorderThickness="6" Foreground="White" Content="Hello" Click="Button_OnClick_Submit"  Height="40" HorizontalAlignment="Center" >
-					</Button>
-				</Grid>
-				<Grid Grid.Column="4">
-					<Button Name="TransactionButton4" BorderThickness="6" Foreground="White" Content="Hello" Click="Button_OnClick_Submit" Height="40" HorizontalAlignment="Center" >
-					</Button>
-				
-				</Grid>
-
-			</Grid>
-
-
+		<Grid Grid.Row="2" Background="{DynamicResource LMSYNeutralSecondary}" ColumnDefinitions="Auto, Auto, Auto, Auto, Auto"
+		      VerticalAlignment="Center" HorizontalAlignment="Center">
+			<Button Grid.Column="0" BorderThickness="6"
+			        Foreground="{DynamicResource LMSYForeground}"
+			        Content="{Binding TransactionButtonZeroContent}"
+			        Height="40"
+			        HorizontalAlignment="Center"/>
+			<Button Grid.Column="1" BorderThickness="6"
+			        Foreground="{DynamicResource LMSYForeground}"
+			        Content="{Binding TransactionButtonOneContent}"
+			        Height="40"
+			        HorizontalAlignment="Center"/>
+			<Button Grid.Column="2" Command="{Binding ClickTransactionTwoCommand}"
+			        BorderThickness="6"
+			        Foreground="White"
+			        Content="{Binding TransactionButtonTwoContent}"
+			        Height="40"
+			        HorizontalAlignment="Center"/>
+			<Button Grid.Column="3" Command="{Binding ClickTransactionThreeCommand}"
+			        BorderThickness="6"
+			        Foreground="White"
+			        Content="{Binding TransactionButtonThreeContent}"
+			        Height="40"
+			        HorizontalAlignment="Center"/>
+			<Button Grid.Column="4" Command="{Binding ClickTransactionFourCommand}"
+			        BorderThickness="6"
+			        Foreground="White"
+			        Content="{Binding TransactionButtonFourContent}"
+			        Height="40"
+			        HorizontalAlignment="Center"/>
 		</Grid>
-
 		<Grid Grid.Row="3" Background="White">
 			<TextBlock FontSize="20" FontWeight="600" Opacity="0.1" Name="TextPrompt" Foreground="#283A7B" VerticalAlignment="2" HorizontalAlignment="Center" Background="White">
 				Hello, this is the Mr Chimpa.
@@ -59,13 +63,15 @@
 				</TextBlock.Transitions>
 			</TextBlock>
 		</Grid>
-
-		<Grid Grid.Row="4" Background = "White" Height="150">
-			<Image Name="CornerChimp" Source="C:\Users\user\Documents\GitHub\COMP208-GroupProject\Assets\chimpa-corner.png" Stretch="Uniform" VerticalAlignment="" HorizontalAlignment="Right"/>
-			<Button Name="NextButton"  Click="Button_OnClick_Submit" Background="White" Height="70" HorizontalAlignment="Center" >
-				<Image Source="C:\Users\user\Documents\GitHub\COMP208-GroupProject\Assets\button-next.png" Stretch="Uniform"/>
+		<Grid Grid.Row="4" Background="White" Height="150">
+			<Image Source="{Binding CurrentChimpImage}"
+			       Stretch="Uniform" 
+			       VerticalAlignment="Center" HorizontalAlignment="Right"/>
+			<Button Command="{Binding ClickNextCommand}" 
+			        Background="White" 
+			        Height="70" HorizontalAlignment="Center" >
+				<!--<Image Source="" Stretch="Uniform"/>-->
 			</Button>
 		</Grid>
-
 	</Grid>
 </UserControl>
