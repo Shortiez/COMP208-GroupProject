@@ -11,11 +11,11 @@ namespace GroupProject.ViewModels;
 
 public partial class CombinatoricsTopicPageViewModel : ViewModelBase
 {
-    //[ObservableProperty]
-    //private TopicContentModel topicContentModel;
+    [ObservableProperty]
+    private TopicContentModel topicContentModel;
 
     private CombQuizGenerator quizGenerator = new CombQuizGenerator();
-    //private RadioButton selectedOption = ; // => OptionsPanel.Children.OfType<RadioButton>().FirstOrDefault(r => r.IsChecked == true);
+    private RadioButton selectedOption;
     private QuizQuestion<int> currentQuestion;
 
     [ObservableProperty]
@@ -24,14 +24,7 @@ public partial class CombinatoricsTopicPageViewModel : ViewModelBase
     private ObservableCollection<int> _questionOptions = new ObservableCollection<int>();
     [ObservableProperty]
     private string _answerBlock = "Hello!";
-    [ObservableProperty]
-    private ComboBox _selectedOp = new ComboBox();
 
-    [RelayCommand]
-    private void Clicked()
-    {
-        AnswerBlock = "1234";
-    }
 
     [RelayCommand]
     private void GenerateNewQuestion()
@@ -45,7 +38,7 @@ public partial class CombinatoricsTopicPageViewModel : ViewModelBase
     [RelayCommand]
     private void SubmitAnswer()
     {
-        /*
+        
         if (selectedOption == null)
         {
             return;
@@ -64,9 +57,6 @@ public partial class CombinatoricsTopicPageViewModel : ViewModelBase
             // Incorrect
             //AnswerBlock = "Incorrect!" + "\n" + "The correct answer was " + currentQuestion.Answer;
         }
-        
-        */
-        //AnswerBlock = "!!";
         
     }
 }
