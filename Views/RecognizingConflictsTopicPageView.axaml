@@ -17,7 +17,7 @@
 		</Grid>
 
 		<Grid Grid.Row="1" Background="{DynamicResource LMSYNeutralSecondary}" Height="70">
-			<Image Source="{Binding}" 
+			<Image Source="/Assets/button-return.png" 
 			       Stretch="Uniform"
 			       VerticalAlignment="Center" HorizontalAlignment="Left"/>
 		</Grid>
@@ -88,14 +88,10 @@
 			       Stretch="Uniform" 
 			       VerticalAlignment="Center" HorizontalAlignment="Right"/>
 			<Button Command="{Binding ClickNextCommand}" 
-			        Background="Orange" 
-			        Height="70" Width="300" 
-			        Classes="round"
+			        Height="70"
 			        HorizontalAlignment="Center"
-			        VerticalContentAlignment="Center"
-			        Content="Next"
-			        FontSize="30">
-				<!--<Image Source="" Stretch="Uniform"/>-->
+			        VerticalContentAlignment="Center">
+				<Image Source="/Assets/button-next.png" Stretch="Uniform"/>
 			</Button>
 		</Grid>
 	</Grid>

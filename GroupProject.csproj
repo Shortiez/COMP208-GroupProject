@@ -22,14 +22,30 @@
     <Content Include="Icon-mankey.ico" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Assets\button-next.png" />
-    <EmbeddedResource Include="Assets\button-return.png" />
-    <EmbeddedResource Include="Assets\Chimpa-corner.png" />
-    <EmbeddedResource Include="Assets\CombHintImage.png" />
-    <EmbeddedResource Include="Assets\homepage-background.png" />
-    <EmbeddedResource Include="Assets\homepage-logo.png" />
-    <EmbeddedResource Include="Assets\LMSY-Logo.png" />
-    <EmbeddedResource Include="Assets\Red-Square.png" />
+    <AvaloniaResource Include="Assets\button-next.png" />
+    <AvaloniaResource Include="Assets\button-return.png" />
+    <AvaloniaResource Include="Assets\Chimpa-corner.png" />
+    <AvaloniaResource Include="Assets\CombHintImage.png" />
+    <AvaloniaResource Include="Assets\homepage-background.png" />
+    <AvaloniaResource Include="Assets\homepage-logo.png" />
+    <AvaloniaResource Include="Assets\LMSY-Logo.png" />
+    <AvaloniaResource Include="Assets\Red-Square.png" />
+    <None Remove="Assets\button-previous.png" />
+    <AvaloniaResource Include="Assets\button-previous.png" />
+    <None Remove="Assets\Blue-Square.png" />
+    <AvaloniaResource Include="Assets\Blue-Square.png" />
+    <None Remove="Assets\Chimpa-corner-idea.png" />
+    <AvaloniaResource Include="Assets\Chimpa-corner-idea.png" />
+    <None Remove="Assets\Chimpa-fail.png" />
+    <AvaloniaResource Include="Assets\Chimpa-fail.png" />
+    <None Remove="Assets\chimpa-success.png" />
+    <AvaloniaResource Include="Assets\chimpa-success.png" />
+    <None Remove="Assets\homepage-logo-02.png" />
+    <AvaloniaResource Include="Assets\homepage-logo-02.png" />
+    <None Remove="Assets\Pink-Square.png" />
+    <AvaloniaResource Include="Assets\Pink-Square.png" />
+    <None Remove="Assets\White-Square.png" />
+    <AvaloniaResource Include="Assets\White-Square.png" />
   </ItemGroup>
 
 

@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Threading.Tasks;
 using Avalonia.Media;
@@ -13,11 +14,11 @@ namespace GroupProject.ViewModels;
 
 public partial class RecognizingConflictsTopicPageViewModel : ViewModelBase
 {
-    public static readonly Bitmap ChimpCornerImage;
-    public static readonly Bitmap ChimpCornerIdeaImage;
-    public static readonly Bitmap ChimpFailImage;
-    public static readonly Bitmap ChimpSuccessImage;
-    public static readonly Bitmap BackButtonImage;
+    public static readonly Bitmap ChimpCornerImage = ImageHelper.LoadFromResource("/Assets/Chimpa-corner.png");
+    public static readonly Bitmap ChimpCornerIdeaImage = ImageHelper.LoadFromResource("/Assets/Chimpa-corner-idea.png");
+    public static readonly Bitmap ChimpSuccessImage = ImageHelper.LoadFromResource("/Assets/chimpa-success.png");
+    public static readonly Bitmap ChimpFailImage = ImageHelper.LoadFromResource("/Assets/Chimpa-fail.png");
+    
     enum InteractionMode
     {
         Interactive,
@@ -127,8 +128,24 @@ public partial class RecognizingConflictsTopicPageViewModel : ViewModelBase
     [ObservableProperty]
     private float _textOutputOpacity = 1.0f;
     [ObservableProperty] 
-    private Bitmap _currentChimpImage;
-    
+    private Bitmap _currentChimpImage = ChimpCornerImage;
+
+    protected override void OnPropertyChanged(PropertyChangedEventArgs e)
+    {
+        base.OnPropertyChanged(e);
+        
+        if(e.PropertyName == nameof(CurrentOutput))
+        {
+            Console.WriteLine($"Current Output: {CurrentOutput?.ResponseMessage}");
+        }
+        
+        // Check chimp image
+        if (e.PropertyName == nameof(CurrentChimpImage))
+        {
+            Console.WriteLine($"Current Chimp Image: {CurrentChimpImage}");
+        }
+    }
+
     [ObservableProperty]
     private string _transactionButtonZeroContent;
     [ObservableProperty]
@@ -151,6 +168,8 @@ public partial class RecognizingConflictsTopicPageViewModel : ViewModelBase
     {
         CurrentOutput = _transactionTeachingMaterials.
             FirstOrDefault(x => x.Title == "Intro00");
+        
+        CurrentChimpImage = ChimpCornerImage;
         
         TransactionButtonZeroContent = _exampleScheduler[0].ToString();
         TransactionButtonOneContent = _exampleScheduler[1].ToString();
