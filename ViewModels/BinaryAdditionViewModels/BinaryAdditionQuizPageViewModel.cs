@@ -39,8 +39,7 @@ public partial class BinaryAdditionQuizPageViewModel : ViewModelBase
         QuestionTitleBlock = _currentQuestion.QuestionTitle;
         QuestionOptions = new ObservableCollection<int>(_currentQuestion.Options);
     }
-
-
+    
     [RelayCommand]
     private void SubmitAnswer(){
         if(_selectedOption == null){
@@ -77,5 +76,4 @@ public partial class BinaryAdditionQuizPageViewModel : ViewModelBase
         
         App.MainWindowViewModel.CurrentContent = topic;
     }
-
 }

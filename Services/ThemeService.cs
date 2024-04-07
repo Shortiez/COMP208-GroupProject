@@ -47,7 +47,7 @@ public class ThemeService
     private void OnThemeChanged(string newTheme)
     {
         _userSettings.Theme = newTheme;
-        App.MainWindowViewModel.CurrentTheme = newTheme;
+        App.MainWindowViewModel!.CurrentTheme = newTheme;
 
         switch (App.MainWindowViewModel.CurrentContent)
         {
