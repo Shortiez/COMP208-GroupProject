@@ -7,34 +7,54 @@ namespace GroupProject.ViewModels;
 public partial class TopicLearnSelectorPageViewModel : ViewModelBase
 {
     public string? CurrentTopic { get; set; }
-    public static readonly TopicContentModel[] Topics = new TopicContentModel[5]
+    public static readonly TopicContentModel[] learnTopics = new TopicContentModel[3]
     {
         new TopicContentModel()
         {
             Topic = "Binary Addition",
-            Content = new BinaryAdditionTopicPageViewModel()
+            Content = new BinaryAdditionLearnPageViewModel()
+        },
+        new TopicContentModel()
+        {
+            Topic = "Binary Subtraction",
+            Content = new BinarySubtractionLearnPageViewModel()
         },
         new TopicContentModel()
         {
             Topic = "Recognizing Conflicts",
-            Content = new RecognizingConflictsTopicPageViewModel()
+            Content = new RecognizingConflictsLearnPageViewModel()
+        },
+    };
+
+    public static readonly TopicContentModel[] quizTopics = new TopicContentModel[5]
+    {
+        new TopicContentModel()
+        {
+            Topic = "Binary Addition",
+            Content = new BinaryAdditionQuizPageViewModel()
+        },
+        new TopicContentModel()
+        {
+            Topic = "Binary Subtraction",
+            Content = new BinarySubtractionQuizPageViewModel()
         },
         new TopicContentModel()
         {
             Topic = "Table Unions",
-            Content = new TableUnionTopicPageViewModel()
+            Content = new TableUnionQuizPageViewModel()
         },
         new TopicContentModel()
         {
             Topic = "Addition",
-            Content = new ExampleTopicPageViewModel()
+            Content = new ExampleTopicQuizViewModel()
         },
         new TopicContentModel()
         {
             Topic = "Combinatorics",
-            Content = new CombinatoricsTopicPageViewModel()
+            Content = new CombinatoricsQuizPageViewModel()
         }
     };
+
 
     public TopicLearnSelectorPageViewModel()
     {
@@ -44,19 +64,18 @@ public partial class TopicLearnSelectorPageViewModel : ViewModelBase
         CurrentTopic = topic;
     }
     
-    private void LoadTopicQuestionsPage()
-    {
-        var content = Topics.First(t => t.Topic == CurrentTopic).Content;
-        App.MainWindowViewModel.CurrentContent = content;
-    }
-    
     private void LoadTopicExamplesPage()
     {
-        var content = Topics.First(t => t.Topic == CurrentTopic).Content;
-        
+        var content = learnTopics.First(t => t.Topic == CurrentTopic).Content;
         App.MainWindowViewModel.CurrentContent = content;
     }
-    
+
+    private void LoadTopicQuestionsPage()
+    {
+        var content = quizTopics.First(t => t.Topic == CurrentTopic).Content;
+        App.MainWindowViewModel.CurrentContent = content;
+    }
+        
     [RelayCommand]
     private void OnClickLoadQuestions()
     {

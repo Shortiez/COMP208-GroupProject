@@ -1,0 +1,73 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:viewModels="using:GroupProject.ViewModels"
+    xmlns:models="clr-namespace:GroupProject.Models"
+    mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+    
+    x:Class="GroupProject.Views.BinaryAdditionQuizPageView"
+    x:DataType="viewModels:BinaryAdditionQuizPageViewModel">
+    
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="100"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        
+        <!-- Title -->
+        <StackPanel Grid.Row="0" Background="#00417e">
+            <TextBlock FontSize="30" TextAlignment="Center"   VerticalAlignment="Center" FontFamily="Georgia">Binary Addition</TextBlock>
+        </StackPanel>
+            
+            
+        <!-- Content -->
+        <StackPanel Grid.Row="1">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width = "*"/>
+                    <ColumnDefinition Width = "*"/>
+                </Grid.ColumnDefinitions>
+                
+                    <StackPanel Grid.Column = "0">
+                        <Border BorderBrush="#00417e" BorderThickness="2" CornerRadius = "10" Padding = "20">
+                            <StackPanel>
+                                <TextBlock Text="{Binding QuestionTitleBlock}" FontFamily="Georgia" HorizontalAlignment="Left" Width="1500" FontSize="20" FontWeight="600" Foreground="#283A7B" VerticalAlignment="0"/>
+                                <ItemsControl ItemsSource="{Binding QuestionOptions}" FontFamily="Georgia" Background="#283A7B" CornerRadius="20" Padding="10" >
+                                    <ItemsControl.ItemTemplate>
+                                    <DataTemplate> 
+                                        <RadioButton Content="{Binding}" Foreground="White" GroupName="QuestionOptions"/>
+                                    </DataTemplate> 
+                                    </ItemsControl.ItemTemplate>
+                                </ItemsControl>
+
+                                <Button Content="Submit" Command="{Binding SubmitAnswerCommand}" FontFamily="Georgia" Background="#283A7B" Foreground="White"/>
+                                <Button Content="Generate New Question" Command="{Binding GenerateNewQuestionCommand}" FontFamily="Georgia" Background="#283A7B" Foreground="White"/>
+                                <TextBlock Text="{Binding AnswerBlock}" FontFamily="Georgia" FontSize="20" FontWeight="600" Foreground = "White" Background="#283A7B" Padding="20" Width="600" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+                            </StackPanel>
+                        </Border>
+                        <Button HorizontalAlignment="Left" VerticalAlignment="Bottom" Name="BackButton" Classes="primary round" Content="Back to Topic"
+                        Width="130" Height="30" Command="{Binding ClickBackToHomeCommand}"/>
+                    </StackPanel>  
+
+
+
+                <!--  Key Table -->
+                <StackPanel Grid.Column="1"> 
+                    <Border BorderBrush="#00417e" BorderThickness="2" CornerRadius = "10" Padding = "20">
+                        <TreeView VerticalAlignment = "Center">
+                            <TreeViewItem Width="150" Header="Key Table" IsExpanded="False">
+                                <TextBlock FontFamily="Georgia"> 0 + 0 = 0 </TextBlock>
+                                <TextBlock FontFamily="Georgia"> 0 + 1 = 1 </TextBlock>
+                                <TextBlock FontFamily="Georgia"> 1 + 1 = 10 </TextBlock>
+                                <TextBlock FontFamily="Georgia"> 1 + 1 + 1 = 11 </TextBlock>
+                            </TreeViewItem>
+                        </TreeView>
+                    </Border>
+
+            <!-- button to ask for help-->
+                </StackPanel>
+            </Grid>
+        </StackPanel>
+    </Grid>
+</UserControl>

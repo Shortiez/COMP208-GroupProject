@@ -1,22 +1,20 @@
-using System;
 using System.Linq;
 using Avalonia;
 using Avalonia.Controls;
 using Avalonia.Interactivity;
 using Avalonia.Markup.Xaml;
 using GroupProject.Scripts.Questions;
-using GroupProject.Scripts.Questions.Quizzes.BinarySubtraction;
+using GroupProject.Scripts.Questions.Quizzes.Example;
 
 namespace GroupProject.Views;
 
-public partial class BinarySubtractionTopicPageView : UserControl
+public partial class ExampleTopicQuizView : UserControl
 {
-    private BinarySubtractionQuizGenerator _quizGenerator = new BinarySubtractionQuizGenerator();
+    private AdditionQuizGenerator _quizGenerator = new AdditionQuizGenerator();
     private RadioButton _selectedOption => OptionsPanel.Children.OfType<RadioButton>().FirstOrDefault(r => r.IsChecked == true);
     private QuizQuestion<int> _currentQuestion;
-
-
-    public BinarySubtractionTopicPageView()
+    
+    public ExampleTopicQuizView()
     {
         InitializeComponent();
     }
@@ -66,5 +64,4 @@ public partial class BinarySubtractionTopicPageView : UserControl
     {
         ShowQuestion();
     }
-
 }

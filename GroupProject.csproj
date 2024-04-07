@@ -84,12 +84,12 @@
       <DependentUpon>AccountWindow.axaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="Views\BinaryAdditionTopicPageView.axaml.cs">
+    <Compile Update="Views\BinaryAdditionQuizPageView.axaml.cs">
       <DependentUpon>BinaryAdditionTopicWindow.axaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="Views\ExampleTopicPageView.axaml.cs">
-      <DependentUpon>ExampleTopicPage.axaml</DependentUpon>
+    <Compile Update="Views\ExampleTopicQuizView.axaml.cs">
+      <DependentUpon>ExampleTopicQuiz.axaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="Views\HomePageView.axaml.cs">
@@ -112,8 +112,8 @@
       <DependentUpon>PickATopicWindow.axaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="Views\RecognizingConflictsTopicPageView.axaml.cs">
-      <DependentUpon>RecognizingConflictsTopicWindow.axaml</DependentUpon>
+    <Compile Update="Views\RecognizingConflictsLearnPageView.axaml.cs">
+      <DependentUpon>RecognizingConflictsLearnWindow.axaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="Views\RegisterPageView.axaml.cs">
@@ -124,8 +124,8 @@
       <DependentUpon>SettingsWindow.axaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="Views\TableUnionTopicPageView.axaml.cs">
-      <DependentUpon>TableUnionTopicWindow.axaml</DependentUpon>
+    <Compile Update="Views\TableUnionQuizPageView.axaml.cs">
+      <DependentUpon>TableUnionQuizWindow.axaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="Views\TopicLearnSelectorPageView.axaml.cs">

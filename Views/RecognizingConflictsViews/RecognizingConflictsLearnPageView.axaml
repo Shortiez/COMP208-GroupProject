@@ -4,8 +4,8 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:viewModels="clr-namespace:GroupProject.ViewModels"
              mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
-             x:Class="GroupProject.Views.RecognizingConflictsTopicPageView"
-             x:DataType="viewModels:RecognizingConflictsTopicPageViewModel">
+             x:Class="GroupProject.Views.RecognizingConflictsLearnPageView"
+             x:DataType="viewModels:RecognizingConflictsLearnPageViewModel">
 	<Grid RowDefinitions="Auto, Auto, *, Auto, Auto">
 
 		<Grid Grid.Row="0" Background="{DynamicResource LMSYPrimary}" Height="70">

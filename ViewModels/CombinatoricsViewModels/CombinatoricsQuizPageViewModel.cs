@@ -9,7 +9,7 @@ using System;
 
 namespace GroupProject.ViewModels;
 
-public partial class CombinatoricsTopicPageViewModel : ViewModelBase
+public partial class CombinatoricsQuizPageViewModel : ViewModelBase
 {
     [ObservableProperty]
     private TopicContentModel topicContentModel;

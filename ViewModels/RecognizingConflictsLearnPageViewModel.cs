@@ -12,7 +12,7 @@ using GroupProject.Scripts;
 
 namespace GroupProject.ViewModels;
 
-public partial class RecognizingConflictsTopicPageViewModel : ViewModelBase
+public partial class RecognizingConflictsLearnPageViewModel : ViewModelBase
 {
     public static readonly Bitmap ChimpCornerImage = ImageHelper.LoadFromResource("/Assets/Chimpa-corner.png");
     public static readonly Bitmap ChimpCornerIdeaImage = ImageHelper.LoadFromResource("/Assets/Chimpa-corner-idea.png");
@@ -164,7 +164,7 @@ public partial class RecognizingConflictsTopicPageViewModel : ViewModelBase
     [ObservableProperty]
     private IBrush _transactionButtonFourForeground;
 
-    public RecognizingConflictsTopicPageViewModel()
+    public RecognizingConflictsLearnPageViewModel()
     {
         CurrentOutput = _transactionTeachingMaterials.
             FirstOrDefault(x => x.Title == "Intro00");

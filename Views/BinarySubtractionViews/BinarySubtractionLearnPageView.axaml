@@ -1,0 +1,27 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:viewModels="using:GroupProject.ViewModels"
+    xmlns:models="clr-namespace:GroupProject.Models"
+    mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+    
+    x:Class="GroupProject.Views.BinarySubtractionLearnPageView"
+    x:DataType="viewModels:BinarySubtractionLearnPageViewModel">
+    
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="100"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        
+        <!-- Title -->
+        <StackPanel Grid.Row="0" Background="#00417e">
+            <TextBlock FontSize="30" TextAlignment="Center"   VerticalAlignment="Center" FontFamily="Georgia">Binary Addition</TextBlock>
+        </StackPanel>
+
+        <Button HorizontalAlignment="Left" VerticalAlignment="Bottom" Name="BackButton" Classes="primary round" Content="Back to Topic"
+        Width="130" Height="30" Command="{Binding ClickBackToHomeCommand}"/>
+
+    </Grid>
+</UserControl>

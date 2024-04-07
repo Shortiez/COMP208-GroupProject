@@ -4,9 +4,9 @@ using Avalonia.Markup.Xaml;
 
 namespace GroupProject.Views;
 
-public partial class TableUnionTopicPageView : UserControl
+public partial class TableUnionQuizPageView : UserControl
 {
-    public TableUnionTopicPageView()
+    public TableUnionQuizPageView()
     {
         InitializeComponent();
     }
