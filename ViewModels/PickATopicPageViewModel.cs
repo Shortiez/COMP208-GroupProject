@@ -60,6 +60,10 @@ public partial class PickATopicPageViewModel : ViewModelBase
         {
             Header = "Combinatorics"
         });
+        TopicListItems.Add(new TreeViewItem()
+        {
+            Header = "Table Unions"
+        });
         foreach (var item in TopicListItems)
         {
             item.DoubleTapped += TriggerTopicClicked;
