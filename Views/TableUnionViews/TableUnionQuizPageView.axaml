@@ -2,95 +2,122 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:vm="clr-namespace:GroupProject.ViewModels"
         mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
-        x:Class="GroupProject.Views.TableUnionQuizPageView">
-        <Grid>
-                <Grid.RowDefinitions>
-                        70,
-                        Auto
-                </Grid.RowDefinitions>
+        x:Class="GroupProject.Views.TableUnionQuizPageView"
+        x:DataType="vm:TableUnionQuizPageViewModel"
+        DataContext="TableUnionQuizPageViewModel">
+  
+  <Grid Name="Screen" DragDrop.AllowDrop="True">
+          <Grid.RowDefinitions>
+                  70,
+                  Auto
+          </Grid.RowDefinitions>
                 
-                <!-- Title -->
-                <TextBlock Background="Blue" TextAlignment="Center" FontSize="40">TABLE UNION Questions</TextBlock>
+          <!-- Title -->
+          <TextBlock Background="Blue" TextAlignment="Center" FontSize="40">
+            TABLE UNION Questions
+          </TextBlock>
                 
-                <!-- Content -->
-          <DockPanel Grid.Row="1">
-            <DockPanel DockPanel.Dock="Top">
-              <TextBlock DockPanel.Dock="Left" Margin="120,20,0,20" Text="SELECT Shape &#x0a;FROM table2 &#x0a;WHERE Shape=Red" Foreground="Red" FontSize="20" />
-              <TextBlock DockPanel.Dock="Right" Margin="40,20,50,20" FontSize="20" HorizontalAlignment="Right" Text="Please drag items from original tables &#x0a;to results table" />
-            </DockPanel>
-            <StackPanel DockPanel.Dock="Bottom" Margin="20,0" Orientation="Horizontal" Background="White">
-              <Border Padding="0" Height="260" Width="160" Background="Green" Margin="0,0">
-                <Grid>
-                  <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width = "*"/>
-                    <ColumnDefinition Width = "*"/>
-                  </Grid.ColumnDefinitions>
-                  <Grid.RowDefinitions>
-                    <RowDefinition Height = "30"/>
-                    <RowDefinition Height = "40"/>
-                    <RowDefinition Height = "40"/>
-                    <RowDefinition Height = "40"/>
-                    <RowDefinition Height = "40"/>
-                  </Grid.RowDefinitions>
-                  <TextBlock Grid.Row="0" Grid.Column="0" Text="head1" FontSize="20" HorizontalAlignment="Center" />
-                  <TextBlock Grid.Row="0" Grid.Column="1" Text="head2" FontSize="20" HorizontalAlignment="Center" />
-                  <Image Grid.Row="1" Grid.Column="0" Source="resm:GroupProject.Assets.Red-Square.png?assembly=GroupProject" />
-                  
-                  <TextBlock Grid.Row="1" Grid.Column="1" Text="item2" FontSize="20" HorizontalAlignment="Center" />
-                  <TextBlock Grid.Row="2" Grid.Column="0" Text="item3" FontSize="20" HorizontalAlignment="Center" />
-                  <TextBlock Grid.Row="2" Grid.Column="1" Text="item4" FontSize="20" HorizontalAlignment="Center" />
-                  <TextBlock Grid.Row="3" Grid.Column="0" Text="item5" FontSize="20" HorizontalAlignment="Center" />
-                  <TextBlock Grid.Row="3" Grid.Column="1" Text="item6" FontSize="20" HorizontalAlignment="Center" />
-                  <TextBlock Grid.Row="4" Grid.Column="0" Text="item7" FontSize="20" HorizontalAlignment="Center" />
-                  <TextBlock Grid.Row="4" Grid.Column="1" Text="item8" FontSize="20" HorizontalAlignment="Center" />
-                </Grid>
-              </Border>
-              <Border Padding="0" Height="260" Width="160" Background="Red" Margin="20,0">
-                <Grid>
-                  <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width = "*"/>
-                    <ColumnDefinition Width = "*"/>
-                  </Grid.ColumnDefinitions>
-                  <Grid.RowDefinitions>
-                    <RowDefinition Height = "30"/>
-                    <RowDefinition Height = "40"/>
-                    <RowDefinition Height = "40"/>
-                    <RowDefinition Height = "40"/>
-                    <RowDefinition Height = "40"/>
-                  </Grid.RowDefinitions>
-                  <TextBlock Grid.Row="0" Grid.Column="0" Text="head1" FontSize="20" HorizontalAlignment="Center" />
-                  <TextBlock Grid.Row="0" Grid.Column="1" Text="head2" FontSize="20" HorizontalAlignment="Center" />
-                  <TextBlock Grid.Row="1" Grid.Column="0" Text="item1" FontSize="20" HorizontalAlignment="Center" />
-                  <TextBlock Grid.Row="1" Grid.Column="1" Text="item2" FontSize="20" HorizontalAlignment="Center" />
-                  <TextBlock Grid.Row="2" Grid.Column="0" Text="item3" FontSize="20" HorizontalAlignment="Center" />
-                  <TextBlock Grid.Row="2" Grid.Column="1" Text="item4" FontSize="20" HorizontalAlignment="Center" />
-                  <TextBlock Grid.Row="3" Grid.Column="0" Text="item5" FontSize="20" HorizontalAlignment="Center" />
-                  <TextBlock Grid.Row="3" Grid.Column="1" Text="item6" FontSize="20" HorizontalAlignment="Center" />
-                  <TextBlock Grid.Row="4" Grid.Column="0" Text="item7" FontSize="20" HorizontalAlignment="Center" />
-                  <TextBlock Grid.Row="4" Grid.Column="1" Text="item8" FontSize="20" HorizontalAlignment="Center" />
-                </Grid>
-              </Border>
-              <Border Padding="0" Height="260" Width="359" Background="Purple" Margin="40,0">
-                <Grid>
-                  <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width = "*"/>
-                    <ColumnDefinition Width = "*"/>
-                  </Grid.ColumnDefinitions>
-                  <Grid.RowDefinitions>
-                    <RowDefinition Height = "30"/>
-                    <RowDefinition Height = "40"/>
-                    <RowDefinition Height = "40"/>
-                    <RowDefinition Height = "40"/>
-                    <RowDefinition Height = "40"/>
-                  </Grid.RowDefinitions>
-                  <TextBlock Grid.Row="0" Grid.Column="0" Text="head1" FontSize="20" HorizontalAlignment="Center" />
-                  <TextBlock Grid.Row="0" Grid.Column="1" Text="head2" FontSize="20" HorizontalAlignment="Center" />
-                  <TextBlock Grid.Row="1" Grid.Column="0" Text="item1" FontSize="20" HorizontalAlignment="Center" />
-                  <TextBlock Grid.Row="1" Grid.Column="1" Text="item2" FontSize="20" HorizontalAlignment="Center" />
-                </Grid>
-              </Border>
+          <!-- Content -->
+          <StackPanel Grid.Row="1" Orientation="Vertical" Background="White">
+            <StackPanel Orientation="Horizontal">
+              <TextBlock Margin="50,20,0,20" FontWeight="Bold" Foreground="Red" FontSize="20" Text="{Binding Question}" />
+              <TextBlock Margin="50,20,20,20" Foreground="Black" FontSize="20" HorizontalAlignment="Right" Text="Please drag items &#x0a;from the two left tables &#x0a;to answer table" />
+              <Button Background="Green" Width="80" Height="40" Content="Next" Command="{Binding GenerateQuestionCommand}" />
+              <Button Background="Green" Width="80" Height="40" Content="Submit" Command="{Binding SubmitAnswerCommand}" />
             </StackPanel>
-          </DockPanel>
+            <StackPanel Height="320" Margin="20,0,20,20" Orientation="Horizontal" Background="White">
+              <!-- Table 1 -->
+              <Border Padding="0" VerticalAlignment="Stretch" Width="160" Background="Green" Margin="0,0">
+                <StackPanel Orientation="Vertical">
+                  <Border  Background="Blue" CornerRadius="12,12,0,0" Height="35">
+                    <TextBlock  Text="Images" Height="40" TextAlignment="Center" Foreground="Black" FontWeight="Bold" FontSize="22" />
+                  </Border>
+                  <ItemsControl ItemsSource="{Binding Table1}" MaxWidth="140" HorizontalAlignment="Center" VerticalAlignment="Center">
+                    <ItemsControl.ItemsPanel>
+                      <ItemsPanelTemplate>
+                        <WrapPanel Orientation="Horizontal" />
+                      </ItemsPanelTemplate>
+                    </ItemsControl.ItemsPanel>
+                    <ItemsControl.ItemTemplate>
+                      <DataTemplate>
+                        <!-- Ticket template -->
+
+                        <Border BorderThickness="1" BorderBrush="Black">
+                          <Image Source="{Binding iImage}" Margin="10,10" Height="40" Width="40" PointerPressed="OnPointerPressed" />
+                        </Border>
+
+                      </DataTemplate>
+                    </ItemsControl.ItemTemplate>
+                  </ItemsControl>
+                </StackPanel>
+              </Border>
+              <!-- End of Table 1-->
+              
+              <!-- Table 2, displays items in Table 2 in ViewModel as imaegs in two columns -->
+              <Border Padding="0" VerticalAlignment="Stretch" Width="160" Background="Red" Margin="20,0">
+                <StackPanel Orientation="Vertical">
+                  <Border  Background="Blue" CornerRadius="12,12,0,0" Height="35">
+                    <TextBlock  Text="Images" Height="40" TextAlignment="Center" Foreground="Black" FontWeight="Bold" FontSize="22" />
+                  </Border>
+                  <ItemsControl ItemsSource="{Binding Table2}" MaxWidth="140" HorizontalAlignment="Center" VerticalAlignment="Center">
+                    <ItemsControl.ItemsPanel>
+                      <ItemsPanelTemplate>
+                        <WrapPanel Orientation="Horizontal" />
+                      </ItemsPanelTemplate>
+                    </ItemsControl.ItemsPanel>
+                    <ItemsControl.ItemTemplate>
+                      <DataTemplate>
+                        <!-- Ticket template -->
+
+                        <Border BorderThickness="1" BorderBrush="Black">
+                          <Image Source="{Binding iImage}" Margin="10,10" Height="40" Width="40" PointerPressed="OnPointerPressed" />
+                        </Border>
+
+                      </DataTemplate>
+                    </ItemsControl.ItemTemplate>
+                  </ItemsControl>
+                </StackPanel>
+              </Border>
+              <!-- End of Table 2 -->
+              
+              <!-- Answer table -->
+              <Border Padding="0" VerticalAlignment="Stretch" Width="299" Background="Purple" Margin="0,0">
+                <Grid>
+                  <Grid.RowDefinitions>
+                    <RowDefinition Height="40" />
+                    <RowDefinition Height="280" />
+                  </Grid.RowDefinitions>
+                  <TextBlock Grid.Row="0" Text="Images" TextAlignment="Center" Foreground="Black" FontWeight="Bold"
+                   FontSize="22" />
+                  <ScrollViewer Grid.Row="1" VerticalScrollBarVisibility="Auto">
+                    <ItemsControl Name="AnswerControl" ItemsSource="{Binding Answer}" HorizontalAlignment="Center" VerticalAlignment="Center" MaxWidth="150">
+                      <ItemsControl.ItemsPanel>
+                        <ItemsPanelTemplate>
+                          <WrapPanel Orientation="Horizontal" />
+                        </ItemsPanelTemplate>
+                      </ItemsControl.ItemsPanel>
+                      <ItemsControl.ItemTemplate>
+                        <DataTemplate>
+                          <!-- Ticket template -->
+                          
+                          <Border BorderThickness="1" BorderBrush="Black">
+                            <Image Source="{Binding iImage}" Margin="10,10,10,10" Height="45" Width="45" PointerPressed="OnPointerPressed" />
+                          </Border>
+                          
+                        </DataTemplate>
+                      </ItemsControl.ItemTemplate>
+                    </ItemsControl>
+                  </ScrollViewer>
+                </Grid>
+              </Border>
+              <!-- End of Answer table-->
+              
+              <Button Background="Pink" Width="80" Height="40" Content="Clear" Command="{Binding ClearButtonClickCommand}" />
+            </StackPanel>
+          </StackPanel>
+          
+          
         </Grid>
 </UserControl>
