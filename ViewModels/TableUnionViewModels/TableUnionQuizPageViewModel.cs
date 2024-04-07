@@ -6,7 +6,6 @@ using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using GroupProject.Models;
 using GroupProject.Scripts.Questions;
-using GroupProject.Scripts.Questions.Quizzes.BinaryAddition;
 using GroupProject.Scripts.Questions.Quizzes.TableUnion;
 using System;
 using System.Collections.Generic;
@@ -14,8 +13,7 @@ using System.Collections.ObjectModel;
 using System.IO;
 
 namespace GroupProject.ViewModels;
-
-public partial class TableUnionTopicPageViewModel : ViewModelBase
+public partial class TableUnionQuizPageViewModel : ViewModelBase
 {
     public const string customFormat = "draggable-image-format";
     private DraggableImage currImage;
@@ -54,14 +52,11 @@ public partial class TableUnionTopicPageViewModel : ViewModelBase
     [ObservableProperty]
     private String _question;
 
-    public TableUnionTopicPageViewModel()
+    public TableUnionQuizPageViewModel()
     {
         count = 0;
         GenerateQuestion();
-        // adding in empty items to Answer
-        ClearButtonClick();
         deletingRN = false;
-
     }
 
     [RelayCommand]
@@ -77,9 +72,34 @@ public partial class TableUnionTopicPageViewModel : ViewModelBase
 
     [RelayCommand]
     private void GenerateQuestion()
-    {
+    { 
+        // clear the tables
+        Table1.Clear();
+        Table2.Clear();
+        ClearButtonClick();
+
+        // update the SQL question
         _currentQuestion = _quizGenerator.NewQuestion();
-        _currentQuestion.QuestionTitle
+        Question = _currentQuestion.QuestionTitle;
+
+        Bitmap bitmap;
+        string name;
+        // populate table 1
+        for (int x = 0; x < _currentQuestion.QuestionInput.Count/2; x++)
+        {
+            name = _currentQuestion.QuestionInput[x];
+            bitmap = Images[name];
+            Table1.Add(new DraggableImage(bitmap, name, count));
+            count++;
+        }
+        // populate table 2
+        for (int x = _currentQuestion.QuestionInput.Count / 2; x < _currentQuestion.QuestionInput.Count; x++)
+        {
+            name = _currentQuestion.QuestionInput[x];
+            bitmap = Images[name];
+            Table2.Add(new DraggableImage(bitmap, name, count));
+            count++;
+        }
     }
 
     [RelayCommand]

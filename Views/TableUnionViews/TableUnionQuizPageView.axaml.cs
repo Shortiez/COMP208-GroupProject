@@ -7,7 +7,7 @@ using Avalonia.Media;
 using Avalonia.Media.Imaging;
 
 using GroupProject.ViewModels;
-using static GroupProject.ViewModels.TableUnionTopicPageViewModel;
+using static GroupProject.ViewModels.TableUnionQuizPageViewModel;
 using System.Collections.ObjectModel;
 using Avalonia.VisualTree;
 using System.Linq;
@@ -19,8 +19,6 @@ public partial class TableUnionQuizPageView : UserControl
     public TableUnionQuizPageView()
     {
         InitializeComponent();
-
-        MyImage.PointerPressed += OnPointerPressed;
 
         // tell program which function handles event when the event is called
         AddHandler(DragDrop.DragOverEvent, Drag);
@@ -41,12 +39,12 @@ public partial class TableUnionQuizPageView : UserControl
         if (WithinBounds(border, cursorPos))
         {
             // call BeginDelete in View Model
-            var viewModel = DataContext as TableUnionTopicPageViewModel;
+            var viewModel = DataContext as TableUnionQuizPageViewModel;
             viewModel.BeginDelete(draggableImage);
         }
 
         var dragData = new DataObject();
-        dragData.Set(TableUnionTopicPageViewModel.customFormat, draggableImage);
+        dragData.Set(TableUnionQuizPageViewModel.customFormat, draggableImage);
         var result = await DragDrop.DoDragDrop(e, dragData, DragDropEffects.Move);
     }
 
@@ -57,7 +55,7 @@ public partial class TableUnionQuizPageView : UserControl
 
     private void Drop(object? sender, DragEventArgs e)
     {
-        var data = e.Data.Get(TableUnionTopicPageViewModel.customFormat);
+        var data = e.Data.Get(TableUnionQuizPageViewModel.customFormat);
 
         if (data is not DraggableImage draggableImage) return;
 
@@ -69,11 +67,11 @@ public partial class TableUnionQuizPageView : UserControl
         // get the position of the cursor relative to the border
         var cursorPos = e.GetPosition(border);
 
-        var viewModel = DataContext as TableUnionTopicPageViewModel;
+        var viewModel = DataContext as TableUnionQuizPageViewModel;
         // a number 0-7 which tells us which element in answer list we are dropping over
         int index = GetIndex(cursorPos);
 
-        if (TableUnionTopicPageViewModel.deletingRN)
+        if (TableUnionQuizPageViewModel.deletingRN)
         {
             if (!WithinBounds(border, cursorPos))
             {

@@ -4,9 +4,9 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:vm="clr-namespace:GroupProject.ViewModels"
         mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
-        x:Class="GroupProject.Views.TableUnionTopicPageView"
-        x:DataType="vm:TableUnionTopicPageViewModel"
-        DataContext="TableUnionTopicPageViewModel">
+        x:Class="GroupProject.Views.TableUnionQuizPageView"
+        x:DataType="vm:TableUnionQuizPageViewModel"
+        DataContext="TableUnionQuizPageViewModel">
   
   <Grid Name="Screen" DragDrop.AllowDrop="True">
           <Grid.RowDefinitions>
@@ -22,42 +22,41 @@
           <!-- Content -->
           <StackPanel Grid.Row="1" Orientation="Vertical" Background="White">
             <StackPanel Orientation="Horizontal">
-              <TextBlock Margin="50,20,0,20" FontWeight="Bold" Foreground="Red" FontSize="20" Text="SELECT Shape &#x0a;FROM table2 &#x0a;WHERE Shape=Red" />
-              <TextBlock Margin="50,20,20,20" Foreground="Black" FontSize="20" HorizontalAlignment="Right" Text="Please drag items &#x0a;from original tables &#x0a;to results table" />
+              <TextBlock Margin="50,20,0,20" FontWeight="Bold" Foreground="Red" FontSize="20" Text="{Binding Question}" />
+              <TextBlock Margin="50,20,20,20" Foreground="Black" FontSize="20" HorizontalAlignment="Right" Text="Please drag items &#x0a;from the two left tables &#x0a;to answer table" />
               <Button Background="Green" Width="80" Height="40" Content="Next" Command="{Binding GenerateQuestionCommand}" />
               <Button Background="Green" Width="80" Height="40" Content="Submit" Command="{Binding SubmitAnswerCommand}" />
             </StackPanel>
             <StackPanel Height="320" Margin="20,0,20,20" Orientation="Horizontal" Background="White">
               <!-- Table 1 -->
               <Border Padding="0" VerticalAlignment="Stretch" Width="160" Background="Green" Margin="0,0">
-                <Grid>
-                  <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width = "*"/>
-                    <ColumnDefinition Width = "*"/>
-                  </Grid.ColumnDefinitions>
-                  <Grid.RowDefinitions>
-                    <RowDefinition Height = "30"/>
-                    <RowDefinition Height = "40"/>
-                    <RowDefinition Height = "40"/>
-                    <RowDefinition Height = "40"/>
-                    <RowDefinition Height = "40"/>
-                  </Grid.RowDefinitions>
-                  <TextBlock Grid.Row="0" Grid.Column="0" Text="head1" FontSize="20" HorizontalAlignment="Center" />
-                  <TextBlock Grid.Row="0" Grid.Column="1" Text="head2" FontSize="20" HorizontalAlignment="Center" />
-                  <Image Name="MyImage" Grid.Row="1" Grid.Column="0" Source="resm:Avalonia.Skia.Assets.NoiseAsset_256X256_PNG.png?assembly=Avalonia.Skia" />
-                  <TextBlock Grid.Row="1" Grid.Column="1" Text="item2" FontSize="20" HorizontalAlignment="Center" />
-                  <TextBlock Grid.Row="2" Grid.Column="0" Text="item3" FontSize="20" HorizontalAlignment="Center" />
-                  <TextBlock Grid.Row="2" Grid.Column="1" Text="item4" FontSize="20" HorizontalAlignment="Center" />
-                  <TextBlock Grid.Row="3" Grid.Column="0" Text="item5" FontSize="20" HorizontalAlignment="Center" />
-                  <TextBlock Grid.Row="3" Grid.Column="1" Text="item6" FontSize="20" HorizontalAlignment="Center" />
-                  <TextBlock Grid.Row="4" Grid.Column="0" Text="item7" FontSize="20" HorizontalAlignment="Center" />
-                  <TextBlock Grid.Row="4" Grid.Column="1" Text="item8" FontSize="20" HorizontalAlignment="Center" />
-                </Grid>
+                <StackPanel Orientation="Vertical">
+                  <Border  Background="Blue" CornerRadius="12,12,0,0" Height="35">
+                    <TextBlock  Text="Images" Height="40" TextAlignment="Center" Foreground="Black" FontWeight="Bold" FontSize="22" />
+                  </Border>
+                  <ItemsControl ItemsSource="{Binding Table1}" MaxWidth="140" HorizontalAlignment="Center" VerticalAlignment="Center">
+                    <ItemsControl.ItemsPanel>
+                      <ItemsPanelTemplate>
+                        <WrapPanel Orientation="Horizontal" />
+                      </ItemsPanelTemplate>
+                    </ItemsControl.ItemsPanel>
+                    <ItemsControl.ItemTemplate>
+                      <DataTemplate>
+                        <!-- Ticket template -->
+
+                        <Border BorderThickness="1" BorderBrush="Black">
+                          <Image Source="{Binding iImage}" Margin="10,10" Height="40" Width="40" PointerPressed="OnPointerPressed" />
+                        </Border>
+
+                      </DataTemplate>
+                    </ItemsControl.ItemTemplate>
+                  </ItemsControl>
+                </StackPanel>
               </Border>
               <!-- End of Table 1-->
+              
               <!-- Table 2, displays items in Table 2 in ViewModel as imaegs in two columns -->
               <Border Padding="0" VerticalAlignment="Stretch" Width="160" Background="Red" Margin="20,0">
-
                 <StackPanel Orientation="Vertical">
                   <Border  Background="Blue" CornerRadius="12,12,0,0" Height="35">
                     <TextBlock  Text="Images" Height="40" TextAlignment="Center" Foreground="Black" FontWeight="Bold" FontSize="22" />
@@ -76,14 +75,13 @@
                           <Image Source="{Binding iImage}" Margin="10,10" Height="40" Width="40" PointerPressed="OnPointerPressed" />
                         </Border>
 
-
                       </DataTemplate>
                     </ItemsControl.ItemTemplate>
                   </ItemsControl>
                 </StackPanel>
-
               </Border>
               <!-- End of Table 2 -->
+              
               <!-- Answer table -->
               <Border Padding="0" VerticalAlignment="Stretch" Width="299" Background="Purple" Margin="0,0">
                 <Grid>
@@ -101,20 +99,21 @@
                         </ItemsPanelTemplate>
                       </ItemsControl.ItemsPanel>
                       <ItemsControl.ItemTemplate>
-
-                        <!-- Ticket template -->
                         <DataTemplate>
+                          <!-- Ticket template -->
+                          
                           <Border BorderThickness="1" BorderBrush="Black">
                             <Image Source="{Binding iImage}" Margin="10,10,10,10" Height="45" Width="45" PointerPressed="OnPointerPressed" />
                           </Border>
+                          
                         </DataTemplate>
-
                       </ItemsControl.ItemTemplate>
                     </ItemsControl>
                   </ScrollViewer>
                 </Grid>
               </Border>
               <!-- End of Answer table-->
+              
               <Button Background="Pink" Width="80" Height="40" Content="Clear" Command="{Binding ClearButtonClickCommand}" />
             </StackPanel>
           </StackPanel>
