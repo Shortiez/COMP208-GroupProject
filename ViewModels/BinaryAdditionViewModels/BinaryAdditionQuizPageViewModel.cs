@@ -2,15 +2,19 @@ using System.Collections.ObjectModel;
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using Avalonia.Controls;
+using Avalonia.Media;
+using Avalonia.Media.Imaging;
 using GroupProject.Scripts.Questions;
 using GroupProject.Scripts.Questions.Quizzes.BinaryAddition;
 using GroupProject.Models;
+using GroupProject.Scripts;
 using System;
 
 namespace GroupProject.ViewModels;
 
 public partial class BinaryAdditionQuizPageViewModel : ViewModelBase
 {
+    public Bitmap? ImageFromBinding { get;} = ImageHelper.LoadFromResource("Assets/button-return.png");
 
     [ObservableProperty]
     private TopicContentModel topicContentModel;
