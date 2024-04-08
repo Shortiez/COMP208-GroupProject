@@ -7,7 +7,7 @@ namespace GroupProject.ViewModels;
 public partial class TopicLearnSelectorPageViewModel : ViewModelBase
 {
     public string? CurrentTopic { get; set; }
-    public static readonly TopicContentModel[] learnTopics = new TopicContentModel[4]
+    public static readonly TopicContentModel[] learnTopics = new TopicContentModel[3]
     {
         new TopicContentModel()
         {
@@ -24,11 +24,6 @@ public partial class TopicLearnSelectorPageViewModel : ViewModelBase
             Topic = "Recognizing Conflicts",
             Content = new RecognizingConflictsLearnPageViewModel()
         },
-        new TopicContentModel()
-        {
-            Topic = "Combinatorics",
-            Content = new CombinatoricsLearnPageViewModel()
-        }
     };
 
     public static readonly TopicContentModel[] quizTopics = new TopicContentModel[5]

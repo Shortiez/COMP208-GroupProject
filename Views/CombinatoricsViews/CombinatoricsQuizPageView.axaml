@@ -13,11 +13,11 @@
 <Grid RowDefinitions="Auto, Auto, *, Auto"> 
 
   <Grid Grid.Row="0" Background="#283A7B" Height="70">
-    <Label FontWeight="550" FontSize="32" FontFamily="PlayfairDisplay" Foreground ="White" VerticalAlignment="Center" HorizontalAlignment="Center">COMBINATORICS</Label>
+    <Label FontWeight="550" FontSize="32" FontFamily="PlayfairDisplay" Foreground ="White" VerticalAlignment="Center" HorizontalAlignment="Center">RECOGNISING CONFLICTS</Label>
   </Grid>
 
   <Grid Grid.Row="1" Background="White" Height="70">
-    <Button Width="80.5" Background="Transparent" HorizontalAlignment="Left" Padding="0" BorderThickness="0" Command="{Binding BackButtonPressed}">
+    <Button Width="80.5" Background="Transparent" HorizontalAlignment="Left" Padding="0" BorderThickness="0" Command="{Binding BackButtonPressedCommand}">
       <Image Source="/Assets/button-return.png" Stretch="Uniform" VerticalAlignment="Top" />
     </Button>
   </Grid>
@@ -32,16 +32,15 @@
       <TextBlock Text="{Binding QuestionTitleBlock}" HorizontalAlignment="Left" Width="1500" FontSize="20" FontWeight="600" Foreground="#283A7B" VerticalAlignment="0"/>
       <ItemsControl ItemsSource="{Binding QuestionOptions}" Background="#283A7B" CornerRadius="20" Padding="10" >
         <ItemsControl.ItemTemplate>
-          <DataTemplate>
-            
-            <RadioButton Content="{Binding}" Command="" Foreground="White" GroupName="QuestionOptions"> 
-            </RadioButton>
+          <DataTemplate> 
+            <RadioButton Content="{Binding}" Foreground="White" GroupName="QuestionOptions"/>
           </DataTemplate> 
         </ItemsControl.ItemTemplate>
       </ItemsControl>
-      <Button Content="Submit" Command="{Binding Path=SubmitAnswerCommand}" Background="#283A7B" Foreground="White" />
+            
+      <Button Content="Submit" Command="{Binding SubmitAnswerCommand}" Background="#283A7B" Foreground="White"/>
       <Button Content="Generate New Question" Command="{Binding GenerateNewQuestionCommand}" Background="#283A7B" Foreground="White"/>
-      <TextBlock Text="{Binding AnswerBlock}" FontSize="20" Foreground="#283A7B" FontWeight="600" Padding="5" Width="600" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+      <TextBlock Text="{Binding AnswerBlock}" FontSize="20" FontWeight="600" Background="Black" Padding="20" Width="600" HorizontalAlignment="Left" VerticalAlignment="Top"/>
 
     </StackPanel>
   </Grid>
