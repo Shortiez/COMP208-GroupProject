@@ -1,4 +1,5 @@
 using System;
+using System.Diagnostics;
 
 namespace GroupProject.Scripts.Questions.Quizzes.TableUnion;
 
@@ -17,6 +18,7 @@ public class UnionQuizGenerator : QuizGenerator<string>
     static private string[] tableNames = [
         "Cars", "Cards", "Lamps", "Transactions", "Table"
     ];
+    // MAKE SURE THESE EXIST IN TABLE UNION VIEW MODEL FIRST
     static private string[] shapes = [
         "Blue-Square", "Pink-Square", "Red-Square", "White-Square",
     ];
@@ -26,7 +28,7 @@ public class UnionQuizGenerator : QuizGenerator<string>
     ];
 
     /***
-     * This method should be overridden to generate a new question.
+     * This method generates a new question.
      * @return a new quiz question
      */
     protected override QuizQuestion<string> GenerateQuestion()
@@ -37,7 +39,7 @@ public class UnionQuizGenerator : QuizGenerator<string>
         int a = Random.Next(0, tableNames.Length);
         int b = Random.Next(0, tableNames.Length);
         while (b == a) b = Random.Next(0, tableNames.Length);
-        newQuestion.SetTableName([tableNames[a], tableNames[b]]);
+        string tableName = $"{tableNames[a]}+{tableNames[b]}";
 
         int c = Random.Next(0, headers.Length);
         int d = Random.Next(0, headers.Length);
@@ -46,7 +48,7 @@ public class UnionQuizGenerator : QuizGenerator<string>
         while (e == d || e == c) e = Random.Next(0, headers.Length);
         int f = Random.Next(0, headers.Length);
         while (f == e || f == d || f == c) f = Random.Next(0, headers.Length);
-        newQuestion.SetHeaders([headers[c], headers[d], headers[e], headers[f], "null"]);
+        newQuestion.SetOptions([headers[c], headers[d], headers[e], headers[f], tableName]);
 
         int index;
         int g = Random.Next(2, 9);
@@ -61,12 +63,12 @@ public class UnionQuizGenerator : QuizGenerator<string>
         string i = $"{tableNames[a]}";
         string j = $"{headers[e]}, {headers[f]}";
         string k = $"{tableNames[b]}";
-        question = $"SELECT {h} /nFROM {i} /nUNION /nSELECT {j} /nFROM {k}";
+        question = $"SELECT {h} \nFROM {i} \nUNION \nSELECT {j} \nFROM {k}";
 
         newQuestion.SetTitle(question);
 
         string answer = new UnionQuizSolver().Solve(newQuestion);
-        newQuestion.SetAnswer(answer);
+        newQuestion.SetAnswer("help");
 
         return newQuestion;
     }

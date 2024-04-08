@@ -12,25 +12,29 @@ using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.IO;
+using System.Diagnostics;
 
 namespace GroupProject.ViewModels;
 public partial class TableUnionQuizPageViewModel : ViewModelBase
 {
+    //to do
+    // tidy up axaml
+    // create and check answers
+    // do the Learn stuff
+    // move stuff from V to VM
+    // add comments + restructure?
+
     public const string customFormat = "draggable-image-format";
-    private DraggableImage currImage;
-    static public bool deletingRN;
-    static private int count;
+    private DraggableImage currImage = new DraggableImage(null, "Empty", 0);
+    static public bool deletingRN = false;
+    static private int count = 1;
     static private int answerMAX = 8;
 
     private UserStatisticData _userStatistics = new UserStatisticData(App.MainWindowViewModel.User.Username, "SQL", "Table Union");
 
     private UnionQuizGenerator _quizGenerator = new UnionQuizGenerator();
     private QuizQuestion<string> _currentQuestion;
-
-    // retrieving filepath for current device
-    // static string currDir = Directory.GetCurrentDirectory().ToString();
-    // static string truncatedDir = (currDir.Split(new[] { "bin" }, 2, StringSplitOptions.None))[0];
-    // static string filepath = truncatedDir[0] + "Assets\\";
+    private Collection<Tuple<string, string>> answer = [];
 
     // loading bitmaps from file path
     static public Dictionary<String, Bitmap> Images = new Dictionary<String, Bitmap>
@@ -42,22 +46,30 @@ public partial class TableUnionQuizPageViewModel : ViewModelBase
     };
 
     [ObservableProperty]
-    private ObservableCollection<DraggableImage> _table1;
+    private ObservableCollection<DraggableImage> _table1 = [];
 
     [ObservableProperty]
-    private ObservableCollection<DraggableImage> _table2;
+    private ObservableCollection<DraggableImage> _table2 = [];
 
     [ObservableProperty]
-    private ObservableCollection<DraggableImage> _answer;
+    private ObservableCollection<DraggableImage> _answer = [];
 
     [ObservableProperty]
-    private String _question;
+    private string _question = "";
+
+    [ObservableProperty]
+    private string _explanation = "";
+
+    [ObservableProperty]
+    private string[] _titles = ["",""];
+
+    [ObservableProperty]
+    private string[] _headers = ["", "", "", "",""];
 
     public TableUnionQuizPageViewModel()
     {
-        count = 0;
+        Explanation = "Lorem ipsum";
         GenerateQuestion();
-        deletingRN = false;
     }
 
     [RelayCommand]
@@ -83,10 +95,20 @@ public partial class TableUnionQuizPageViewModel : ViewModelBase
         _currentQuestion = _quizGenerator.NewQuestion();
         Question = _currentQuestion.QuestionTitle;
 
+        //update the names of the tables
+        Titles = _currentQuestion.Options[4].Split('+');
+
+        //update the column names of the tables
+        Headers = _currentQuestion.Options;
+
+
         Bitmap bitmap;
         string name;
+        int limit;
+        if (_currentQuestion.QuestionInput.Count % 4 != 0) limit = _currentQuestion.QuestionInput.Count / 2 + 1;
+        else limit = _currentQuestion.QuestionInput.Count /2;
         // populate table 1
-        for (int x = 0; x < _currentQuestion.QuestionInput.Count/2; x++)
+        for (int x = 0; x < limit; x++)
         {
             name = _currentQuestion.QuestionInput[x];
             bitmap = Images[name];
@@ -94,7 +116,7 @@ public partial class TableUnionQuizPageViewModel : ViewModelBase
             count++;
         }
         // populate table 2
-        for (int x = _currentQuestion.QuestionInput.Count / 2; x < _currentQuestion.QuestionInput.Count; x++)
+        for (int x = limit; x < _currentQuestion.QuestionInput.Count; x++)
         {
             name = _currentQuestion.QuestionInput[x];
             bitmap = Images[name];
@@ -106,6 +128,15 @@ public partial class TableUnionQuizPageViewModel : ViewModelBase
     [RelayCommand]
     private void SubmitAnswer()
     {
+        // calculate the correct answer
+        answer.Clear();
+        for (int x = 0; x < _currentQuestion.QuestionInput.Count; x += 2)
+        {
+            answer.Add(new Tuple<string, string>(_currentQuestion.QuestionInput[x], _currentQuestion.QuestionInput[x + 1]));
+        }
+
+        // check if Answer = answer
+        // change Explanation deending on result
 
         if (false)//selectedOptionInt == _currentQuestion.Answer)
         {
@@ -121,18 +152,11 @@ public partial class TableUnionQuizPageViewModel : ViewModelBase
         }
     }
 
-
     public void BeginDelete(DraggableImage draggableImage)
     {
         currImage = draggableImage;
         deletingRN = true;
     }
-
-    public record DraggableImage(Bitmap iImage, String name, int id)
-    {
-
-    }
-
     public void AddInAnswer(DraggableImage draggableImage, int index)
     {
         Answer.RemoveAt(index);
@@ -164,5 +188,9 @@ public partial class TableUnionQuizPageViewModel : ViewModelBase
         AddInAnswer(currImage, index1);
 
         deletingRN = false;
+    }
+    public record DraggableImage(Bitmap iImage, String name, int id)
+    {
+
     }
 }
