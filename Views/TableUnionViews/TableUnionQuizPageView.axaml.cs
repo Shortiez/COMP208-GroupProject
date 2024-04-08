@@ -69,7 +69,7 @@ public partial class TableUnionQuizPageView : UserControl
 
         var viewModel = DataContext as TableUnionQuizPageViewModel;
         // a number 0-7 which tells us which element in answer list we are dropping over
-        int index = GetIndex(cursorPos);
+        int index = GetIndex(cursorPos, TableUnionQuizPageViewModel.answerMAX);
 
         if (TableUnionQuizPageViewModel.deletingRN)
         {
@@ -104,27 +104,33 @@ public partial class TableUnionQuizPageView : UserControl
             return true;
     }
     // tells us which square we are hovering over in the answer table
-    private int GetIndex(Point cursorPos)
+    private int GetIndex(Point cursorPos, int maxRows)
     {
-        double quarterHeight = 0.25 * (AnswerControl.Bounds.Height);
-        // Title.Text = quarterHeight.ToString();
+        int temp = maxRows / 2;
+        double sectionHeight = AnswerControl.Bounds.Height / temp;
 
         // if cursor is in the left half of the control
         if (cursorPos.X < AnswerControl.Bounds.Width / 2)
         {
-            if (cursorPos.Y > 3 * quarterHeight) return 6;
-            if (cursorPos.Y > 2 * quarterHeight) return 4;
-            if (cursorPos.Y > quarterHeight) return 2;
+            for (int x = temp - 1; x >= 0; x--)
+            {
+                if (cursorPos.Y > x * sectionHeight) return 2*x;
+            }
             return 0;
         }
 
         // if cursor is in the right half of the control
         else
         {
-            if (cursorPos.Y > 3 * quarterHeight) return 7;
-            if (cursorPos.Y > 2 * quarterHeight) return 5;
-            if (cursorPos.Y > quarterHeight) return 3;
+            for (int x = temp - 1; x >= 0; x--)
+            {
+                if (cursorPos.Y > x * sectionHeight) return 2 * x + 1;
+            }
             return 1;
         }
+    }
+
+    private void Binding(object? sender, Avalonia.Input.PointerPressedEventArgs e)
+    {
     }
 }

@@ -28,7 +28,7 @@ public partial class TableUnionQuizPageViewModel : ViewModelBase
     private DraggableImage currImage = new DraggableImage(null, "Empty", 0);
     static public bool deletingRN = false;
     static private int count = 1;
-    static private int answerMAX = 8;
+    public const int answerMAX = 10;
 
     private UserStatisticData _userStatistics = new UserStatisticData(App.MainWindowViewModel.User.Username, "SQL", "Table Union");
 
@@ -61,10 +61,10 @@ public partial class TableUnionQuizPageViewModel : ViewModelBase
     private string _explanation = "";
 
     [ObservableProperty]
-    private string[] _titles = ["",""];
+    private string[] _titles = ["", ""];
 
     [ObservableProperty]
-    private string[] _headers = ["", "", "", "",""];
+    private string[] _headers = ["", "", "", "", ""];
 
     public TableUnionQuizPageViewModel()
     {
@@ -84,8 +84,21 @@ public partial class TableUnionQuizPageViewModel : ViewModelBase
     }
 
     [RelayCommand]
+    private void BackButtonPressed()
+    {
+        var topicName = "Table Unions";
+
+        var topic = new TopicLearnSelectorPageViewModel()
+        {
+            CurrentTopic = topicName
+        };
+
+        App.MainWindowViewModel.CurrentContent = topic;
+    }
+
+    [RelayCommand]
     private void GenerateQuestion()
-    { 
+    {
         // clear the tables
         Table1.Clear();
         Table2.Clear();
@@ -106,7 +119,7 @@ public partial class TableUnionQuizPageViewModel : ViewModelBase
         string name;
         int limit;
         if (_currentQuestion.QuestionInput.Count % 4 != 0) limit = _currentQuestion.QuestionInput.Count / 2 + 1;
-        else limit = _currentQuestion.QuestionInput.Count /2;
+        else limit = _currentQuestion.QuestionInput.Count / 2;
         // populate table 1
         for (int x = 0; x < limit; x++)
         {
@@ -135,20 +148,49 @@ public partial class TableUnionQuizPageViewModel : ViewModelBase
             answer.Add(new Tuple<string, string>(_currentQuestion.QuestionInput[x], _currentQuestion.QuestionInput[x + 1]));
         }
 
-        // check if Answer = answer
-        // change Explanation deending on result
-
-        if (false)//selectedOptionInt == _currentQuestion.Answer)
+        // check if user's answer = actual answer
+        Tuple<string, string> a;
+        bool contains = true;
+        int count = 0;
+        string item1, item2;
+        while (contains && count < Answer.Count)
         {
-            // Correct
-            // AnswerBlock = "Correct!";
-            //_userStatistics.UpdateExistingRecord(1, 0);
+            item1 = Answer[count].name;
+            item2 = Answer[count + 1].name;
+            // if an entire row is empty it's fine
+            if (item1.Equals("Empty") && item2.Equals("Empty"))
+            {
+
+            }
+            // if a row is partially filled, it's wrong
+            else if (item1.Equals("Empty") || item2.Equals("Empty"))
+            {
+                contains = false;
+                Explanation = "Items missing!";
+            }
+            // check if the inputted answer matches an entry in actual answer
+            else
+            {
+                a = new Tuple<string, string>(Answer[count].name, Answer[count + 1].name);
+                contains = answer.Contains(a);
+                // ensure multiple idenical entries aren't allowed
+                if (contains) answer.Remove(a);
+            }
+            count += 2;
+        }
+
+        // change Explanation deending on result
+        if (!contains)
+        {
+            // incorrect
+            Explanation = "Something is wrong";
+            //_userStatistics.UpdateExistingRecord(0, 1);
         }
         else
         {
-            // Incorrect
-            // AnswerBlock = "Incorrect!" + "\n" + "The correct answer was " + _currentQuestion.Answer;
-            //_userStatistics.UpdateExistingRecord(0, 1);
+            // correct
+            Explanation = "Correct! Well done";
+            //_userStatistics.UpdateExistingRecord(1, 0);
         }
     }
 

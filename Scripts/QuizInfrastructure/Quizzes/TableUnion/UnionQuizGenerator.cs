@@ -16,7 +16,7 @@ public class UnionQuizGenerator : QuizGenerator<string>
     protected static Random Random = new Random();
 
     static private string[] tableNames = [
-        "Cars", "Cards", "Lamps", "Transactions", "Table"
+        "Cars", "Cards", "Chairs", "Lamps", "Tables", "Transactions", 
     ];
     // MAKE SURE THESE EXIST IN TABLE UNION VIEW MODEL FIRST
     static private string[] shapes = [
@@ -51,7 +51,7 @@ public class UnionQuizGenerator : QuizGenerator<string>
         newQuestion.SetOptions([headers[c], headers[d], headers[e], headers[f], tableName]);
 
         int index;
-        int g = Random.Next(2, 9);
+        int g = Random.Next(2, 8);
         for (int x = 0; x < g*2; x++)
         {
             index = Random.Next(0, shapes.Length);
