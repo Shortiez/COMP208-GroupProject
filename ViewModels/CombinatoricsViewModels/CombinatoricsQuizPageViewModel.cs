@@ -59,4 +59,16 @@ public partial class CombinatoricsQuizPageViewModel : ViewModelBase
         }
         
     }
+    [RelayCommand]
+    private void BackButtonPressed()
+    {
+        var topicName = "Recognizing Conflicts";
+
+        var topic = new TopicLearnSelectorPageViewModel()
+        {
+            CurrentTopic = topicName
+        };
+
+        App.MainWindowViewModel.CurrentContent = topic;
+    }
 }

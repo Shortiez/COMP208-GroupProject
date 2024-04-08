@@ -294,6 +294,19 @@ public partial class RecognizingConflictsLearnPageViewModel : ViewModelBase
         _interactionMode = InteractionMode.NonInteractive;
     }
 
+    [RelayCommand]
+    private void BackButtonPressed()
+    {
+        var topicName = "Combinatorics";
+
+        var topic = new TopicLearnSelectorPageViewModel()
+        {
+            CurrentTopic = topicName
+        };
+
+        App.MainWindowViewModel.CurrentContent = topic;
+    }
+
     private void FadeText()
     {
         TextOutputOpacity = 0.2f;

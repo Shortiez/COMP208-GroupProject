@@ -17,7 +17,9 @@
   </Grid>
 
   <Grid Grid.Row="1" Background="White" Height="70">
-    <Image Source="resm:GroupProject.Assets.button-return.png?assembly=GroupProject" Stretch="Uniform" VerticalAlignment="2" HorizontalAlignment="Left"/>
+    <Button Width="80.5" Background="Transparent" HorizontalAlignment="Left" Padding="0" BorderThickness="0" Command="{Binding BackButtonPressedCommand}">
+      <Image Source="/Assets/button-return.png" Stretch="Uniform" VerticalAlignment="Top" />
+    </Button>
   </Grid>
 
   <Grid Grid.Row="2" Background="White" Height="160" VerticalAlignment="Top">
@@ -49,12 +51,12 @@
       <Border BorderBrush="#283A7B" BorderThickness="2" CornerRadius = "10" Padding = "20" Width="250">
         <TreeView VerticalAlignment = "">
           <TreeViewItem Width="200" Header="Hint" IsExpanded="False" FontSize="20" FontWeight="600" Foreground="#283A7B" VerticalAlignment="2" HorizontalAlignment="Center">
-            <Image Grid.Row="1" Grid.Column="0" Source="resm:GroupProject.Assets.CombHintImage.png?assembly=GroupProject" />
+            <Image Grid.Row="1" Grid.Column="0" Source="/Assets/CombHintImage.png" />
           </TreeViewItem>
         </TreeView>
       </Border>
     </StackPanel>
-    <Image Name="CornerChimp" Source="resm:GroupProject.Assets.Chimpa-corner.png?assembly=GroupProject" Stretch="Uniform" VerticalAlignment="" HorizontalAlignment="Right"/>
+    <Image Name="CornerChimp" Source="/Assets/Chimpa-corner.png" Stretch="Uniform" VerticalAlignment="" HorizontalAlignment="Right"/>
   </Grid>  
 
 </Grid>

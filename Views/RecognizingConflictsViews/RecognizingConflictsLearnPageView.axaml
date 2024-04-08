@@ -17,9 +17,9 @@
 		</Grid>
 
 		<Grid Grid.Row="1" Background="{DynamicResource LMSYNeutralSecondary}" Height="70">
-			<Image Source="/Assets/button-return.png" 
-			       Stretch="Uniform"
-			       VerticalAlignment="Center" HorizontalAlignment="Left"/>
+      <Button Width="80.5" Background="Transparent" VerticalAlignment="Center" HorizontalAlignment="Left" Padding="0" BorderThickness="0" Command="{Binding BackButtonPressedCommand}">
+        <Image Source="/Assets/button-return.png" Stretch="Uniform" VerticalAlignment="Top" />
+      </Button>
 		</Grid>
 
 		<Grid Grid.Row="2" Background="{DynamicResource LMSYNeutralSecondary}">

@@ -15,10 +15,10 @@
           </Grid.RowDefinitions>
                 
           <!-- Title -->
-          <TextBlock Name="Title" Background="Blue" TextAlignment="Center" FontSize="40" Text="TABLE UNION QUESTIONS"/>
+          <TextBlock Classes="title" Name="Title" Background="{DynamicResource LMSYPrimary}" TextAlignment="Center" Text="TABLE UNION QUESTIONS"/>
                 
           <!-- Content -->
-          <Grid Grid.Row="1" ColumnDefinitions="450,400,*" Background="{DynamicResource LMSYPrimary}">
+          <Grid Grid.Row="1" ColumnDefinitions="450,400,*" Background="{DynamicResource LMSYNeutralSecondary}">
             <!-- Section 1/3 -->
             <Grid Grid.Column="0" RowDefinitions="100,*,20">
               <!-- Back Button -->
