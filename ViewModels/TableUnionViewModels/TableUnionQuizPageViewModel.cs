@@ -7,6 +7,7 @@ using CommunityToolkit.Mvvm.Input;
 using GroupProject.Models;
 using GroupProject.Scripts.Questions;
 using GroupProject.Scripts.Questions.Quizzes.TableUnion;
+using GroupProject.Scripts;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -27,17 +28,17 @@ public partial class TableUnionQuizPageViewModel : ViewModelBase
     private QuizQuestion<string> _currentQuestion;
 
     // retrieving filepath for current device
-    static string currDir = Directory.GetCurrentDirectory().ToString();
-    static string truncatedDir = (currDir.Split(new[] { "bin" }, 2, StringSplitOptions.None))[0];
-    static string filepath = truncatedDir[0] + "Assets\\";
+    // static string currDir = Directory.GetCurrentDirectory().ToString();
+    // static string truncatedDir = (currDir.Split(new[] { "bin" }, 2, StringSplitOptions.None))[0];
+    // static string filepath = truncatedDir[0] + "Assets\\";
 
-    // loading bitmaps from calculated file path
+    // loading bitmaps from file path
     static public Dictionary<String, Bitmap> Images = new Dictionary<String, Bitmap>
     {
-        {"Red-Square", new Bitmap(filepath + "Red-Square.png")},
-        {"Blue-Square", new Bitmap(filepath + "Blue-Square.png")},
-        {"Pink-Square", new Bitmap(filepath + "Pink-Square.png")},
-        {"White-Square", new Bitmap(filepath + "White-Square.png")},
+        {"Red-Square", ImageHelper.LoadFromResource("/Assets/Red-Square.png")},
+        {"Blue-Square", ImageHelper.LoadFromResource("/Assets/Blue-Square.png")},
+        {"Pink-Square", ImageHelper.LoadFromResource("/Assets/Pink-Square.png")},
+        {"White-Square", ImageHelper.LoadFromResource("/Assets/White-Square.png")},
     };
 
     [ObservableProperty]
