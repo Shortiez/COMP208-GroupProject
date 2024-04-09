@@ -18,7 +18,7 @@ public partial class RecognizingConflictsLearnPageViewModel : ViewModelBase
     public static readonly Bitmap ChimpCornerIdeaImage = ImageHelper.LoadFromResource("/Assets/Chimpa-corner-idea.png");
     public static readonly Bitmap ChimpSuccessImage = ImageHelper.LoadFromResource("/Assets/chimpa-success.png");
     public static readonly Bitmap ChimpFailImage = ImageHelper.LoadFromResource("/Assets/Chimpa-fail.png");
-    
+    SoundHelper soundHelper = new SoundHelper();
     enum InteractionMode
     {
         Interactive,
@@ -248,6 +248,7 @@ public partial class RecognizingConflictsLearnPageViewModel : ViewModelBase
     [RelayCommand]
     private void OnClickNext()
     {
+        soundHelper.PlaySound("Button");
         if (_interactionMode == InteractionMode.NonInteractive){
             NarrativePointer();
         }
@@ -292,6 +293,19 @@ public partial class RecognizingConflictsLearnPageViewModel : ViewModelBase
         FadeText();
         
         _interactionMode = InteractionMode.NonInteractive;
+    }
+
+    [RelayCommand]
+    private void BackButtonPressed()
+    {
+        var topicName = "Combinatorics";
+
+        var topic = new TopicLearnSelectorPageViewModel()
+        {
+            CurrentTopic = topicName
+        };
+
+        App.MainWindowViewModel.CurrentContent = topic;
     }
 
     private void FadeText()

@@ -7,56 +7,69 @@ using CommunityToolkit.Mvvm.Input;
 using GroupProject.Models;
 using GroupProject.Scripts.Questions;
 using GroupProject.Scripts.Questions.Quizzes.TableUnion;
+using GroupProject.Scripts;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.IO;
+using System.Diagnostics;
 
 namespace GroupProject.ViewModels;
 public partial class TableUnionQuizPageViewModel : ViewModelBase
 {
+    //to do
+    // tidy up axaml
+    // create and check answers
+    // do the Learn stuff
+    // move stuff from V to VM
+    // add comments + restructure?
+
     public const string customFormat = "draggable-image-format";
-    private DraggableImage currImage;
-    static public bool deletingRN;
-    static private int count;
-    static private int answerMAX = 8;
+    private DraggableImage currImage = new DraggableImage(null, "Empty", 0);
+    static public bool deletingRN = false;
+    static private int count = 1;
+    public const int answerMAX = 10;
 
     private UserStatisticData _userStatistics = new UserStatisticData(App.MainWindowViewModel.User.Username, "SQL", "Table Union");
 
     private UnionQuizGenerator _quizGenerator = new UnionQuizGenerator();
     private QuizQuestion<string> _currentQuestion;
+    private Collection<Tuple<string, string>> answer = [];
 
-    // retrieving filepath for current device
-    static string currDir = Directory.GetCurrentDirectory().ToString();
-    static string truncatedDir = (currDir.Split(new[] { "bin" }, 2, StringSplitOptions.None))[0];
-    static string filepath = truncatedDir[0] + "Assets\\";
-
-    // loading bitmaps from calculated file path
+    // loading bitmaps from file path
     static public Dictionary<String, Bitmap> Images = new Dictionary<String, Bitmap>
     {
-        {"Red-Square", new Bitmap(filepath + "Red-Square.png")},
-        {"Blue-Square", new Bitmap(filepath + "Blue-Square.png")},
-        {"Pink-Square", new Bitmap(filepath + "Pink-Square.png")},
-        {"White-Square", new Bitmap(filepath + "White-Square.png")},
+        {"Red-Square", ImageHelper.LoadFromResource("/Assets/Red-Square.png")},
+        {"Blue-Square", ImageHelper.LoadFromResource("/Assets/Blue-Square.png")},
+        {"Pink-Square", ImageHelper.LoadFromResource("/Assets/Pink-Square.png")},
+        {"White-Square", ImageHelper.LoadFromResource("/Assets/White-Square.png")},
     };
 
     [ObservableProperty]
-    private ObservableCollection<DraggableImage> _table1;
+    private ObservableCollection<DraggableImage> _table1 = [];
 
     [ObservableProperty]
-    private ObservableCollection<DraggableImage> _table2;
+    private ObservableCollection<DraggableImage> _table2 = [];
 
     [ObservableProperty]
-    private ObservableCollection<DraggableImage> _answer;
+    private ObservableCollection<DraggableImage> _answer = [];
 
     [ObservableProperty]
-    private String _question;
+    private string _question = "";
+
+    [ObservableProperty]
+    private string _explanation = "";
+
+    [ObservableProperty]
+    private string[] _titles = ["", ""];
+
+    [ObservableProperty]
+    private string[] _headers = ["", "", "", "", ""];
 
     public TableUnionQuizPageViewModel()
     {
-        count = 0;
+        Explanation = "Lorem ipsum";
         GenerateQuestion();
-        deletingRN = false;
     }
 
     [RelayCommand]
@@ -71,8 +84,21 @@ public partial class TableUnionQuizPageViewModel : ViewModelBase
     }
 
     [RelayCommand]
+    private void BackButtonPressed()
+    {
+        var topicName = "Table Unions";
+
+        var topic = new TopicLearnSelectorPageViewModel()
+        {
+            CurrentTopic = topicName
+        };
+
+        App.MainWindowViewModel.CurrentContent = topic;
+    }
+
+    [RelayCommand]
     private void GenerateQuestion()
-    { 
+    {
         // clear the tables
         Table1.Clear();
         Table2.Clear();
@@ -82,10 +108,20 @@ public partial class TableUnionQuizPageViewModel : ViewModelBase
         _currentQuestion = _quizGenerator.NewQuestion();
         Question = _currentQuestion.QuestionTitle;
 
+        //update the names of the tables
+        Titles = _currentQuestion.Options[4].Split('+');
+
+        //update the column names of the tables
+        Headers = _currentQuestion.Options;
+
+
         Bitmap bitmap;
         string name;
+        int limit;
+        if (_currentQuestion.QuestionInput.Count % 4 != 0) limit = _currentQuestion.QuestionInput.Count / 2 + 1;
+        else limit = _currentQuestion.QuestionInput.Count / 2;
         // populate table 1
-        for (int x = 0; x < _currentQuestion.QuestionInput.Count/2; x++)
+        for (int x = 0; x < limit; x++)
         {
             name = _currentQuestion.QuestionInput[x];
             bitmap = Images[name];
@@ -93,7 +129,7 @@ public partial class TableUnionQuizPageViewModel : ViewModelBase
             count++;
         }
         // populate table 2
-        for (int x = _currentQuestion.QuestionInput.Count / 2; x < _currentQuestion.QuestionInput.Count; x++)
+        for (int x = limit; x < _currentQuestion.QuestionInput.Count; x++)
         {
             name = _currentQuestion.QuestionInput[x];
             bitmap = Images[name];
@@ -105,33 +141,64 @@ public partial class TableUnionQuizPageViewModel : ViewModelBase
     [RelayCommand]
     private void SubmitAnswer()
     {
-
-        if (false)//selectedOptionInt == _currentQuestion.Answer)
+        // calculate the correct answer
+        answer.Clear();
+        for (int x = 0; x < _currentQuestion.QuestionInput.Count; x += 2)
         {
-            // Correct
-            // AnswerBlock = "Correct!";
-            //_userStatistics.UpdateExistingRecord(1, 0);
+            answer.Add(new Tuple<string, string>(_currentQuestion.QuestionInput[x], _currentQuestion.QuestionInput[x + 1]));
+        }
+
+        // check if user's answer = actual answer
+        Tuple<string, string> a;
+        bool contains = true;
+        int count = 0;
+        string item1, item2;
+        while (contains && count < Answer.Count)
+        {
+            item1 = Answer[count].name;
+            item2 = Answer[count + 1].name;
+            // if an entire row is empty it's fine
+            if (item1.Equals("Empty") && item2.Equals("Empty"))
+            {
+
+            }
+            // if a row is partially filled, it's wrong
+            else if (item1.Equals("Empty") || item2.Equals("Empty"))
+            {
+                contains = false;
+                Explanation = "Items missing!";
+            }
+            // check if the inputted answer matches an entry in actual answer
+            else
+            {
+                a = new Tuple<string, string>(Answer[count].name, Answer[count + 1].name);
+                contains = answer.Contains(a);
+                // ensure multiple idenical entries aren't allowed
+                if (contains) answer.Remove(a);
+            }
+            count += 2;
+        }
+
+        // change Explanation deending on result
+        if (!contains)
+        {
+            // incorrect
+            Explanation = "Something is wrong";
+            //_userStatistics.UpdateExistingRecord(0, 1);
         }
         else
         {
-            // Incorrect
-            // AnswerBlock = "Incorrect!" + "\n" + "The correct answer was " + _currentQuestion.Answer;
-            //_userStatistics.UpdateExistingRecord(0, 1);
+            // correct
+            Explanation = "Correct! Well done";
+            //_userStatistics.UpdateExistingRecord(1, 0);
         }
     }
-
 
     public void BeginDelete(DraggableImage draggableImage)
     {
         currImage = draggableImage;
         deletingRN = true;
     }
-
-    public record DraggableImage(Bitmap iImage, String name, int id)
-    {
-
-    }
-
     public void AddInAnswer(DraggableImage draggableImage, int index)
     {
         Answer.RemoveAt(index);
@@ -163,5 +230,9 @@ public partial class TableUnionQuizPageViewModel : ViewModelBase
         AddInAnswer(currImage, index1);
 
         deletingRN = false;
+    }
+    public record DraggableImage(Bitmap iImage, String name, int id)
+    {
+
     }
 }
