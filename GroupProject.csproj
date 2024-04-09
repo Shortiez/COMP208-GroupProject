@@ -9,26 +9,34 @@
     <ApplicationIcon>Icon-mankey.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
+    <None Remove="Assets\button-clear.png" />
     <None Remove="Assets\button-next.png" />
     <None Remove="Assets\button-return.png" />
+    <None Remove="Assets\button-submit.png" />
     <None Remove="Assets\Chimpa-corner.png" />
     <None Remove="Assets\CombHintImage.png" />
+    <None Remove="Assets\HelpButtonSelection.png" />
     <None Remove="Assets\homepage-background.png" />
     <None Remove="Assets\homepage-logo.png" />
     <None Remove="Assets\LMSY-Logo.png" />
+    <None Remove="Assets\QuestionButtonSelection.png" />
     <None Remove="Assets\Red-Square.png" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Icon-mankey.ico" />
   </ItemGroup>
   <ItemGroup>
+    <AvaloniaResource Include="Assets\button-clear.png" />
     <AvaloniaResource Include="Assets\button-next.png" />
     <AvaloniaResource Include="Assets\button-return.png" />
+    <AvaloniaResource Include="Assets\button-submit.png" />
     <AvaloniaResource Include="Assets\Chimpa-corner.png" />
     <AvaloniaResource Include="Assets\CombHintImage.png" />
+    <AvaloniaResource Include="Assets\HelpButtonSelection.png" />
     <AvaloniaResource Include="Assets\homepage-background.png" />
     <AvaloniaResource Include="Assets\homepage-logo.png" />
     <AvaloniaResource Include="Assets\LMSY-Logo.png" />
+    <AvaloniaResource Include="Assets\QuestionButtonSelection.png" />
     <AvaloniaResource Include="Assets\Red-Square.png" />
     <None Remove="Assets\button-previous.png" />
     <AvaloniaResource Include="Assets\button-previous.png" />

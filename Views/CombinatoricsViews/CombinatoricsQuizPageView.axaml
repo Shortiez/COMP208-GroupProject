@@ -17,7 +17,7 @@
   </Grid>
 
   <Grid Grid.Row="1" Background="White" Height="70">
-    <Button Width="80.5" Background="Transparent" HorizontalAlignment="Left" Padding="0" BorderThickness="0" Command="{Binding BackButtonPressed}">
+    <Button Width="80.5" Background="Transparent" HorizontalAlignment="Left" Padding="0" BorderThickness="0" Command="{Binding BackButtonPressedCommand}">
       <Image Source="/Assets/button-return.png" Stretch="Uniform" VerticalAlignment="Top" />
     </Button>
   </Grid>
