@@ -10,25 +10,25 @@
         x:Class="GroupProject.Views.CombinatoricsViews.CombinatoricsLearnPageView"
         x:DataType="viewModels:CombinatoricsLearnPageViewModel">
 
-  <Grid RowDefinitions="Auto, Auto, *, *, *, *, Auto">
+  <Grid RowDefinitions="50, 70, 20, 30, 100, 30, 150">
 
-    <Grid Grid.Row="0" Background="#283A7B" Height="50">
+    <Grid Grid.Row="0" Background="#283A7B">
       <Label FontWeight="550" FontSize="32" FontFamily="PlayfairDisplay" Foreground ="White" VerticalAlignment="Center" HorizontalAlignment="Center">COMBINATORICS</Label>
     </Grid>
 
-    <Grid Grid.Row="1" Background="White" Height="70">
+    <Grid Grid.Row="1" Background="White">
       <Button Command="{Binding ClickBackToHomeCommand}" VerticalAlignment="2" HorizontalAlignment="Left" Background="White" Padding="0">
         <Image Source="/Assets/button-return.png" Stretch="" Margin="0" Height="70"/>
       </Button>
     </Grid>
 
-    <Grid Grid.Row="2" VerticalAlignment="Top" HorizontalAlignment="Center">
+    <Grid Grid.Row="2" VerticalAlignment="Center" HorizontalAlignment="Center">
       <TextBlock Text="Let's have a look at how we can use combinatorics to solve permutation questions!"
                  HorizontalAlignment="Center" FontFamily="PlayfairDisplay" Width="700" FontSize="18" FontWeight="600"
                   Foreground="Black" VerticalAlignment="Center"/>
     </Grid>
 
-    <Grid Grid.Row="3" VerticalAlignment="Top" HorizontalAlignment="Center">
+    <Grid Grid.Row="3" VerticalAlignment="Center" HorizontalAlignment="Center" >
         <Border Background="#283A7B" BorderThickness="2" Width="770" Height="30">
           <TextBlock Text="How many ways there are to select 3 monkeys from a group of 5, where order matters?"
                    HorizontalAlignment="Center" FontFamily="PlayfairDisplay" Width="710" FontSize="18" FontWeight="600"
@@ -36,42 +36,53 @@
         </Border>
     </Grid>
 
-    <Grid Grid.Row="4" Background = "White" VerticalAlignment="Bottom">
-      <TextBlock Text="If we are selecting 3 monkeys, from a group of 5, all 5 monkeys can fill the first position"
-                 HorizontalAlignment="Center" FontFamily="PlayfairDisplay" Width="700" FontSize="18" FontWeight="600"
-                  Foreground="Black" VerticalAlignment="Center"/>
-      <TextBlock Text="5 x "
-                 HorizontalAlignment="Center" FontFamily="PlayfairDisplay" Width="700" FontSize="18" FontWeight="600"
-                  Foreground="Black" VerticalAlignment="Center">      
-        <TextBlock.Transitions>
-          <Transitions>
-            <DoubleTransition Property="Opacity" Duration="0:0:0.4"/>
-          </Transitions>
-        </TextBlock.Transitions>
-      </TextBlock>
-      
+    <Grid Grid.Row="4" Background = "White" VerticalAlignment="Center">
+      <StackPanel>
+        <TextBlock Text="All 5 monkeys can fill the first position"
+                   HorizontalAlignment="Center" FontFamily="PlayfairDisplay" FontSize="18" FontWeight="600"
+                    Foreground="Black" VerticalAlignment="Center"/>
+        <TextBlock Text="Then there are only 4 monkeys to fill the second position"
+             HorizontalAlignment="Center" FontFamily="PlayfairDisplay" FontSize="18" FontWeight="600"
+              Foreground="Black" VerticalAlignment="Center"/>
+        <TextBlock Text="Lastly, there are 3 monkeys left to fill the last position"
+             HorizontalAlignment="Center" FontFamily="PlayfairDisplay" FontSize="18" FontWeight="600"
+              Foreground="Black" VerticalAlignment="Center"/>
+      </StackPanel>
     </Grid>
-    
-    
-    
-    
-    
-    
-    
-    <Grid Grid.Row="5" Background = "White" VerticalAlignment="Bottom">
-      <TextBlock Text="However, there is an easier way to work this out - using a formula!"
-                 HorizontalAlignment="Center" FontFamily="PlayfairDisplay" Width="700" FontSize="18" FontWeight="600"
-                  Foreground="Black" VerticalAlignment="Center"/>
-      <Image Source="/Assets/CombHintImage.png" Stretch="Uniform" VerticalAlignment="" HorizontalAlignment="Right"/>
-    </Grid>
-    
-    
-    
-    
-    
 
-    <Grid Grid.Row="6" Background = "White" Height="150" VerticalAlignment="Bottom">
+    <Grid Grid.Row="5" Background = "White" VerticalAlignment="Center">
+      <StackPanel>
+        <Border Background="#283A7B" BorderThickness="2" Width="200" Height="30">
+          <TextBlock Text="5 x 4 x 3 = 60"
+                     HorizontalAlignment="Center" Foreground="White" FontFamily="PlayfairDisplay" FontSize="25" FontWeight="600"
+                      VerticalAlignment="Center">
+            <TextBlock.Transitions>
+              <Transitions>
+                <DoubleTransition Property="Opacity" Duration="0:0:0.4"/>
+              </Transitions>
+            </TextBlock.Transitions>
+          </TextBlock>
+          <Border.Transitions>
+            <Transitions>
+              <DoubleTransition Property="Opacity" Duration="0:0:0.6"/>
+            </Transitions>
+          </Border.Transitions>
+        </Border>
+      </StackPanel>
+    </Grid>
+
+    <Grid Grid.Row="6" Background = "White" VerticalAlignment="Bottom">
+      <StackPanel VerticalAlignment="Bottom" HorizontalAlignment="Center" Margin="50">
+        <TextBlock Text="However, there is an easier way to"
+                   HorizontalAlignment="Center" FontFamily="PlayfairDisplay" Width="700" FontSize="18" FontWeight="600"
+                    Foreground="Black" VerticalAlignment="Center"/>
+        <TextBlock Text="work this out - using a formula!"
+             HorizontalAlignment="Center" FontFamily="PlayfairDisplay" Width="700" FontSize="18" FontWeight="600"
+              Foreground="Black" VerticalAlignment="Center"/>
+      </StackPanel>
+      <Image Source="/Assets/CombHintImage.png" Stretch="Uniform" Margin="80,20,-200,0"/>
       <Image Source="/Assets/Chimpa-corner.png" Stretch="Uniform" VerticalAlignment="" HorizontalAlignment="Right"/>
+    
     </Grid>
 
   </Grid>

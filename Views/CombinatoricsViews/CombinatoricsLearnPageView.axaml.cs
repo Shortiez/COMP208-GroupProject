@@ -1,4 +1,5 @@
 using Avalonia.Controls;
+using GroupProject.ViewModels;
 
 namespace GroupProject.Views.CombinatoricsViews
 {
