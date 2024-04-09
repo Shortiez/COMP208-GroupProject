@@ -5,6 +5,7 @@ namespace GroupProject.Scripts.Questions.Quizzes.Combinatorics;
 
 public class CombQuizGenerator : QuizGenerator<int>
 {
+    private int answer = 0;
     protected override QuizQuestion<int> GenerateQuestion()
     {
         CombQuizQuestion newQuestion = new CombQuizQuestion();
@@ -30,7 +31,7 @@ public class CombQuizGenerator : QuizGenerator<int>
 
         newQuestion.SetTitle(question);
 
-        int answer = new CombQuizSolver().Solve(newQuestion);
+        answer = new CombQuizSolver().Solve(newQuestion);
 
         int[] options = new int[5];
         options[0] = answer;
@@ -51,6 +52,13 @@ public class CombQuizGenerator : QuizGenerator<int>
 
     protected override int GenerateOption(int answer)
     {
-        return Random.Next(3, answer + 20);
+        int questionOption = Random.Next(3, answer + 20);
+
+        while (questionOption == answer)
+        {
+            questionOption = Random.Next(3, answer + 20);
+        }
+
+        return questionOption;
     }
 }

@@ -62,14 +62,15 @@ public partial class CombinatoricsQuizPageViewModel : ViewModelBase
         selectedOption = QuestionFive;
     }
 
+    public CombinatoricsQuizPageViewModel()
+    {
+        GenerateNewQuestion();
+    }
 
     [RelayCommand]
     private void GenerateNewQuestion()
     {
-       // AnswerBlock = selectedOption.Content.ToString();
         currentQuestion = quizGenerator.NewQuestion();
-
-
 
         QuestionTitleBlock = currentQuestion.QuestionTitle;
         QuestionOptions = new ObservableCollection<int>(currentQuestion.Options);
@@ -79,12 +80,14 @@ public partial class CombinatoricsQuizPageViewModel : ViewModelBase
         QuestionThree = QuestionOptions[2].ToString();
         QuestionFour = QuestionOptions[3].ToString();
         QuestionFive = QuestionOptions[4].ToString();
+
+        AnswerBlock = "";
     }
 
     [RelayCommand]
     private void SubmitAnswer()
     {
-        if (selectedOption == null)
+        if (selectedOption == "")
         {
             return;
         }
