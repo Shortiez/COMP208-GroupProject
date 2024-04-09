@@ -29,16 +29,35 @@
     </Grid.ColumnDefinitions> 
     
     <StackPanel Grid.Column = "0">
-      <TextBlock Text="{Binding QuestionTitleBlock}" HorizontalAlignment="Left" Width="1500" FontSize="20" FontWeight="600" Foreground="#283A7B" VerticalAlignment="0"/>
+      <TextBlock Text="{Binding QuestionTitleBlock}" HorizontalAlignment="Left" Width="1500" FontSize="20"
+                 FontWeight="600" Foreground="#283A7B" VerticalAlignment="0"/>
+
+      <StackPanel Background="#283A7B">
+        <RadioButton Content="{Binding QuestionOne}" Foreground="White" GroupName="QuestionOptions"
+                     Command="{Binding OneClickedCommand}"/>
+        <RadioButton Content="{Binding QuestionTwo}" Foreground="White" GroupName="QuestionOptions"
+                     Command="{Binding TwoClickedCommand}"/>
+        <RadioButton Content="{Binding QuestionThree}" Foreground="White" GroupName="QuestionOptions"
+             Command="{Binding ThreeClickedCommand}"/>
+        <RadioButton Content="{Binding QuestionFour}" Foreground="White" GroupName="QuestionOptions"
+             Command="{Binding FourClickedCommand}"/>
+        <RadioButton Content="{Binding QuestionFive}" Foreground="White" GroupName="QuestionOptions"
+             Command="{Binding FiveClickedCommand}"/>
+        </StackPanel>
+
+      <!--
       <ItemsControl ItemsSource="{Binding QuestionOptions}" Background="#283A7B" CornerRadius="20" Padding="10" >
         <ItemsControl.ItemTemplate>
           <DataTemplate>
-            
-            <RadioButton Content="{Binding}" Command="" Foreground="White" GroupName="QuestionOptions"> 
+
+            <RadioButton Content="{Binding}" Foreground="White" GroupName="QuestionOptions">
             </RadioButton>
           </DataTemplate> 
         </ItemsControl.ItemTemplate>
       </ItemsControl>
+      -->
+
+
       <Button Content="Submit" Command="{Binding Path=SubmitAnswerCommand}" Background="#283A7B" Foreground="White" />
       <Button Content="Generate New Question" Command="{Binding GenerateNewQuestionCommand}" Background="#283A7B" Foreground="White"/>
       <TextBlock Text="{Binding AnswerBlock}" FontSize="20" Foreground="#283A7B" FontWeight="600" Padding="5" Width="600" HorizontalAlignment="Left" VerticalAlignment="Top"/>

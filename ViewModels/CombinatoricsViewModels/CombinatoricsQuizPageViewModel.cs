@@ -16,9 +16,7 @@ public partial class CombinatoricsQuizPageViewModel : ViewModelBase
     private TopicContentModel topicContentModel;
 
     private CombQuizGenerator quizGenerator = new CombQuizGenerator();
-
-    [ObservableProperty]
-    private RadioButton selectedOption;
+    private string selectedOption = "";
     private QuizQuestion<int> currentQuestion;
 
     [ObservableProperty]
@@ -27,6 +25,43 @@ public partial class CombinatoricsQuizPageViewModel : ViewModelBase
     private ObservableCollection<int> _questionOptions = new ObservableCollection<int>();
     [ObservableProperty]
     private string _answerBlock = "";
+    [ObservableProperty]
+    private string _questionOne = "";
+    [ObservableProperty]
+    private string _questionTwo = "";
+    [ObservableProperty]
+    private string _questionThree = "";
+    [ObservableProperty]
+    private string _questionFour = "";
+    [ObservableProperty]
+    private string _questionFive = "";
+
+    [RelayCommand]
+    private void OneClicked()
+    {
+        selectedOption = QuestionOne;
+    }
+    [RelayCommand]
+    private void TwoClicked()
+    {
+        selectedOption = QuestionTwo;
+    }
+    [RelayCommand]
+    private void ThreeClicked()
+    {
+        selectedOption = QuestionThree;
+    }
+    [RelayCommand]
+    private void FourClicked()
+    {
+        selectedOption = QuestionFour;
+    }
+    [RelayCommand]
+    private void FiveClicked()
+    {
+        selectedOption = QuestionFive;
+    }
+
 
     [RelayCommand]
     private void GenerateNewQuestion()
@@ -34,50 +69,41 @@ public partial class CombinatoricsQuizPageViewModel : ViewModelBase
        // AnswerBlock = selectedOption.Content.ToString();
         currentQuestion = quizGenerator.NewQuestion();
 
+
+
         QuestionTitleBlock = currentQuestion.QuestionTitle;
         QuestionOptions = new ObservableCollection<int>(currentQuestion.Options);
+
+        QuestionOne = QuestionOptions[0].ToString();
+        QuestionTwo = QuestionOptions[1].ToString();
+        QuestionThree = QuestionOptions[2].ToString();
+        QuestionFour = QuestionOptions[3].ToString();
+        QuestionFive = QuestionOptions[4].ToString();
     }
 
     [RelayCommand]
     private void SubmitAnswer()
     {
-        AnswerBlock = "Answer submitted";
-        /*
         if (selectedOption == null)
         {
             return;
         }
-
-        var selectedOpt = selectedOption.Content.ToString();
-        var selectedOptionInt = int.Parse(selectedOpt);
+;
+        var selectedOptionInt = int.Parse(selectedOption);
 
         if (selectedOptionInt == currentQuestion.Answer)
         {
             // Correct
-            //AnswerBlock = "Correct!";
+            AnswerBlock = "Correct!";
         }
         else
         {
             // Incorrect
-           // AnswerBlock = "Incorrect!" + "\n" + "The correct answer was " + currentQuestion.Answer;
+            AnswerBlock = "Incorrect!" + "\n" + "The correct answer was " + currentQuestion.Answer;
         }
-        */
     }
 
 
-    [RelayCommand]
-    private void ClickBackToHome()
-    {
-        var topicName = "Combinatorics";
-        Console.WriteLine(topicName);
-
-        var topic = new TopicLearnSelectorPageViewModel()
-        {
-            CurrentTopic = topicName
-        };
-
-        App.MainWindowViewModel.CurrentContent = topic;
-    }
 
     [RelayCommand]
     private void BackButtonPressed()
