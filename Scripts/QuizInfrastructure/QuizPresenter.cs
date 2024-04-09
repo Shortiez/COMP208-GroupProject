@@ -1,5 +1,6 @@
 using System;
 using System.Collections.ObjectModel;
+using GroupProject.Models;
 
 namespace GroupProject.Scripts.Questions;
 
@@ -33,13 +34,27 @@ public class QuizPresenter<T>
         return CurrentQuestion;
     }
     
-    public void SubmitAnswer(T selectedOption)
+    public void SubmitAnswer(T selectedOption, string moduleName, string topicName)
     {
         if(selectedOption == null){
             return;
         }
 
         OnAnswerSubmitted?.Invoke(selectedOption.Equals(CurrentQuestion.Answer));
+        
+        UserStatisticData userStatistics = new UserStatisticData(App.MainWindowViewModel.User.Username,
+            moduleName, topicName);
+        
+        if(selectedOption.Equals(CurrentQuestion.Answer))
+        {
+            // Correct
+            userStatistics.UpdateExistingRecord(1,0);
+        }
+        else
+        {
+            // Incorrect
+            userStatistics.UpdateExistingRecord(0,1);
+        }
 
         if(AutoPresentNewQuestion)
         {
