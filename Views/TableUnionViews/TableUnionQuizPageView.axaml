@@ -15,8 +15,9 @@
           </Grid.RowDefinitions>
                 
           <!-- Title -->
-          <TextBlock Classes="title" Name="Title" Background="{DynamicResource LMSYPrimary}" TextAlignment="Center" Text="TABLE UNION QUESTIONS"/>
-                
+          <Border Background="{DynamicResource LMSYPrimary}" CornerRadius="0,0,0,0">
+            <TextBlock Classes="title" Name="Title" TextAlignment="Center" VerticalAlignment="Center" Text="TABLE UNION QUESTIONS"/>
+          </Border>    
           <!-- Content -->
           <Grid Grid.Row="1" ColumnDefinitions="450,400,*" Background="{DynamicResource LMSYNeutralSecondary}">
             <!-- Section 1/3 -->

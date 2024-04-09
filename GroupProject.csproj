@@ -20,7 +20,27 @@
     <None Remove="Assets\homepage-logo.png" />
     <None Remove="Assets\LMSY-Logo.png" />
     <None Remove="Assets\QuestionButtonSelection.png" />
-    <None Remove="Assets\Red-Square.png" />
+    <None Remove="Assets\SQL Table Icons\Fruit\Apple.png" />
+    <None Remove="Assets\SQL Table Icons\Fruit\Banana.png" />
+    <None Remove="Assets\SQL Table Icons\Fruit\Cherry.png" />
+    <None Remove="Assets\SQL Table Icons\Fruit\Orange.png" />
+    <None Remove="Assets\SQL Table Icons\Fruit\Pineapple.png" />
+    <None Remove="Assets\SQL Table Icons\Numbers\1.png" />
+    <None Remove="Assets\SQL Table Icons\Numbers\102.png" />
+    <None Remove="Assets\SQL Table Icons\Numbers\12.png" />
+    <None Remove="Assets\SQL Table Icons\Numbers\24.png" />
+    <None Remove="Assets\SQL Table Icons\Numbers\26.png" />
+    <None Remove="Assets\SQL Table Icons\Numbers\28.png" />
+    <None Remove="Assets\SQL Table Icons\Numbers\3.png" />
+    <None Remove="Assets\SQL Table Icons\Numbers\32.png" />
+    <None Remove="Assets\SQL Table Icons\Numbers\35.png" />
+    <None Remove="Assets\SQL Table Icons\Numbers\38.png" />
+    <None Remove="Assets\SQL Table Icons\Numbers\4.png" />
+    <None Remove="Assets\SQL Table Icons\Numbers\41.png" />
+    <None Remove="Assets\SQL Table Icons\Numbers\56.png" />
+    <None Remove="Assets\SQL Table Icons\Numbers\67.png" />
+    <None Remove="Assets\SQL Table Icons\Numbers\7.png" />
+    <None Remove="Assets\SQL Table Icons\Numbers\8.png" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Icon-mankey.ico" />
@@ -37,11 +57,9 @@
     <AvaloniaResource Include="Assets\homepage-logo.png" />
     <AvaloniaResource Include="Assets\LMSY-Logo.png" />
     <AvaloniaResource Include="Assets\QuestionButtonSelection.png" />
-    <AvaloniaResource Include="Assets\Red-Square.png" />
     <None Remove="Assets\button-previous.png" />
     <AvaloniaResource Include="Assets\button-previous.png" />
     <None Remove="Assets\Blue-Square.png" />
-    <AvaloniaResource Include="Assets\Blue-Square.png" />
     <None Remove="Assets\Chimpa-corner-idea.png" />
     <AvaloniaResource Include="Assets\Chimpa-corner-idea.png" />
     <None Remove="Assets\Chimpa-fail.png" />
@@ -51,9 +69,30 @@
     <None Remove="Assets\homepage-logo-02.png" />
     <AvaloniaResource Include="Assets\homepage-logo-02.png" />
     <None Remove="Assets\Pink-Square.png" />
-    <AvaloniaResource Include="Assets\Pink-Square.png" />
     <None Remove="Assets\White-Square.png" />
-    <AvaloniaResource Include="Assets\White-Square.png" />
+    <AvaloniaResource Include="Assets\SQL Table Icons\Fruit\Apple.png" />
+    <AvaloniaResource Include="Assets\SQL Table Icons\Fruit\Banana.png" />
+    <AvaloniaResource Include="Assets\SQL Table Icons\Fruit\Cherry.png" />
+    <AvaloniaResource Include="Assets\SQL Table Icons\Fruit\Orange.png" />
+    <AvaloniaResource Include="Assets\SQL Table Icons\Fruit\Pineapple.png" />
+    <AvaloniaResource Include="Assets\SQL Table Icons\Numbers\1.png" />
+    <AvaloniaResource Include="Assets\SQL Table Icons\Numbers\102.png" />
+    <AvaloniaResource Include="Assets\SQL Table Icons\Numbers\12.png" />
+    <AvaloniaResource Include="Assets\SQL Table Icons\Numbers\24.png" />
+    <AvaloniaResource Include="Assets\SQL Table Icons\Numbers\28.png" />
+    <AvaloniaResource Include="Assets\SQL Table Icons\Numbers\3.png" />
+    <AvaloniaResource Include="Assets\SQL Table Icons\Numbers\32.png" />
+    <AvaloniaResource Include="Assets\SQL Table Icons\Numbers\35.png" />
+    <AvaloniaResource Include="Assets\SQL Table Icons\Numbers\38.png" />
+    <AvaloniaResource Include="Assets\SQL Table Icons\Numbers\4.png" />
+    <AvaloniaResource Include="Assets\SQL Table Icons\Numbers\41.png" />
+    <AvaloniaResource Include="Assets\SQL Table Icons\Numbers\56.png" />
+    <AvaloniaResource Include="Assets\SQL Table Icons\Numbers\67.png" />
+    <AvaloniaResource Include="Assets\SQL Table Icons\Numbers\7.png" />
+    <AvaloniaResource Include="Assets\SQL Table Icons\Numbers\8.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AvaloniaResource Include="Assets\SQL Table Icons\Numbers\26.png" />
   </ItemGroup>
 
 
