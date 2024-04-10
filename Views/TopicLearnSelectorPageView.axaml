@@ -34,20 +34,18 @@
                       HorizontalAlignment="Center"
                       VerticalAlignment="Center">
               
-              <Button Classes="circle secondary" 
-                      Content="Questions"
-                      VerticalContentAlignment="Center"
-                      Width="100" Height="100"
-                      Margin="0,0,200,20"
+              <Button 
                       Command="{Binding ClickLoadQuestionsCommand}">
+				  <Image Width="400" Height="" Source="/Assets/QuestionButtonSelection.png" Stretch="Uniform"/>
               </Button>
               
-              <Button Classes="circle secondary" 
-                      Content="Examples"
+              <Button 
+                     
                       VerticalContentAlignment="Center"
-                      Width="100" Height="100"
-                      Margin="0,0,200,20"
+                   
+                     
                       Command="{Binding ClickLoadExamplesCommand}">
+				  <Image Width="400" Height="" Source="/Assets/HelpButtonSelection.png" Stretch="Uniform"/>
               </Button>
               
           </StackPanel>
