@@ -24,8 +24,19 @@
 
 		<Grid Grid.Row="2" Background="{DynamicResource LMSYNeutralSecondary}">
 			<Rectangle Fill="Black"
-			           Width="500" Height="100" 
-			           HorizontalAlignment="Center" VerticalAlignment="Center"/>
+			           Width="500" Height="100"
+			           HorizontalAlignment="Center" VerticalAlignment="Center" Opacity="{Binding RectangleOpacity}">
+				<Rectangle.Transitions>
+					<Transitions>
+						<DoubleTransition>
+							<DoubleTransition Property="Opacity" Duration="0:0:0.8"/>
+						</DoubleTransition>
+					</Transitions>
+				</Rectangle.Transitions>
+				
+			</Rectangle>
+			
+		
 			
 			<Grid ColumnDefinitions="Auto, Auto, Auto, Auto, Auto" 
 			      VerticalAlignment="Center" HorizontalAlignment="Center">
@@ -78,7 +89,7 @@
 				Hello, this is the Mr Chimpa.
 				<TextBlock.Transitions>
 					<Transitions>
-						<DoubleTransition Property="Opacity" Duration="0:0:0.4"/>
+						<DoubleTransition Property="Opacity" Duration="0:0:0.8"/>
 					</Transitions>
 				</TextBlock.Transitions>
 			</TextBlock>
@@ -87,11 +98,31 @@
 			<Image Source="{Binding CurrentChimpImage}"
 			       Stretch="Uniform" 
 			       VerticalAlignment="Center" HorizontalAlignment="Right"/>
-			<Button Command="{Binding ClickNextCommand}" 
+			<Button Command="{Binding ClickNextCommand}"
+					
 			        Height="70"
 			        HorizontalAlignment="Center"
 			        VerticalContentAlignment="Center">
-				<Image Source="/Assets/button-next.png" Stretch="Uniform"/>
+				<Image Source="/Assets/button-next.png" Stretch="Uniform" Opacity="{Binding NextBoxOpacity}">
+					<Image.Transitions>
+						<Transitions>
+							<DoubleTransition Property="Opacity" Duration="0:0:0.8"/>
+						</Transitions>
+						</Image.Transitions>
+				</Image>
+				
+				<Button.RenderTransform>
+					<TranslateTransform Y="{Binding ButtonXPos}">
+						<TranslateTransform.Transitions>
+							<Transitions>
+								<DoubleTransition Property="Y" Duration="0:0:0.4"></DoubleTransition>
+							</Transitions>
+						</TranslateTransform.Transitions>
+					</TranslateTransform>
+					
+			
+				</Button.RenderTransform>
+			
 			</Button>
 		</Grid>
 	</Grid>

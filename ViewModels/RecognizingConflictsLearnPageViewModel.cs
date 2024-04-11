@@ -19,6 +19,7 @@ public partial class RecognizingConflictsLearnPageViewModel : ViewModelBase
     public static readonly Bitmap ChimpSuccessImage = ImageHelper.LoadFromResource("/Assets/chimpa-success.png");
     public static readonly Bitmap ChimpFailImage = ImageHelper.LoadFromResource("/Assets/Chimpa-fail.png");
     SoundHelper soundHelper = new SoundHelper();
+    
     enum InteractionMode
     {
         Interactive,
@@ -129,6 +130,13 @@ public partial class RecognizingConflictsLearnPageViewModel : ViewModelBase
     private float _textOutputOpacity = 1.0f;
     [ObservableProperty] 
     private Bitmap _currentChimpImage = ChimpCornerImage;
+    [ObservableProperty]
+    private float _buttonXPos = 0;
+    [ObservableProperty]
+    private float _nextBoxOpacity = 1f;
+    [ObservableProperty]
+    private float _rectangleOpacity = 1f;
+
 
     protected override void OnPropertyChanged(PropertyChangedEventArgs e)
     {
@@ -166,6 +174,7 @@ public partial class RecognizingConflictsLearnPageViewModel : ViewModelBase
 
     public RecognizingConflictsLearnPageViewModel()
     {
+        
         CurrentOutput = _transactionTeachingMaterials.
             FirstOrDefault(x => x.Title == "Intro00");
         
@@ -180,8 +189,14 @@ public partial class RecognizingConflictsLearnPageViewModel : ViewModelBase
         TransactionButtonTwoForeground = Brushes.White;
         TransactionButtonThreeForeground = Brushes.White;
         TransactionButtonFourForeground = Brushes.White;
-    }
 
+       
+    }
+    //public override void Initialize()
+    //{
+      //  base.Initialize();
+      //  IntroAnimations();
+   // }
     //right now, this will loop through and index any conflicts. 
     //there are 2 issues right now - if there are more than one conflict, it will use the last one.
     //it will also inefficiently check schedules that already have an an index conflict
@@ -248,6 +263,9 @@ public partial class RecognizingConflictsLearnPageViewModel : ViewModelBase
     [RelayCommand]
     private void OnClickNext()
     {
+        IntroAnimations();
+
+
         soundHelper.PlaySound("Button");
         if (_interactionMode == InteractionMode.NonInteractive){
             NarrativePointer();
@@ -313,4 +331,26 @@ public partial class RecognizingConflictsLearnPageViewModel : ViewModelBase
         TextOutputOpacity = 0.2f;
         TextOutputOpacity = 1.0f;
     }
+
+    private void IntroAnimations()
+    {
+
+
+        //soundHelper.PlaySound("Whoosh");
+
+        ButtonXPos = 50f;
+        ButtonXPos = 0f;
+        NextBoxOpacity = 0f;
+        NextBoxOpacity = 1f;
+
+        //wait 0.5 seconds
+    }
+
+    private async Task GetTextAsync()
+    {
+        await Task.Delay(1000); // The delay is just for demonstration purpose
+
+    }
+
+
 }
