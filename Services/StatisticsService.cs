@@ -1,6 +1,7 @@
 using System;
 using System.Collections.ObjectModel;
 using Avalonia.Controls;
+using GroupProject.Models;
 using GroupProject.Scripts;
 using MySql.Data.MySqlClient;
 
@@ -10,9 +11,9 @@ public class StatisticsService
 {
     private DatabaseConnection _connectionDb = new DatabaseConnection();
 
-    public ObservableCollection<TreeViewItem> LoadModules()
+    public ObservableCollection<ModuleStatisticsModel> LoadModules()
     {
-        var modules = new ObservableCollection<TreeViewItem>();
+        var modules = new ObservableCollection<ModuleStatisticsModel>();
 
         _connectionDb.Connect();
 
@@ -29,12 +30,10 @@ public class StatisticsService
                     while (reader.Read())
                     {
                         string? moduleName = reader["ModuleName"].ToString();
-                        var moduleTreeViewItem = new TreeViewItem()
-                        {
-                            Header = moduleName
-                        };
-
-                        modules.Add(moduleTreeViewItem);
+                        
+                        // Modules are added to the list
+                        var item = new ModuleStatisticsModel(moduleName);
+                        modules.Add(item);
                     }
                 }
             }
@@ -49,9 +48,9 @@ public class StatisticsService
         return modules;
     }
 
-    public ObservableCollection<TreeViewItem> LoadTopics(TreeViewItem module)
+    public ObservableCollection<TopicStatisticsModel> LoadTopics(ModuleStatisticsModel module)
     {
-        var topics = new ObservableCollection<TreeViewItem>();
+        var topics = new ObservableCollection<TopicStatisticsModel>();
 
         _connectionDb.Connect();
 
@@ -62,25 +61,29 @@ public class StatisticsService
 
             using (MySqlCommand command = conn.CreateCommand())
             {
-                string moduleName = module.Header.ToString();
-
                 command.CommandText = "SELECT * FROM `topics` WHERE ModuleName = @ModuleName";
-                command.Parameters.AddWithValue("@ModuleName", moduleName);
+                command.Parameters.AddWithValue("@ModuleName", module.ModuleName);
 
                 using (MySqlDataReader reader = command.ExecuteReader())
                 {
                     while (reader.Read())
                     {
                         string? topicName = reader["TopicName"].ToString();
-
-                        // Topics are added to the corresponding module
-                        var item = new TreeViewItem
-                        {
-                            Header = topicName
-                        };
-
-                        module.Items.Add(item);
+                        
+                        // Topics are added to the list
+                        UserStatisticData userStatisticData = App.MainWindowViewModel.User.UserStats;
+                        var username = App.MainWindowViewModel.User.Username;
+                        int noCorrect = userStatisticData.RetrieveNoCorrect(username,
+                            module.ModuleName, 
+                            topicName);
+                        int noWrong = userStatisticData.RetrieveNoWrong(username,
+                            module.ModuleName, 
+                            topicName);
+                        
+                        var item = new TopicStatisticsModel(topicName, noCorrect, noWrong);
                         topics.Add(item);
+                        
+                        module.Topics.Add(item);
                     }
                 }
             }

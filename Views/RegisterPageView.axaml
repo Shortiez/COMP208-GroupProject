@@ -13,8 +13,10 @@
         </Grid.ColumnDefinitions>
 
         <StackPanel Grid.Column="1" Orientation="Horizontal" HorizontalAlignment="Center">
-            <TextBlock VerticalAlignment="Center">IMAGE HERE</TextBlock>
-            
+            <Image Source="/Assets/homepage-logo.png" 
+                   Width="300" Height="300"
+                   HorizontalAlignment="Center"
+                   VerticalAlignment="Center"/>
         </StackPanel>
             
         <Border Grid.Column="0"

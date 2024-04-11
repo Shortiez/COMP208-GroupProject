@@ -207,6 +207,7 @@ namespace GroupProject.Models
                         }
                         else
                         {
+                            return 0;
                             throw new Exception("No record found");
                         }
                     }
@@ -243,6 +244,7 @@ namespace GroupProject.Models
                         }
                         else
                         {
+                            return 0;
                             throw new Exception("No record found");
                         }
                     }

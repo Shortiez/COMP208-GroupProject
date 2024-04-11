@@ -52,9 +52,7 @@ public partial class AccountPageViewModel : ViewModelBase
         Email = UserData.Email;
         Password = UserData.Password;
         
-        _userStatisticData.UpdateExistingRecord(15, 73, "Binary Arithmetic", "Binary Addition");
-        
-        LoadUserStatistics();
+        LoadStatistics();
     }
 
     #region Account Settings
@@ -156,60 +154,21 @@ public partial class AccountPageViewModel : ViewModelBase
     #region Account Statistics
 
     private UserStatisticData _userStatisticData;
-    
-    private DatabaseConnection _connectionDb = new DatabaseConnection();
-    
+
     [ObservableProperty]
-    private ObservableCollection<ModuleTopicStatsModel> _moduleTopicStats;
-    [ObservableProperty]
-    private ObservableCollection<TreeViewItem> _modules;
-    [ObservableProperty]
-    private ObservableCollection<TreeViewItem> _topics;
+    private ObservableCollection<ModuleStatisticsModel> _moduleStatistics;
     
-    private void LoadUserStatistics()
+    private void LoadStatistics()
     {
-        Modules = _statisticsService.LoadModules();
-        Console.WriteLine(Modules.Count);
-
-        foreach (var module in Modules)
-        {
-            Topics = _statisticsService.LoadTopics(module);
-            Console.WriteLine(Topics.Count);
-        }
+        ModuleStatistics = _statisticsService.LoadModules();
         
-        foreach (var topic in Topics)
+        foreach (var module in ModuleStatistics)
         {
-            Console.WriteLine(topic.Header);
-            LoadTopicStats(topic);
-        }
-    }
-
-    private void LoadTopicStats(TreeViewItem topic)
-    {
-        var module = (TreeViewItem) topic.Parent;
-        string moduleName = module.Header.ToString();
-        string topicName = topic.Header.ToString();
-
-        int noCorrect = _userStatisticData.RetrieveNoCorrect(UserData.Username, moduleName, topicName);
-        int noWrong = _userStatisticData.RetrieveNoWrong(UserData.Username,  moduleName, topicName);
-        
-        Console.WriteLine($"{moduleName} - {topicName} - {noCorrect} - {noWrong}");
-
-        var moduleStats = ModuleTopicStats.FirstOrDefault(m => m.ModuleName == moduleName);
-        Console.WriteLine(moduleStats);
-        
-        if (moduleStats == null)
-        {
-            moduleStats = new ModuleTopicStatsModel(moduleName);
-            ModuleTopicStats.Add(moduleStats);
+            module.Topics = _statisticsService.LoadTopics(module);
             
-            Console.WriteLine("New Module");
+            Console.WriteLine($"Loaded Topics for {module.ModuleName} \n {module.Topics.Count} topics loaded.");
         }
-
-        moduleStats.Topics.Add(new TopicStatsModel(topicName, noCorrect, noWrong));
-        
-        Console.WriteLine("Added Topic");
     }
-    
+
     #endregion
 }

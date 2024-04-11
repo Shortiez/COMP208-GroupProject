@@ -94,26 +94,28 @@
                                Margin="50, 70, 0, 0"/>
                     
                     <ScrollViewer>
-                        <TreeView ItemsSource="{Binding ModuleTopicStats}">
+                        <TreeView ItemsSource="{Binding ModuleStatistics}">
                             <TreeView.ItemTemplate>
-                                <DataTemplate DataType="{x:Type models:ModuleTopicStatsModel}">
-                                    <TreeViewItem Header="{Binding ModuleName}">
-                                        <TreeViewItem.ItemsSource>
-                                            <Binding Path="Topics"/>
-                                        </TreeViewItem.ItemsSource>
+                                <DataTemplate DataType="{x:Type models:ModuleStatisticsModel}">
+                                    <TreeViewItem ItemsSource="{Binding Topics}">
+                                        <TreeViewItem.Header>
+                                            <TextBlock Text="{Binding ModuleName}"/>
+                                        </TreeViewItem.Header>
+                                        
                                         <TreeViewItem.ItemTemplate>
-                                            <DataTemplate DataType="{x:Type models:TopicStatsModel}">
+                                            <DataTemplate DataType="{x:Type models:TopicStatisticsModel}">
                                                 <TreeViewItem>
                                                     <TreeViewItem.Header>
-                                                        <StackPanel Orientation="Horizontal">
-                                                            <TextBlock Text="{Binding TopicName}" Margin="0,0,10,0"/>
-                                                            <TextBlock Text="{Binding NoCorrect}" Margin="0,0,10,0"/>
-                                                            <TextBlock Text="{Binding NoWrong}"/>
-                                                        </StackPanel>
+                                                        <TextBlock Text="{Binding TopicName}"/>
                                                     </TreeViewItem.Header>
+                                                    <StackPanel>
+                                                        <TextBlock Text="{Binding NoCorrect}"/>
+                                                        <TextBlock Text="{Binding NoWrong}"/>
+                                                    </StackPanel>
                                                 </TreeViewItem>
                                             </DataTemplate>
                                         </TreeViewItem.ItemTemplate>
+                                        
                                     </TreeViewItem>
                                 </DataTemplate>
                             </TreeView.ItemTemplate>
