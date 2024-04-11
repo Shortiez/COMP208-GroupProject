@@ -28,9 +28,7 @@
 			           HorizontalAlignment="Center" VerticalAlignment="Center" Opacity="{Binding RectangleOpacity}">
 				<Rectangle.Transitions>
 					<Transitions>
-						<DoubleTransition>
-							<DoubleTransition Property="Opacity" Duration="0:0:0.8"/>
-						</DoubleTransition>
+						<DoubleTransition Property="Opacity" Duration="0:0:0.8"/>
 					</Transitions>
 				</Rectangle.Transitions>
 				
