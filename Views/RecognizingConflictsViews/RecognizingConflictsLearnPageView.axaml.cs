@@ -8,4 +8,5 @@ public partial class RecognizingConflictsLearnPageView : UserControl
     {
         InitializeComponent();
     }
+  
 }

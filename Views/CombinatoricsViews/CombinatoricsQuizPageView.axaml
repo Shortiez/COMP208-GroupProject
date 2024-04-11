@@ -10,55 +10,49 @@
         x:Class="GroupProject.Views.CombinatoricsQuizPageView"
         x:DataType="viewModels:CombinatoricsQuizPageViewModel">
 
-<Grid RowDefinitions="Auto, Auto, *, Auto"> 
+<Grid RowDefinitions="70, 70, *, 90"> 
 
-  <Grid Grid.Row="0" Background="#283A7B" Height="70">
+  <Grid Grid.Row="0" Background="#283A7B">
     <Label FontWeight="550" FontSize="32" FontFamily="PlayfairDisplay" Foreground ="White" VerticalAlignment="Center" HorizontalAlignment="Center">COMBINATORICS</Label>
   </Grid>
 
-  <Grid Grid.Row="1" Background="White" Height="70">
+  <Grid Grid.Row="1" Background="White">
     <Button Width="80.5" Background="Transparent" HorizontalAlignment="Left" Padding="0" BorderThickness="0" Command="{Binding BackButtonPressedCommand}">
       <Image Source="/Assets/button-return.png" Stretch="Uniform" VerticalAlignment="Top" />
     </Button>
   </Grid>
 
-  <Grid Grid.Row="2" Background="White" Height="160" VerticalAlignment="Top">
-    <Grid.ColumnDefinitions>
-      <ColumnDefinition Width = "*"/>
-      <ColumnDefinition Width = "*"/>
-    </Grid.ColumnDefinitions> 
-    
-    <StackPanel Grid.Column = "0">
-      <TextBlock Text="{Binding QuestionTitleBlock}" HorizontalAlignment="Left" Width="1500" FontSize="20" FontWeight="600" Foreground="#283A7B" VerticalAlignment="0"/>
-      <ItemsControl ItemsSource="{Binding QuestionOptions}" Background="#283A7B" CornerRadius="20" Padding="10" >
-        <ItemsControl.ItemTemplate>
-          <DataTemplate>
-            
-            <RadioButton Content="{Binding}" Command="" Foreground="White" GroupName="QuestionOptions"> 
-            </RadioButton>
-          </DataTemplate> 
-        </ItemsControl.ItemTemplate>
-      </ItemsControl>
-      <Button Content="Submit" Command="{Binding Path=SubmitAnswerCommand}" Background="#283A7B" Foreground="White" />
-      <Button Content="Generate New Question" Command="{Binding GenerateNewQuestionCommand}" Background="#283A7B" Foreground="White"/>
-      <TextBlock Text="{Binding AnswerBlock}" FontSize="20" Foreground="#283A7B" FontWeight="600" Padding="5" Width="600" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+  <Grid Grid.Row="2" Background="White">
+    <StackPanel>
+      <TextBlock Text="{Binding QuestionTitleBlock}" FontFamily="PlayfairDisplay" HorizontalAlignment="Left" Width="1500" FontSize="20"
+                 FontWeight="600" Foreground="#283A7B" VerticalAlignment="Top" Padding="5"/>
 
+      <Border BorderBrush="#283A7B"  Background="#283A7B" HorizontalAlignment="Left" Margin="5,0,0,0" BorderThickness="2" CornerRadius="10" Padding="5" Width="250">
+        <StackPanel>
+          <RadioButton Content="{Binding QuestionOne}" Foreground="White" FontFamily="PlayfairDisplay" FontSize="20" GroupName="QuestionOptions" Command="{Binding OneClickedCommand}"/>
+          <RadioButton Content="{Binding QuestionTwo}" Foreground="White" FontFamily="PlayfairDisplay" FontSize="20" GroupName="QuestionOptions" Command="{Binding TwoClickedCommand}"/>
+          <RadioButton Content="{Binding QuestionThree}" Foreground="White" FontFamily="PlayfairDisplay" FontSize="20" GroupName="QuestionOptions" Command="{Binding ThreeClickedCommand}"/>
+          <RadioButton Content="{Binding QuestionFour}" Foreground="White" FontFamily="PlayfairDisplay" FontSize="20" GroupName="QuestionOptions" Command="{Binding FourClickedCommand}"/>
+          <RadioButton Content="{Binding QuestionFive}" Foreground="White" FontFamily="PlayfairDisplay" FontSize="20" GroupName="QuestionOptions" Command="{Binding FiveClickedCommand}"/>
+        </StackPanel>
+      </Border>
+
+      <Button Command="{Binding SubmitAnswerCommand}" Width="100" Background="Transparent" Padding="0" BorderThickness="0">
+        <Image Source="/Assets/button-submit.png" Stretch="Uniform" VerticalAlignment="Top" />
+      </Button>
+      <Button Command="{Binding GenerateNewQuestionCommand}" Width="100" Background="Transparent" Padding="0" BorderThickness="0">
+        <Image Source="/Assets/button-next.png" Stretch="Uniform" VerticalAlignment="Top" />
+      </Button>
     </StackPanel>
   </Grid>
-
-  <Grid Grid.Row="3" Background = "White" Height="150" VerticalAlignment="Bottom">
-    <!--  Hint -->
-    <StackPanel Grid.Row="0">
-      <Border BorderBrush="#283A7B" BorderThickness="2" CornerRadius = "10" Padding = "20" Width="250">
-        <TreeView VerticalAlignment = "">
-          <TreeViewItem Width="200" Header="Hint" IsExpanded="False" FontSize="20" FontWeight="600" Foreground="#283A7B" VerticalAlignment="2" HorizontalAlignment="Center">
-            <Image Grid.Row="1" Grid.Column="0" Source="/Assets/CombHintImage.png" />
-          </TreeViewItem>
-        </TreeView>
-      </Border>
-    </StackPanel>
-    <Image Name="CornerChimp" Source="/Assets/Chimpa-corner.png" Stretch="Uniform" VerticalAlignment="" HorizontalAlignment="Right"/>
-  </Grid>  
-
+  
+  <Grid Grid.Row="3">
+    <Border BorderBrush="#283A7B" HorizontalAlignment="Center" BorderThickness="2" CornerRadius="10" Padding="5" Width="400" Height="75">
+      <TextBlock Text="{Binding AnswerBlock}" FontFamily="PlayfairDisplay" FontSize="40" Foreground="#283A7B" FontWeight="600" Padding="5" Width="400" HorizontalAlignment="Center" VerticalAlignment="Top"/>
+        </Border>
+    <Image Name="CornerChimp" Source="/Assets/Chimpa-corner.png" VerticalAlignment="Bottom" HorizontalAlignment="Right" Height="150"/>
+  </Grid>
+    
+  
 </Grid>
 </UserControl>
