@@ -3,46 +3,65 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:viewModels="clr-namespace:GroupProject.ViewModels"
+             xmlns:models="clr-namespace:GroupProject.Models"			 
              mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+			 
              x:Class="GroupProject.Views.BinaryAdditionLearnPageView"
              x:DataType="viewModels:BinaryAdditionLearnPageViewModel">
-	<Grid RowDefinitions="Auto, Auto, Auto">
+	
+	<Grid RowDefinitions="10*, 45*, 45*">
 
-		<Grid Grid.Row="0" Background="{DynamicResource LMSYPrimary}" Height="70">
-			<Label Classes="title" 
-			       FontFamily="PlayfairDisplay"
-			       VerticalAlignment="Center" HorizontalAlignment="Center">
-				BINARY ADDITION
-			</Label>
-		</Grid>
+        <StackPanel Grid.Row="0" Orientation="Horizontal">
+            <Border Background="{DynamicResource LMSYPrimary}">
+                <TextBlock Classes="title" Foreground="White" FontFamily="PlayfairDisplay" HorizontalAlignment="Center">
+                    Binary Addition
+                </TextBlock>
+            </Border>
+        </StackPanel>
 		
-		<Grid Grid.Row = "1" Background="{DynamicResource LMSYNeutralSecondary}" Height="70"
-		      HorizontalAlignment = "Center" VerticalAlignment = "Center">
-			<Button Height = "50" Command="{Binding ClickBackToHomeCommand}" 
-					VerticalAlignment="Center" HorizontalAlignment="Left">
-				<Image Height = "50" Width = "50" 
-					   Source= "{Binding ImageFromBinding}" Stretch="Uniform"/>
-			</Button>
+		<StackPanel Grid.Row = "1" Background="{DynamicResource LMSYNeutralSecondary}"> 
+			<Grid ColumnDefinitions="50*, 50*">
+				<StackPanel Grid.Column = "0" HorizontalAlignment = "Center" VerticalAlignment = "Center" > 
+					<Grid RowDefinitions="*, *, *">
+						<StackPanel Grid.Row="0">
+							<Grid ColumnDefinitions="*, *, *, *, *, *, *, *">
+								
+							</Grid>
+						</StackPanel>
 
-			<Grid ColumnDefinitions="Auto, Auto">
-				<Grid Grid.Column = "0" HorizontalAlignment = "Center" VerticalAlignment = "Center" > 
+						<StackPanel Grid.Row="1">
+							<Grid ColumnDefinitions="*, *, *, *, *, *, *, *">
+							</Grid>
+						</StackPanel>
+
+						<StackPanel Grid.Row="2">
+							<Grid ColumnDefinitions="*, *, *, *, *, *, *, *">
+							</Grid>
+						</StackPanel>
+
+					</Grid>
 					<TextBlock> Question </TextBlock>
-				</Grid>
-				<Grid Grid.Column ="1" HorizontalAlignment = "Center" VerticalAlignment = "Center" >
+				</StackPanel>
+				<StackPanel Grid.Column ="1" HorizontalAlignment = "Center" VerticalAlignment = "Center" >
 					<TextBlock> Explanation </TextBlock>
-				</Grid>
+				</StackPanel>
 			</Grid>
-		</Grid>
+		</StackPanel>
   
-		<Grid Grid.Row = "2" Background="{DynamicResource LMSYNeutralSecondary}" Height="70">
-			<Grid ColumnDefinitions="Auto, Auto">
-				<Grid Grid.Column = "0" HorizontalAlignment = "Center" VerticalAlignment = "Center">
+		<StackPanel Grid.Row = "2" Background="{DynamicResource LMSYNeutralSecondary}">
+			<Grid ColumnDefinitions="50*, 50*">
+				<StackPanel Grid.Column = "0" HorizontalAlignment = "Center" VerticalAlignment = "Center">
+					<Button Height = "50" Command="{Binding ClickBackToHomeCommand}" 
+							VerticalAlignment="Center" HorizontalAlignment="Left"> 
+						<Image Height = "50" Width = "50" 
+							Source="/Assets/button-return.png" Stretch="Uniform"/> 
+					</Button> 
 					<TextBlock> Current Calculation </TextBlock>
-				</Grid>
-				<Grid Grid.Column = "1" HorizontalAlignment = "Center" VerticalAlignment = "Center">
+				</StackPanel>
+				<StackPanel Grid.Column = "1" HorizontalAlignment = "Center" VerticalAlignment = "Center">
 					<TextBlock> Key Table </TextBlock>
-				</Grid>
+				</StackPanel>
 			</Grid>
-		</Grid>
+		</StackPanel>
 	</Grid>
 </UserControl>

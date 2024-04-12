@@ -74,7 +74,7 @@
                             Margin="0, 0, 0, 10" Spacing="-85">
                         <TextBlock Width="240"
                                    VerticalAlignment="Center"
-                                   Text="Dont have an Account? "/>
+                                   Text="Don't have an account? "/>
                         <Button Command="{Binding RegisterClickedCommand}"
                                 Content="SIGN UP"
                                 VerticalAlignment="Center"
@@ -86,7 +86,7 @@
                             Margin="0, 50, 0, -10" Spacing="-100">
                     <TextBlock Width="240"
                                VerticalAlignment="Center"
-                               Text="Dont want to sign in? "/>
+                               Text="Don't want to sign in? "/>
                     <Button Command="{Binding LoginAsGuestClickedCommand}"
                             Content="Continue as Guest"
                             Foreground="{DynamicResource LMSYSecondary}" FontWeight="Heavy"

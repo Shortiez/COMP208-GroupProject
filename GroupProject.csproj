@@ -137,6 +137,10 @@
       <DependentUpon>AccountWindow.axaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="Views\BinaryAdditionLearnPageView.axaml.cs">
+      <DependentUpon>BinaryAdditionTopicWindow.axaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="Views\BinaryAdditionQuizPageView.axaml.cs">
       <DependentUpon>BinaryAdditionTopicWindow.axaml</DependentUpon>
       <SubType>Code</SubType>
