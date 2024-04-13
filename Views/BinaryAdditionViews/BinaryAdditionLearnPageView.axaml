@@ -120,7 +120,9 @@
 				</StackPanel>
 				<StackPanel Grid.Column ="1" HorizontalAlignment = "Center" VerticalAlignment = "Center">
 					<Border BorderBrush="#283A7B" HorizontalAlignment="Center" BorderThickness="2" CornerRadius="10" Width="400" Height="75" Margin = "10">
-					<TextBlock Text="{Binding CurrentCalculation}" TextWrapping="Wrap" FontFamily="PlayfairDisplay" FontSize="15" Foreground="#283A7B" FontWeight="600" Padding="5" Width="400" HorizontalAlignment="Center" VerticalAlignment="Top"/>
+					<TextBlock Text="{Binding CurrentCalculation}" TextWrapping="Wrap" FontFamily="PlayfairDisplay" 
+							   FontSize="15" Foreground="#283A7B" FontWeight="600" Padding="5" Width="400" HorizontalAlignment="Center" 
+							   VerticalAlignment="Top"/>
 					</Border>                    
 				</StackPanel>
 			</Grid>
