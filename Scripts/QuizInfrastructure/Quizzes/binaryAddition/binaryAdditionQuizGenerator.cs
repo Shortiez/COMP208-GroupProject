@@ -5,8 +5,7 @@ using Org.BouncyCastle.Asn1.Anssi;
 namespace GroupProject.Scripts.Questions.Quizzes.BinaryAddition;
 
 public class BinaryAdditionQuizGenerator : QuizGenerator<int>
-{
-    protected override QuizQuestion<int> GenerateQuestion()
+{    protected override QuizQuestion<int> GenerateQuestion()
     {
         BinaryAdditionQuizQuestion newQuestion = new BinaryAdditionQuizQuestion();
 
