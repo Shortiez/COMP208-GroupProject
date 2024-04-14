@@ -5,6 +5,7 @@ using System.Text;
 using System.Text.Json;
 using Avalonia.Styling;
 using CommunityToolkit.Mvvm.Input;
+using GroupProject.Services;
 
 namespace GroupProject.Models;
 
@@ -25,7 +26,7 @@ public struct UserSettingsModel
         MusicVolume = 1f;
         SFXVolume = 1f;
         IsAudioMuted = false;
-        Theme = "Light";
+        Theme = "Dark";
 
         TryCreateInitialSettingsFile();
     }

@@ -14,7 +14,7 @@ public partial class MainContentPageViewModel : ViewModelBase
     private bool _isSidebarOpen = true;
     
     [ObservableProperty]
-    private ViewModelBase _currentPage = new HomePageViewModel();
+    private ViewModelBase _currentPage = new PickATopicPageViewModel();
     
     [ObservableProperty]
     private SidebarListItemTemplate _selectedListItem;
@@ -24,8 +24,7 @@ public partial class MainContentPageViewModel : ViewModelBase
     
     public ObservableCollection<SidebarListItemTemplate> SidebarListItems { get; } =
     [
-        new SidebarListItemTemplate(typeof(HomePageViewModel), "HomeRegular"),
-        new SidebarListItemTemplate(typeof(PickATopicPageViewModel), "Study"),
+        new SidebarListItemTemplate(typeof(PickATopicPageViewModel), "Study", "Home"),
         new SidebarListItemTemplate(typeof(SettingsPageViewModel), "SettingsRegular"),
         new SidebarListItemTemplate(typeof(AccountPageViewModel), "Account")
     ];
@@ -34,15 +33,6 @@ public partial class MainContentPageViewModel : ViewModelBase
     private void TriggerSidebar()
     {
         IsSidebarOpen = !IsSidebarOpen;
-    }
-    
-    [RelayCommand]
-    private void TriggerTheme()
-    {
-        var mainWindow = App.MainWindowViewModel;
-        var theme = mainWindow.ThemeService.CurrentTheme == "Dark" ? "Light" : "Dark";   
-        
-        mainWindow.ThemeService.CurrentTheme = theme;
     }
     
     partial void OnSelectedListItemChanged(SidebarListItemTemplate? value)

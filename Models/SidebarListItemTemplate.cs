@@ -23,4 +23,14 @@ public class SidebarListItemTemplate
         var streamGeometry = result as StreamGeometry ?? StreamGeometry.Parse(StreamGeometryNotFound);
         Icon = streamGeometry;
     }
+
+    public SidebarListItemTemplate(Type modelType, string iconKey, string labelName)
+    {
+        ModelType = modelType;
+        Label = labelName;
+        
+        Application.Current!.TryFindResource(iconKey, out var result);
+        var streamGeometry = result as StreamGeometry ?? StreamGeometry.Parse(StreamGeometryNotFound);
+        Icon = streamGeometry;
+    }
 }

@@ -87,6 +87,7 @@
                            Margin="0, 130, 0, 0"
                            Background="{DynamicResource LMSYNeutralSecondary}"/>
             
+                <!---
                 <StackPanel Grid.Column="2">
                     <TextBlock Classes="title"
                                Text="Statistics"
@@ -122,5 +123,6 @@
                         </TreeView>
                     </ScrollViewer>
                 </StackPanel>
+-->
         </Grid>
 </UserControl>

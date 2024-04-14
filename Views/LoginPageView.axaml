@@ -13,7 +13,7 @@
                 <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
         
-        <StackPanel Grid.Column="0" Orientation="Horizontal"
+        <StackPanel Grid.Column="1" Orientation="Horizontal"
                     HorizontalAlignment="Center"
                     VerticalAlignment="Center">
             <Image Source="/Assets/homepage-logo.png" 
@@ -22,7 +22,7 @@
                    VerticalAlignment="Center"/>
         </StackPanel>
         
-        <Border Grid.Column="1"
+        <Border Grid.Column="0"
                 Background="{DynamicResource LMSYNeutralSecondary}"
                 CornerRadius="12"
                 Margin="40, 60, 40, 60"

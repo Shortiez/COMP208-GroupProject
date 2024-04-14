@@ -149,10 +149,6 @@
       <DependentUpon>ExampleTopicQuiz.axaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="Views\HomePageView.axaml.cs">
-      <DependentUpon>HomeWindow.axaml</DependentUpon>
-      <SubType>Code</SubType>
-    </Compile>
     <Compile Update="Views\LogicGatesTopicPageView.axaml.cs">
       <DependentUpon>LogicGatesTopicWindow.axaml</DependentUpon>
       <SubType>Code</SubType>

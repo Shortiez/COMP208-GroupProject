@@ -36,9 +36,9 @@ public partial class SettingsPageViewModel : ViewModelBase
     private void TriggerTheme()
     {
         var mainWindow = App.MainWindowViewModel;
-        var theme = mainWindow.ThemeService.CurrentTheme == "Dark" ? "Light" : "Dark";
+        var theme = mainWindow.CurrentTheme == "Dark" ? "Light" : "Dark";
         
-        mainWindow.ThemeService.CurrentTheme = theme;
+        mainWindow.CurrentTheme = theme;
     }
     
     [RelayCommand]

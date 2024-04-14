@@ -11,13 +11,10 @@ public partial class MainWindowViewModel : ViewModelBase
 {
     [ObservableProperty]
     private ViewModelBase _currentContent = new MainContentPageViewModel();
-    
-    [ObservableProperty]
-    private ThemeService _themeService;
 
     [ObservableProperty] 
     private UserDataModel _user;
-    
+
     [ObservableProperty]
     private string _currentTheme = "Light";
     
@@ -35,10 +32,7 @@ public partial class MainWindowViewModel : ViewModelBase
         }
         
         User = new UserDataModel("", "", "");
-        
         User.UserSettings.LoadSettings();
-        
-        ThemeService = new ThemeService(User.UserSettings);
     }
     
     public void LoadUserData(string username, string email, string password)
@@ -50,10 +44,5 @@ public partial class MainWindowViewModel : ViewModelBase
         }
         
         User = new UserDataModel(username, email, password);
-    }
-
-    public void OnClosing(WindowClosingEventArgs windowClosingEventArgs)
-    {
-        User.UserSettings.SaveSettings();
     }
 }
