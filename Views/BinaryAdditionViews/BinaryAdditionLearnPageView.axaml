@@ -9,19 +9,17 @@
              x:Class="GroupProject.Views.BinaryAdditionLearnPageView"
              x:DataType="viewModels:BinaryAdditionLearnPageViewModel">
 	
-	<Grid RowDefinitions="Auto, *, Auto" Background="{DynamicResource LMSYNeutralPrimary}">
+	<Grid RowDefinitions="Auto, *, *, Auto" Background="{DynamicResource LMSYNeutralSecondary}">
 
-        <StackPanel Grid.Row="0" Orientation="Horizontal" Background="White">
-            <Border Background="{DynamicResource LMSYPrimary}">
-                <TextBlock Classes="title" Foreground="White" FontFamily="PlayfairDisplay" HorizontalAlignment="Center">
-                    Binary Addition
-                </TextBlock>
-            </Border>
+        <StackPanel Grid.Row="0" Background="{DynamicResource LMSYPrimary}" Height="50">
+			<TextBlock Classes="title" Foreground="White" HorizontalAlignment="Center">
+				Binary Addition
+			</TextBlock>
         </StackPanel>
 		
-		<StackPanel Grid.Row = "1" Background="{DynamicResource LMSYNeutralSecondary}" VerticalAlignment="Center"> 
+		<StackPanel Grid.Row = "1"> 
 			<Grid ColumnDefinitions="50*, 50*">
-				<StackPanel Grid.Column = "0" HorizontalAlignment = "Center" VerticalAlignment = "Center" > 
+				<StackPanel Grid.Column = "0" HorizontalAlignment = "Center" VerticalAlignment = "Center"> 
 					<Grid RowDefinitions="*, *, *">
 					<Border BorderBrush="#00417e" BorderThickness="2" CornerRadius = "10" Padding = "20">
 						<StackPanel>
@@ -128,14 +126,9 @@
 			</Grid>
 		</StackPanel>
   
-		<StackPanel Grid.Row = "2" Background="{DynamicResource LMSYNeutralSecondary}" VerticalAlignment="Center">
+		<StackPanel Grid.Row = "2" VerticalAlignment="Center">
 			<Grid ColumnDefinitions="50*, 50*">
 				<StackPanel Grid.Column = "0" HorizontalAlignment = "Center" VerticalAlignment = "Center">
-					<Button Height = "50" Command="{Binding ClickBackToHomeCommand}" 
-							VerticalAlignment="Center" HorizontalAlignment="Left"> 
-						<Image Height = "50" Width = "50" 
-							Source="/Assets/button-return.png" Stretch="Uniform"/> 
-					</Button> 
 					<Border BorderBrush="#283A7B" HorizontalAlignment="Center" BorderThickness="2" CornerRadius="10" Width="400" Height="75" Margin = "10">
 					<TextBlock Text="{Binding ExplanationBlock}" TextWrapping="Wrap" FontFamily="PlayfairDisplay" FontSize="15" Foreground="#283A7B" FontWeight="600" Padding="5" Width="400" HorizontalAlignment="Center" VerticalAlignment="Top"/>
 					</Border>                    
@@ -145,5 +138,12 @@
 				</StackPanel>
 			</Grid>
 		</StackPanel>
+
+        <StackPanel Grid.Row="3" Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Bottom">
+            <Button Name="BackButton" Foreground="White" Classes="primary round" Content="Back"
+                    Width="130" Height="30" Command="{Binding ClickBackToHomeCommand}"/>
+        </StackPanel>
+
+
 	</Grid>
 </UserControl>

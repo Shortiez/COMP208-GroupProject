@@ -9,13 +9,13 @@
              x:Class="GroupProject.Views.BinaryAdditionQuizPageView"
              x:DataType="viewModels:BinaryAdditionQuizPageViewModel">
     
-    <Grid RowDefinitions="Auto, *, Auto">
+    <Grid RowDefinitions="Auto, *, Auto" Background="{DynamicResource LMSYNeutralSecondary}">
         
         <!-- Title -->
-        <StackPanel Grid.Row="0" Background="{DynamicResource LMSYPrimary}" Orientation="Horizontal" HorizontalAlignment="Stretch">
-            <TextBlock Classes="title" Foreground="White" HorizontalAlignment="Center" FontFamily="PlayfairDisplay">
-                Binary Addition
-            </TextBlock>
+        <StackPanel Grid.Row="0" Background="{DynamicResource LMSYPrimary}" Height="50">
+			<TextBlock Classes="title" Foreground="White" HorizontalAlignment="Center">
+				Binary Addition
+			</TextBlock>
         </StackPanel>
         
         <!-- Content -->
@@ -76,11 +76,12 @@
                 </StackPanel>
             </Grid>
         </StackPanel>
-        <StackPanel Grid.Row="2">
-            <Button Command="{Binding ClickBackToHomeCommand}" Height="100" Width="100" HorizontalAlignment="Left">
-                <Image Source="/Assets/button-return.png" Stretch="Uniform"/>
-            </Button>
+
+        <StackPanel Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Bottom">
+            <Button Name="BackButton" Foreground="White" Classes="primary round" Content="Back"
+                    Width="130" Height="30" Command="{Binding ClickBackToHomeCommand}"/>
         </StackPanel>
+
     </Grid>
 
 </UserControl>
