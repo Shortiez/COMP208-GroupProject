@@ -9,20 +9,26 @@
     <ApplicationIcon>Icon-mankey.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
-    <None Remove="Assets\Blue-Square.png" />
+    <None Remove="Assets\Shapes\Blue-Square.png" />
     <None Remove="Assets\button-clear.png" />
     <None Remove="Assets\button-next.png" />
     <None Remove="Assets\button-return.png" />
     <None Remove="Assets\button-submit.png" />
     <None Remove="Assets\Chimpa-corner.png" />
     <None Remove="Assets\CombHintImage.png" />
+    <None Remove="Assets\Fonts\Neuton-Regular.ttf" />
     <None Remove="Assets\HelpButtonSelection.png" />
     <None Remove="Assets\homepage-background.png" />
     <None Remove="Assets\homepage-logo.png" />
     <None Remove="Assets\LMSY-Logo.png" />
-    <None Remove="Assets\Pink-Square.png" />
+    <None Remove="Assets\Shapes\Pink-Square.png" />
     <None Remove="Assets\QuestionButtonSelection.png" />
-    <None Remove="Assets\Red-Square.png" />
+    <None Remove="Assets\Shapes\Red-Square.png" />
+    <None Remove="Assets\SQL Table Icons\Apes\Baboon.png" />
+    <None Remove="Assets\SQL Table Icons\Apes\Gorilla.png" />
+    <None Remove="Assets\SQL Table Icons\Apes\Mandril.png" />
+    <None Remove="Assets\SQL Table Icons\Apes\Orangutan.png" />
+    <None Remove="Assets\SQL Table Icons\Apes\Squirrel.png" />
     <None Remove="Assets\SQL Table Icons\Fruit\Apple.png" />
     <None Remove="Assets\SQL Table Icons\Fruit\Banana.png" />
     <None Remove="Assets\SQL Table Icons\Fruit\Cherry.png" />
@@ -44,24 +50,66 @@
     <None Remove="Assets\SQL Table Icons\Numbers\67.png" />
     <None Remove="Assets\SQL Table Icons\Numbers\7.png" />
     <None Remove="Assets\SQL Table Icons\Numbers\8.png" />
-    <None Remove="Assets\White-Square.png" />
+    <None Remove="Assets\Shapes\White-Square.png" />
+    <None Remove="Assets\SQL Table Icons\Shapes\Blue-Rhombus.png" />
+    <None Remove="Assets\SQL Table Icons\Shapes\Blue-Triangle.png" />
+    <None Remove="Assets\SQL Table Icons\Shapes\Circle-Blue.png" />
+    <None Remove="Assets\SQL Table Icons\Shapes\Circle-Green.png" />
+    <None Remove="Assets\SQL Table Icons\Shapes\Circle-Orange.png" />
+    <None Remove="Assets\SQL Table Icons\Shapes\Circle-Pink.png" />
+    <None Remove="Assets\SQL Table Icons\Shapes\Circle-Purple.png" />
+    <None Remove="Assets\SQL Table Icons\Shapes\Circle-Red.png" />
+    <None Remove="Assets\SQL Table Icons\Shapes\Circle-Yellow.png" />
+    <None Remove="Assets\SQL Table Icons\Shapes\Green-Circle.png" />
+    <None Remove="Assets\SQL Table Icons\Shapes\Green-Rhombus.png" />
+    <None Remove="Assets\SQL Table Icons\Shapes\Green-Triangle.png" />
+    <None Remove="Assets\SQL Table Icons\Shapes\Orange-Circle.png" />
+    <None Remove="Assets\SQL Table Icons\Shapes\Orange-Rhombus.png" />
+    <None Remove="Assets\SQL Table Icons\Shapes\Pink-Circle.png" />
+    <None Remove="Assets\SQL Table Icons\Shapes\Pink-Rhombus.png" />
+    <None Remove="Assets\SQL Table Icons\Shapes\Pink-Triangle.png" />
+    <None Remove="Assets\SQL Table Icons\Shapes\Purple-Circle.png" />
+    <None Remove="Assets\SQL Table Icons\Shapes\Purple-Rhombus.png" />
+    <None Remove="Assets\SQL Table Icons\Shapes\Purple-Triangle.png" />
+    <None Remove="Assets\SQL Table Icons\Shapes\Red-Rhombus.png" />
+    <None Remove="Assets\SQL Table Icons\Shapes\Red-Triangle.png" />
+    <None Remove="Assets\SQL Table Icons\Shapes\Rhombus-Blue.png" />
+    <None Remove="Assets\SQL Table Icons\Shapes\Rhombus-Green.png" />
+    <None Remove="Assets\SQL Table Icons\Shapes\Rhombus-Pink.png" />
+    <None Remove="Assets\SQL Table Icons\Shapes\Rhombus-Purple.png" />
+    <None Remove="Assets\SQL Table Icons\Shapes\Rhombus-Red.png" />
+    <None Remove="Assets\SQL Table Icons\Shapes\Rhombus-Yellow.png" />
+    <None Remove="Assets\SQL Table Icons\Shapes\Square-Blue.png" />
+    <None Remove="Assets\SQL Table Icons\Shapes\Square-Pink.png" />
+    <None Remove="Assets\SQL Table Icons\Shapes\Square-Red.png" />
+    <None Remove="Assets\SQL Table Icons\Shapes\Square-White.png" />
+    <None Remove="Assets\SQL Table Icons\Shapes\Triangle-Blue.png" />
+    <None Remove="Assets\SQL Table Icons\Shapes\Triangle-Green.png" />
+    <None Remove="Assets\SQL Table Icons\Shapes\Triangle-Pink.png" />
+    <None Remove="Assets\SQL Table Icons\Shapes\Triangle-Purple.png" />
+    <None Remove="Assets\SQL Table Icons\Shapes\Triangle-Red.png" />
+    <None Remove="Assets\SQL Table Icons\Shapes\Triangle-Yellow.png" />
+    <None Remove="Assets\SQL Table Icons\Shapes\Yellow-Circle.png" />
+    <None Remove="Assets\SQL Table Icons\Shapes\Yellow-Rhombus.png" />
+    <None Remove="Assets\SQL Table Icons\Shapes\Yellow-Triangle.png" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Icon-mankey.ico" />
   </ItemGroup>
   <ItemGroup>
-    <AvaloniaResource Include="Assets\Blue-Square.png" />
     <AvaloniaResource Include="Assets\button-clear.png" />
     <AvaloniaResource Include="Assets\button-next.png" />
     <AvaloniaResource Include="Assets\button-return.png" />
     <AvaloniaResource Include="Assets\button-submit.png" />
     <AvaloniaResource Include="Assets\Chimpa-corner.png" />
     <AvaloniaResource Include="Assets\CombHintImage.png" />
+    <AvaloniaResource Include="Assets\Fonts\Neuton-Regular.ttf">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </AvaloniaResource>
     <AvaloniaResource Include="Assets\HelpButtonSelection.png" />
     <AvaloniaResource Include="Assets\homepage-background.png" />
     <AvaloniaResource Include="Assets\homepage-logo.png" />
     <AvaloniaResource Include="Assets\LMSY-Logo.png" />
-    <AvaloniaResource Include="Assets\Pink-Square.png" />
     <AvaloniaResource Include="Assets\QuestionButtonSelection.png" />
     <None Remove="Assets\button-previous.png" />
     <AvaloniaResource Include="Assets\button-previous.png" />
@@ -73,7 +121,11 @@
     <AvaloniaResource Include="Assets\chimpa-success.png" />
     <None Remove="Assets\homepage-logo-02.png" />
     <AvaloniaResource Include="Assets\homepage-logo-02.png" />
-    <AvaloniaResource Include="Assets\Red-Square.png" />
+    <AvaloniaResource Include="Assets\SQL Table Icons\Apes\Baboon.png" />
+    <AvaloniaResource Include="Assets\SQL Table Icons\Apes\Gorilla.png" />
+    <AvaloniaResource Include="Assets\SQL Table Icons\Apes\Mandril.png" />
+    <AvaloniaResource Include="Assets\SQL Table Icons\Apes\Orangutan.png" />
+    <AvaloniaResource Include="Assets\SQL Table Icons\Apes\Squirrel.png" />
     <AvaloniaResource Include="Assets\SQL Table Icons\Fruit\Apple.png" />
     <AvaloniaResource Include="Assets\SQL Table Icons\Fruit\Banana.png" />
     <AvaloniaResource Include="Assets\SQL Table Icons\Fruit\Cherry.png" />
@@ -97,7 +149,28 @@
   </ItemGroup>
   <ItemGroup>
     <AvaloniaResource Include="Assets\SQL Table Icons\Numbers\26.png" />
-    <AvaloniaResource Include="Assets\White-Square.png" />
+    <AvaloniaResource Include="Assets\SQL Table Icons\Shapes\Circle-Blue.png" />
+    <AvaloniaResource Include="Assets\SQL Table Icons\Shapes\Circle-Green.png" />
+    <AvaloniaResource Include="Assets\SQL Table Icons\Shapes\Circle-Orange.png" />
+    <AvaloniaResource Include="Assets\SQL Table Icons\Shapes\Circle-Pink.png" />
+    <AvaloniaResource Include="Assets\SQL Table Icons\Shapes\Circle-Purple.png" />
+    <AvaloniaResource Include="Assets\SQL Table Icons\Shapes\Circle-Red.png" />
+    <AvaloniaResource Include="Assets\SQL Table Icons\Shapes\Circle-Yellow.png" />
+    <AvaloniaResource Include="Assets\SQL Table Icons\Shapes\Rhombus-Blue.png" />
+    <AvaloniaResource Include="Assets\SQL Table Icons\Shapes\Rhombus-Green.png" />
+    <AvaloniaResource Include="Assets\SQL Table Icons\Shapes\Rhombus-Pink.png" />
+    <AvaloniaResource Include="Assets\SQL Table Icons\Shapes\Rhombus-Purple.png" />
+    <AvaloniaResource Include="Assets\SQL Table Icons\Shapes\Rhombus-Red.png" />
+    <AvaloniaResource Include="Assets\SQL Table Icons\Shapes\Rhombus-Yellow.png" />
+    <AvaloniaResource Include="Assets\SQL Table Icons\Shapes\Square-Blue.png" />
+    <AvaloniaResource Include="Assets\SQL Table Icons\Shapes\Square-Pink.png" />
+    <AvaloniaResource Include="Assets\SQL Table Icons\Shapes\Square-Red.png" />
+    <AvaloniaResource Include="Assets\SQL Table Icons\Shapes\Triangle-Blue.png" />
+    <AvaloniaResource Include="Assets\SQL Table Icons\Shapes\Triangle-Green.png" />
+    <AvaloniaResource Include="Assets\SQL Table Icons\Shapes\Triangle-Pink.png" />
+    <AvaloniaResource Include="Assets\SQL Table Icons\Shapes\Triangle-Purple.png" />
+    <AvaloniaResource Include="Assets\SQL Table Icons\Shapes\Triangle-Red.png" />
+    <AvaloniaResource Include="Assets\SQL Table Icons\Shapes\Triangle-Yellow.png" />
   </ItemGroup>
 
 
@@ -120,7 +193,6 @@
 
 
   <ItemGroup>
-    <Folder Include="Assets\SQL Table Icons\Shapes\" />
     <Folder Include="Controls\" />
     <Folder Include="let_me_show_you\" />
     <Folder Include="Scripts\AppLogic\" />
