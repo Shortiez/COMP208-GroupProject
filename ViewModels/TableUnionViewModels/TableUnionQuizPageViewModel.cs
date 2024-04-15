@@ -272,7 +272,7 @@ public partial class TableUnionQuizPageViewModel : ViewModelBase
         else
         {
             // incorrect
-            //_userStatistics.UpdateExistingRecord(1, 0);
+            _userStatistics.UpdateExistingRecord(1, 0);
         }
     }
 
