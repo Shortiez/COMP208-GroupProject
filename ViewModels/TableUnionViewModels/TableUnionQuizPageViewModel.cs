@@ -100,6 +100,13 @@ public partial class TableUnionQuizPageViewModel : ViewModelBase
 
     };
 
+    static public Dictionary<String, Bitmap> MonkeyImages = new Dictionary<string, Bitmap>
+    {
+        {"Default", ImageHelper.LoadFromResource("/Assets/Chimpa-corner.png")},
+        {"Fail", ImageHelper.LoadFromResource("/Assets/Chimpa-fail.png")},
+        {"Success", ImageHelper.LoadFromResource("/Assets/chimpa-success.png")},
+    };
+
     [ObservableProperty]
     private ObservableCollection<DraggableImage> _table1 = [];
 
@@ -120,6 +127,9 @@ public partial class TableUnionQuizPageViewModel : ViewModelBase
 
     [ObservableProperty]
     private string[] _headers = ["", "", "", "", ""];
+
+    [ObservableProperty]
+    private Bitmap _cornerImage = MonkeyImages["Default"];
 
     public TableUnionQuizPageViewModel()
     {
@@ -163,6 +173,9 @@ public partial class TableUnionQuizPageViewModel : ViewModelBase
         Table1.Clear();
         Table2.Clear();
         ClearButtonClick();
+
+        // set corner image back to default
+        CornerImage = MonkeyImages["Default"];
 
         // update the SQL question
         _currentQuestion = _quizGenerator.NewQuestion();
@@ -267,12 +280,18 @@ public partial class TableUnionQuizPageViewModel : ViewModelBase
             else if (x == 2) Explanation = "You got it!";
             else if (x == 3) Explanation = "Yes, that's exactly right.";
             else Explanation = "Correct! Well done.";
-            //_userStatistics.UpdateExistingRecord(1, 0);
+            _userStatistics.UpdateExistingRecord(1, 0);
+
+            // update corner image
+            CornerImage = MonkeyImages["Success"];
         }
         else
         {
             // incorrect
             _userStatistics.UpdateExistingRecord(1, 0);
+
+            // update corner image
+            CornerImage = MonkeyImages["Fail"];
         }
     }
 
