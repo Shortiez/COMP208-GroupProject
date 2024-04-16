@@ -16,7 +16,10 @@
                 
           <!-- Title -->
           <Border Background="{DynamicResource LMSYPrimary}" CornerRadius="0,0,0,0">
-            <TextBlock Classes="title" Name="Title" FontFamily="{DynamicResource Neuton}" TextAlignment="Center" VerticalAlignment="Center" FontSize="45" Foreground="White" Text="TABLE UNION QUESTIONS"/>
+            <TextBlock Classes="title" Name="Title" FontFamily="{DynamicResource Neuton}" 
+                       TextAlignment="Center" VerticalAlignment="Center" FontSize="45" 
+                       Foreground="White" 
+                       Text="TABLE UNION QUESTIONS"/>
           </Border>  
     
           <!-- Content -->
@@ -139,7 +142,7 @@
                 <Image Source="/Assets/button-clear.png" Stretch="Uniform" />
               </Button>
             </StackPanel>
-            <Image Grid.Row="3" Source="{Binding CornerImage}" VerticalAlignment="Bottom" HorizontalAlignment="Right" />
+            <Image Grid.Row="3" Width="195" Source="{Binding CornerImage}" VerticalAlignment="Bottom" HorizontalAlignment="Right" />
           </Grid>
           <!-- End of Section 3/3 -->
             

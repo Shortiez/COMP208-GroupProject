@@ -34,10 +34,10 @@
                       HorizontalAlignment="Center"
                       VerticalAlignment="Center">
               
-              <Button Background="Transparent" Padding="0" BorderThickness="0" Command="{Binding ClickLoadQuestionsCommand}">
+              <Button Background="Transparent" Padding="10,0,10,0" BorderThickness="0" Command="{Binding ClickLoadQuestionsCommand}">
 				          <Image Width="400" Height="" Source="/Assets/QuestionButtonSelection.png" Stretch="Uniform"/>
               </Button>              
-              <Button VerticalContentAlignment="Center" Background="Transparent" Padding="0" BorderThickness="0" Margin="0,20,0,0" Command="{Binding ClickLoadExamplesCommand}">
+              <Button VerticalContentAlignment="Center" Background="Transparent" Padding="10,0,10,0" BorderThickness="0" Margin="0,20,0,0" Command="{Binding ClickLoadExamplesCommand}">
 				          <Image Width="400" Height="" Source="/Assets/HelpButtonSelection.png" Stretch="Uniform"/>
               </Button>
               
