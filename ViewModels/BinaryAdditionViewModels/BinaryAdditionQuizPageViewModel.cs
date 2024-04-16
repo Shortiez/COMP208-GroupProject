@@ -24,6 +24,8 @@ public partial class BinaryAdditionQuizPageViewModel : ViewModelBase
     private int _selectedOption;
     private QuizQuestion<int> _currentQuestion;
 
+    private bool gotCurrQuestionRight;
+
     static public Dictionary<String, Bitmap> MonkeyImages = new Dictionary<string, Bitmap>
     {
         {"Default", ImageHelper.LoadFromResource("/Assets/Chimpa-corner.png")},
@@ -92,6 +94,8 @@ public partial class BinaryAdditionQuizPageViewModel : ViewModelBase
         // set corner image back to default
         CornerImage = MonkeyImages["Default"];
 
+        gotCurrQuestionRight = false;
+
         _currentQuestion = _quizGenerator.NewQuestion();
         QuestionTitleBlock = _currentQuestion.QuestionTitle;
         QuestionOptions = new ObservableCollection<int>(_currentQuestion.Options);
@@ -112,12 +116,18 @@ public partial class BinaryAdditionQuizPageViewModel : ViewModelBase
         {
             return;
         }
+        if (gotCurrQuestionRight)
+        {
+            return;
+        }
 
 
         if(_selectedOption == _currentQuestion.Answer)
         {
             AnswerBlock = "Correct!";
             _userStatistics.UpdateExistingRecord(1,0);
+
+            gotCurrQuestionRight = true;
 
             // update corner image
             CornerImage = MonkeyImages["Success"];
