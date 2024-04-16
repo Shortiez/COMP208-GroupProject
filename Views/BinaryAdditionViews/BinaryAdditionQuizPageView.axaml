@@ -86,7 +86,7 @@
                     </Border>
                 </StackPanel>
                 <!--  Corner Chimpa -->
-                <Image Grid.Row="2" Width="200" Source="/Assets/Chimpa-corner.png" VerticalAlignment="Bottom" HorizontalAlignment="Right" />
+                <Image Grid.Row="2" Width="200" Source="{Binding CornerImage}" VerticalAlignment="Bottom" HorizontalAlignment="Right" />
             </Grid>
         </Grid>
 

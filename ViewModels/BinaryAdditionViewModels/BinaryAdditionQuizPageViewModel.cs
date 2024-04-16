@@ -7,6 +7,8 @@ using GroupProject.Scripts.Questions.Quizzes.BinaryAddition;
 using GroupProject.Models;
 using GroupProject.Scripts;
 using System;
+using System.Collections.Generic;
+using Avalonia.Media.Imaging;
 
 namespace GroupProject.ViewModels;
 
@@ -22,6 +24,13 @@ public partial class BinaryAdditionQuizPageViewModel : ViewModelBase
     private int _selectedOption;
     private QuizQuestion<int> _currentQuestion;
 
+    static public Dictionary<String, Bitmap> MonkeyImages = new Dictionary<string, Bitmap>
+    {
+        {"Default", ImageHelper.LoadFromResource("/Assets/Chimpa-corner.png")},
+        {"Fail", ImageHelper.LoadFromResource("/Assets/Chimpa-fail.png")},
+        {"Success", ImageHelper.LoadFromResource("/Assets/chimpa-success.png")},
+    };
+
     public BinaryAdditionQuizPageViewModel()
     {
         GenerateNewQuestion();
@@ -33,7 +42,9 @@ public partial class BinaryAdditionQuizPageViewModel : ViewModelBase
     private ObservableCollection<int> _questionOptions = new ObservableCollection<int>();
     [ObservableProperty]
     public string _answerBlock;
-    
+    [ObservableProperty]
+    private Bitmap _cornerImage = MonkeyImages["Default"];
+
     [ObservableProperty]
     private int _optionOne;
     [ObservableProperty]
@@ -78,6 +89,9 @@ public partial class BinaryAdditionQuizPageViewModel : ViewModelBase
     [RelayCommand]
     private void GenerateNewQuestion()
     {
+        // set corner image back to default
+        CornerImage = MonkeyImages["Default"];
+
         _currentQuestion = _quizGenerator.NewQuestion();
         QuestionTitleBlock = _currentQuestion.QuestionTitle;
         QuestionOptions = new ObservableCollection<int>(_currentQuestion.Options);
@@ -103,13 +117,19 @@ public partial class BinaryAdditionQuizPageViewModel : ViewModelBase
         if(_selectedOption == _currentQuestion.Answer)
         {
             AnswerBlock = "Correct!";
-            //_userStatistics.UpdateExistingRecord(1,0);
+            _userStatistics.UpdateExistingRecord(1,0);
+
+            // update corner image
+            CornerImage = MonkeyImages["Success"];
         }
         else
         {
             AnswerBlock = "Incorrect!" + "\n"
                         + "The correct answer was " + _currentQuestion.Answer + ".";
-            //_userStatistics.UpdateExistingRecord(0,1);
+            _userStatistics.UpdateExistingRecord(0,1);
+
+            // update corner image
+            CornerImage = MonkeyImages["Fail"];
         }
     }
 
