@@ -13,6 +13,7 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.IO;
 using System.Diagnostics;
+using Microsoft.CodeAnalysis.FlowAnalysis;
 
 namespace GroupProject.ViewModels;
 public partial class TableUnionQuizPageViewModel : ViewModelBase
@@ -28,7 +29,10 @@ public partial class TableUnionQuizPageViewModel : ViewModelBase
     private DraggableImage currImage = new DraggableImage(null, "Empty", 0);
     static public bool deletingRN = false;
     static private int count = 1;
-    public const int answerMAX = 10;
+    public const int answerMAX = 12;
+    public bool gotCurrQuestionRight = false;
+
+    Random random = new Random();
 
     private UserStatisticData _userStatistics = new UserStatisticData(App.MainWindowViewModel.User.Username, "SQL", "Table Union");
 
@@ -39,10 +43,61 @@ public partial class TableUnionQuizPageViewModel : ViewModelBase
     // loading bitmaps from file path
     static public Dictionary<String, Bitmap> Images = new Dictionary<String, Bitmap>
     {
-        {"Red-Square", ImageHelper.LoadFromResource("/Assets/Red-Square.png")},
-        {"Blue-Square", ImageHelper.LoadFromResource("/Assets/Blue-Square.png")},
-        {"Pink-Square", ImageHelper.LoadFromResource("/Assets/Pink-Square.png")},
-        {"White-Square", ImageHelper.LoadFromResource("/Assets/White-Square.png")},
+        {"Circle-Blue", ImageHelper.LoadFromResource("/Assets/SQL Table Icons/Shapes/Circle-Blue.png")},
+        {"Circle-Green", ImageHelper.LoadFromResource("/Assets/SQL Table Icons/Shapes/Circle-Green.png")},
+        {"Circle-Orange", ImageHelper.LoadFromResource("/Assets/SQL Table Icons/Shapes/Circle-Orange.png")},
+        {"Circle-Pink", ImageHelper.LoadFromResource("/Assets/SQL Table Icons/Shapes/Circle-Pink.png")},
+        {"Circle-Purple", ImageHelper.LoadFromResource("/Assets/SQL Table Icons/Shapes/Circle-Purple.png")},
+        {"Circle-Red", ImageHelper.LoadFromResource("/Assets/SQL Table Icons/Shapes/Circle-Red.png")},
+        {"Circle-Yellow", ImageHelper.LoadFromResource("/Assets/SQL Table Icons/Shapes/Circle-Yellow.png")},
+        
+        {"Rhombus-Blue", ImageHelper.LoadFromResource("/Assets/SQL Table Icons/Shapes/Rhombus-Blue.png")},
+        {"Rhombus-Green", ImageHelper.LoadFromResource("/Assets/SQL Table Icons/Shapes/Rhombus-Green.png")},
+        {"Rhombus-Pink", ImageHelper.LoadFromResource("/Assets/SQL Table Icons/Shapes/Rhombus-Pink.png")},
+        {"Rhombus-Purple", ImageHelper.LoadFromResource("/Assets/SQL Table Icons/Shapes/Rhombus-Purple.png")},
+        {"Rhombus-Red", ImageHelper.LoadFromResource("/Assets/SQL Table Icons/Shapes/Rhombus-Red.png")},
+        {"Rhombus-Yellow", ImageHelper.LoadFromResource("/Assets/SQL Table Icons/Shapes/Rhombus-Yellow.png")},
+        
+        {"Square-Blue", ImageHelper.LoadFromResource("/Assets/SQL Table Icons/Shapes/Square-Blue.png")},
+        {"Square-Pink", ImageHelper.LoadFromResource("/Assets/SQL Table Icons/Shapes/Square-Pink.png")},
+        {"Square-Red", ImageHelper.LoadFromResource("/Assets/SQL Table Icons/Shapes/Square-Red.png")},
+
+        {"Triangle-Blue", ImageHelper.LoadFromResource("/Assets/SQL Table Icons/Shapes/Triangle-Blue.png")},
+        {"Triangle-Green", ImageHelper.LoadFromResource("/Assets/SQL Table Icons/Shapes/Triangle-Green.png")},
+        {"Triangle-Pink", ImageHelper.LoadFromResource("/Assets/SQL Table Icons/Shapes/Triangle-Pink.png")},
+        {"Triangle-Purple", ImageHelper.LoadFromResource("/Assets/SQL Table Icons/Shapes/Triangle-Purple.png")},
+        {"Triangle-Red", ImageHelper.LoadFromResource("/Assets/SQL Table Icons/Shapes/Triangle-Red.png")},
+        {"Triangle-Yellow", ImageHelper.LoadFromResource("/Assets/SQL Table Icons/Shapes/Triangle-Yellow.png")},
+
+        {"Baboon", ImageHelper.LoadFromResource("/Assets/SQL Table Icons/Apes/Gorilla.png")},
+        {"Gorilla", ImageHelper.LoadFromResource("/Assets/SQL Table Icons/Apes/Baboon.png")},
+        {"Mandril", ImageHelper.LoadFromResource("/Assets/SQL Table Icons/Apes/Mandril.png")},
+        {"Orangutan", ImageHelper.LoadFromResource("/Assets/SQL Table Icons/Apes/Orangutan.png")},
+        {"Squirrel", ImageHelper.LoadFromResource("/Assets/SQL Table Icons/Apes/Squirrel.png")},
+
+        {"Apple", ImageHelper.LoadFromResource("/Assets/SQL Table Icons/Fruit/Apple.png")},
+        {"Banana", ImageHelper.LoadFromResource("/Assets/SQL Table Icons/Fruit/Banana.png")},
+        {"Cherry", ImageHelper.LoadFromResource("/Assets/SQL Table Icons/Fruit/Cherry.png")},
+        {"Orange", ImageHelper.LoadFromResource("/Assets/SQL Table Icons/Fruit/Orange.png")},
+        {"Pineapple", ImageHelper.LoadFromResource("/Assets/SQL Table Icons/Fruit/Pineapple.png")},
+
+        {"1", ImageHelper.LoadFromResource("/Assets/SQL Table Icons/Numbers/1.png")},
+        {"102", ImageHelper.LoadFromResource("/Assets/SQL Table Icons/Numbers/102.png")},
+        {"12", ImageHelper.LoadFromResource("/Assets/SQL Table Icons/Numbers/12.png")},
+        {"24", ImageHelper.LoadFromResource("/Assets/SQL Table Icons/Numbers/24.png")},
+        {"26", ImageHelper.LoadFromResource("/Assets/SQL Table Icons/Numbers/26.png")},
+        {"28", ImageHelper.LoadFromResource("/Assets/SQL Table Icons/Numbers/28.png")},
+        {"3", ImageHelper.LoadFromResource("/Assets/SQL Table Icons/Numbers/3.png")},
+        {"32", ImageHelper.LoadFromResource("/Assets/SQL Table Icons/Numbers/32.png")},
+        {"35", ImageHelper.LoadFromResource("/Assets/SQL Table Icons/Numbers/35.png")},
+        {"38", ImageHelper.LoadFromResource("/Assets/SQL Table Icons/Numbers/38.png")},
+        {"4", ImageHelper.LoadFromResource("/Assets/SQL Table Icons/Numbers/4.png")},
+        {"41", ImageHelper.LoadFromResource("/Assets/SQL Table Icons/Numbers/41.png")},
+        {"56", ImageHelper.LoadFromResource("/Assets/SQL Table Icons/Numbers/56.png")},
+        {"67", ImageHelper.LoadFromResource("/Assets/SQL Table Icons/Numbers/67.png")},
+        {"7", ImageHelper.LoadFromResource("/Assets/SQL Table Icons/Numbers/7.png")},
+        {"8", ImageHelper.LoadFromResource("/Assets/SQL Table Icons/Numbers/8.png")},
+
     };
 
     [ObservableProperty]
@@ -72,6 +127,7 @@ public partial class TableUnionQuizPageViewModel : ViewModelBase
         GenerateQuestion();
     }
 
+    // clear the answer table
     [RelayCommand]
     private void ClearButtonClick()
     {
@@ -83,6 +139,7 @@ public partial class TableUnionQuizPageViewModel : ViewModelBase
         count += answerMAX;
     }
 
+    // go back to 'Quiz+Learn' Page
     [RelayCommand]
     private void BackButtonPressed()
     {
@@ -99,6 +156,9 @@ public partial class TableUnionQuizPageViewModel : ViewModelBase
     [RelayCommand]
     private void GenerateQuestion()
     {
+        // set the boolean back to false
+        gotCurrQuestionRight = false;
+
         // clear the tables
         Table1.Clear();
         Table2.Clear();
@@ -108,12 +168,21 @@ public partial class TableUnionQuizPageViewModel : ViewModelBase
         _currentQuestion = _quizGenerator.NewQuestion();
         Question = _currentQuestion.QuestionTitle;
 
-        //update the names of the tables
+        // update the names of the tables
         Titles = _currentQuestion.Options[4].Split('+');
 
-        //update the column names of the tables
+        // update the column names of the tables
         Headers = _currentQuestion.Options;
 
+        // update table names in instruction
+        Explanation = $"We want to make our new \ntable, so drag the icons from \nthe {Titles[0]} and {Titles[1]} tables.";
+
+        // calculate the correct answer
+        answer.Clear();
+        for (int x = 0; x < _currentQuestion.QuestionInput.Count; x += 2)
+        {
+            answer.Add(new Tuple<string, string>(_currentQuestion.QuestionInput[x], _currentQuestion.QuestionInput[x + 1]));
+        }
 
         Bitmap bitmap;
         string name;
@@ -141,19 +210,21 @@ public partial class TableUnionQuizPageViewModel : ViewModelBase
     [RelayCommand]
     private void SubmitAnswer()
     {
-        // calculate the correct answer
-        answer.Clear();
-        for (int x = 0; x < _currentQuestion.QuestionInput.Count; x += 2)
+        if (gotCurrQuestionRight) return;
+
+        // create a local copy of correct answers to manipulate
+        Collection<Tuple<string, string>> localAnswer = new Collection<Tuple<string, string>>();
+        foreach (var tuple in answer)
         {
-            answer.Add(new Tuple<string, string>(_currentQuestion.QuestionInput[x], _currentQuestion.QuestionInput[x + 1]));
+            localAnswer.Add(new Tuple<string, string>(tuple.Item1, tuple.Item2));
         }
 
         // check if user's answer = actual answer
         Tuple<string, string> a;
-        bool contains = true;
+        bool gotRight = true;
         int count = 0;
         string item1, item2;
-        while (contains && count < Answer.Count)
+        while (gotRight && count < Answer.Count)
         {
             item1 = Answer[count].name;
             item2 = Answer[count + 1].name;
@@ -165,32 +236,43 @@ public partial class TableUnionQuizPageViewModel : ViewModelBase
             // if a row is partially filled, it's wrong
             else if (item1.Equals("Empty") || item2.Equals("Empty"))
             {
-                contains = false;
-                Explanation = "Items missing!";
+                gotRight = false;
+                Explanation = "Oh no! There seem to be some \nmissing items.";
             }
             // check if the inputted answer matches an entry in actual answer
             else
             {
-                a = new Tuple<string, string>(Answer[count].name, Answer[count + 1].name);
-                contains = answer.Contains(a);
+                a = new Tuple<string, string>(item1, item2);
+                gotRight = localAnswer.Contains(a);
+
                 // ensure multiple idenical entries aren't allowed
-                if (contains) answer.Remove(a);
+                if (gotRight) localAnswer.Remove(a);
+                else Explanation = "Hmm, some rows seem to have \nthe wrong items.";
             }
             count += 2;
         }
 
+        // if the answer is not complete
+        if (gotRight && localAnswer.Count > 0) Explanation = "There are a few items \nthat are missing!";
+        if (localAnswer.Count > 0) gotRight = false;
+
         // change Explanation deending on result
-        if (!contains)
+        if (gotRight)
         {
-            // incorrect
-            Explanation = "Something is wrong";
-            //_userStatistics.UpdateExistingRecord(0, 1);
+            gotCurrQuestionRight = true;
+            // correct
+            int x = random.Next(0,5);
+            if (x == 0) Explanation = "Good thinking! You got the answer.";
+            else if (x == 1) Explanation = "That's right! Great work.";
+            else if (x == 2) Explanation = "You got it!";
+            else if (x == 3) Explanation = "Yes, that's exactly right.";
+            else Explanation = "Correct! Well done.";
+            //_userStatistics.UpdateExistingRecord(1, 0);
         }
         else
         {
-            // correct
-            Explanation = "Correct! Well done";
-            //_userStatistics.UpdateExistingRecord(1, 0);
+            // incorrect
+            _userStatistics.UpdateExistingRecord(1, 0);
         }
     }
 
