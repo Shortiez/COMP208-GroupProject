@@ -9,6 +9,7 @@
     <ApplicationIcon>Icon-mankey.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
+    <None Remove="Assets\button-help.png" />
     <None Remove="Assets\Shapes\Blue-Square.png" />
     <None Remove="Assets\button-clear.png" />
     <None Remove="Assets\button-next.png" />
@@ -98,6 +99,7 @@
   </ItemGroup>
   <ItemGroup>
     <AvaloniaResource Include="Assets\button-clear.png" />
+    <AvaloniaResource Include="Assets\button-help.png" />
     <AvaloniaResource Include="Assets\button-next.png" />
     <AvaloniaResource Include="Assets\button-return.png" />
     <AvaloniaResource Include="Assets\button-submit.png" />
