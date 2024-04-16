@@ -31,6 +31,8 @@ public partial class PickATopicPageViewModel : ViewModelBase
     {
         base.Initialize();
 
+        _connectionDb.Connect();
+
         LoadModules();
 
         foreach (var moduleTreeViewItem in ModuleListItems)
@@ -38,40 +40,38 @@ public partial class PickATopicPageViewModel : ViewModelBase
             LoadTopics(moduleTreeViewItem);
         }
 
-        if (_connectionDb.connection == null)
+
+        // Hardcoded Topics
+        ModuleListItems.Add(new TreeViewItem()
         {
-            // Hardcoded Topics
-            ModuleListItems.Add(new TreeViewItem()
-            {
-                Header = "No Database"
-            });
+            Header = "No Database"
+        });
 
-            TopicListItems.Add(new TreeViewItem()
-            {
-                Header = "Binary Addition"
-            });
-            TopicListItems.Add(new TreeViewItem()
-            {
-                Header = "Binary Subtraction"
-            });
-            TopicListItems.Add(new TreeViewItem()
-            {
-                Header = "Recognizing Conflicts"
-            });
-            TopicListItems.Add(new TreeViewItem()
-            {
-                Header = "Combinatorics"
-            });
-            TopicListItems.Add(new TreeViewItem()
-            {
-                Header = "Table Unions"
-            });
-            foreach (var item in TopicListItems)
-            {
-                item.DoubleTapped += TriggerTopicClicked;
+        TopicListItems.Add(new TreeViewItem()
+        {
+            Header = "Binary Addition"
+        });
+        TopicListItems.Add(new TreeViewItem()
+        {
+            Header = "Binary Subtraction"
+        });
+        TopicListItems.Add(new TreeViewItem()
+        {
+            Header = "Recognizing Conflicts"
+        });
+        TopicListItems.Add(new TreeViewItem()
+        {
+            Header = "Combinatorics"
+        });
+        TopicListItems.Add(new TreeViewItem()
+        {
+            Header = "Table Unions"
+        });
+        foreach (var item in TopicListItems)
+        {
+            item.DoubleTapped += TriggerTopicClicked;
 
-                ModuleListItems.FirstOrDefault(x => x.Header.ToString() == "No Database")?.Items.Add(item);
-            }
+            ModuleListItems.FirstOrDefault(x => x.Header.ToString() == "No Database")?.Items.Add(item);
         }
     }
 
