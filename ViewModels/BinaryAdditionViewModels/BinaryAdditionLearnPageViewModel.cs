@@ -29,32 +29,40 @@ public partial class BinaryAdditionLearnPageViewModel : ViewModelBase
     [ObservableProperty]
     private ObservableCollection<int> _answerDigits = new ObservableCollection<int>(new int[] {0,0,0,0,0,0,0,0});
 
-
+    [ObservableProperty]
+    private ObservableCollection<string> _columnWeights = new ObservableCollection<string>(new string[] {"normal","normal","normal","normal",
+                                                          "normal","normal","normal","normal"});
+    [ObservableProperty]
+    private ObservableCollection<string> _calcWeights = new ObservableCollection<string>(new string[] {"normal", "normal", "normal", "normal"});
     [ObservableProperty]
     private bool _carry;
     [ObservableProperty]
     private int _index;
     [ObservableProperty]
-    String _explanationBlock = "";
+    private String _explanationBlock = "";
     [ObservableProperty]
-    String _currentCalculation = "";
-    
+    private String _currentCalculation = "";
+
+    private Boolean firstRound = true;
+
     public BinaryAdditionLearnPageViewModel()
     {
         _currentQuestion = _quizGenerator.NewQuestion();
         Index = 7;
+        ColumnWeights[7] = "bold";
         Carry = false;
         populateArrays();
-        ExplanationBlock = "When adding two binary numbers, we start from the right-most two digits, which in this case would be " + _num1Digits[7] + " + " + _num2Digits[7] + ".";
+        OnClickNext();
     }
 
     public BinaryAdditionLearnPageViewModel(QuizQuestion<int> quizQuestion)
     {
         _currentQuestion = quizQuestion;
         Index = 7;
+        ColumnWeights[7] = "bold";
         Carry = false;
         populateArrays();
-        ExplanationBlock = "When adding two binary numbers, we start from the right-most two digits, which in this case would be " + _num1Digits[7] + " + " + _num2Digits[7] + ".";
+        OnClickNext();
     }
 
     private void populateArrays()
@@ -89,6 +97,7 @@ public partial class BinaryAdditionLearnPageViewModel : ViewModelBase
                         CurrentCalculation = "1 + 0 + 0 = 1";
                         Carry = false;
                         AnswerDigits[Index] = 1;
+                        CalcWeights[1] = "bold";
                         ExplanationBlock = "We have a carry of 1 and a calculation of 0 + 0. This is equivalent to 1 + 0, resulting in 1.";
                     }
                     else
@@ -96,6 +105,7 @@ public partial class BinaryAdditionLearnPageViewModel : ViewModelBase
                         CurrentCalculation = "1 + 0 + 1 = 10";
                         Carry = true;
                         AnswerDigits[Index] = 0;
+                        CalcWeights[2] = "bold";
                         ExplanationBlock = "We have a carry of 1 and a calculation of 0 + 1. This is equivalent to 1 + 1, resulting in 1 with 1 carried over.";
                     }
                 }
@@ -106,6 +116,7 @@ public partial class BinaryAdditionLearnPageViewModel : ViewModelBase
                         CurrentCalculation = "1 + 1 + 0 = 10";
                         Carry = true;
                         AnswerDigits[Index] = 0;
+                        CalcWeights[2] = "bold";
                         ExplanationBlock = "We have a carry of 1 and a calculation of 1 + 0. This is equivalent to 1 + 1, resulting in 0 with 1 carried over.";
                     }
                     else
@@ -113,6 +124,7 @@ public partial class BinaryAdditionLearnPageViewModel : ViewModelBase
                         CurrentCalculation = "1 + 1 + 1 = 11";
                         Carry = true;
                         AnswerDigits[Index] = 1;
+                        CalcWeights[3] = "bold";
                         ExplanationBlock = "We have a carry of 1 and a calculation of 1 + 1. This is equivalent to 1 + 1 + 1, resulting in 1 with 1 carried over.";
                     }
                 }
@@ -126,6 +138,7 @@ public partial class BinaryAdditionLearnPageViewModel : ViewModelBase
                         CurrentCalculation = "0 + 0 + 0 = 0";
                         Carry = false;
                         AnswerDigits[Index] = 0;
+                        CalcWeights[0] = "bold";
                         ExplanationBlock = "We have a carry of 0 and a calculation of 0 + 0, which is equal to 0 with no carry-over.";
                     }
                     else
@@ -133,6 +146,7 @@ public partial class BinaryAdditionLearnPageViewModel : ViewModelBase
                         CurrentCalculation = "0 + 0 + 1 = 1";
                         Carry = false;
                         AnswerDigits[Index] = 1;
+                        CalcWeights[1] = "bold";
                         ExplanationBlock = "We have a carry of 0 and a calculation of 0 + 1, which is equal to 1 with no carry-over.";
                     }
                 }
@@ -143,6 +157,7 @@ public partial class BinaryAdditionLearnPageViewModel : ViewModelBase
                         CurrentCalculation = "0 + 1 + 0 = 1";
                         Carry = false;
                         AnswerDigits[Index] = 1;
+                        CalcWeights[1] = "bold";
                         ExplanationBlock = "We have a carry of 0 and a calculation of 1 + 0, which is equal to 1 with no carry-over.";
                     }
                     else
@@ -150,10 +165,15 @@ public partial class BinaryAdditionLearnPageViewModel : ViewModelBase
                         CurrentCalculation = "0 + 1 + 1 = 10";
                         Carry = true;
                         AnswerDigits[Index] = 0;
+                        CalcWeights[2] = "bold";
                         ExplanationBlock = "We have a carry of 0 and a calculation of 1 + 1, which is equal to 0 with 1 carried over..";
                     }
                 }
             }
+        }
+        if(firstRound){
+            ExplanationBlock = "When adding two binary numbers, we start from the right-most two digits. " + ExplanationBlock;
+            firstRound = false;
         }
     }
 
@@ -161,7 +181,12 @@ public partial class BinaryAdditionLearnPageViewModel : ViewModelBase
     private void OnClickNext()
     {
         compareNumbers();
-        Index--;
+        if(Index >= 0 && Index < 7)
+        {
+            ColumnWeights[Index] = "bold";
+            ColumnWeights[Index+1] = "normal";
+        }
+        Index--;   
     }
 
     [RelayCommand]
@@ -177,7 +202,4 @@ public partial class BinaryAdditionLearnPageViewModel : ViewModelBase
         
         App.MainWindowViewModel.CurrentContent = topic;
     }
-
-
-
 }

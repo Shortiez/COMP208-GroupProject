@@ -26,28 +26,36 @@
 						<StackPanel Grid.Row="0">
 							<Grid ColumnDefinitions="*, *, *, *, *, *, *, *">
 								<StackPanel Grid.Column="0">
-                            		<TextBlock Text="{Binding Num1Digits[0]}" FontFamily="PlayfairDisplay" HorizontalAlignment="Center" Width="25" FontSize="20"/>
+                            		<TextBlock Text="{Binding Num1Digits[0]}" FontWeight="{Binding ColumnWeights[0]}" 
+											   FontFamily="PlayfairDisplay" HorizontalAlignment="Center" Width="25" FontSize="20"/>
 								</StackPanel>
 								<StackPanel Grid.Column="1">
-                            		<TextBlock Text="{Binding Num1Digits[1]}" FontFamily="PlayfairDisplay" HorizontalAlignment="Center" Width="25" FontSize="20"/>
+                            		<TextBlock Text="{Binding Num1Digits[1]}" FontWeight="{Binding ColumnWeights[1]}" 
+											   FontFamily="PlayfairDisplay" HorizontalAlignment="Center" Width="25" FontSize="20"/>
 								</StackPanel>
 								<StackPanel Grid.Column="2">
-                            		<TextBlock Text="{Binding Num1Digits[2]}" FontFamily="PlayfairDisplay" HorizontalAlignment="Center" Width="25" FontSize="20"/>
+                            		<TextBlock Text="{Binding Num1Digits[2]}" FontWeight="{Binding ColumnWeights[2]}" 
+											   FontFamily="PlayfairDisplay" HorizontalAlignment="Center" Width="25" FontSize="20"/>
 								</StackPanel>
 								<StackPanel Grid.Column="3">
-                            		<TextBlock Text="{Binding Num1Digits[3]}" FontFamily="PlayfairDisplay" HorizontalAlignment="Center" Width="25" FontSize="20"/>
+                            		<TextBlock Text="{Binding Num1Digits[3]}" FontWeight="{Binding ColumnWeights[3]}" 
+											   FontFamily="PlayfairDisplay" HorizontalAlignment="Center" Width="25" FontSize="20"/>
 								</StackPanel>
 								<StackPanel Grid.Column="4">
-                            		<TextBlock Text="{Binding Num1Digits[4]}" FontFamily="PlayfairDisplay" HorizontalAlignment="Center" Width="25" FontSize="20"/>
+                            		<TextBlock Text="{Binding Num1Digits[4]}" FontWeight="{Binding ColumnWeights[4]}" 
+											   FontFamily="PlayfairDisplay" HorizontalAlignment="Center" Width="25" FontSize="20"/>
 								</StackPanel>
 								<StackPanel Grid.Column="5">
-                            		<TextBlock Text="{Binding Num1Digits[5]}" FontFamily="PlayfairDisplay" HorizontalAlignment="Center" Width="25" FontSize="20"/>
+                            		<TextBlock Text="{Binding Num1Digits[5]}" FontWeight="{Binding ColumnWeights[5]}" 
+										       FontFamily="PlayfairDisplay" HorizontalAlignment="Center" Width="25" FontSize="20"/>
 								</StackPanel>
 								<StackPanel Grid.Column="6">
-                            		<TextBlock Text="{Binding Num1Digits[6]}" FontFamily="PlayfairDisplay" HorizontalAlignment="Center" Width="25" FontSize="20"/>
+                            		<TextBlock Text="{Binding Num1Digits[6]}" FontWeight="{Binding ColumnWeights[6]}" 
+											   FontFamily="PlayfairDisplay" HorizontalAlignment="Center" Width="25" FontSize="20"/>
 								</StackPanel>
 								<StackPanel Grid.Column="7">
-                            		<TextBlock Text="{Binding Num1Digits[7]}" FontFamily="PlayfairDisplay" HorizontalAlignment="Center" Width="25" FontSize="20"/>
+                            		<TextBlock Text="{Binding Num1Digits[7]}" FontWeight="{Binding ColumnWeights[7]}" 
+										       FontFamily="PlayfairDisplay" HorizontalAlignment="Center" Width="25" FontSize="20"/>
 								</StackPanel>
 							</Grid>
 						</StackPanel>
@@ -55,28 +63,36 @@
 						<StackPanel Grid.Row="1">
 							<Grid ColumnDefinitions="*, *, *, *, *, *, *, *">
 								<StackPanel Grid.Column="0">
-                            		<TextBlock Text="{Binding Num2Digits[0]}" FontFamily="PlayfairDisplay" HorizontalAlignment="Center" Width="25" FontSize="20"/>
+                            		<TextBlock Text="{Binding Num2Digits[0]}" FontWeight="{Binding ColumnWeights[0]}" 
+											   FontFamily="PlayfairDisplay" HorizontalAlignment="Center" Width="25" FontSize="20"/>
 								</StackPanel>
 								<StackPanel Grid.Column="1">
-                            		<TextBlock Text="{Binding Num2Digits[1]}" FontFamily="PlayfairDisplay" HorizontalAlignment="Center" Width="25" FontSize="20"/>
+                            		<TextBlock Text="{Binding Num2Digits[1]}" FontWeight="{Binding ColumnWeights[1]}" 
+									           FontFamily="PlayfairDisplay" HorizontalAlignment="Center" Width="25" FontSize="20"/>
 								</StackPanel>
 								<StackPanel Grid.Column="2">
-                            		<TextBlock Text="{Binding Num2Digits[2]}" FontFamily="PlayfairDisplay" HorizontalAlignment="Center" Width="25" FontSize="20"/>
+                            		<TextBlock Text="{Binding Num2Digits[2]}" FontWeight="{Binding ColumnWeights[2]}" 
+										       FontFamily="PlayfairDisplay" HorizontalAlignment="Center" Width="25" FontSize="20"/>
 								</StackPanel>
 								<StackPanel Grid.Column="3">
-                            		<TextBlock Text="{Binding Num2Digits[3]}" FontFamily="PlayfairDisplay" HorizontalAlignment="Center" Width="25" FontSize="20"/>
+                            		<TextBlock Text="{Binding Num2Digits[3]}" FontWeight="{Binding ColumnWeights[3]}" 
+											   FontFamily="PlayfairDisplay" HorizontalAlignment="Center" Width="25" FontSize="20"/>
 								</StackPanel>
 								<StackPanel Grid.Column="4">
-                            		<TextBlock Text="{Binding Num2Digits[4]}" FontFamily="PlayfairDisplay" HorizontalAlignment="Center" Width="25" FontSize="20"/>
+                            		<TextBlock Text="{Binding Num2Digits[4]}" FontWeight="{Binding ColumnWeights[4]}" 
+											   FontFamily="PlayfairDisplay" HorizontalAlignment="Center" Width="25" FontSize="20"/>
 								</StackPanel>
 								<StackPanel Grid.Column="5">
-                            		<TextBlock Text="{Binding Num2Digits[5]}" FontFamily="PlayfairDisplay" HorizontalAlignment="Center" Width="25" FontSize="20"/>
+                            		<TextBlock Text="{Binding Num2Digits[5]}" FontWeight="{Binding ColumnWeights[5]}" 
+									   	 	   FontFamily="PlayfairDisplay" HorizontalAlignment="Center" Width="25" FontSize="20"/>
 								</StackPanel>
 								<StackPanel Grid.Column="6">
-                            		<TextBlock Text="{Binding Num2Digits[6]}" FontFamily="PlayfairDisplay" HorizontalAlignment="Center" Width="25" FontSize="20"/>
+                            		<TextBlock Text="{Binding Num2Digits[6]}" FontWeight="{Binding ColumnWeights[6]}" 
+											   FontFamily="PlayfairDisplay" HorizontalAlignment="Center" Width="25" FontSize="20"/>
 								</StackPanel>
 								<StackPanel Grid.Column="7">
-                            		<TextBlock Text="{Binding Num2Digits[7]}" FontFamily="PlayfairDisplay" HorizontalAlignment="Center" Width="25" FontSize="20"/>
+                            		<TextBlock Text="{Binding Num2Digits[7]}" FontWeight="{Binding ColumnWeights[7]}" 
+											   FontFamily="PlayfairDisplay" HorizontalAlignment="Center" Width="25" FontSize="20"/>
 								</StackPanel>
 							</Grid>
 						</StackPanel>
@@ -84,28 +100,36 @@
 						<StackPanel Grid.Row="2">
 							<Grid ColumnDefinitions="*, *, *, *, *, *, *, *">
 								<StackPanel Grid.Column="0">
-                            		<TextBlock Text="{Binding AnswerDigits[0]}" FontFamily="PlayfairDisplay" HorizontalAlignment="Center" Width="25" FontSize="20"/>
+                            		<TextBlock Text="{Binding AnswerDigits[0]}" FontWeight="{Binding ColumnWeights[0]}" 
+											   FontFamily="PlayfairDisplay" HorizontalAlignment="Center" Width="25" FontSize="20"/>
 								</StackPanel>
 								<StackPanel Grid.Column="1">
-                            		<TextBlock Text="{Binding AnswerDigits[1]}" FontFamily="PlayfairDisplay" HorizontalAlignment="Center" Width="25" FontSize="20"/>
+                            		<TextBlock Text="{Binding AnswerDigits[1]}" FontWeight="{Binding ColumnWeights[1]}" 
+											   FontFamily="PlayfairDisplay" HorizontalAlignment="Center" Width="25" FontSize="20"/>
 								</StackPanel>
 								<StackPanel Grid.Column="2">
-                            		<TextBlock Text="{Binding AnswerDigits[2]}" FontFamily="PlayfairDisplay" HorizontalAlignment="Center" Width="25" FontSize="20"/>
+                            		<TextBlock Text="{Binding AnswerDigits[2]}" FontWeight="{Binding ColumnWeights[2]}" 
+											   FontFamily="PlayfairDisplay" HorizontalAlignment="Center" Width="25" FontSize="20"/>
 								</StackPanel>
 								<StackPanel Grid.Column="3">
-                            		<TextBlock Text="{Binding AnswerDigits[3]}" FontFamily="PlayfairDisplay" HorizontalAlignment="Center" Width="25" FontSize="20"/>
+                            		<TextBlock Text="{Binding AnswerDigits[3]}" FontWeight="{Binding ColumnWeights[3]}" 
+											   FontFamily="PlayfairDisplay" HorizontalAlignment="Center" Width="25" FontSize="20"/>
 								</StackPanel>
 								<StackPanel Grid.Column="4">
-                            		<TextBlock Text="{Binding AnswerDigits[4]}" FontFamily="PlayfairDisplay" HorizontalAlignment="Center" Width="25" FontSize="20"/>
+                            		<TextBlock Text="{Binding AnswerDigits[4]}" FontWeight="{Binding ColumnWeights[4]}" 
+											   FontFamily="PlayfairDisplay" HorizontalAlignment="Center" Width="25" FontSize="20"/>
 								</StackPanel>
 								<StackPanel Grid.Column="5">
-                            		<TextBlock Text="{Binding AnswerDigits[5]}" FontFamily="PlayfairDisplay" HorizontalAlignment="Center" Width="25" FontSize="20"/>
+                            		<TextBlock Text="{Binding AnswerDigits[5]}" FontWeight="{Binding ColumnWeights[5]}" 
+										       FontFamily="PlayfairDisplay" HorizontalAlignment="Center" Width="25" FontSize="20"/>
 								</StackPanel>
 								<StackPanel Grid.Column="6">
-                            		<TextBlock Text="{Binding AnswerDigits[6]}" FontFamily="PlayfairDisplay" HorizontalAlignment="Center" Width="25" FontSize="20"/>
+                            		<TextBlock Text="{Binding AnswerDigits[6]}" FontWeight="{Binding ColumnWeights[6]}" 
+										      FontFamily="PlayfairDisplay" HorizontalAlignment="Center" Width="25" FontSize="20"/>
 								</StackPanel>
 								<StackPanel Grid.Column="7">
-                            		<TextBlock Text="{Binding AnswerDigits[7]}" FontFamily="PlayfairDisplay" HorizontalAlignment="Center" Width="25" FontSize="20"/>
+                            		<TextBlock Text="{Binding AnswerDigits[7]}" FontWeight="{Binding ColumnWeights[7]}" 
+											   FontFamily="PlayfairDisplay" HorizontalAlignment="Center" Width="25" FontSize="20"/>
 								</StackPanel>
 							</Grid>
 						</StackPanel>
@@ -130,11 +154,21 @@
 			<Grid ColumnDefinitions="50*, 50*">
 				<StackPanel Grid.Column = "0" HorizontalAlignment = "Center" VerticalAlignment = "Center">
 					<Border BorderBrush="#283A7B" HorizontalAlignment="Center" BorderThickness="2" CornerRadius="10" Width="400" Height="75" Margin = "10">
-					<TextBlock Text="{Binding ExplanationBlock}" TextWrapping="Wrap" FontFamily="PlayfairDisplay" FontSize="15" Foreground="#283A7B" FontWeight="600" Padding="5" Width="400" HorizontalAlignment="Center" VerticalAlignment="Top"/>
+					<TextBlock Text="{Binding ExplanationBlock}" TextWrapping="Wrap" FontFamily="PlayfairDisplay" FontSize="15" 
+							   Foreground="#283A7B" FontWeight="600" Padding="5" Width="400" HorizontalAlignment="Center" VerticalAlignment="Top"/>
 					</Border>                    
 				</StackPanel>
 				<StackPanel Grid.Column = "1" HorizontalAlignment = "Center" VerticalAlignment = "Center">
-					<TextBlock> Key Table </TextBlock>
+					<Border BorderBrush="#00417e" VerticalAlignment="Center" HorizontalAlignment="Center" BorderThickness="2" CornerRadius = "10" Padding = "20" Width = "200">
+						<TreeView VerticalAlignment = "Center">
+							<TreeViewItem Width="150" FontFamily="PlayfairDisplay" Header="Key Table" IsExpanded="True">
+								<TextBlock FontFamily="PlayfairDisplay" FontWeight="{Binding CalcWeights[0]}"> 0 + 0 = 0 </TextBlock>
+								<TextBlock FontFamily="PlayfairDisplay" FontWeight="{Binding CalcWeights[1]}"> 0 + 1 = 1 </TextBlock>
+								<TextBlock FontFamily="PlayfairDisplay" FontWeight="{Binding CalcWeights[2]}"> 1 + 1 = 10 </TextBlock>
+								<TextBlock FontFamily="PlayfairDisplay" FontWeight="{Binding CalcWeights[3]}"> 1 + 1 + 1 = 11 </TextBlock>
+							</TreeViewItem>
+						</TreeView>
+					</Border>
 				</StackPanel>
 			</Grid>
 		</StackPanel>
