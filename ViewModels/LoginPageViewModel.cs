@@ -71,7 +71,9 @@ public partial class LoginPageViewModel : ViewModelBase
             {
                 if(!App.MainWindowViewModel.User.IsCreated())
                     App.MainWindowViewModel.LoadUserData(_signInUsername, "", signInPasswordHash);
-                    mainWindowViewModel.CurrentContent = new MainContentPageViewModel();
+                
+                mainWindowViewModel.CurrentContent = new MainContentPageViewModel();
+                mainWindowViewModel.CurrentContent.Initialize();
             }
             else
             {

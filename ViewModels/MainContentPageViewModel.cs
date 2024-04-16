@@ -29,6 +29,13 @@ public partial class MainContentPageViewModel : ViewModelBase
         new SidebarListItemTemplate(typeof(AccountPageViewModel), "Account")
     ];
 
+    public override void Initialize()
+    {
+        base.Initialize();
+        
+        CurrentPage.Initialize();
+    }
+
     [RelayCommand]
     private void TriggerSidebar()
     {
