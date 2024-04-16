@@ -108,7 +108,7 @@ public partial class BinaryAdditionQuizPageViewModel : ViewModelBase
         else
         {
             AnswerBlock = "Incorrect!" + "\n"
-                        + "The correct answer was " + _currentQuestion.Answer;
+                        + "The correct answer was " + _currentQuestion.Answer + ".";
             //_userStatistics.UpdateExistingRecord(0,1);
         }
     }

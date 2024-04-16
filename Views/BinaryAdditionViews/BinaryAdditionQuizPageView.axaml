@@ -22,12 +22,14 @@
         <StackPanel Grid.Row="1" Margin="20">
             <Grid ColumnDefinitions="50*, 50*">
                 <StackPanel Grid.Column = "0">
-                    <Border BorderBrush="#00417e" BorderThickness="2" CornerRadius = "10" Padding = "20">
+                    <Border VerticalAlignment="Center" BorderBrush="#00417e" BorderThickness="2" CornerRadius = "10" Padding = "20">
                         <StackPanel>
-                            <TextBlock Text="{Binding QuestionTitleBlock}" FontFamily="PlayfairDisplay" HorizontalAlignment="Center" FontSize="10"
+                            <TextBlock Text="{Binding QuestionTitleBlock}" FontFamily="PlayfairDisplay" HorizontalAlignment="Center" FontSize="20"
                                         Foreground="#283A7B" VerticalAlignment="Top" Padding="5"/>
 
-                            <Border BorderBrush="#283A7B"  Background="#283A7B" HorizontalAlignment="Center" Margin="5,0,0,0" BorderThickness="2" CornerRadius="10" Padding="5" Width="250">
+                            <Border BorderBrush="#283A7B"  Background="#283A7B" HorizontalAlignment="Center" 
+                                    VerticalAlignment="Center" Margin="5,5,5,5" BorderThickness="2" CornerRadius="10" 
+                                    Padding="5" Width="250">
                                 <StackPanel>
                                     <RadioButton Content="{Binding OptionOne}" Foreground="White" FontFamily="PlayfairDisplay" FontSize="20" GroupName="QuestionOptions" Command="{Binding OneClickedCommand}"/>
                                     <RadioButton Content="{Binding OptionTwo}" Foreground="White" FontFamily="PlayfairDisplay" FontSize="20" GroupName="QuestionOptions" Command="{Binding TwoClickedCommand}"/>
@@ -36,48 +38,55 @@
                                     <RadioButton Content="{Binding OptionFive}" Foreground="White" FontFamily="PlayfairDisplay" FontSize="20" GroupName="QuestionOptions" Command="{Binding FiveClickedCommand}"/>
                                 </StackPanel>
                             </Border>
-
-                            <Button Command="{Binding SubmitAnswerCommand}" HorizontalAlignment = "Center" Width="100" Background="Transparent" Padding="0" BorderThickness="0">
-                                <Image Source="/Assets/button-submit.png" Stretch="Uniform" Width="100"  VerticalAlignment="Top" />
-                            </Button>
-                            <Button Command="{Binding GenerateNewQuestionCommand}" HorizontalAlignment="Center" Width="100" Background="Transparent" Padding="0" BorderThickness="0">
-                                <Image Source="/Assets/button-next.png" Stretch="Uniform" VerticalAlignment="Top" />
-                            </Button>
+                            <Grid ColumnDefinitions="50*, 50*">
+                                <Button Grid.Column="0" Command="{Binding SubmitAnswerCommand}" HorizontalAlignment = "Center" Width="100" Background="Transparent" Padding="0" BorderThickness="0">
+                                    <Image Source="/Assets/button-submit.png" Stretch="Uniform" Width="100"  VerticalAlignment="Top" />
+                                </Button>
+                                <Button Grid.Column="1" Command="{Binding GenerateNewQuestionCommand}" HorizontalAlignment="Center" Width="100" Background="Transparent" Padding="0" BorderThickness="0">
+                                    <Image Source="/Assets/button-next.png" Stretch="Uniform" VerticalAlignment="Top" />
+                                </Button>
+                            </Grid>
                         </StackPanel>
-                        </Border>
+                    </Border>
 
-                        <Border BorderBrush="#283A7B" HorizontalAlignment="Center" BorderThickness="2" CornerRadius="10" Width="400" Height="75" Margin = "10">
-                        <TextBlock Text="{Binding AnswerBlock}" FontFamily="PlayfairDisplay" FontSize="15" Foreground="#283A7B" FontWeight="600" Padding="5" Width="400" HorizontalAlignment="Center" VerticalAlignment="Top"/>
-                        </Border>                    
+                    <Border BorderBrush="#283A7B" BorderThickness="2" CornerRadius="10" 
+                            Width="400" Height="75" Margin = "10">
+                        <TextBlock Text="{Binding AnswerBlock}" FontFamily="PlayfairDisplay" FontSize="20" Foreground="#283A7B" 
+                                   Padding="5" Width="400" HorizontalAlignment="Center" VerticalAlignment="Top"/>
+                    </Border>
                 </StackPanel>  
 
                 <!--  Key Table -->
                 <StackPanel Grid.Column="1"> 
-                    <Border BorderBrush="#00417e" VerticalAlignment="Top" BorderThickness="2" CornerRadius = "10" Padding = "20" Width = "200">
-                        <TreeView VerticalAlignment = "Center">
-                            <TreeViewItem Width="150" FontFamily="PlayfairDisplay" Header="Key Table" IsExpanded="False">
-                                <TextBlock FontFamily="PlayfairDisplay"> 0 + 0 = 0 </TextBlock>
-                                <TextBlock FontFamily="PlayfairDisplay"> 0 + 1 = 1 </TextBlock>
-                                <TextBlock FontFamily="PlayfairDisplay"> 1 + 1 = 10 </TextBlock>
-                                <TextBlock FontFamily="PlayfairDisplay"> 1 + 1 + 1 = 11 </TextBlock>
-                            </TreeViewItem>
-                        </TreeView>
-                    </Border>
+                    <Grid RowDefinitions="50*, 50*">
+                        <StackPanel Grid.Row="0">
+                            <Border BorderBrush="#00417e" VerticalAlignment="Center" HorizontalAlignment="Center" BorderThickness="2" CornerRadius = "10" Padding = "20" Width = "200">
+                                <TreeView VerticalAlignment = "Center">
+                                    <TreeViewItem Width="150" FontFamily="PlayfairDisplay" Header="Key Table" IsExpanded="False">
+                                        <TextBlock FontFamily="PlayfairDisplay"> 0 + 0 = 0 </TextBlock>
+                                        <TextBlock FontFamily="PlayfairDisplay"> 0 + 1 = 1 </TextBlock>
+                                        <TextBlock FontFamily="PlayfairDisplay"> 1 + 1 = 10 </TextBlock>
+                                        <TextBlock FontFamily="PlayfairDisplay"> 1 + 1 + 1 = 11 </TextBlock>
+                                    </TreeViewItem>
+                                </TreeView>
+                            </Border>
+                        </StackPanel>
 
-                    <StackPanel VerticalAlignment="Bottom" Margin = "30">
-                        <TextBlock VerticalAlignment="Bottom" HorizontalAlignment="Center" FontFamily="PlayfairDisplay">Need some help?</TextBlock>
-                        <Button Command="{Binding ClickToLearnCommand}" 
-                            VerticalAlignment="Bottom" HorizontalAlignment="Center">
-                            <Image Source="/Assets/Chimpa-fail.png" Stretch="Uniform" Height="200"/>
-                        </Button>
-                    </StackPanel>
-
-                <!-- button to ask for help-->
+                        <StackPanel Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Center"
+                                    Margin = "30">
+                            <TextBlock VerticalAlignment="Center" HorizontalAlignment="Center" FontFamily="PlayfairDisplay">Need some help?</TextBlock>
+                            <Button Command="{Binding ClickToLearnCommand}" 
+                                VerticalAlignment="Bottom" HorizontalAlignment="Center">
+                                <Image Source="/Assets/Chimpa-fail.png" Stretch="Uniform" Height="200"/>
+                            </Button>
+                        </StackPanel>
+                    </Grid>
                 </StackPanel>
             </Grid>
         </StackPanel>
 
-        <StackPanel Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Bottom">
+        <StackPanel Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Left" 
+                    VerticalAlignment="Bottom">
             <Button Name="BackButton" Foreground="White" Classes="primary round" Content="Back"
                     Width="130" Height="30" Command="{Binding ClickBackToHomeCommand}"/>
         </StackPanel>
