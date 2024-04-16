@@ -10,49 +10,74 @@
         x:Class="GroupProject.Views.CombinatoricsQuizPageView"
         x:DataType="viewModels:CombinatoricsQuizPageViewModel">
 
-<Grid RowDefinitions="70, 70, *, 90"> 
+    <Grid RowDefinitions="100, *" Background="{DynamicResource LMSYNeutralSecondary}">
 
-  <Grid Grid.Row="0" Background="#283A7B">
-    <Label FontWeight="550" FontSize="32" FontFamily="PlayfairDisplay" Foreground ="White" VerticalAlignment="Center" HorizontalAlignment="Center">COMBINATORICS</Label>
-  </Grid>
-
-  <Grid Grid.Row="1" Background="White">
-    <Button Width="80.5" Background="Transparent" HorizontalAlignment="Left" Padding="0" BorderThickness="0" Command="{Binding BackButtonPressedCommand}">
-      <Image Source="/Assets/button-return.png" Stretch="Uniform" VerticalAlignment="Top" />
-    </Button>
-  </Grid>
-
-  <Grid Grid.Row="2" Background="White">
-    <StackPanel>
-      <TextBlock Text="{Binding QuestionTitleBlock}" FontFamily="PlayfairDisplay" HorizontalAlignment="Left" Width="1500" FontSize="20"
-                 FontWeight="600" Foreground="#283A7B" VerticalAlignment="Top" Padding="5"/>
-
-      <Border BorderBrush="#283A7B"  Background="#283A7B" HorizontalAlignment="Left" Margin="5,0,0,0" BorderThickness="2" CornerRadius="10" Padding="5" Width="250">
-        <StackPanel>
-          <RadioButton Content="{Binding QuestionOne}" Foreground="White" FontFamily="PlayfairDisplay" FontSize="20" GroupName="QuestionOptions" Command="{Binding OneClickedCommand}"/>
-          <RadioButton Content="{Binding QuestionTwo}" Foreground="White" FontFamily="PlayfairDisplay" FontSize="20" GroupName="QuestionOptions" Command="{Binding TwoClickedCommand}"/>
-          <RadioButton Content="{Binding QuestionThree}" Foreground="White" FontFamily="PlayfairDisplay" FontSize="20" GroupName="QuestionOptions" Command="{Binding ThreeClickedCommand}"/>
-          <RadioButton Content="{Binding QuestionFour}" Foreground="White" FontFamily="PlayfairDisplay" FontSize="20" GroupName="QuestionOptions" Command="{Binding FourClickedCommand}"/>
-          <RadioButton Content="{Binding QuestionFive}" Foreground="White" FontFamily="PlayfairDisplay" FontSize="20" GroupName="QuestionOptions" Command="{Binding FiveClickedCommand}"/>
-        </StackPanel>
+      <!-- Title -->
+      <Border Grid.Row="0" Background="{DynamicResource LMSYPrimary}" CornerRadius="0,0,0,0">
+        <TextBlock Classes="title" Name="Title" FontFamily="{DynamicResource Neuton}"
+                   TextAlignment="Center" VerticalAlignment="Center" FontSize="45"
+                   HorizontalAlignment="Center" Foreground="White"
+                   Text="COMBINATORICS" />
       </Border>
 
-      <Button Command="{Binding SubmitAnswerCommand}" Width="100" Background="Transparent" Padding="0" BorderThickness="0">
-        <Image Source="/Assets/button-submit.png" Stretch="Uniform" VerticalAlignment="Top" />
-      </Button>
-      <Button Command="{Binding GenerateNewQuestionCommand}" Width="100" Background="Transparent" Padding="0" BorderThickness="0">
-        <Image Source="/Assets/button-next.png" Stretch="Uniform" VerticalAlignment="Top" />
-      </Button>
-    </StackPanel>
-  </Grid>
-  
-  <Grid Grid.Row="3">
-    <Border BorderBrush="#283A7B" HorizontalAlignment="Center" BorderThickness="2" CornerRadius="10" Padding="5" Width="400" Height="75">
-      <TextBlock Text="{Binding AnswerBlock}" FontFamily="PlayfairDisplay" FontSize="40" Foreground="#283A7B" FontWeight="600" Padding="5" Width="400" HorizontalAlignment="Center" VerticalAlignment="Top"/>
-        </Border>
-    <Image Name="CornerChimp" Source="/Assets/Chimpa-corner.png" VerticalAlignment="Bottom" HorizontalAlignment="Right" Height="150"/>
-  </Grid>
-    
-  
-</Grid>
-</UserControl>
+      <!-- Content -->
+      <Grid Grid.Row="1" ColumnDefinitions="135, *, 135">
+
+        <!-- Back Button -->
+        <Button Grid.Column="0" Width="115" Height="100" Background="Transparent" VerticalAlignment="Top" HorizontalAlignment="Left" Padding="0" BorderThickness="0" Command="{Binding BackButtonPressedCommand}">
+          <Image Source="/Assets/button-return.png" Stretch="Uniform" />
+        </Button>
+
+        <StackPanel Grid.Column = "1">
+          <TextBlock Grid.Row="2" FontWeight="Bold" HorizontalAlignment="Center" Margin="0,20,0,20" Foreground="{DynamicResource LMSYPrimary}" FontSize="25" Text="Pick the correct option" />
+
+          <Border VerticalAlignment="Center" BorderBrush="#00417e" BorderThickness="2" CornerRadius = "10" Padding = "20">
+            <StackPanel>
+              <TextBlock Text="{Binding QuestionTitleBlock}" FontFamily="PlayfairDisplay" HorizontalAlignment="Center" FontSize="20"
+                          Foreground="#283A7B" VerticalAlignment="Top" Padding="5"/>
+
+              <Border BorderBrush="#283A7B"  Background="#283A7B" HorizontalAlignment="Center"
+                      VerticalAlignment="Center" Margin="5,5,5,5" BorderThickness="2" CornerRadius="10"
+                      Padding="5" Width="250">
+                <StackPanel>
+                  <RadioButton Content="{Binding OptionOne}" Foreground="White" FontFamily="PlayfairDisplay" FontSize="20" GroupName="QuestionOptions" Command="{Binding OneClickedCommand}"/>
+                  <RadioButton Content="{Binding OptionTwo}" Foreground="White" FontFamily="PlayfairDisplay" FontSize="20" GroupName="QuestionOptions" Command="{Binding TwoClickedCommand}"/>
+                  <RadioButton Content="{Binding OptionThree}" Foreground="White" FontFamily="PlayfairDisplay" FontSize="20" GroupName="QuestionOptions" Command="{Binding ThreeClickedCommand}"/>
+                  <RadioButton Content="{Binding OptionFour}" Foreground="White" FontFamily="PlayfairDisplay" FontSize="20" GroupName="QuestionOptions" Command="{Binding FourClickedCommand}"/>
+                  <RadioButton Content="{Binding OptionFive}" Foreground="White" FontFamily="PlayfairDisplay" FontSize="20" GroupName="QuestionOptions" Command="{Binding FiveClickedCommand}"/>
+                </StackPanel>
+              </Border>
+
+            </StackPanel>
+          </Border>
+
+
+          <Grid ColumnDefinitions="*,*,*" Margin="0,20,0,10">
+            <Button Grid.Column="0" Command="" HorizontalAlignment="Center" Width="120" Background="Transparent" Padding="0" BorderThickness="0">
+              <Image Source="/Assets/button-help.png" Stretch="Uniform" VerticalAlignment="Top" />
+            </Button>
+            <Button Grid.Column="1" Command="{Binding SubmitAnswerCommand}" HorizontalAlignment = "Center" Width="120" Background="Transparent" Padding="0" BorderThickness="0">
+              <Image Source="/Assets/button-submit.png" Stretch="Uniform" VerticalAlignment="Top" />
+            </Button>
+            <Button Grid.Column="2" Command="{Binding GenerateNewQuestionCommand}" HorizontalAlignment="Center" Width="120" Background="Transparent" Padding="0" BorderThickness="0">
+              <Image Source="/Assets/button-next.png" Stretch="Uniform" VerticalAlignment="Top" />
+            </Button>
+          </Grid>
+
+          <!-- Answer text -->
+          <TextBlock Text="{Binding AnswerBlock}" FontFamily="PlayfairDisplay" FontSize="20" Foreground="#283A7B"
+                      Padding="5" Width="400" Height="75" HorizontalAlignment="Center" VerticalAlignment="Top"/>
+          <!-- End of answer text -->
+
+        </StackPanel>
+
+
+        <Grid Grid.Column="2" RowDefinitions="120, *, *">
+          <!--  Corner Chimpa -->
+          <Image Grid.Row="2" Width="200" Source="/Assets/Chimpa-corner.png" VerticalAlignment="Bottom" HorizontalAlignment="Right" />
+        </Grid>
+      </Grid>
+
+    </Grid>
+
+  </UserControl>

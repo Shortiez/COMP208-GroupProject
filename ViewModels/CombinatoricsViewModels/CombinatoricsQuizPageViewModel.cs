@@ -19,6 +19,8 @@ public partial class CombinatoricsQuizPageViewModel : ViewModelBase
     private string selectedOption = "";
     private QuizQuestion<int> currentQuestion;
 
+    private UserStatisticData _userStatistics = new UserStatisticData(App.MainWindowViewModel.User.Username, "Combinatorics", "Combinatorics");
+
     [ObservableProperty]
     private string _questionTitleBlock = "How many ways are there to select 3 students for a prospectus photograph (order matters) from a group of 5?";
     [ObservableProperty]
@@ -26,40 +28,40 @@ public partial class CombinatoricsQuizPageViewModel : ViewModelBase
     [ObservableProperty]
     private string _answerBlock = "";
     [ObservableProperty]
-    private string _questionOne = "";
+    private string _optionOne = "";
     [ObservableProperty]
-    private string _questionTwo = "";
+    private string _optionTwo = "";
     [ObservableProperty]
-    private string _questionThree = "";
+    private string _optionThree = "";
     [ObservableProperty]
-    private string _questionFour = "";
+    private string _optionFour = "";
     [ObservableProperty]
-    private string _questionFive = "";
+    private string _optionFive = "";
 
     [RelayCommand]
     private void OneClicked()
     {
-        selectedOption = QuestionOne;
+        selectedOption = OptionOne;
     }
     [RelayCommand]
     private void TwoClicked()
     {
-        selectedOption = QuestionTwo;
+        selectedOption = OptionTwo;
     }
     [RelayCommand]
     private void ThreeClicked()
     {
-        selectedOption = QuestionThree;
+        selectedOption = OptionThree;
     }
     [RelayCommand]
     private void FourClicked()
     {
-        selectedOption = QuestionFour;
+        selectedOption = OptionFour;
     }
     [RelayCommand]
     private void FiveClicked()
     {
-        selectedOption = QuestionFive;
+        selectedOption = OptionFive;
     }
 
     public CombinatoricsQuizPageViewModel()
@@ -75,11 +77,11 @@ public partial class CombinatoricsQuizPageViewModel : ViewModelBase
         QuestionTitleBlock = currentQuestion.QuestionTitle;
         QuestionOptions = new ObservableCollection<int>(currentQuestion.Options);
 
-        QuestionOne = QuestionOptions[0].ToString();
-        QuestionTwo = QuestionOptions[1].ToString();
-        QuestionThree = QuestionOptions[2].ToString();
-        QuestionFour = QuestionOptions[3].ToString();
-        QuestionFive = QuestionOptions[4].ToString();
+        OptionOne = QuestionOptions[0].ToString();
+        OptionTwo = QuestionOptions[1].ToString();
+        OptionThree = QuestionOptions[2].ToString();
+        OptionFour = QuestionOptions[3].ToString();
+        OptionFive = QuestionOptions[4].ToString();
 
         AnswerBlock = "";
     }

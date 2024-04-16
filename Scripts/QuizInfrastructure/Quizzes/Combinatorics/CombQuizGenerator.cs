@@ -18,7 +18,7 @@ public class CombQuizGenerator : QuizGenerator<int>
         newQuestion.QuestionInput.Add(b);
 
         string[] questions = new string[5];
-        questions[0] = "students for a prospectus photograph";
+        questions[0] = "students for a course photo";
         questions[1] = "dishes for a dinner party";
         questions[2] = "toppings for a pizza";
         questions[3] = "songs for a playlist";
