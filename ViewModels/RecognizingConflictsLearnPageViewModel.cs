@@ -332,16 +332,15 @@ public partial class RecognizingConflictsLearnPageViewModel : ViewModelBase
         TextOutputOpacity = 1.0f;
     }
 
-    private void IntroAnimations()
+    private async void IntroAnimations()
     {
-
-
         //soundHelper.PlaySound("Whoosh");
 
-        ButtonXPos = 50f;
-        ButtonXPos = 0f;
+        //ButtonXPos = 50f;
+        //ButtonXPos = 0f;
         NextBoxOpacity = 0f;
         NextBoxOpacity = 1f;
+        await Task.Delay(400); // wait for 0.4 seconds 
 
         //wait 0.5 seconds
     }

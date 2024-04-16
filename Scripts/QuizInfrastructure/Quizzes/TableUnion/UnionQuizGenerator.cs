@@ -23,7 +23,7 @@ public class UnionQuizGenerator : QuizGenerator<string>
     ];
     // keep number-related headers first
     static private string[] headers = [        
-        "Species", "Fruit", "Location", "Time", "Date", "Employee", "Customer",
+        "Fruit", "Location", "Time", "Category", "Employee", "Customer",
         "Name", "Address", "Surname", "Forename", "Colour", "Shape", "Day",
     ];
     static private string[] numberHeaders = [
@@ -96,6 +96,8 @@ public class UnionQuizGenerator : QuizGenerator<string>
             while (random == g) random = Random.Next(0, Shapes.Length);
             secondColumn = Shapes[random];
             fourthColumn = Shapes[random];
+
+            newQuestion.SetOptions([headers[head1], headers[head2], headers[head3], headers[head4], tableName]);
         }
         else
         {
@@ -105,8 +107,10 @@ public class UnionQuizGenerator : QuizGenerator<string>
 
             secondColumn = numbers;
             fourthColumn = numbers;
+
+            newQuestion.SetOptions([headers[head1], numberHeaders[head2], headers[head3], numberHeaders[head4], tableName]);
         }
-        newQuestion.SetOptions([headers[head1], headers[head2], headers[head3], headers[head4], tableName]);
+
 
         string question = "";
         if (tableNames[a] == "Apes" || tableNames[b] == "Apes" || tableNames[a] == "Fruits" || tableNames[b] == "Fruit")

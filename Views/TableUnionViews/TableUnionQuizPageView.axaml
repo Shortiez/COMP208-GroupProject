@@ -139,6 +139,7 @@
                 <Image Source="/Assets/button-clear.png" Stretch="Uniform" />
               </Button>
             </StackPanel>
+            <Image Grid.Row="3" Source="{Binding CornerImage}" VerticalAlignment="Bottom" HorizontalAlignment="Right" />
           </Grid>
           <!-- End of Section 3/3 -->
             
