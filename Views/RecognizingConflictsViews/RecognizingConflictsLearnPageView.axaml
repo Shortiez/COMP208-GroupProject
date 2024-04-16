@@ -8,13 +8,11 @@
              x:DataType="viewModels:RecognizingConflictsLearnPageViewModel">
 	<Grid RowDefinitions="Auto, Auto, *, Auto, Auto">
 
-		<Grid Grid.Row="0" Background="{DynamicResource LMSYPrimary}" Height="70">
-			<Label Classes="title" 
-			       FontFamily="PlayfairDisplay"
-			       VerticalAlignment="Center" HorizontalAlignment="Center">
-				RECOGNIZING CONFLICTS
-			</Label>
-		</Grid>
+		<Grid Grid.Row="0" Background="{DynamicResource LMSYPrimary}" Height="100">
+      <Border Background="{DynamicResource LMSYPrimary}" CornerRadius="0,0,0,0">
+        <TextBlock Classes="title" Name="Title" FontFamily="{DynamicResource Neuton}" TextAlignment="Center" VerticalAlignment="Center" FontSize="45" Foreground="White" Text="RECOGNIZING CONFLICTS"/>
+      </Border>
+    </Grid>
 
 		<Grid Grid.Row="1" Background="{DynamicResource LMSYNeutralSecondary}" Height="70">
       <Button Width="80.5" Background="Transparent" VerticalAlignment="Center" HorizontalAlignment="Left" Padding="0" BorderThickness="0" Command="{Binding BackButtonPressedCommand}">
@@ -97,8 +95,8 @@
 			       Stretch="Uniform" 
 			       VerticalAlignment="Center" HorizontalAlignment="Right"/>
 			<Button Command="{Binding ClickNextCommand}"
-					
-			        Height="70"
+							Background="Transparent" Padding="0" BorderThickness="0"
+			        Height="60"
 			        HorizontalAlignment="Center"
 			        VerticalContentAlignment="Center">
 				<Image Source="/Assets/button-next.png" Stretch="Uniform" Opacity="{Binding NextBoxOpacity}">
