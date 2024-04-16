@@ -18,12 +18,6 @@ using Microsoft.CodeAnalysis.FlowAnalysis;
 namespace GroupProject.ViewModels;
 public partial class TableUnionQuizPageViewModel : ViewModelBase
 {
-    //to do
-    // tidy up axaml
-    // create and check answers
-    // do the Learn stuff
-    // move stuff from V to VM
-    // add comments + restructure?
 
     public const string customFormat = "draggable-image-format";
     private DraggableImage currImage = new DraggableImage(null, "Empty", 0);
@@ -332,7 +326,7 @@ public partial class TableUnionQuizPageViewModel : ViewModelBase
 
         deletingRN = false;
     }
-    public record DraggableImage(Bitmap iImage, String name, int id)
+    public record DraggableImage(Bitmap iImage, string name, int id)
     {
 
     }
