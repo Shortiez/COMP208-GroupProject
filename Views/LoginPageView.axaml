@@ -16,7 +16,7 @@
         <StackPanel Grid.Column="1" Orientation="Horizontal"
                     HorizontalAlignment="Center"
                     VerticalAlignment="Center">
-            <Image Source="/Assets/homepage-logo.png" 
+            <Image Source="/Assets/homepage-logo2.png" 
                    Width="300" Height="300"
                    HorizontalAlignment="Center"
                    VerticalAlignment="Center"/>

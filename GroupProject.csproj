@@ -10,6 +10,7 @@
   </PropertyGroup>
   <ItemGroup>
     <None Remove="Assets\button-help.png" />
+    <None Remove="Assets\homepage-logo2.png" />
     <None Remove="Assets\Shapes\Blue-Square.png" />
     <None Remove="Assets\button-clear.png" />
     <None Remove="Assets\button-next.png" />
@@ -111,6 +112,7 @@
     <AvaloniaResource Include="Assets\HelpButtonSelection.png" />
     <AvaloniaResource Include="Assets\homepage-background.png" />
     <AvaloniaResource Include="Assets\homepage-logo.png" />
+    <AvaloniaResource Include="Assets\homepage-logo2.png" />
     <AvaloniaResource Include="Assets\LMSY-Logo.png" />
     <AvaloniaResource Include="Assets\QuestionButtonSelection.png" />
     <None Remove="Assets\button-previous.png" />
