@@ -24,8 +24,6 @@ public partial class BinarySubtractionQuizPageViewModel : ViewModelBase
     private int _selectedOption;
     private QuizQuestion<int> _currentQuestion;
 
-    private bool gotCurrQuestionRight;
-
     static public Dictionary<String, Bitmap> MonkeyImages = new Dictionary<string, Bitmap>
     {
         {"Default", ImageHelper.LoadFromResource("/Assets/Chimpa-corner.png")},
@@ -38,12 +36,24 @@ public partial class BinarySubtractionQuizPageViewModel : ViewModelBase
         GenerateNewQuestion();
     }
 
+    public override void Initialize()
+    {
+        base.Initialize();
+        
+        GenerateNewQuestion();
+    }
+
+
     [ObservableProperty]
     private string _questionTitleBlock;
     [ObservableProperty]
     private ObservableCollection<int> _questionOptions = new ObservableCollection<int>();
     [ObservableProperty]
     public string _answerBlock;
+    [ObservableProperty]
+    private String _answerBlockColour = "#283A7B";
+    [ObservableProperty]
+    private bool _answerNotSubmitted = true;
     [ObservableProperty]
     private Bitmap _cornerImage = MonkeyImages["Default"];
 
@@ -94,7 +104,9 @@ public partial class BinarySubtractionQuizPageViewModel : ViewModelBase
         // set corner image back to default
         CornerImage = MonkeyImages["Default"];
 
-        gotCurrQuestionRight = false;
+        AnswerNotSubmitted = true;
+        AnswerBlock = "";
+        AnswerBlockColour = "#283A7B";
 
         _currentQuestion = _quizGenerator.NewQuestion();
         QuestionTitleBlock = _currentQuestion.QuestionTitle;
@@ -105,8 +117,6 @@ public partial class BinarySubtractionQuizPageViewModel : ViewModelBase
         OptionThree = QuestionOptions[2];
         OptionFour = QuestionOptions[3];
         OptionFive = QuestionOptions[4];
-
-        AnswerBlock = "";
     }
     
     [RelayCommand]
@@ -116,18 +126,12 @@ public partial class BinarySubtractionQuizPageViewModel : ViewModelBase
         {
             return;
         }
-        if (gotCurrQuestionRight)
-        {
-            return;
-        }
-
-
         if(_selectedOption == _currentQuestion.Answer)
         {
             AnswerBlock = "Correct!";
-            _userStatistics.UpdateExistingRecord(1,0);
+            AnswerNotSubmitted = false;
 
-            gotCurrQuestionRight = true;
+            _userStatistics.UpdateExistingRecord(1,0);
 
             // update corner image
             CornerImage = MonkeyImages["Success"];
@@ -136,6 +140,9 @@ public partial class BinarySubtractionQuizPageViewModel : ViewModelBase
         {
             AnswerBlock = "Incorrect!" + "\n"
                         + "The correct answer was " + _currentQuestion.Answer + ".";
+            AnswerNotSubmitted = false;
+            AnswerBlockColour = "red";
+
             _userStatistics.UpdateExistingRecord(0,1);
 
             // update corner image
