@@ -279,7 +279,12 @@ public partial class RecognizingConflictsLearnPageViewModel : ViewModelBase
     
     [RelayCommand]
     private void OnClickTransactionTwo()
-    { 
+    {
+        if (_interactionMode == InteractionMode.NonInteractive)
+        {
+            return;
+        }
+
         TransactionButtonTwoForeground = Brushes.Red;
         
         CurrentOutput = _transactionUserErrors.FirstOrDefault
@@ -289,11 +294,18 @@ public partial class RecognizingConflictsLearnPageViewModel : ViewModelBase
         FadeText();
         
         _interactionMode = InteractionMode.NonInteractive;
+
+            
     }
     
     [RelayCommand]
     private void OnClickTransactionThree()
     {
+        if (_interactionMode == InteractionMode.NonInteractive)
+        {
+            return;
+        }
+
         TransactionButtonThreeForeground = Brushes.LightGreen;
         
         CurrentOutput = _transactionTeachingMaterials.FirstOrDefault
@@ -308,6 +320,11 @@ public partial class RecognizingConflictsLearnPageViewModel : ViewModelBase
     [RelayCommand]
     private void OnClickTransactionFour()
     {
+        if (_interactionMode == InteractionMode.NonInteractive)
+        {
+            return;
+        }
+
         TransactionButtonFourForeground = Brushes.Red;
         CurrentOutput = _transactionUserErrors.FirstOrDefault
             (x => x.Title == "Operation");
