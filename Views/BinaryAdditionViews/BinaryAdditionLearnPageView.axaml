@@ -32,94 +32,121 @@
       <Grid Grid.Column="1" RowDefinitions="100,150,*,*,*"> 
         <!-- Number grid -->
 			  <Border Grid.Row="1" BorderBrush="{DynamicResource LMSYPrimary}" BorderThickness="2" CornerRadius = "10" Padding = "20">
-						  <Grid RowDefinitions="*,*,*,*," ColumnDefinitions="*, *, *, *, *, *, *, *">
+				  <Grid RowDefinitions="*,*,*,*,*," ColumnDefinitions="*,*,*,*,*,*,*,*,*">
+                        <TextBlock Grid.Row="0" Grid.Column="1" Text="{Binding ColumnCarry[0]}" FontWeight="{Binding ColumnWeights[0]}" 
+                                            FontFamily="PlayfairDisplay" HorizontalAlignment="Center" Width="25" FontSize="20"/>
 
-                  <TextBlock Grid.Row="0" Grid.Column="0" Text="{Binding Num1Digits[0]}" FontWeight="{Binding ColumnWeights[0]}" 
+                        <TextBlock Grid.Row="0" Grid.Column="2" Text="{Binding ColumnCarry[1]}" FontWeight="{Binding ColumnWeights[1]}" 
+                                                FontFamily="PlayfairDisplay" HorizontalAlignment="Center" Width="25" FontSize="20"/>
+
+                        <TextBlock Grid.Row="0" Grid.Column="3" Text="{Binding ColumnCarry[2]}" FontWeight="{Binding ColumnWeights[2]}" 
+                                                FontFamily="PlayfairDisplay" HorizontalAlignment="Center" Width="25" FontSize="20"/>
+
+                        <TextBlock Grid.Row="0" Grid.Column="4" Text="{Binding ColumnCarry[3]}" FontWeight="{Binding ColumnWeights[3]}" 
+                                                FontFamily="PlayfairDisplay" HorizontalAlignment="Center" Width="25" FontSize="20"/>
+
+                        <TextBlock Grid.Row="0" Grid.Column="5" Text="{Binding ColumnCarry[4]}" FontWeight="{Binding ColumnWeights[4]}" 
+                                                FontFamily="PlayfairDisplay" HorizontalAlignment="Center" Width="25" FontSize="20"/>
+
+                        <TextBlock Grid.Row="0" Grid.Column="6" Text="{Binding ColumnCarry[5]}" FontWeight="{Binding ColumnWeights[5]}" 
+                                                FontFamily="PlayfairDisplay" HorizontalAlignment="Center" Width="25" FontSize="20"/>
+
+                        <TextBlock Grid.Row="0" Grid.Column="7" Text="{Binding ColumnCarry[6]}" FontWeight="{Binding ColumnWeights[6]}" 
+                                                FontFamily="PlayfairDisplay" HorizontalAlignment="Center" Width="25" FontSize="20"/>
+
+                        <TextBlock Grid.Row="0" Grid.Column="8" Text="{Binding ColumnCarry[7]}" FontWeight="{Binding ColumnWeights[7]}" 
+                                                FontFamily="PlayfairDisplay" HorizontalAlignment="Center" Width="25" FontSize="20"/>
+
+                  <TextBlock Grid.Column="0" Grid.RowSpan="3" FontSize="40" Text="+" FontFamily="PlayfairDisplay" Foreground="{DynamicResource LMSYPrimary}"/>
+
+                  <TextBlock Grid.Row="1" Grid.Column="1" Text="{Binding Num1Digits[0]}" FontWeight="{Binding ColumnWeights[0]}" 
 									  FontFamily="PlayfairDisplay" HorizontalAlignment="Center" Width="25" FontSize="20"/>
 
-                  <TextBlock Grid.Row="0" Grid.Column="1" Text="{Binding Num1Digits[1]}" FontWeight="{Binding ColumnWeights[1]}" 
+                  <TextBlock Grid.Row="1" Grid.Column="2" Text="{Binding Num1Digits[1]}" FontWeight="{Binding ColumnWeights[1]}" 
 										  FontFamily="PlayfairDisplay" HorizontalAlignment="Center" Width="25" FontSize="20"/>
 
-                  <TextBlock Grid.Row="0" Grid.Column="2" Text="{Binding Num1Digits[2]}" FontWeight="{Binding ColumnWeights[2]}" 
+                  <TextBlock Grid.Row="1" Grid.Column="3" Text="{Binding Num1Digits[2]}" FontWeight="{Binding ColumnWeights[2]}" 
 										  FontFamily="PlayfairDisplay" HorizontalAlignment="Center" Width="25" FontSize="20"/>
 
-                  <TextBlock Grid.Row="0" Grid.Column="3" Text="{Binding Num1Digits[3]}" FontWeight="{Binding ColumnWeights[3]}" 
+                  <TextBlock Grid.Row="1" Grid.Column="4" Text="{Binding Num1Digits[3]}" FontWeight="{Binding ColumnWeights[3]}" 
 										  FontFamily="PlayfairDisplay" HorizontalAlignment="Center" Width="25" FontSize="20"/>
 
-                  <TextBlock Grid.Row="0" Grid.Column="4" Text="{Binding Num1Digits[4]}" FontWeight="{Binding ColumnWeights[4]}" 
+                  <TextBlock Grid.Row="1" Grid.Column="5" Text="{Binding Num1Digits[4]}" FontWeight="{Binding ColumnWeights[4]}" 
 										  FontFamily="PlayfairDisplay" HorizontalAlignment="Center" Width="25" FontSize="20"/>
 
-                  <TextBlock Grid.Row="0" Grid.Column="5" Text="{Binding Num1Digits[5]}" FontWeight="{Binding ColumnWeights[5]}" 
+                  <TextBlock Grid.Row="1" Grid.Column="6" Text="{Binding Num1Digits[5]}" FontWeight="{Binding ColumnWeights[5]}" 
 									    FontFamily="PlayfairDisplay" HorizontalAlignment="Center" Width="25" FontSize="20"/>
 
-                  <TextBlock Grid.Row="0" Grid.Column="6" Text="{Binding Num1Digits[6]}" FontWeight="{Binding ColumnWeights[6]}" 
+                  <TextBlock Grid.Row="1" Grid.Column="7" Text="{Binding Num1Digits[6]}" FontWeight="{Binding ColumnWeights[6]}" 
 									    FontFamily="PlayfairDisplay" HorizontalAlignment="Center" Width="25" FontSize="20"/>
 
-                  <TextBlock Grid.Row="0" Grid.Column="7" Text="{Binding Num1Digits[7]}" FontWeight="{Binding ColumnWeights[7]}" 
+                  <TextBlock Grid.Row="1" Grid.Column="8" Text="{Binding Num1Digits[7]}" FontWeight="{Binding ColumnWeights[7]}" 
 									    FontFamily="PlayfairDisplay" HorizontalAlignment="Center" Width="25" FontSize="20"/>
 
-                  <TextBlock Grid.Row="1" Grid.Column="0" Text="{Binding Num2Digits[0]}" FontWeight="{Binding ColumnWeights[0]}"
+                  <TextBlock Grid.Row="2" Grid.Column="1" Text="{Binding Num2Digits[0]}" FontWeight="{Binding ColumnWeights[0]}"
                       FontFamily="PlayfairDisplay" HorizontalAlignment="Center" Width="25" FontSize="20"/>
 
-                  <TextBlock Grid.Row="1" Grid.Column="1" Text="{Binding Num2Digits[1]}" FontWeight="{Binding ColumnWeights[1]}"
+                  <TextBlock Grid.Row="2" Grid.Column="2" Text="{Binding Num2Digits[1]}" FontWeight="{Binding ColumnWeights[1]}"
                       FontFamily="PlayfairDisplay" HorizontalAlignment="Center" Width="25" FontSize="20"/>
 
-                  <TextBlock Grid.Row="1" Grid.Column="2" Text="{Binding Num2Digits[2]}" FontWeight="{Binding ColumnWeights[2]}"
+                  <TextBlock Grid.Row="2" Grid.Column="3" Text="{Binding Num2Digits[2]}" FontWeight="{Binding ColumnWeights[2]}"
                       FontFamily="PlayfairDisplay" HorizontalAlignment="Center" Width="25" FontSize="20"/>
 
-                  <TextBlock Grid.Row="1" Grid.Column="3" Text="{Binding Num2Digits[3]}" FontWeight="{Binding ColumnWeights[3]}"
+                  <TextBlock Grid.Row="2" Grid.Column="4" Text="{Binding Num2Digits[3]}" FontWeight="{Binding ColumnWeights[3]}"
                       FontFamily="PlayfairDisplay" HorizontalAlignment="Center" Width="25" FontSize="20"/>
 
-                  <TextBlock Grid.Row="1" Grid.Column="4" Text="{Binding Num2Digits[4]}" FontWeight="{Binding ColumnWeights[4]}"
+                  <TextBlock Grid.Row="2" Grid.Column="5" Text="{Binding Num2Digits[4]}" FontWeight="{Binding ColumnWeights[4]}"
                       FontFamily="PlayfairDisplay" HorizontalAlignment="Center" Width="25" FontSize="20"/>
 
-                  <TextBlock Grid.Row="1" Grid.Column="5" Text="{Binding Num2Digits[5]}" FontWeight="{Binding ColumnWeights[5]}"
+                  <TextBlock Grid.Row="2" Grid.Column="6" Text="{Binding Num2Digits[5]}" FontWeight="{Binding ColumnWeights[5]}"
                       FontFamily="PlayfairDisplay" HorizontalAlignment="Center" Width="25" FontSize="20"/>
 
-                  <TextBlock Grid.Row="1" Grid.Column="6" Text="{Binding Num2Digits[6]}" FontWeight="{Binding ColumnWeights[6]}"
+                  <TextBlock Grid.Row="2" Grid.Column="7" Text="{Binding Num2Digits[6]}" FontWeight="{Binding ColumnWeights[6]}"
                       FontFamily="PlayfairDisplay" HorizontalAlignment="Center" Width="25" FontSize="20"/>
 
-                  <TextBlock Grid.Row="1" Grid.Column="7" Text="{Binding Num2Digits[7]}" FontWeight="{Binding ColumnWeights[7]}"
+                  <TextBlock Grid.Row="2" Grid.Column="8" Text="{Binding Num2Digits[7]}" FontWeight="{Binding ColumnWeights[7]}"
+                      FontFamily="PlayfairDisplay" HorizontalAlignment="Center" Width="25" FontSize="20"/>
+                
+                 <Rectangle Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="9" Height="2" Fill="{DynamicResource LMSYPrimary}" VerticalAlignment="Top" Margin="0,10,0,10" />
+
+                  <TextBlock Grid.Row="4" Grid.Column="1" Text="{Binding AnswerDigits[0]}" FontWeight="{Binding ColumnWeights[0]}"
                       FontFamily="PlayfairDisplay" HorizontalAlignment="Center" Width="25" FontSize="20"/>
 
-                  <TextBlock Grid.Row="3" Grid.Column="0" Text="{Binding AnswerDigits[0]}" FontWeight="{Binding ColumnWeights[0]}"
+                  <TextBlock Grid.Row="4" Grid.Column="2" Text="{Binding AnswerDigits[1]}" FontWeight="{Binding ColumnWeights[1]}"
                       FontFamily="PlayfairDisplay" HorizontalAlignment="Center" Width="25" FontSize="20"/>
 
-                  <TextBlock Grid.Row="3" Grid.Column="1" Text="{Binding AnswerDigits[1]}" FontWeight="{Binding ColumnWeights[1]}"
+                  <TextBlock Grid.Row="4" Grid.Column="3" Text="{Binding AnswerDigits[2]}" FontWeight="{Binding ColumnWeights[2]}"
                       FontFamily="PlayfairDisplay" HorizontalAlignment="Center" Width="25" FontSize="20"/>
 
-                  <TextBlock Grid.Row="3" Grid.Column="2" Text="{Binding AnswerDigits[2]}" FontWeight="{Binding ColumnWeights[2]}"
+                  <TextBlock Grid.Row="4" Grid.Column="4" Text="{Binding AnswerDigits[3]}" FontWeight="{Binding ColumnWeights[3]}"
                       FontFamily="PlayfairDisplay" HorizontalAlignment="Center" Width="25" FontSize="20"/>
 
-                  <TextBlock Grid.Row="3" Grid.Column="3" Text="{Binding AnswerDigits[3]}" FontWeight="{Binding ColumnWeights[3]}"
+                  <TextBlock Grid.Row="4" Grid.Column="5" Text="{Binding AnswerDigits[4]}" FontWeight="{Binding ColumnWeights[4]}"
                       FontFamily="PlayfairDisplay" HorizontalAlignment="Center" Width="25" FontSize="20"/>
 
-                  <TextBlock Grid.Row="3" Grid.Column="4" Text="{Binding AnswerDigits[4]}" FontWeight="{Binding ColumnWeights[4]}"
+                  <TextBlock Grid.Row="4" Grid.Column="6" Text="{Binding AnswerDigits[5]}" FontWeight="{Binding ColumnWeights[5]}"
                       FontFamily="PlayfairDisplay" HorizontalAlignment="Center" Width="25" FontSize="20"/>
 
-                  <TextBlock Grid.Row="3" Grid.Column="5" Text="{Binding AnswerDigits[5]}" FontWeight="{Binding ColumnWeights[5]}"
+                  <TextBlock Grid.Row="4" Grid.Column="7" Text="{Binding AnswerDigits[6]}" FontWeight="{Binding ColumnWeights[6]}"
                       FontFamily="PlayfairDisplay" HorizontalAlignment="Center" Width="25" FontSize="20"/>
 
-                  <TextBlock Grid.Row="3" Grid.Column="6" Text="{Binding AnswerDigits[6]}" FontWeight="{Binding ColumnWeights[6]}"
+                  <TextBlock Grid.Row="4" Grid.Column="8" Text="{Binding AnswerDigits[7]}" FontWeight="{Binding ColumnWeights[7]}"
                       FontFamily="PlayfairDisplay" HorizontalAlignment="Center" Width="25" FontSize="20"/>
-
-                  <TextBlock Grid.Row="3" Grid.Column="7" Text="{Binding AnswerDigits[7]}" FontWeight="{Binding ColumnWeights[7]}"
-                      FontFamily="PlayfairDisplay" HorizontalAlignment="Center" Width="25" FontSize="20"/>
-						  </Grid>
+					</Grid>
 			  </Border>
 
         <!-- Calculation text and NEXT button -->
-        <Grid Grid.Row="2" ColumnDefinitions="*,*">
+        <Grid Grid.Row="3" ColumnDefinitions="*,*">
           <TextBlock Grid.Column="0" Text="{Binding CurrentCalculation}" TextWrapping="Wrap" FontFamily="PlayfairDisplay"
                   FontSize="25" FontWeight="600" Padding="5" Width="400" HorizontalAlignment="Right"
-                  VerticalAlignment="Top" Height="75" Margin="10" TextAlignment="Right" />
+                  VerticalAlignment="Top" Height="75" Margin="10" TextAlignment="Right" Foreground="{DynamicResource LMSYPrimary}"/>
           <Button Grid.Column="1" Command="{Binding ClickNextCommand}" Width="150" HorizontalAlignment="Center" Background="Transparent" Padding="0" BorderThickness="0">
 			      <Image Source="/Assets/button-next.png" Stretch="Uniform" />
 		      </Button>  
         </Grid>
         
         <!-- Explanation text-->
-        <Border Grid.Row="3" BorderBrush="{DynamicResource LMSYPrimary}" HorizontalAlignment="Center" BorderThickness="2" CornerRadius="10" Width="600" Height="100" Margin = "10">
+        <Border Grid.Row="4" BorderBrush="{DynamicResource LMSYPrimary}" HorizontalAlignment="Center" BorderThickness="2" CornerRadius="10" Width="600" Height="100" Margin = "10">
           <TextBlock Text="{Binding ExplanationBlock}" TextWrapping="Wrap" FontFamily="PlayfairDisplay" FontSize="20" TextAlignment="Center"
                 Foreground="{DynamicResource LMSYPrimary}" FontWeight="600" Padding="5" Width="550" HorizontalAlignment="Center" VerticalAlignment="Center"/>
         </Border>

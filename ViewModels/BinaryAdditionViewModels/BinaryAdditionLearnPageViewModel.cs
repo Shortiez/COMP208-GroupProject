@@ -35,6 +35,9 @@ public partial class BinaryAdditionLearnPageViewModel : ViewModelBase
     [ObservableProperty]
     private ObservableCollection<string> _calcWeights = new ObservableCollection<string>(new string[] {"normal", "normal", "normal", "normal"});
     [ObservableProperty]
+    private ObservableCollection<char> _columnCarry = new ObservableCollection<char>(new char[] {' ',' ',' ',' ',' ',' ',' ',' '});
+
+    [ObservableProperty]
     private bool _carry;
     [ObservableProperty]
     private int _index;
@@ -84,7 +87,7 @@ public partial class BinaryAdditionLearnPageViewModel : ViewModelBase
     {
         if(Index < 0)
         {
-            CurrentCalculation = "Done :)";
+            CurrentCalculation = "";
             ExplanationBlock = "The calculation is complete!";
         }
         else{
@@ -104,6 +107,7 @@ public partial class BinaryAdditionLearnPageViewModel : ViewModelBase
                     {
                         CurrentCalculation = "1 + 0 + 1 = 10";
                         Carry = true;
+                        ColumnCarry[Index-1] = '1';
                         AnswerDigits[Index] = 0;
                         CalcWeights[2] = "bold";
                         ExplanationBlock = "We have a carry of 1 and a calculation of 0 + 1. This is equivalent to 1 + 1, resulting in 1 with 1 carried over.";
@@ -115,6 +119,7 @@ public partial class BinaryAdditionLearnPageViewModel : ViewModelBase
                     {
                         CurrentCalculation = "1 + 1 + 0 = 10";
                         Carry = true;
+                        ColumnCarry[Index-1] = '1';
                         AnswerDigits[Index] = 0;
                         CalcWeights[2] = "bold";
                         ExplanationBlock = "We have a carry of 1 and a calculation of 1 + 0. This is equivalent to 1 + 1, resulting in 0 with 1 carried over.";
@@ -123,6 +128,7 @@ public partial class BinaryAdditionLearnPageViewModel : ViewModelBase
                     {   
                         CurrentCalculation = "1 + 1 + 1 = 11";
                         Carry = true;
+                        ColumnCarry[Index-1] = '1';
                         AnswerDigits[Index] = 1;
                         CalcWeights[3] = "bold";
                         ExplanationBlock = "We have a carry of 1 and a calculation of 1 + 1. This is equivalent to 1 + 1 + 1, resulting in 1 with 1 carried over.";
@@ -164,9 +170,10 @@ public partial class BinaryAdditionLearnPageViewModel : ViewModelBase
                     {
                         CurrentCalculation = "0 + 1 + 1 = 10";
                         Carry = true;
+                        ColumnCarry[Index-1] = '1';
                         AnswerDigits[Index] = 0;
                         CalcWeights[2] = "bold";
-                        ExplanationBlock = "We have a carry of 0 and a calculation of 1 + 1, which is equal to 0 with 1 carried over..";
+                        ExplanationBlock = "We have a carry of 0 and a calculation of 1 + 1, which is equal to 0 with 1 carried over.";
                     }
                 }
             }
@@ -180,13 +187,16 @@ public partial class BinaryAdditionLearnPageViewModel : ViewModelBase
     [RelayCommand]
     private void OnClickNext()
     {
+        for(int i = 0; i < CalcWeights.Count; i++){
+            CalcWeights[i] = "normal";
+        }  
         compareNumbers();
         if(Index >= 0 && Index < 7)
         {
             ColumnWeights[Index] = "bold";
             ColumnWeights[Index+1] = "normal";
         }
-        Index--;   
+        Index--; 
     }
 
     [RelayCommand]
