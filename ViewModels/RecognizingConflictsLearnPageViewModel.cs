@@ -92,7 +92,7 @@ public partial class RecognizingConflictsLearnPageViewModel : ViewModelBase
         new TransactionResponse
         {
             Title = "Intro06",
-            ResponseMessage = "Now you try! Click whichever transaction you think conflicts."
+            ResponseMessage = "Now you try! Click whichever transaction you think conflicts with R1(x)."
         },
         new TransactionResponse
         {

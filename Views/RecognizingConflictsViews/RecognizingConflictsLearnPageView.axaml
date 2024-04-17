@@ -6,20 +6,23 @@
              mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
              x:Class="GroupProject.Views.RecognizingConflictsLearnPageView"
              x:DataType="viewModels:RecognizingConflictsLearnPageViewModel">
-	<Grid RowDefinitions="Auto, Auto, *, Auto, Auto">
+	<Grid RowDefinitions="100, 100, *, 100, Auto">
 
+    <!-- Title -->
 		<Grid Grid.Row="0" Background="{DynamicResource LMSYPrimary}" Height="100">
       <Border Background="{DynamicResource LMSYPrimary}" CornerRadius="0,0,0,0">
         <TextBlock Classes="title" Name="Title" FontFamily="{DynamicResource Neuton}" TextAlignment="Center" VerticalAlignment="Center" FontSize="45" Foreground="White" Text="RECOGNIZING CONFLICTS"/>
       </Border>
     </Grid>
 
-		<Grid Grid.Row="1" Background="{DynamicResource LMSYNeutralSecondary}" Height="70">
-      <Button Width="80.5" Background="Transparent" VerticalAlignment="Center" HorizontalAlignment="Left" Padding="0" BorderThickness="0" Command="{Binding BackButtonPressedCommand}">
-        <Image Source="/Assets/button-return.png" Stretch="Uniform" VerticalAlignment="Top" />
-      </Button>
-		</Grid>
+    <!-- Back button -->
+    <Grid Grid.Row="1" Background="{DynamicResource LMSYNeutralSecondary}">
+			<Button Grid.Row="1" Width="115" Height="100" Background="Transparent" VerticalAlignment="Top" HorizontalAlignment="Left" Padding="0" BorderThickness="0" Command="{Binding BackButtonPressedCommand}">
+				<Image Source="/Assets/button-return.png" Stretch="Uniform" />
+			</Button>
+    </Grid>
 
+    <!-- Interactive box -->
 		<Grid Grid.Row="2" Background="{DynamicResource LMSYNeutralSecondary}">
 			<Rectangle Fill="Black"
 			           Width="500" Height="100"
@@ -30,16 +33,14 @@
 					</Transitions>
 				</Rectangle.Transitions>
 				
-			</Rectangle>
-			
-		
+			</Rectangle>	
 			
 			<Grid ColumnDefinitions="Auto, Auto, Auto, Auto, Auto" 
 			      VerticalAlignment="Center" HorizontalAlignment="Center">
 				<Grid Grid.Column="0">
-					<Button BorderThickness="6" 
-					        Foreground="{DynamicResource LMSYForeground}" 
-					        Content="{Binding TransactionButtonZeroContent}"
+					<Button Content="{Binding TransactionButtonZeroContent}"
+					        Foreground="White" 
+									BorderThickness="6"
 					        Height="40"
 					        HorizontalAlignment="Center"/>
 				</Grid>
@@ -76,6 +77,8 @@
 				</Grid>
 			</Grid>
 		</Grid>
+    
+    <!-- Text -->
 		<Grid Grid.Row="3" Background="White">
 			<TextBlock FontSize="20" FontWeight="600" 
 			           Opacity="{Binding TextOutputOpacity}"
@@ -90,6 +93,8 @@
 				</TextBlock.Transitions>
 			</TextBlock>
 		</Grid>
+    
+    <!-- Chima pic + Next button -->
 		<Grid Grid.Row="4" Background="White" Height="150">
 			<Image Source="{Binding CurrentChimpImage}"
 			       Stretch="Uniform" 
