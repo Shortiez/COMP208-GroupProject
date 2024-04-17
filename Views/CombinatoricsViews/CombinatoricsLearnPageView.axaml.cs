@@ -1,13 +1,12 @@
 using Avalonia.Controls;
 using GroupProject.ViewModels;
 
-namespace GroupProject.Views.CombinatoricsViews
+namespace GroupProject.Views;
+
+public partial class CombinatoricsLearnPageView : UserControl
 {
-    public partial class CombinatoricsLearnPageView : UserControl
+    public CombinatoricsLearnPageView()
     {
-        public CombinatoricsLearnPageView()
-        {
-            InitializeComponent();
-        }
+        InitializeComponent();
     }
 }

@@ -340,9 +340,7 @@ public partial class RecognizingConflictsLearnPageViewModel : ViewModelBase
         //ButtonXPos = 0f;
         NextBoxOpacity = 0f;
         NextBoxOpacity = 1f;
-        await Task.Delay(400); // wait for 0.4 seconds 
-
-        //wait 0.5 seconds
+        await Task.Delay(400); // wait for 0.4 seconds
     }
 
     private async Task GetTextAsync()

@@ -7,7 +7,7 @@
         xmlns:models="clr-namespace:GroupProject.Models"
         mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450" Background="White"
         
-        x:Class="GroupProject.Views.CombinatoricsViews.CombinatoricsLearnPageView"
+        x:Class="GroupProject.Views.CombinatoricsLearnPageView"
         x:DataType="viewModels:CombinatoricsLearnPageViewModel">
 
   <Grid RowDefinitions="50, 70, 20, 30, 100, 30, 150">

@@ -1,7 +1,6 @@
 using System.Linq;
 using CommunityToolkit.Mvvm.Input;
 using GroupProject.Models;
-using GroupProject.Views.CombinatoricsViews;
 
 namespace GroupProject.ViewModels;
 
