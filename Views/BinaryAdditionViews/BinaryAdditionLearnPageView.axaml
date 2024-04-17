@@ -29,10 +29,10 @@
       </Button>
 
       <!-- Middle section -->
-      <Grid Grid.Column="1" RowDefinitions="120,Auto,*,*,*"> 
+      <Grid Grid.Column="1" RowDefinitions="100,150,*,*,*"> 
         <!-- Number grid -->
 			  <Border Grid.Row="1" BorderBrush="{DynamicResource LMSYPrimary}" BorderThickness="2" CornerRadius = "10" Padding = "20">
-						  <Grid RowDefinitions="*,*,*" ColumnDefinitions="*, *, *, *, *, *, *, *">
+						  <Grid RowDefinitions="*,*,*,*," ColumnDefinitions="*, *, *, *, *, *, *, *">
 
                   <TextBlock Grid.Row="0" Grid.Column="0" Text="{Binding Num1Digits[0]}" FontWeight="{Binding ColumnWeights[0]}" 
 									  FontFamily="PlayfairDisplay" HorizontalAlignment="Center" Width="25" FontSize="20"/>
@@ -82,28 +82,28 @@
                   <TextBlock Grid.Row="1" Grid.Column="7" Text="{Binding Num2Digits[7]}" FontWeight="{Binding ColumnWeights[7]}"
                       FontFamily="PlayfairDisplay" HorizontalAlignment="Center" Width="25" FontSize="20"/>
 
-                  <TextBlock Grid.Row="2" Grid.Column="0" Text="{Binding AnswerDigits[0]}" FontWeight="{Binding ColumnWeights[0]}"
+                  <TextBlock Grid.Row="3" Grid.Column="0" Text="{Binding AnswerDigits[0]}" FontWeight="{Binding ColumnWeights[0]}"
                       FontFamily="PlayfairDisplay" HorizontalAlignment="Center" Width="25" FontSize="20"/>
 
-                  <TextBlock Grid.Row="2" Grid.Column="1" Text="{Binding AnswerDigits[1]}" FontWeight="{Binding ColumnWeights[1]}"
+                  <TextBlock Grid.Row="3" Grid.Column="1" Text="{Binding AnswerDigits[1]}" FontWeight="{Binding ColumnWeights[1]}"
                       FontFamily="PlayfairDisplay" HorizontalAlignment="Center" Width="25" FontSize="20"/>
 
-                  <TextBlock Grid.Row="2" Grid.Column="2" Text="{Binding AnswerDigits[2]}" FontWeight="{Binding ColumnWeights[2]}"
+                  <TextBlock Grid.Row="3" Grid.Column="2" Text="{Binding AnswerDigits[2]}" FontWeight="{Binding ColumnWeights[2]}"
                       FontFamily="PlayfairDisplay" HorizontalAlignment="Center" Width="25" FontSize="20"/>
 
-                  <TextBlock Grid.Row="2" Grid.Column="3" Text="{Binding AnswerDigits[3]}" FontWeight="{Binding ColumnWeights[3]}"
+                  <TextBlock Grid.Row="3" Grid.Column="3" Text="{Binding AnswerDigits[3]}" FontWeight="{Binding ColumnWeights[3]}"
                       FontFamily="PlayfairDisplay" HorizontalAlignment="Center" Width="25" FontSize="20"/>
 
-                  <TextBlock Grid.Row="2" Grid.Column="4" Text="{Binding AnswerDigits[4]}" FontWeight="{Binding ColumnWeights[4]}"
+                  <TextBlock Grid.Row="3" Grid.Column="4" Text="{Binding AnswerDigits[4]}" FontWeight="{Binding ColumnWeights[4]}"
                       FontFamily="PlayfairDisplay" HorizontalAlignment="Center" Width="25" FontSize="20"/>
 
-                  <TextBlock Grid.Row="2" Grid.Column="5" Text="{Binding AnswerDigits[5]}" FontWeight="{Binding ColumnWeights[5]}"
+                  <TextBlock Grid.Row="3" Grid.Column="5" Text="{Binding AnswerDigits[5]}" FontWeight="{Binding ColumnWeights[5]}"
                       FontFamily="PlayfairDisplay" HorizontalAlignment="Center" Width="25" FontSize="20"/>
 
-                  <TextBlock Grid.Row="2" Grid.Column="6" Text="{Binding AnswerDigits[6]}" FontWeight="{Binding ColumnWeights[6]}"
+                  <TextBlock Grid.Row="3" Grid.Column="6" Text="{Binding AnswerDigits[6]}" FontWeight="{Binding ColumnWeights[6]}"
                       FontFamily="PlayfairDisplay" HorizontalAlignment="Center" Width="25" FontSize="20"/>
 
-                  <TextBlock Grid.Row="2" Grid.Column="7" Text="{Binding AnswerDigits[7]}" FontWeight="{Binding ColumnWeights[7]}"
+                  <TextBlock Grid.Row="3" Grid.Column="7" Text="{Binding AnswerDigits[7]}" FontWeight="{Binding ColumnWeights[7]}"
                       FontFamily="PlayfairDisplay" HorizontalAlignment="Center" Width="25" FontSize="20"/>
 						  </Grid>
 			  </Border>
