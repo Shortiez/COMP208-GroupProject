@@ -24,7 +24,7 @@
             <!-- Section 1/3 -->            
             <!-- Back Button -->
             <Button Grid.Column="0" Width="115" Height="100" Background="Transparent" VerticalAlignment="Top" Padding="0" BorderThickness="0" Command="{Binding BackButtonPressedCommand}">
-              <Image Source="/Assets/button-return.png" Stretch="Uniform" VerticalAlignment="Top" />
+              <Image Source="/Assets/button-return.png" Stretch="Uniform" />
             </Button>             
             <!-- End of section 1/3 -->
             
