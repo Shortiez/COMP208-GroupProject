@@ -24,8 +24,6 @@ public partial class BinaryAdditionQuizPageViewModel : ViewModelBase
     private int _selectedOption;
     private QuizQuestion<int> _currentQuestion;
 
-    private bool gotCurrQuestionRight;
-
     static public Dictionary<String, Bitmap> MonkeyImages = new Dictionary<string, Bitmap>
     {
         {"Default", ImageHelper.LoadFromResource("/Assets/Chimpa-corner.png")},
@@ -38,12 +36,23 @@ public partial class BinaryAdditionQuizPageViewModel : ViewModelBase
         GenerateNewQuestion();
     }
 
+    public override void Initialize()
+    {
+        base.Initialize();
+        
+        GenerateNewQuestion();
+    }
+
     [ObservableProperty]
     private string _questionTitleBlock;
     [ObservableProperty]
     private ObservableCollection<int> _questionOptions = new ObservableCollection<int>();
     [ObservableProperty]
     public string _answerBlock;
+    [ObservableProperty]
+    private String _answerBlockColour = "#283A7B";
+    [ObservableProperty]
+    private bool _answerNotSubmitted = true;
     [ObservableProperty]
     private Bitmap _cornerImage = MonkeyImages["Default"];
 
@@ -94,7 +103,9 @@ public partial class BinaryAdditionQuizPageViewModel : ViewModelBase
         // set corner image back to default
         CornerImage = MonkeyImages["Default"];
 
-        gotCurrQuestionRight = false;
+        AnswerNotSubmitted = true;
+        AnswerBlock = "";
+        AnswerBlockColour = "#283A7B";
 
         _currentQuestion = _quizGenerator.NewQuestion();
         QuestionTitleBlock = _currentQuestion.QuestionTitle;
@@ -106,7 +117,6 @@ public partial class BinaryAdditionQuizPageViewModel : ViewModelBase
         OptionFour = QuestionOptions[3];
         OptionFive = QuestionOptions[4];
 
-        AnswerBlock = "";
     }
     
     [RelayCommand]
@@ -116,18 +126,12 @@ public partial class BinaryAdditionQuizPageViewModel : ViewModelBase
         {
             return;
         }
-        if (gotCurrQuestionRight)
-        {
-            return;
-        }
-
 
         if(_selectedOption == _currentQuestion.Answer)
         {
             AnswerBlock = "Correct!";
+            AnswerNotSubmitted = false;
             _userStatistics.UpdateExistingRecord(1,0);
-
-            gotCurrQuestionRight = true;
 
             // update corner image
             CornerImage = MonkeyImages["Success"];
@@ -136,6 +140,9 @@ public partial class BinaryAdditionQuizPageViewModel : ViewModelBase
         {
             AnswerBlock = "Incorrect!" + "\n"
                         + "The correct answer was " + _currentQuestion.Answer + ".";
+            AnswerNotSubmitted = false;
+            AnswerBlockColour = "red";
+
             _userStatistics.UpdateExistingRecord(0,1);
 
             // update corner image
