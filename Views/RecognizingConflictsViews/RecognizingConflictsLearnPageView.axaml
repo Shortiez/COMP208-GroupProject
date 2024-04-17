@@ -79,7 +79,7 @@
 		</Grid>
     
     <!-- Text -->
-		<Grid Grid.Row="3" Background="White">
+		<Grid Grid.Row="3" Background="{DynamicResource LMSYNeutralSecondary}">
 			<TextBlock FontSize="20" FontWeight="600" 
 			           Opacity="{Binding TextOutputOpacity}"
 			           Foreground="{DynamicResource LMSYForeground}" 
