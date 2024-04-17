@@ -7,6 +7,9 @@ using GroupProject.Scripts.Questions.Quizzes.Combinatorics;
 using GroupProject.Models;
 using System;
 using System.Windows.Input;
+using Avalonia.Media.Imaging;
+using GroupProject.Scripts;
+using System.Collections.Generic;
 
 namespace GroupProject.ViewModels;
 
@@ -20,6 +23,13 @@ public partial class CombinatoricsQuizPageViewModel : ViewModelBase
     private QuizQuestion<int> currentQuestion;
 
     private UserStatisticData _userStatistics = new UserStatisticData(App.MainWindowViewModel.User.Username, "Combinatorics", "Combinatorics");
+
+    static public Dictionary<String, Bitmap> MonkeyImages = new Dictionary<string, Bitmap>
+    {
+        {"Default", ImageHelper.LoadFromResource("/Assets/Chimpa-corner.png")},
+        {"Fail", ImageHelper.LoadFromResource("/Assets/Chimpa-fail.png")},
+        {"Success", ImageHelper.LoadFromResource("/Assets/chimpa-success.png")},
+    };
 
     [ObservableProperty]
     private string _questionTitleBlock = "How many ways are there to select 3 students for a prospectus photograph (order matters) from a group of 5?";
@@ -37,6 +47,9 @@ public partial class CombinatoricsQuizPageViewModel : ViewModelBase
     private string _optionFour = "";
     [ObservableProperty]
     private string _optionFive = "";
+
+    [ObservableProperty]
+    private Bitmap _cornerImage = MonkeyImages["Default"];
 
     [RelayCommand]
     private void OneClicked()
@@ -72,6 +85,9 @@ public partial class CombinatoricsQuizPageViewModel : ViewModelBase
     [RelayCommand]
     private void GenerateNewQuestion()
     {
+        // set corner image back to default
+        CornerImage = MonkeyImages["Default"];
+
         currentQuestion = quizGenerator.NewQuestion();
 
         QuestionTitleBlock = currentQuestion.QuestionTitle;
@@ -100,11 +116,17 @@ public partial class CombinatoricsQuizPageViewModel : ViewModelBase
         {
             // Correct
             AnswerBlock = "Correct!";
+
+            // update corner image
+            CornerImage = MonkeyImages["Success"];
         }
         else
         {
             // Incorrect
             AnswerBlock = "Incorrect!" + "\n" + "The correct answer was " + currentQuestion.Answer;
+
+            // update corner image
+            CornerImage = MonkeyImages["Fail"];
         }
     }
 

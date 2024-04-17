@@ -66,7 +66,8 @@
 
           <!-- Answer text -->
           <TextBlock Text="{Binding AnswerBlock}" FontFamily="PlayfairDisplay" FontSize="20" Foreground="#283A7B"
-                      Padding="5" Width="400" Height="75" HorizontalAlignment="Center" VerticalAlignment="Top"/>
+                      Padding="5" Width="400" Height="75" HorizontalAlignment="Center" VerticalAlignment="Top"
+                      TextAlignment="Center"/>
           <!-- End of answer text -->
 
         </StackPanel>
@@ -74,7 +75,7 @@
 
         <Grid Grid.Column="2" RowDefinitions="120, *, *">
           <!--  Corner Chimpa -->
-          <Image Grid.Row="2" Width="200" Source="/Assets/Chimpa-corner.png" VerticalAlignment="Bottom" HorizontalAlignment="Right" />
+          <Image Grid.Row="2" Width="200" Source="{Binding CornerImage}" VerticalAlignment="Bottom" HorizontalAlignment="Right" />
         </Grid>
       </Grid>
 
