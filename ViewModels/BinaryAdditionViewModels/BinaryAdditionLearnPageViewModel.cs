@@ -27,7 +27,7 @@ public partial class BinaryAdditionLearnPageViewModel : ViewModelBase
     [ObservableProperty]
     private ObservableCollection<int> _num2Digits = new ObservableCollection<int>(new int[] {0,0,0,0,0,0,0,0});
     [ObservableProperty]
-    private ObservableCollection<int> _answerDigits = new ObservableCollection<int>(new int[] {0,0,0,0,0,0,0,0});
+    private ObservableCollection<int?> _answerDigits = new ObservableCollection<int?>(new int?[] {null,null,null,null,null,null,null,null});
 
     [ObservableProperty]
     private ObservableCollection<string> _columnWeights = new ObservableCollection<string>(new string[] {"normal","normal","normal","normal",

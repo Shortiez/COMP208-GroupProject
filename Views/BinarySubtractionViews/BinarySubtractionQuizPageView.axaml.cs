@@ -12,7 +12,7 @@ namespace GroupProject.Views;
 public partial class BinarySubtractionQuizPageView : UserControl
 {
     private BinarySubtractionQuizGenerator _quizGenerator = new BinarySubtractionQuizGenerator();
-    private RadioButton _selectedOption => OptionsPanel.Children.OfType<RadioButton>().FirstOrDefault(r => r.IsChecked == true);
+    // private RadioButton _selectedOption => OptionsPanel.Children.OfType<RadioButton>().FirstOrDefault(r => r.IsChecked == true);
     private QuizQuestion<int> _currentQuestion;
 
 
@@ -20,6 +20,7 @@ public partial class BinarySubtractionQuizPageView : UserControl
     {
         InitializeComponent();
     }
+    /*
 
     private void ShowQuestion()
     {
@@ -66,5 +67,6 @@ public partial class BinarySubtractionQuizPageView : UserControl
     {
         ShowQuestion();
     }
+    */
 
 }
