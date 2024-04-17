@@ -164,7 +164,10 @@ public partial class RecognizingConflictsLearnPageViewModel : ViewModelBase
     private string _transactionButtonThreeContent;
     [ObservableProperty]
     private string _transactionButtonFourContent;
-    
+
+    [ObservableProperty]
+    private IBrush _transactionButtonZeroForeground;
+
     [ObservableProperty]
     private IBrush _transactionButtonTwoForeground;
     [ObservableProperty]
@@ -185,7 +188,9 @@ public partial class RecognizingConflictsLearnPageViewModel : ViewModelBase
         TransactionButtonTwoContent = _exampleScheduler[2].ToString();
         TransactionButtonThreeContent = _exampleScheduler[3].ToString();
         TransactionButtonFourContent = _exampleScheduler[4].ToString();
-        
+
+
+        TransactionButtonZeroForeground = Brushes.White;
         TransactionButtonTwoForeground = Brushes.White;
         TransactionButtonThreeForeground = Brushes.White;
         TransactionButtonFourForeground = Brushes.White;
@@ -336,8 +341,8 @@ public partial class RecognizingConflictsLearnPageViewModel : ViewModelBase
     {
         //soundHelper.PlaySound("Whoosh");
 
-        //ButtonXPos = 50f;
-        //ButtonXPos = 0f;
+        ButtonXPos = 50f;
+        ButtonXPos = 0f;
         NextBoxOpacity = 0f;
         NextBoxOpacity = 1f;
         await Task.Delay(400); // wait for 0.4 seconds
@@ -347,6 +352,12 @@ public partial class RecognizingConflictsLearnPageViewModel : ViewModelBase
     {
         await Task.Delay(1000); // The delay is just for demonstration purpose
 
+    }
+
+    public override void Initialize()
+    {
+
+        
     }
 
 

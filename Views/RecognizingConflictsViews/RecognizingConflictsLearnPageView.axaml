@@ -38,7 +38,7 @@
 			      VerticalAlignment="Center" HorizontalAlignment="Center">
 				<Grid Grid.Column="0">
 					<Button BorderThickness="6" 
-					        Foreground="{DynamicResource LMSYForeground}" 
+					        Foreground="{Binding TransactionButtonZeroForeground}" 
 					        Content="{Binding TransactionButtonZeroContent}"
 					        Height="40"
 					        HorizontalAlignment="Center"/>
