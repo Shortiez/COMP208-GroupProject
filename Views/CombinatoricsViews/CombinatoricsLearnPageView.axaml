@@ -10,43 +10,49 @@
         x:Class="GroupProject.Views.CombinatoricsLearnPageView"
         x:DataType="viewModels:CombinatoricsLearnPageViewModel">
 
-  <Grid RowDefinitions="50, 70, 20, 30, 100, 30, 150">
+  <Grid RowDefinitions="100, 100, 20, 30, 100, 30, 150">
 
-    <Grid Grid.Row="0" Background="#283A7B">
-      <Label FontWeight="550" FontSize="32" FontFamily="PlayfairDisplay" Foreground ="White" VerticalAlignment="Center" HorizontalAlignment="Center">COMBINATORICS</Label>
-    </Grid>
+    <!-- Title -->
+    <Border Background="{DynamicResource LMSYPrimary}" CornerRadius="0,0,0,0">
+      <TextBlock Classes="title" Name="Title" FontFamily="{DynamicResource Neuton}"
+                 TextAlignment="Center" VerticalAlignment="Center" FontSize="45"
+                 Foreground="White"
+                 Text="TABLE UNION QUESTIONS"/>
+    </Border>
 
-    <Grid Grid.Row="1" Background="White">
-      <Button Command="{Binding ClickBackToHomeCommand}" VerticalAlignment="2" HorizontalAlignment="Left" Background="White" Padding="0">
-        <Image Source="/Assets/button-return.png" Stretch="" Margin="0" Height="70"/>
-      </Button>
-    </Grid>
+    <!-- Back Button -->
+    <Button Grid.Row="1" Width="115" Height="100" Background="Transparent" VerticalAlignment="Top" Padding="0" BorderThickness="0" Command="{Binding ClickBackToHomeCommand}">
+      <Image Source="/Assets/button-return.png" Stretch="Uniform" VerticalAlignment="Top" />
+    </Button>
 
+    <!-- Text 1-->
     <Grid Grid.Row="2" VerticalAlignment="Center" HorizontalAlignment="Center">
       <TextBlock Text="Let's have a look at how we can use combinatorics to solve permutation questions!"
-                 HorizontalAlignment="Center" FontFamily="PlayfairDisplay" Width="700" FontSize="18" FontWeight="600"
-                  Foreground="Black" VerticalAlignment="Center"/>
+                HorizontalAlignment="Center" FontFamily="PlayfairDisplay" Width="700" FontSize="18" FontWeight="600"
+                Foreground="Black" VerticalAlignment="Center"/>
     </Grid>
 
+    <!-- Text 2-->
     <Grid Grid.Row="3" VerticalAlignment="Center" HorizontalAlignment="Center" >
-        <Border Background="#283A7B" BorderThickness="2" Width="770" Height="30">
-          <TextBlock Text="How many ways there are to select 3 monkeys from a group of 5, where order matters?"
-                   HorizontalAlignment="Center" FontFamily="PlayfairDisplay" Width="710" FontSize="18" FontWeight="600"
-                    Foreground="White" VerticalAlignment="Center"/>
-        </Border>
+      <Border Background="#283A7B" BorderThickness="2" Width="770" Height="30">
+        <TextBlock Text="How many ways there are to select 3 monkeys from a group of 5, where order matters?"
+                  HorizontalAlignment="Center" FontFamily="PlayfairDisplay" Width="710" FontSize="18" FontWeight="600"
+                  Foreground="White" VerticalAlignment="Center"/>
+      </Border>
     </Grid>
 
+    <!-- Text 3,4,5-->
     <Grid Grid.Row="4" Background = "White" VerticalAlignment="Center">
       <StackPanel>
         <TextBlock Text="All 5 monkeys can fill the first position"
-                   HorizontalAlignment="Center" FontFamily="PlayfairDisplay" FontSize="18" FontWeight="600"
-                    Foreground="Black" VerticalAlignment="Center"/>
+                    HorizontalAlignment="Center" FontFamily="PlayfairDisplay" FontSize="18" FontWeight="600"
+                    Foreground="Black"/>
         <TextBlock Text="Then there are only 4 monkeys to fill the second position"
-             HorizontalAlignment="Center" FontFamily="PlayfairDisplay" FontSize="18" FontWeight="600"
-              Foreground="Black" VerticalAlignment="Center"/>
+              HorizontalAlignment="Center" FontFamily="PlayfairDisplay" FontSize="18" FontWeight="600"
+              Foreground="Black"/>
         <TextBlock Text="Lastly, there are 3 monkeys left to fill the last position"
-             HorizontalAlignment="Center" FontFamily="PlayfairDisplay" FontSize="18" FontWeight="600"
-              Foreground="Black" VerticalAlignment="Center"/>
+              HorizontalAlignment="Center" FontFamily="PlayfairDisplay" FontSize="18" FontWeight="600"
+              Foreground="Black"/>
       </StackPanel>
     </Grid>
 
@@ -54,7 +60,7 @@
       <StackPanel>
         <Border Background="#283A7B" BorderThickness="2" Width="200" Height="30">
           <TextBlock Text="5 x 4 x 3 = 60"
-                     HorizontalAlignment="Center" Foreground="White" FontFamily="PlayfairDisplay" FontSize="25" FontWeight="600"
+                      HorizontalAlignment="Center" Foreground="White" FontFamily="PlayfairDisplay" FontSize="25" FontWeight="600"
                       VerticalAlignment="Center">
             <TextBlock.Transitions>
               <Transitions>
