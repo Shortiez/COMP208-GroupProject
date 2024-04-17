@@ -7,6 +7,13 @@ public class SoundHelper
 {
     public void PlaySound(string sound)
     {
+        // Check to make sure user is on windows
+        if (Environment.OSVersion.Platform != PlatformID.Win32NT)
+        {
+            Console.WriteLine("Sound can only be played on Windows.");
+            return;
+        }
+        
         SoundPlayer player = new SoundPlayer();
         
         switch (sound)
