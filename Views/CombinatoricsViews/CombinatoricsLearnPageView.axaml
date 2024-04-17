@@ -10,7 +10,7 @@
         x:Class="GroupProject.Views.CombinatoricsLearnPageView"
         x:DataType="viewModels:CombinatoricsLearnPageViewModel">
 
-  <Grid RowDefinitions="100, 100, 20, 30, 100, 30, 150">
+  <Grid RowDefinitions="100, 100, 20, 30, 100, 30, *">
 
     <!-- Title -->
     <Border Background="{DynamicResource LMSYPrimary}" CornerRadius="0,0,0,0">
@@ -86,8 +86,8 @@
              HorizontalAlignment="Center" FontFamily="PlayfairDisplay" Width="700" FontSize="18" FontWeight="600"
               Foreground="Black" VerticalAlignment="Center"/>
       </StackPanel>
-      <Image Source="/Assets/CombHintImage.png" Stretch="Uniform" Margin="80,20,-200,0"/>
-      <Image Source="/Assets/Chimpa-corner.png" Stretch="Uniform" VerticalAlignment="" HorizontalAlignment="Right"/>
+      <Image Source="/Assets/CombHintImage.png" Stretch="Uniform" Width="300" Margin="80,20,-200,0"/>
+      <Image Source="/Assets/Chimpa-corner.png" Stretch="Uniform" Width="200" VerticalAlignment="Bottom" HorizontalAlignment="Right"/>
     
     </Grid>
 
