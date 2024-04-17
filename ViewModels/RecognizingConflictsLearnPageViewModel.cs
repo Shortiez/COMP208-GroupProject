@@ -316,7 +316,7 @@ public partial class RecognizingConflictsLearnPageViewModel : ViewModelBase
     [RelayCommand]
     private void BackButtonPressed()
     {
-        var topicName = "Combinatorics";
+        var topicName = "Recognizing Conflicts";
 
         var topic = new TopicLearnSelectorPageViewModel()
         {
