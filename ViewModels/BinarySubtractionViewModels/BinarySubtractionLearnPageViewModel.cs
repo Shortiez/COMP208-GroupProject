@@ -22,6 +22,6 @@ public partial class BinarySubtractionLearnPageViewModel : ViewModelBase
             CurrentTopic = topicName
         };
         
-        App.MainWindowViewModel.CurrentContent = topic;
+        App.MainWindowViewModel.ChangeContent(topic);
     }
 }

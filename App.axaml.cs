@@ -32,7 +32,7 @@ public partial class App : Application
             MainWindow = desktop.MainWindow;
             
             MainWindowViewModel = desktop.MainWindow.DataContext as MainWindowViewModel;
-            MainWindowViewModel.CurrentContent = new RegisterPageViewModel();
+            MainWindowViewModel.ChangeContent(new RegisterPageViewModel());
 
             MainWindowViewModel.CreateUserData();
         }

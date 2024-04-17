@@ -6,6 +6,7 @@ using System.Linq;
 using Avalonia;
 using Avalonia.Controls;
 using Avalonia.Input;
+using Avalonia.Media;
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using GroupProject.Models;
@@ -15,6 +16,18 @@ using MySql.Data.MySqlClient;
 
 namespace GroupProject.ViewModels;
 
+class PickATopicPageItemTemplate
+{
+    public string TopicName { get; set; }
+    public Image? TopicImage { get; set; }
+    
+    public PickATopicPageItemTemplate(string topicName, Image? topicImage)
+    {
+        TopicName = topicName;
+        TopicImage = topicImage;
+    }
+}
+    
 public partial class PickATopicPageViewModel : ViewModelBase
 {
     private readonly DatabaseConnection _connectionDb = new DatabaseConnection();
@@ -23,9 +36,9 @@ public partial class PickATopicPageViewModel : ViewModelBase
     private DataTable _dataTable;
 
     [ObservableProperty]
-    private List<TreeViewItem> _moduleListItems = new List<TreeViewItem>();
+    private List<string> _moduleListItems = new List<string>();
     [ObservableProperty]
-    private List<TreeViewItem> _topicListItems = new List<TreeViewItem>();
+    private List<ListBoxItem> _topicListItems = new List<ListBoxItem>();
 
     public sealed override void Initialize()
     {
@@ -39,39 +52,34 @@ public partial class PickATopicPageViewModel : ViewModelBase
         {
             LoadTopics(moduleTreeViewItem);
         }
-
-
+        
         // Hardcoded Topics
-        ModuleListItems.Add(new TreeViewItem()
+        if (_connectionDb.connection.State != ConnectionState.Open)
         {
-            Header = "No Database"
-        });
-
-        TopicListItems.Add(new TreeViewItem()
-        {
-            Header = "Binary Addition"
-        });
-        TopicListItems.Add(new TreeViewItem()
-        {
-            Header = "Binary Subtraction"
-        });
-        TopicListItems.Add(new TreeViewItem()
-        {
-            Header = "Recognizing Conflicts"
-        });
-        TopicListItems.Add(new TreeViewItem()
-        {
-            Header = "Combinatorics"
-        });
-        TopicListItems.Add(new TreeViewItem()
-        {
-            Header = "Table Unions"
-        });
-        foreach (var item in TopicListItems)
-        {
-            item.DoubleTapped += TriggerTopicClicked;
-
-            ModuleListItems.FirstOrDefault(x => x.Header.ToString() == "No Database")?.Items.Add(item);
+            TopicListItems.Add(new ListBoxItem()
+            {
+                Content = "Binary Addition"
+            });
+            TopicListItems.Add(new ListBoxItem()
+            {
+                Content = "Binary Subtraction"
+            });
+            TopicListItems.Add(new ListBoxItem()
+            {
+                Content = "Recognizing Conflicts"
+            });
+            TopicListItems.Add(new ListBoxItem()
+            {
+                Content = "Combinatorics"
+            });
+            TopicListItems.Add(new ListBoxItem()
+            {
+                Content = "Table Unions"
+            });
+            foreach (var item in TopicListItems)
+            {
+                item.DoubleTapped += TriggerTopicClicked;
+            }
         }
     }
 
@@ -92,10 +100,8 @@ public partial class PickATopicPageViewModel : ViewModelBase
                     while (reader.Read())
                     {
                         string? moduleName = reader["ModuleName"].ToString();
-                        ModuleListItems.Add(new TreeViewItem()
-                        {
-                            Header = moduleName
-                        });
+                        
+                        ModuleListItems.Add(moduleName);
                     }
                 }
             }
@@ -107,7 +113,7 @@ public partial class PickATopicPageViewModel : ViewModelBase
             Console.WriteLine(ex.Message);
         }
     }
-    private void LoadTopics(TreeViewItem module)
+    private void LoadTopics(string module)
     {
         _connectionDb.Connect();
         
@@ -118,24 +124,19 @@ public partial class PickATopicPageViewModel : ViewModelBase
             
             using (MySqlCommand command = conn.CreateCommand())
             {
-                string moduleName = module.Header.ToString();
-                
                 command.CommandText = "SELECT * FROM `topics` WHERE ModuleName = @ModuleName";
-                command.Parameters.AddWithValue("@ModuleName", moduleName);
+                command.Parameters.AddWithValue("@ModuleName", module);
                 
                 using (MySqlDataReader reader = command.ExecuteReader())
                 {
                     while (reader.Read())
                     {
                         string? topicName = reader["TopicName"].ToString();
-                        var item = new TreeViewItem
+                        var item = new ListBoxItem()
                         {
-                            Header = topicName
+                            Content = topicName
                         };
                         item.DoubleTapped += TriggerTopicClicked;
-                        
-                        TopicListItems.Add(item);
-                        module.Items.Add(item);
                     }
                 }
             }
@@ -150,9 +151,8 @@ public partial class PickATopicPageViewModel : ViewModelBase
 
     private void TriggerTopicClicked(object? sender = null, TappedEventArgs? e = null)
     {
-        if (sender is not TreeViewItem treeViewItem) return;
-        
-        var topicName = treeViewItem.Header?.ToString();
+        if (sender is not ListBoxItem listBoxItem) return;
+        var topicName = listBoxItem.Content?.ToString();
         Console.WriteLine(topicName);
         
         var topic = new TopicLearnSelectorPageViewModel()
@@ -160,6 +160,6 @@ public partial class PickATopicPageViewModel : ViewModelBase
             CurrentTopic = topicName
         };
         
-        App.MainWindowViewModel.CurrentContent = topic;
+        App.MainWindowViewModel.ChangeContent(topic);
     }
 }

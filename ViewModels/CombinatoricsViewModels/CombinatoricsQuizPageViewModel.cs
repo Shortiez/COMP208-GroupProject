@@ -142,6 +142,6 @@ public partial class CombinatoricsQuizPageViewModel : ViewModelBase
             CurrentTopic = topicName
         };
 
-        App.MainWindowViewModel.CurrentContent = topic;
+        App.MainWindowViewModel.ChangeContent(topic);
     }
 }

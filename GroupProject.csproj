@@ -150,6 +150,16 @@
     <AvaloniaResource Include="Assets\SQL Table Icons\Numbers\67.png" />
     <AvaloniaResource Include="Assets\SQL Table Icons\Numbers\7.png" />
     <AvaloniaResource Include="Assets\SQL Table Icons\Numbers\8.png" />
+    <None Remove="Assets\icon-binaryadd.png" />
+    <AvaloniaResource Include="Assets\icon-binaryadd.png" />
+    <None Remove="Assets\icon-binarysub.png" />
+    <AvaloniaResource Include="Assets\icon-binarysub.png" />
+    <None Remove="Assets\icon-combinatorics.png" />
+    <AvaloniaResource Include="Assets\icon-combinatorics.png" />
+    <None Remove="Assets\icon-resolvingconflicts.png" />
+    <AvaloniaResource Include="Assets\icon-resolvingconflicts.png" />
+    <None Remove="Assets\icon-tableunions.png" />
+    <AvaloniaResource Include="Assets\icon-tableunions.png" />
   </ItemGroup>
   <ItemGroup>
     <AvaloniaResource Include="Assets\SQL Table Icons\Numbers\26.png" />

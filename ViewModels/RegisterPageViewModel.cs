@@ -69,8 +69,8 @@ namespace GroupProject.ViewModels
                     if (!IsExistingUser(Username, Email))
                     {
                         _userService.RegisterUser(Username, Email, PasswordHash);
-                        
-                        App.MainWindowViewModel.CurrentContent = new LoginPageViewModel();
+
+                        App.MainWindowViewModel.ChangeContent(new LoginPageViewModel());
                     }
                     else
                     {
@@ -130,7 +130,7 @@ namespace GroupProject.ViewModels
         [RelayCommand]
         private void OnSwitchToLoginClicked()
         {
-            App.MainWindowViewModel.CurrentContent = new LoginPageViewModel();
+            App.MainWindowViewModel.ChangeContent(new LoginPageViewModel());
         }
     }
 }

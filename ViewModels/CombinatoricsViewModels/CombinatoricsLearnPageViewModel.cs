@@ -21,6 +21,6 @@ public partial class CombinatoricsLearnPageViewModel : ViewModelBase
             CurrentTopic = topicName
         };
 
-        App.MainWindowViewModel.CurrentContent = topic;
+        App.MainWindowViewModel.ChangeContent(topic);
     }
 }

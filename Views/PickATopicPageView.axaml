@@ -22,8 +22,8 @@
                         <TextBox Watermark="Search For Topics..."></TextBox>
                 </StackPanel>
                 
-                <TreeView Grid.Row="1"
-                        ItemsSource="{Binding ModuleListItems}">
-                </TreeView>
+                <ListBox Grid.Row="1"
+                        ItemsSource="{Binding TopicListItems}">
+                </ListBox>
         </Grid>
 </UserControl>

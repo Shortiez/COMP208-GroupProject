@@ -154,7 +154,7 @@ public partial class BinarySubtractionQuizPageViewModel : ViewModelBase
             CurrentTopic = topicName
         };
         
-        App.MainWindowViewModel.CurrentContent = topic;
+        App.MainWindowViewModel.ChangeContent(topic);
     }
 
     [RelayCommand]
@@ -162,7 +162,7 @@ public partial class BinarySubtractionQuizPageViewModel : ViewModelBase
     {
         var topicName = "Binary Subtraction";
         Console.WriteLine(topicName);
-
-        // App.MainWindowViewModel.CurrentContent = new BinarySubtractionLearnPageViewModel(_currentQuestion);
+        
+        //App.MainWindowViewModel.ChangeContent(new BinarySubtractionLearnPageViewModel(_currentQuestion));
     }
 }

@@ -20,7 +20,7 @@ public partial class MainWindowViewModel : ViewModelBase
     
     public MainWindowViewModel()
     {
-        CurrentContent = new MainContentPageViewModel();
+        ChangeContent(new MainContentPageViewModel());
     }
 
     public void CreateUserData()
@@ -44,5 +44,12 @@ public partial class MainWindowViewModel : ViewModelBase
         }
         
         User = new UserDataModel(username, email, password);
+    }
+    
+    public void ChangeContent(ViewModelBase newContent)
+    {
+        CurrentContent = newContent;
+        
+        CurrentContent.Initialize();
     }
 }

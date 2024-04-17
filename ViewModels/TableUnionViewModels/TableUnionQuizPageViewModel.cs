@@ -154,7 +154,7 @@ public partial class TableUnionQuizPageViewModel : ViewModelBase
             CurrentTopic = topicName
         };
 
-        App.MainWindowViewModel.CurrentContent = topic;
+        App.MainWindowViewModel.ChangeContent(topic);
     }
 
     [RelayCommand]

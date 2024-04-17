@@ -8,9 +8,7 @@ public class SoundHelper
     public void PlaySound(string sound)
     {
         SoundPlayer player = new SoundPlayer();
-
-
-
+        
         switch (sound)
         {
             case "Button":

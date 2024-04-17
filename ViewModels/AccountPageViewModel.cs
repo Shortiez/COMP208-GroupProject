@@ -86,7 +86,7 @@ public partial class AccountPageViewModel : ViewModelBase
                 if (IsExistingUser(Username, Email))
                 {
                     _userService.UpdateUser(Username, Email, PasswordHash);
-                    App.MainWindowViewModel.CurrentContent = new MainContentPageViewModel();
+                    App.MainWindowViewModel.ChangeContent(new MainContentPageViewModel());
                 }
                 else
                 {

@@ -68,6 +68,11 @@ public partial class BinaryAdditionLearnPageViewModel : ViewModelBase
         OnClickNext();
     }
 
+    public override void Initialize()
+    {
+        base.Initialize();
+    }
+
     private void populateArrays()
     {
         string a = Convert.ToString(_currentQuestion.QuestionInput[0], 2).PadLeft(8, '0');
@@ -210,6 +215,6 @@ public partial class BinaryAdditionLearnPageViewModel : ViewModelBase
             CurrentTopic = topicName
         };
         
-        App.MainWindowViewModel.CurrentContent = topic;
+        App.MainWindowViewModel.ChangeContent(topic);
     }
 }

@@ -153,8 +153,8 @@ public partial class BinaryAdditionQuizPageViewModel : ViewModelBase
         {
             CurrentTopic = topicName
         };
-        
-        App.MainWindowViewModel.CurrentContent = topic;
+
+        App.MainWindowViewModel.ChangeContent(topic);
     }
 
     [RelayCommand]
@@ -163,6 +163,6 @@ public partial class BinaryAdditionQuizPageViewModel : ViewModelBase
         var topicName = "Binary Addition";
         Console.WriteLine(topicName);
 
-        App.MainWindowViewModel.CurrentContent = new BinaryAdditionLearnPageViewModel(_currentQuestion);
+        App.MainWindowViewModel.ChangeContent(new BinaryAdditionLearnPageViewModel(_currentQuestion));
     }
 }
