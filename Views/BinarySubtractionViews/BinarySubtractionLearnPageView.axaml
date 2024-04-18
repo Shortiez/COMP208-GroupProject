@@ -32,7 +32,7 @@
       <Grid Grid.Column="1" RowDefinitions="100,150,*,*"> 
         <!-- Number grid -->
 			  <Border Grid.Row="1" BorderBrush="{DynamicResource LMSYPrimary}" BorderThickness="2" CornerRadius = "10" Padding = "20">
-				  <Grid RowDefinitions="*,*,*,*,*," ColumnDefinitions="*,*,*,*,*,*,*,*,*">
+				  <Grid RowDefinitions="*,*,*,*,*" ColumnDefinitions="*,*,*,*,*,*,*,*,*">
                   <TextBlock Grid.Row="0" Grid.Column="1" Text="{Binding ColumnCarry[0]}" FontWeight="{Binding ColumnWeights[0]}" 
                       FontFamily="PlayfairDisplay" HorizontalAlignment="Center" Width="25" FontSize="20" Foreground="Red"/>
 

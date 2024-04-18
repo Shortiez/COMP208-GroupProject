@@ -23,7 +23,6 @@
                 </StackPanel>
                 
                 <ListBox Grid.Row="1"
-                        ItemsSource="{Binding TopicListItems}">
-                </ListBox>
+                         ItemsSource="{Binding TopicListItems}"/>
         </Grid>
 </UserControl>

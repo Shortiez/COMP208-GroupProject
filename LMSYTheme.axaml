@@ -13,7 +13,7 @@
             <Color x:Key="LMSYNeutralTertiary">#3e3e3e</Color>
                 
             <!-- Semantic Colors -->
-            <Color x:Key="LMSYSuccess">#64df07</Color>
+            <Color x:Key="LMSYSuccess">#59b806</Color>
             <Color x:Key="LMSYWarning">#fcaa13</Color>
             <Color x:Key="LMSYError">#fe2c2a</Color>
             <Color x:Key="LMSYInfo">#4f8dd6</Color>

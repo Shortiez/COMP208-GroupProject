@@ -86,43 +86,58 @@
                            VerticalAlignment="Stretch"
                            Margin="0, 130, 0, 0"
                            Background="{DynamicResource LMSYNeutralSecondary}"/>
-            
-                <!---
+                
                 <StackPanel Grid.Column="2">
                     <TextBlock Classes="title"
                                Text="Statistics"
                                HorizontalAlignment="Left"
-                               Margin="50, 70, 0, 0"/>
+                               Margin="0, 70, 0, 0"/>
                     
                     <ScrollViewer>
-                        <TreeView ItemsSource="{Binding ModuleStatistics}">
-                            <TreeView.ItemTemplate>
-                                <DataTemplate DataType="{x:Type models:ModuleStatisticsModel}">
-                                    <TreeViewItem ItemsSource="{Binding Topics}">
-                                        <TreeViewItem.Header>
-                                            <TextBlock Text="{Binding ModuleName}"/>
-                                        </TreeViewItem.Header>
+                        <ListBox ItemsSource="{Binding TopicsStatistics}"
+                                 Background="Transparent">
+                            <ListBox.ItemTemplate>
+                                <DataTemplate DataType="{x:Type viewModels:TopicStatsModelTemplate}">
+                                    <StackPanel Orientation="Vertical">
+                                        <TextBlock Text="{Binding TopicName}" 
+                                            Classes="subtitle"
+                                            HorizontalAlignment="Left" VerticalAlignment="Center"
+                                            Foreground="{DynamicResource LMSYForeground}"/>
                                         
-                                        <TreeViewItem.ItemTemplate>
-                                            <DataTemplate DataType="{x:Type models:TopicStatisticsModel}">
-                                                <TreeViewItem>
-                                                    <TreeViewItem.Header>
-                                                        <TextBlock Text="{Binding TopicName}"/>
-                                                    </TreeViewItem.Header>
-                                                    <StackPanel>
-                                                        <TextBlock Text="{Binding NoCorrect}"/>
-                                                        <TextBlock Text="{Binding NoWrong}"/>
-                                                    </StackPanel>
-                                                </TreeViewItem>
-                                            </DataTemplate>
-                                        </TreeViewItem.ItemTemplate>
+                                        <StackPanel Orientation="Horizontal">
+                                            <TextBlock Text="{Binding NumberOfQuestionsAnswered}"
+                                                       Foreground="{DynamicResource LMSYForeground}"/>
+                                            <TextBlock Text=" Questions Answered!"
+                                                       Foreground="{DynamicResource LMSYForeground}"
+                                                       FontWeight="Medium"/>
+                                        </StackPanel>
                                         
-                                    </TreeViewItem>
+                                        <StackPanel Orientation="Horizontal">
+                                            <TextBlock Text="{Binding NumberOfQuestionsCorrect}"
+                                                       Foreground="{DynamicResource LMSYForeground}"/>
+                                            <TextBlock Text="{Binding NumberOfQuestionsAnsweredCorrectlyPercentage}"
+                                                       Foreground="{DynamicResource LMSYForeground}"
+                                                       FontStyle="Italic"/>
+                                            <TextBlock Text=" Answered Correctly 🥳"
+                                                       Foreground="{DynamicResource LMSYSuccess}"
+                                                       FontWeight="Medium"/>
+                                        </StackPanel>
+                                        
+                                        <StackPanel Orientation="Horizontal">
+                                            <TextBlock Text="{Binding NumberOfQuestionsIncorrect}"
+                                                       Foreground="{DynamicResource LMSYForeground}"/>
+                                            <TextBlock Text="{Binding NumberOfQuestionsAnsweredIncorrectlyPercentage}"
+                                                       Foreground="{DynamicResource LMSYForeground}"
+                                                       FontStyle="Italic"/>
+                                            <TextBlock Text=" Answered Incorrectly 🙁"
+                                                       Foreground="{DynamicResource LMSYError}"
+                                                       FontWeight="Medium"/>
+                                        </StackPanel>
+                                    </StackPanel>
                                 </DataTemplate>
-                            </TreeView.ItemTemplate>
-                        </TreeView>
+                            </ListBox.ItemTemplate>
+                        </ListBox>
                     </ScrollViewer>
                 </StackPanel>
--->
         </Grid>
 </UserControl>

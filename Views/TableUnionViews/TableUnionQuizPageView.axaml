@@ -126,13 +126,13 @@
             <TextBlock Grid.Row="1" FontWeight="Bold" Foreground="{DynamicResource LMSYPrimary}" FontSize="17" Text="{Binding Question}" />
             <TextBlock Grid.Row="2" FontWeight="Bold" Foreground="{DynamicResource LMSYPrimary}" FontSize="15" Text="{Binding Explanation}" />
             <StackPanel Grid.Row="3" Orientation="Vertical">
-              <Button Width="120" Height="50" Background="Transparent" Padding="0" BorderThickness="0" Command="{Binding SubmitAnswerCommand}}">
+              <Button Width="120" Height="50" Background="Transparent" Padding="0" BorderThickness="0" Command="{Binding SubmitAnswerCommand}">
                 <Image Source="/Assets/button-submit.png" Stretch="Uniform" />
               </Button>
-              <Button Width="120" Height="50" Background="Transparent" Padding="0" BorderThickness="0" Margin="0,10,0,10" Command="{Binding GenerateQuestionCommand}}">
+              <Button Width="120" Height="50" Background="Transparent" Padding="0" BorderThickness="0" Margin="0,10,0,10" Command="{Binding GenerateQuestionCommand}">
                 <Image Source="/Assets/button-next.png" Stretch="Uniform" />
               </Button>
-              <Button Width="120" Height="50" Background="Transparent" Padding="0" BorderThickness="0" Command="{Binding ClearButtonClickCommand}}">
+              <Button Width="120" Height="50" Background="Transparent" Padding="0" BorderThickness="0" Command="{Binding ClearButtonClickCommand}">
                 <Image Source="/Assets/button-clear.png" Stretch="Uniform" />
               </Button>
             </StackPanel>

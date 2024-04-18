@@ -18,7 +18,6 @@ public partial class RecognizingConflictsLearnPageViewModel : ViewModelBase
     public static readonly Bitmap ChimpCornerIdeaImage = ImageHelper.LoadFromResource("/Assets/Chimpa-corner-idea.png");
     public static readonly Bitmap ChimpSuccessImage = ImageHelper.LoadFromResource("/Assets/chimpa-success.png");
     public static readonly Bitmap ChimpFailImage = ImageHelper.LoadFromResource("/Assets/Chimpa-fail.png");
-    SoundHelper soundHelper = new SoundHelper();
     
     enum InteractionMode
     {
@@ -269,9 +268,8 @@ public partial class RecognizingConflictsLearnPageViewModel : ViewModelBase
     private void OnClickNext()
     {
         IntroAnimations();
-
-
-        soundHelper.PlaySound("Button");
+        
+        SoundHelper.PlaySound("Button");
         if (_interactionMode == InteractionMode.NonInteractive){
             NarrativePointer();
         }

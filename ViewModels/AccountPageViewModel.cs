@@ -33,13 +33,11 @@ public partial class AccountPageViewModel : ViewModelBase
 
     private readonly IUserService _userService;
     private readonly IValidationService _validationService;
-    private readonly StatisticsService _statisticsService;
 
     public AccountPageViewModel()
     {
         _userService = new UserService();
         _validationService = new ValidationService();
-        _statisticsService = new StatisticsService();
 
         _userStatisticData = UserData.UserStats;
     }
@@ -153,22 +151,42 @@ public partial class AccountPageViewModel : ViewModelBase
 
     #region Account Statistics
 
-    private UserStatisticData _userStatisticData;
+    private readonly UserStatisticData _userStatisticData;
 
     [ObservableProperty]
-    private ObservableCollection<ModuleStatisticsModel> _moduleStatistics;
+    private ObservableCollection<TopicStatsModelTemplate> _topicsStatistics;
     
     private void LoadStatistics()
     {
-        ModuleStatistics = _statisticsService.LoadModules();
-        
-        foreach (var module in ModuleStatistics)
-        {
-            module.Topics = _statisticsService.LoadTopics(module);
-            
-            Console.WriteLine($"Loaded Topics for {module.ModuleName} \n {module.Topics.Count} topics loaded.");
-        }
+        TopicsStatistics = _userStatisticData.RetrieveUserStatistics();
     }
 
     #endregion
+}
+
+public class TopicStatsModelTemplate
+{
+    public string TopicName { get; set; }
+    public int NumberOfQuestionsAnswered { get;set; }
+    public int NumberOfQuestionsCorrect { get; set; }
+    public int NumberOfQuestionsIncorrect { get; set; }
+    
+    public string NumberOfQuestionsAnsweredCorrectlyPercentage { get; set; } 
+    public string NumberOfQuestionsAnsweredIncorrectlyPercentage { get; set; }
+
+    public TopicStatsModelTemplate(string topicName, int numberOfQuestionsAnswered, int numberOfQuestionsCorrect, int numberOfQuestionsIncorrect)
+    {
+        TopicName = topicName;
+        NumberOfQuestionsAnswered = numberOfQuestionsAnswered;
+        NumberOfQuestionsCorrect = numberOfQuestionsCorrect;
+        NumberOfQuestionsIncorrect = numberOfQuestionsIncorrect;
+        
+        float correctPercentage = ((float)NumberOfQuestionsCorrect / (float)NumberOfQuestionsAnswered) * 100;
+        float incorrectPercentage = ((float)NumberOfQuestionsIncorrect / (float)NumberOfQuestionsAnswered) * 100;
+        correctPercentage = (float)Math.Round(correctPercentage, 2);
+        incorrectPercentage = (float)Math.Round(incorrectPercentage, 2);
+        
+        NumberOfQuestionsAnsweredCorrectlyPercentage = $"({correctPercentage}%)";
+        NumberOfQuestionsAnsweredIncorrectlyPercentage = $"({incorrectPercentage}%)";
+    }
 }

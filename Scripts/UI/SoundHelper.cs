@@ -3,9 +3,11 @@ using System.Media;
 
 namespace GroupProject.Scripts;
 
-public class SoundHelper
+public static class SoundHelper
 {
-    public void PlaySound(string sound)
+    private static SoundPlayer _player = new SoundPlayer();
+    
+    public static void PlaySound(string sound)
     {
         // Check to make sure user is on windows
         if (Environment.OSVersion.Platform != PlatformID.Win32NT)
@@ -14,25 +16,23 @@ public class SoundHelper
             return;
         }
         
-        SoundPlayer player = new SoundPlayer();
-        
         switch (sound)
         {
             case "Button":
-                player.SoundLocation = @"..\..\..\Assets\Sounds\ClickSFX.wav";
+                _player.SoundLocation = @"..\..\..\Assets\Sounds\ClickSFX.wav";
                 break;
             case "ButtonAlt":
-                player.SoundLocation = @"..\..\..\Assets\Sounds\ClickSFXHighPitch.wav";
+                _player.SoundLocation = @"..\..\..\Assets\Sounds\ClickSFXHighPitch.wav";
                 break;
             default:
-                Console.WriteLine("String reference not recognised.");
+                Console.WriteLine("Sound reference not recognised.");
                 return;
         }
 
         try
         {
-            player.Load();
-            player.Play();
+            _player.Load();
+            _player.Play();
         }
         catch (Exception ex)
         {

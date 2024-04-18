@@ -2,8 +2,10 @@ using System;
 using GroupProject.Scripts;
 using MySql.Data.MySqlClient;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Data;
 using Avalonia.Controls;
+using GroupProject.ViewModels;
 
 namespace GroupProject.Models
 {
@@ -120,8 +122,52 @@ namespace GroupProject.Models
                 throw new Exception("Error updating records: " + ex.ToString());
             }
         }
+        
+        public ObservableCollection<TopicStatsModelTemplate> RetrieveUserStatistics()
+        {
+            try
+            {
+                _connectionDB.Connect();
 
+                if (_connectionDB.connection.State != ConnectionState.Open)
+                {
+                    _connectionDB.connection.Open();
+                }
 
+                ObservableCollection<TopicStatsModelTemplate> topicStats = new ObservableCollection<TopicStatsModelTemplate>();
+
+                using (MySqlCommand command = _connectionDB.connection.CreateCommand())
+                {
+                    command.CommandText = "SELECT * FROM `results` WHERE `UserName` = @username";
+                    command.Parameters.AddWithValue("@username", Username);
+
+                    using (MySqlDataReader reader = command.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            string topicName = reader.GetString("TopicName");
+                            
+                            int noCorrect = reader.GetInt32("NoCorrect");
+                            int noWrong = reader.GetInt32("NoWrong");
+                            
+                            int totalQuestions = noCorrect + noWrong;
+                            
+                            TopicStatsModelTemplate topic = new TopicStatsModelTemplate(topicName, totalQuestions, 
+                                noCorrect, noWrong);
+
+                            topicStats.Add(topic);
+                        }
+                    }
+                }
+
+                return topicStats;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Error retrieving user statistics: " + ex.ToString());
+            }
+        }
+        
         private bool CheckExistingRecord(string username, string modulename, string topicname)
         {
             try
