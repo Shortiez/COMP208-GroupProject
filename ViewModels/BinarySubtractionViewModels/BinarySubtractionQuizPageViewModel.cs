@@ -170,6 +170,6 @@ public partial class BinarySubtractionQuizPageViewModel : ViewModelBase
         var topicName = "Binary Subtraction";
         Console.WriteLine(topicName);
 
-        App.MainWindowViewModel.CurrentContent = new FallbackPageViewModel();
+        App.MainWindowViewModel.CurrentContent = new BinarySubtractionLearnPageViewModel();
     }
 }
