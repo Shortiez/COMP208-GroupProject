@@ -18,10 +18,8 @@ public partial class BinaryAdditionLearnPageViewModel : ViewModelBase
     // generate a question
     [ObservableProperty]
     private TopicContentModel topicContentModel;
-    
     private BinaryAdditionQuizGenerator _quizGenerator = new BinaryAdditionQuizGenerator();
     private QuizQuestion<int> _currentQuestion;
-
     [ObservableProperty]
     private ObservableCollection<int> _num1Digits = new ObservableCollection<int>(new int[] {0,0,0,0,0,0,0,0});
     [ObservableProperty]
@@ -67,6 +65,21 @@ public partial class BinaryAdditionLearnPageViewModel : ViewModelBase
         populateArrays();
         OnClickNext();
     }
+
+    public override void Initialize()
+    {
+        base.Initialize();
+        
+        _currentQuestion = _quizGenerator.NewQuestion();
+        Index = 7;
+        ColumnWeights[7] = "bold";
+        Carry = false;
+        AnswerDigits = new ObservableCollection<int?>(new int?[] {null,null,null,null,null,null,null,null});       
+        ColumnCarry = new ObservableCollection<char>(new char[] {' ',' ',' ',' ',' ',' ',' ',' '});
+        populateArrays();
+        OnClickNext();
+    }
+
 
     private void populateArrays()
     {

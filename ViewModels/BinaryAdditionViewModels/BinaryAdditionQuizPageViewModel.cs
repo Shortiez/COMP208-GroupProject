@@ -131,6 +131,7 @@ public partial class BinaryAdditionQuizPageViewModel : ViewModelBase
         {
             AnswerBlock = "Correct!";
             AnswerNotSubmitted = false;
+            
             _userStatistics.UpdateExistingRecord(1,0);
 
             // update corner image
