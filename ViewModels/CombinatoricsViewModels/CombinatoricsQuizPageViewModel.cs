@@ -144,4 +144,13 @@ public partial class CombinatoricsQuizPageViewModel : ViewModelBase
 
         App.MainWindowViewModel.ChangeContent(topic);
     }
+
+    [RelayCommand]
+    private void LearnButtonPressed()
+    {
+        var topicName = "Combinatorics";
+        Console.WriteLine(topicName);
+
+        App.MainWindowViewModel.ChangeContent(new CombinatoricsLearnPageViewModel());
+    }
 }

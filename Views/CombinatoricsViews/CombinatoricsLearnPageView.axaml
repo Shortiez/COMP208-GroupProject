@@ -17,7 +17,7 @@
       <TextBlock Classes="title" Name="Title" FontFamily="{DynamicResource Neuton}"
                  TextAlignment="Center" VerticalAlignment="Center" FontSize="45"
                  Foreground="White"
-                 Text="TABLE UNION QUESTIONS"/>
+                 Text="COMBINATORICS EXAMPLE"/>
     </Border>
 
     <!-- Back Button -->
