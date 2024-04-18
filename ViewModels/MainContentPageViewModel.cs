@@ -41,6 +41,13 @@ public partial class MainContentPageViewModel : ViewModelBase
     {
         IsSidebarOpen = !IsSidebarOpen;
     }
+
+    [RelayCommand]
+    private void TriggerLogout()
+    {
+        App.MainWindowViewModel.User = null!;
+        App.MainWindowViewModel.ChangeContent(new LoginPageViewModel());
+    }
     
     partial void OnSelectedListItemChanged(SidebarListItemTemplate? value)
     {
