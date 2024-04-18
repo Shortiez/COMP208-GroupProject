@@ -96,7 +96,6 @@ namespace GroupProject.Models
                 {
                     using (MySqlCommand command = _connectionDB.connection.CreateCommand())
                     {
-
                         nocorrect += RetrieveNoCorrect(Username, moduleName, topicName);
                         nowrong += RetrieveNoWrong(Username, moduleName, topicName);
 
