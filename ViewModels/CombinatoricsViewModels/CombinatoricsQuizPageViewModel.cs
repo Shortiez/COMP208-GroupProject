@@ -116,6 +116,9 @@ public partial class CombinatoricsQuizPageViewModel : ViewModelBase
         {
             // Correct
             AnswerBlock = "Correct!";
+            
+            // Update user statistics
+            _userStatistics.UpdateExistingRecord(1,0);
 
             // update corner image
             CornerImage = MonkeyImages["Success"];
@@ -125,12 +128,13 @@ public partial class CombinatoricsQuizPageViewModel : ViewModelBase
             // Incorrect
             AnswerBlock = "Incorrect!" + "\n" + "The correct answer was " + currentQuestion.Answer;
 
+            // Update user statistics
+            _userStatistics.UpdateExistingRecord(0,1);
+            
             // update corner image
             CornerImage = MonkeyImages["Fail"];
         }
     }
-
-
 
     [RelayCommand]
     private void BackButtonPressed()
