@@ -1,3 +1,5 @@
+using System;
+
 namespace GroupProject.Models;
 
 public class UserDataModel
@@ -12,15 +14,11 @@ public class UserDataModel
     public UserDataModel(string username, string email, string password)
     {
         Username = username;
+        Console.WriteLine("Username: " + Username);
         Email = email;
         Password = password;
         
         UserStats = new UserStatisticData(Username, "", "");
         UserSettings = new UserSettingsModel();
-    }
-
-    public bool IsCreated()
-    {
-        return Username != null && Email != null && Password != null;
     }
 }

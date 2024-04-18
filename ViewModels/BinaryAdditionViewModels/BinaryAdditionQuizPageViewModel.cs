@@ -41,6 +41,8 @@ public partial class BinaryAdditionQuizPageViewModel : ViewModelBase
         base.Initialize();
         
         GenerateNewQuestion();
+        
+        Console.Write($"Binary Addition User Stats: {_userStatistics.Username}");
     }
 
     [ObservableProperty]

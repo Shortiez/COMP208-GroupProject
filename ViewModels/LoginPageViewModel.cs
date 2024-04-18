@@ -64,8 +64,7 @@ public partial class LoginPageViewModel : ViewModelBase
             String signInPasswordHash = Hashes.Sha256(SignInPassword);
             if (LogInUser(SignInUsername, signInPasswordHash))
             {
-                if (!App.MainWindowViewModel.User.IsCreated())
-                    App.MainWindowViewModel.LoadUserData(_signInUsername, "", signInPasswordHash);
+                App.MainWindowViewModel.CreateOrUpdateUserData(SignInUsername, "", signInPasswordHash);
 
                 mainWindowViewModel.ChangeContent(new MainContentPageViewModel());
             }
@@ -113,7 +112,7 @@ public partial class LoginPageViewModel : ViewModelBase
     private void OnLoginAsGuestClicked()
     {
         var mainWindowViewModel = App.MainWindowViewModel;
-        mainWindowViewModel?.LoadUserData("Guest", "", "");
+        mainWindowViewModel?.CreateOrUpdateUserData("Guest", "", "");
 
         if (mainWindowViewModel != null)
             mainWindowViewModel.ChangeContent(new MainContentPageViewModel());

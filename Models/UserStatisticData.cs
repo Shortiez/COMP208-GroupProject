@@ -11,7 +11,7 @@ namespace GroupProject.Models
 {
     public class UserStatisticData
     {
-        private string Username;
+        public string Username{ get; set; }
         private string ModuleName;
         private string TopicName;
         private int NoCorrect;

@@ -45,7 +45,8 @@ public partial class MainContentPageViewModel : ViewModelBase
     [RelayCommand]
     private void TriggerLogout()
     {
-        App.MainWindowViewModel.User = null!;
+        App.MainWindowViewModel.User = null;
+        
         App.MainWindowViewModel.ChangeContent(new LoginPageViewModel());
     }
     

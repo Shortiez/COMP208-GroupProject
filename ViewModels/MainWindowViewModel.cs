@@ -23,27 +23,21 @@ public partial class MainWindowViewModel : ViewModelBase
         ChangeContent(new MainContentPageViewModel());
     }
 
-    public void CreateUserData()
-    {
-        if(User != null)
-        {
-            Console.WriteLine("User data already exists");
-            return;
-        }
-        
-        User = new UserDataModel("", "", "");
-        User.UserSettings.LoadSettings();
-    }
-    
-    public void LoadUserData(string username, string email, string password)
+    public void CreateOrUpdateUserData(string username, string email, string password)
     {
         if(User == null)
         {
-            Console.WriteLine("No user exists");
-            return;
+            // No user exists, create a new one
+            User = new UserDataModel(username, email, password);
+            User.UserSettings.LoadSettings();
         }
-        
-        User = new UserDataModel(username, email, password);
+        else
+        {
+            // User already exists, update the existing user
+            User.Username = username;
+            User.Email = email;
+            User.Password = password;
+        }
     }
     
     public void ChangeContent(ViewModelBase newContent)
