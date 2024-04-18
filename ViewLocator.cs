@@ -2,6 +2,7 @@ using System;
 using Avalonia.Controls;
 using Avalonia.Controls.Templates;
 using GroupProject.ViewModels;
+using GroupProject.Views;
 
 namespace GroupProject;
 
@@ -23,7 +24,13 @@ public class ViewLocator : IDataTemplate
             return control;
         }
 
-        return new TextBlock { Text = "Not Found: " + name };
+        // If the view is not found, return the FallbackPageView
+        name = typeof(FallbackPageView).FullName!;
+        type = Type.GetType(name);
+        var fallbackControl = (Control)Activator.CreateInstance(type)!;
+        fallbackControl.DataContext = data;
+            
+        return fallbackControl;
     }
 
     public bool Match(object? data)

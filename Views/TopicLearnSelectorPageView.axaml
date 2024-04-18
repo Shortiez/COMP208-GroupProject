@@ -27,8 +27,10 @@
 
           <!-- The bottom bar -->
           <StackPanel Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Bottom">
-              <Button Name="BackButton" Classes="primary round" Content="Back to Home"
-                      Width="130" Height="30" Command="{Binding ClickBackToHomeCommand}"/>
+              <Button Classes="secondary round" Content="Back to Home"
+                      Width="130" Height="30"
+                      Foreground="{DynamicResource LMSYForeground}"
+                      Command="{Binding ClickBackToHomeCommand}"/>
           </StackPanel>
           <StackPanel Grid.Row="1" Orientation="Vertical"
                       HorizontalAlignment="Center"

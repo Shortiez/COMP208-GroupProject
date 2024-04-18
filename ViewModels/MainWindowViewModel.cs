@@ -48,6 +48,14 @@ public partial class MainWindowViewModel : ViewModelBase
     
     public void ChangeContent(ViewModelBase newContent)
     {
+        if (newContent == null)
+        {
+            CurrentContent = new FallbackPageViewModel();
+            CurrentContent.Initialize();
+            
+            return;
+        }
+        
         CurrentContent = newContent;
         
         CurrentContent.Initialize();

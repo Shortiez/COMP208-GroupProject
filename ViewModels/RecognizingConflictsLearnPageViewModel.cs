@@ -345,7 +345,7 @@ public partial class RecognizingConflictsLearnPageViewModel : ViewModelBase
             CurrentTopic = topicName
         };
 
-        App.MainWindowViewModel.CurrentContent = topic;
+        App.MainWindowViewModel.ChangeContent(topic);
     }
 
     private void FadeText()
@@ -376,6 +376,4 @@ public partial class RecognizingConflictsLearnPageViewModel : ViewModelBase
 
         
     }
-
-
 }
