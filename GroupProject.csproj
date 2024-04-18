@@ -207,7 +207,6 @@
 
 
   <ItemGroup>
-    <Folder Include="let_me_show_you\" />
     <Folder Include="Scripts\AppLogic\" />
     <Folder Include="Scripts\Core\" />
   </ItemGroup>

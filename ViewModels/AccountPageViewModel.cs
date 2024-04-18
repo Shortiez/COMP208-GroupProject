@@ -40,6 +40,7 @@ public partial class AccountPageViewModel : ViewModelBase
         _validationService = new ValidationService();
 
         _userStatisticData = UserData.UserStats;
+        LoadStatistics();
     }
 
     public override void Initialize()

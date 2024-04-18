@@ -11,9 +11,6 @@ using GroupProject.Scripts;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.IO;
-using System.Diagnostics;
-using Microsoft.CodeAnalysis.FlowAnalysis;
 
 namespace GroupProject.ViewModels;
 public partial class TableUnionQuizPageViewModel : ViewModelBase
