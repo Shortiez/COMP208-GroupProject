@@ -38,8 +38,6 @@ public partial class BinarySubtractionLearnPageViewModel : ViewModelBase
     private ObservableCollection<char> _columnCarry = new ObservableCollection<char>(new char[] {' ',' ',' ',' ',' ',' ',' ',' '});
 
     [ObservableProperty]
-    private bool _carry;
-    [ObservableProperty]
     private int _index;
     [ObservableProperty]
     private String _explanationBlock = "";
@@ -52,7 +50,6 @@ public partial class BinarySubtractionLearnPageViewModel : ViewModelBase
     {
         Index = 7;
         ColumnWeights[7] = "bold";
-        Carry = false;
         OnClickNext();
     }
 
@@ -60,7 +57,6 @@ public partial class BinarySubtractionLearnPageViewModel : ViewModelBase
     {
         Index = 7;
         ColumnWeights[7] = "bold";
-        Carry = false;
         OnClickNext();
     }
 
@@ -70,7 +66,11 @@ public partial class BinarySubtractionLearnPageViewModel : ViewModelBase
         
         Index = 7;
         ColumnWeights[7] = "bold";
-        Carry = false;
+        Num1Digits = new ObservableCollection<int>(new int[] {0,1,1,0,1,0,1,0});
+        Num2Digits = new ObservableCollection<int>(new int[] {0,0,1,0,0,1,0,0});
+        ColumnCarry = new ObservableCollection<char>(new char[] {' ',' ',' ',' ',' ',' ',' ',' '});
+        AnswerDigits = new ObservableCollection<int?>(new int?[] {null,null,null,null,null,null,null,null});
+        firstRound = true;
         OnClickNext();
     }
 
