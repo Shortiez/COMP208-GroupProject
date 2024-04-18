@@ -5,7 +5,7 @@
            
         xmlns:viewModels="using:GroupProject.ViewModels"
         xmlns:models="clr-namespace:GroupProject.Models"
-        mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450" Background="White"
+        mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450" Background="{DynamicResource LMSYNeutralSecondary}"
         
         x:Class="GroupProject.Views.CombinatoricsLearnPageView"
         x:DataType="viewModels:CombinatoricsLearnPageViewModel">
@@ -29,7 +29,7 @@
     <Grid Grid.Row="2" VerticalAlignment="Center" HorizontalAlignment="Center">
       <TextBlock Text="Let's have a look at how we can use combinatorics to solve permutation questions!"
                 HorizontalAlignment="Center" FontFamily="PlayfairDisplay" Width="700" FontSize="18" FontWeight="600"
-                Foreground="Black" VerticalAlignment="Center"/>
+                Foreground="#283A7B" VerticalAlignment="Center"/>
     </Grid>
 
     <!-- Text 2-->
@@ -42,21 +42,60 @@
     </Grid>
 
     <!-- Text 3,4,5-->
-    <Grid Grid.Row="4" Background = "White" VerticalAlignment="Center">
+    <Grid Grid.Row="4" Background = "{DynamicResource LMSYNeutralSecondary}" VerticalAlignment="Center">
       <StackPanel>
         <TextBlock Text="All 5 monkeys can fill the first position"
                     HorizontalAlignment="Center" FontFamily="PlayfairDisplay" FontSize="18" FontWeight="600"
-                    Foreground="Black"/>
+                    Foreground="#283A7B"/>
         <TextBlock Text="Then there are only 4 monkeys to fill the second position"
               HorizontalAlignment="Center" FontFamily="PlayfairDisplay" FontSize="18" FontWeight="600"
-              Foreground="Black"/>
+              Foreground="#283A7B"/>
         <TextBlock Text="Lastly, there are 3 monkeys left to fill the last position"
               HorizontalAlignment="Center" FontFamily="PlayfairDisplay" FontSize="18" FontWeight="600"
-              Foreground="Black"/>
+              Foreground="#283A7B"/>
       </StackPanel>
     </Grid>
 
-    <Grid Grid.Row="5" Background = "White" VerticalAlignment="Center">
+    <Grid Grid.Row="5" Background = "{DynamicResource LMSYNeutralSecondary}" VerticalAlignment="Center">
+
+      <!--
+        <Image Source="{Binding CurrentChimpImage}"
+               Stretch="Uniform"
+               VerticalAlignment="Center" HorizontalAlignment="Right"/>
+        <Button Command="{Binding ClickNextCommand}"
+                Background="Transparent" Padding="0" BorderThickness="0"
+                Height="60"
+                HorizontalAlignment="Center"
+                VerticalContentAlignment="Center">
+          <Image Source="/Assets/button-next.png" Stretch="Uniform" Opacity="{Binding NextBoxOpacity}">
+            <Image.Transitions>
+              <Transitions>
+                <DoubleTransition Property="Opacity" Duration="0:0:0.8"/>
+              </Transitions>
+            </Image.Transitions>
+          </Image>
+
+          <Button.RenderTransform>
+            <TranslateTransform Y="{Binding ButtonXPos}">
+              <TranslateTransform.Transitions>
+                <Transitions>
+                  <DoubleTransition Property="Y" Duration="0:0:0.4"></DoubleTransition>
+                </Transitions>
+              </TranslateTransform.Transitions>
+            </TranslateTransform>
+
+
+          </Button.RenderTransform>
+
+        </Button>
+     
+
+
+-->
+
+
+
+
       <StackPanel>
         <Border Background="#283A7B" BorderThickness="2" Width="200" Height="30">
           <TextBlock Text="5 x 4 x 3 = 60"
@@ -77,17 +116,17 @@
       </StackPanel>
     </Grid>
 
-    <Grid Grid.Row="6" Background = "White" VerticalAlignment="Bottom">
+    <Grid Grid.Row="6" Background = "{DynamicResource LMSYNeutralSecondary}" VerticalAlignment="Bottom">
       <StackPanel VerticalAlignment="Bottom" HorizontalAlignment="Center" Margin="50">
         <TextBlock Text="However, there is an easier way to"
                    HorizontalAlignment="Center" FontFamily="PlayfairDisplay" Width="700" FontSize="18" FontWeight="600"
-                    Foreground="Black" VerticalAlignment="Center"/>
+                    Foreground="#283A7B" VerticalAlignment="Center"/>
         <TextBlock Text="work this out - using a formula!"
              HorizontalAlignment="Center" FontFamily="PlayfairDisplay" Width="700" FontSize="18" FontWeight="600"
-              Foreground="Black" VerticalAlignment="Center"/>
+              Foreground="#283A7B" VerticalAlignment="Center"/>
       </StackPanel>
       <Image Source="/Assets/CombHintImage.png" Stretch="Uniform" Width="300" Margin="80,20,-200,0"/>
-      <Image Source="/Assets/Chimpa-corner.png" Stretch="Uniform" Width="200" VerticalAlignment="Bottom" HorizontalAlignment="Right"/>
+      <Image Source="/Assets/Chimpa-corner-idea.png" Stretch="Uniform" Width="200" VerticalAlignment="Bottom" HorizontalAlignment="Right"/>
     
     </Grid>
 
